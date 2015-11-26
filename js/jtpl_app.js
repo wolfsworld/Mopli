@@ -558,11 +558,11 @@ function next_mp_search(next_page){
 	p_validate(12,'','','','','GET','',''+next_page+'');
 }
 //next batch new books and dvds
-$(document).on('click', '#fwd_btn', function () {
+$(document).on('click', '#fwd_btn_news', function () {
 page_counter=page_counter+1;
 next_news_search(page_counter);
 });
-$(document).on('click', '#rev_btn', function () {
+$(document).on('click', '#rev_btn_news', function () {
 page_counter=page_counter-1;
 next_news_search(page_counter);
 });
@@ -799,11 +799,11 @@ $('.trail a').button();
 stop_spin();
 
 if(page_counter==1){
-next_batch_news +="<a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
+next_batch_news +="<a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
 $( "#news" ).append(next_batch_news);
 }
 if(page_counter>1){
-next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 20</a><a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 20</a></div>";
+next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn_news' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 20</a><a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 20</a></div>";
 $( "#news" ).append(next_batch_news);
 }
 });
