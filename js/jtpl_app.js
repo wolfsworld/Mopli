@@ -529,7 +529,9 @@ $( "#blist" ).append(next_batch);
 }
 });
 }
-//next batch search button
+
+//create the "next"/"previous" batch search buttons
+//next batch general book search
 $(document).on('click', '#fwd_btn', function () {
 page_counter=page_counter+1;
 next_search(page_counter);
