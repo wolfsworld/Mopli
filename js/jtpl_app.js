@@ -271,7 +271,7 @@ launchnavigator.navigate(
 });
 });
 
-//spinner
+//busy spinner
 function start_spin(){
 window.plugins.spinnerDialog.show();
 }
@@ -357,6 +357,7 @@ framehistory=framehistory.slice(0,1);
 framehistory2=framehistory2.slice(0,1);
 $.mobile.changePage("#pageone");
 });
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //ENCRYPTION/VALIDATION
 function p_validate(p_query, p_searchitem, p_pwd, p_cn, p_bc, p_method, p_type, p_holdID ){
@@ -727,6 +728,7 @@ $.ajax({
 //case 4 - get news list - book and dvd
 function get_news(code,reqstring,thedate){
 var np_list_html='';
+var next_batch_news='';
 
 var settings = {
   "async": true,
