@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>JTPL APP</title>
+
+
+<link rel="stylesheet" href="js/jquery.mobile-1.4.5.css" type="text/css" />
+<link rel="stylesheet" href="css/2014_app.css" type="text/css" />
+<link rel="stylesheet" href="css/JTPL_icons.min.css" />
+<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+var response=<HoldRequestResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><PAPIErrorCode>0</PAPIErrorCode><ErrorMessage/><RequestGUID>E0BB26BD-38CA-4087-8BEC-38708C2E30CE</RequestGUID><TxnGroupQualifer>9RVDHMe4te2cffcdM6cpqq</TxnGroupQualifer><TxnQualifier>jQToIy4mduw9BIShlApWOa</TxnQualifier><StatusType>2</StatusType><StatusValue>1</StatusValue><Message>Your request has been placed.&lt;br /&gt;&lt;br /&gt;You will be notified when the item is available for pick-up.</Message><QueuePosition>98</QueuePosition><QueueTotal>98</QueueTotal></HoldRequestResult>;
+
+
+
+//var hubi=JSON.stringify(response);
+
+alert(response);
+
+
+var xml = $.parseXML(response),
+  $xml = $( xml ),
+  $fback = $xml.find('QueuePosition');
+alert($fback.text());
+//});
+
+    //var d = new Date();
+    //var n = d.toString();
+	
+	var d = new Date();
+var n = d.toISOString();
+
+alert(n);
+
+});
+</script>
+
+
+</head>
+
+<body>
+
+
+
+<!--<input name="button" id="button" value="button" type="button">-->
+<div id="cont">lkjlkjlj</div>
+
+</body>
+</html>
