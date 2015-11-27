@@ -1072,8 +1072,8 @@ $.each(response.PatronItemsOutGetRows, function(key, value) {
 media=value.FormatID;
 ISBN=value.ISBN;
 
-UPC=value.UPC;
-if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}									 
+//UPC=value.UPC;
+//if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}									 
 
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
@@ -1101,7 +1101,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//alert('ready to send to filter holds');
-			filter_holds(p_response.code,p_response.reqstring,p_response.thedate, bib_id, cover_no);
+			filter_holds(p_response.code,p_response.reqstring,p_response.thedate, bib_id);
         },
         error      : function() {
             console.error("error");
@@ -1109,7 +1109,7 @@ $.ajax({
         }
 });
 
-function filter_holds (code,reqstring,thedate,bibID, cover_no){
+function filter_holds (code,reqstring,thedate,bibID){
 
 var settings = {
   "async": false,
@@ -1138,7 +1138,7 @@ if(holds>0){hold_ind=true;}else{hold_ind=false;}
 });
 };
 
-//alert(cover_no);
+/*
 if(cover_no === undefined){
 	alert('case 1:'+cover_no+'');
 switch(media){
@@ -1150,9 +1150,9 @@ switch(media){
 }else{
 	alert('case 2:'+cover_no+'');
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
-}
+}*/
 
-/*switch(media){
+switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
 	case 33: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; hold_ind=true; break;
@@ -1160,7 +1160,7 @@ switch(media){
 		my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
-}*/
+}
 			$.each(value, function(key2, value2) {
 				if(key2=="ItemID"){
 				out_req_id=value2;
