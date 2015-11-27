@@ -624,18 +624,6 @@ switch(media){
 }else{	
 detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//switch(media){
-//	case 35: detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
-//	case 40: detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">'; break;
-//	case 33: detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; break;
-//	default: if(ISBN==''){
-//		detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
-//	} else{
-//	detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
-//}
 								  
 $.each(value, function(key2, value2) {
 	
@@ -674,7 +662,6 @@ detlist_html +="</td></tr></table>";
  
 $( "#bdetail" ).append(detlist_html);
 $('.hold_req a').button();
-//initialize_pv(ISBN);
 });
 };
 
@@ -1089,7 +1076,6 @@ RENLIM=value.RenewalLimit;
 var RENPOS=RENLIM-RENCT;
 bib_id=value.BibID;
 var hold_ind=false;
-///////////////////////////////////////////////////////////
 
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/bib/"+bib_id+"";
 var thedate=(new Date()).toUTCString();
@@ -1120,7 +1106,7 @@ $.ajax({
 });
 
 function filter_holds (code,reqstring,thedate,bibID){
-//alert('begin filter_holds');
+
 var settings = {
   "async": false,
   "crossDomain": true,
@@ -1133,9 +1119,14 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-//var response=JSON.stringify(response);
-//var response= jQuery.parseJSON(response);
+
 $.each(response.BibGetRows, function(key, value) {
+									 
+ISBN=value.ISBN;
+UPC=value.UPC;
+if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}									 
+alert(cover_no);
+
 if(value.ElementID=='8'){
 $.each(value, function(key2, value2) {
 if(key2=='Value'){
@@ -1147,8 +1138,7 @@ if(holds>0){hold_ind=true;}else{hold_ind=false;}
 });
 });
 };
-/////////////////////////////////////////////////////////
-//alert('we move on with'+bib_id+' is:'+hold_ind+'');
+
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
@@ -1167,9 +1157,7 @@ switch(media){
 					if(RENPOS<=0){value2='not renewable';hold_ind=true;}
 					else{value2=""+value2+"";}
 				}
-				
-				//my_outs += "<strong>" + key2 + ": " + value2 + "</strong><br>";
-				
+
 				if(value2!=''){
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
