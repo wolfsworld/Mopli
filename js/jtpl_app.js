@@ -1101,7 +1101,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//alert('ready to send to filter holds');
-			filter_holds(p_response.code,p_response.reqstring,p_response.thedate, bib_id);
+			filter_holds(p_response.code,p_response.reqstring,p_response.thedate, bib_id, cover_no);
         },
         error      : function() {
             console.error("error");
@@ -1109,7 +1109,7 @@ $.ajax({
         }
 });
 
-function filter_holds (code,reqstring,thedate,bibID){
+function filter_holds (code,reqstring,thedate,bibID, cover_no){
 
 var settings = {
   "async": false,
@@ -1139,7 +1139,7 @@ if(holds>0){hold_ind=true;}else{hold_ind=false;}
 };
 
 //alert(cover_no);
-if(cover_no==''){
+if(cover_no === undefined){
 	alert('case 1:'+cover_no+'');
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
