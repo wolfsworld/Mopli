@@ -1071,6 +1071,11 @@ $.each(response.PatronItemsOutGetRows, function(key, value) {
 
 media=value.FormatID;
 ISBN=value.ISBN;
+
+UPC=value.UPC;
+if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}									 
+
+
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
 var RENPOS=RENLIM-RENCT;
@@ -1122,11 +1127,6 @@ $.ajax(settings).done(function (response) {
 
 $.each(response.BibGetRows, function(key, value) {
 									 
-ISBN=value.ISBN;
-UPC=value.UPC;
-if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}									 
-alert(cover_no);
-
 if(value.ElementID=='8'){
 $.each(value, function(key2, value2) {
 if(key2=='Value'){
@@ -1138,6 +1138,8 @@ if(holds>0){hold_ind=true;}else{hold_ind=false;}
 });
 });
 };
+
+alert(cover_no);
 
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
@@ -1157,7 +1159,9 @@ switch(media){
 					if(RENPOS<=0){value2='not renewable';hold_ind=true;}
 					else{value2=""+value2+"";}
 				}
-
+				
+				//my_outs += "<strong>" + key2 + ": " + value2 + "</strong><br>";
+				
 				if(value2!=''){
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
