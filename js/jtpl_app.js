@@ -1075,7 +1075,6 @@ ISBN=value.ISBN;
 UPC=value.UPC;
 if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}									 
 
-
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
 var RENPOS=RENLIM-RENCT;
@@ -1141,6 +1140,7 @@ if(holds>0){hold_ind=true;}else{hold_ind=false;}
 
 //alert(cover_no);
 if(cover_no==''){
+	alert('case 1:'+cover_no+'');
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
@@ -1148,6 +1148,7 @@ switch(media){
 	default: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
 	} 
 }else{
+	alert('case 2:'+cover_no+'');
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 }
 
