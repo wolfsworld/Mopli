@@ -1019,7 +1019,8 @@ switch(media){
 }
 //check if item is in an change gradient of textbox
 var is_in=value.StatusID;
-if(is_in==6){$('.txtbox, .picbox').addClass(".txtbox_in");}
+alert(is_in);
+if(is_in==6){$('.txtbox').removeClass('.txtbox').addClass(".txtbox_in");}
 
 			$.each(value, function(key2, value2) {
 								   
