@@ -32,11 +32,9 @@ $.mobile.allowCrossDomainPages = true;
   google.load("books", "0");
 </script>-->
 
-
 <script>
 document.addEventListener('deviceready', function() {
-
-  navigator.splashscreen.hide();
+navigator.splashscreen.hide();
 });
 </script>
 
@@ -64,12 +62,13 @@ document.addEventListener('deviceready', function() {
     </div>
 
     <div id="siteloader"></div>
-
 	</div>
-
 
 <div data-role="footer" data-theme="a">&copy; Jefferson Township Public Library.<br /><br />Driven by <img src="img/mopli_10.png" width="44" height="10" alt="MOPLI"></div><!-- /footer -->
 </div>
+
+<div data-role="page" id="myDialog">Hello World</div>
+
 
 <div data-role="page" id="catalog_search">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
@@ -132,8 +131,8 @@ document.addEventListener('deviceready', function() {
              <input name="loginsubmit" type="submit" id="loginsubmit" value="submit">
              <!--<input type="submit" name="loginsubmit" id="loginsubmit" data-role="none" style="visibility: hidden; position: absolute;" />-->
 </form>
-		
 </div>
+
 
 </div>
 </div>
@@ -145,7 +144,7 @@ document.addEventListener('deviceready', function() {
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>MAIN Account</h3></div>
 
-<div data-role="collapsible" data-theme="e" data-content-theme="c" data-mini="true">
+<div data-role="collapsible" id="borrowed_box" data-theme="e" data-content-theme="c" data-mini="true">
    			<h4>Items currently borrowed</h4>
    			<div id="borrowed"></div>
 			
@@ -162,7 +161,7 @@ document.addEventListener('deviceready', function() {
 </div>
             
             </div>
-<div data-role="collapsible" data-theme="e" data-content-theme="c" data-mini="true">
+<div data-role="collapsible" id="hold_box" data-theme="e" data-content-theme="c" data-mini="true">
    			<h4>Items currently on hold</h4>
 <div id="loginresponse"></div>
 
@@ -177,7 +176,7 @@ document.addEventListener('deviceready', function() {
         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">back</a>
     </div>
 </div>   			
-            </div>
+</div>
 
 </div>
 

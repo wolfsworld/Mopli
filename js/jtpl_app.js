@@ -357,6 +357,16 @@ framehistory=framehistory.slice(0,1);
 framehistory2=framehistory2.slice(0,1);
 $.mobile.changePage("#pageone");
 });
+
+//toggle borrow_box and hold_box
+$('#borrowed_box').on('click', function () {
+$('#hold_box').collapsible( "collapse" );
+});
+$('#hold_box').on('click', function () {
+$('#borrowed_box').collapsible( "collapse" );
+});
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //ENCRYPTION/VALIDATION
@@ -893,7 +903,9 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 		h_cont=false;
 	}
 	if(the_status==2){
-		if(the_value==1){alert(''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'');}else{alert(the_message);}
+		if(the_value==1){
+			alert(''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'');}else{alert(the_message);
+			}
 		h_cont=true;
 	}
 	if(the_status==3){
@@ -1004,7 +1016,10 @@ switch(media){
 	case 40: my_holds +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">'; break;
 	case 33: my_holds +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; break;
 	default: my_holds +='<table class="bibtbl"><tr><td class="picbox"><img src="img/book_icon.png" /></td ><td class="txtbox">'; break;
-}													
+}
+//check if item is in an change gradient of textbox
+var is_in=value.StatusID;
+if(is_in==6){$('.txtbox, .picbox').addClass(".txtbox_in");}
 
 			$.each(value, function(key2, value2) {
 								   
