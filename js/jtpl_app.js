@@ -903,6 +903,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 //3 - Conditional
 
 	if(the_status==1){
+		h_cont=false;
 			$.jAlert({
 				'type': 'modal',
 				'title': 'Error',
@@ -910,26 +911,23 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 				'theme': 'blue'
 			});
 		//alert('Can not process.\n'+the_message+'.');
-		h_cont=false;
+		
 	}
 	if(the_status==2){
+		h_cont=true;
 		if(the_value==1){
 			$.jAlert({
-				'type': 'confirm',
+				'type': 'modal',
 				'title': 'Hold Confirmation',
 				'content': ''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'',
-				'theme': 'blue',
-				'onConfirm': 
-				function(){h_cont=true;return false;}
+				'theme': 'blue'
 			});
 		}else{
 			$.jAlert({
-				'type': 'confirm',
+				'type': 'modal',
 				'title': 'Hold Confirmation',
 				'content': ''+the_message+'',
-				'theme': 'blue',
-				'onConfirm': 
-				function(){h_cont=true;return false;}
+				'theme': 'blue'
 			});
 			//alert(''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'');}else{alert(the_message);
 		}
@@ -938,7 +936,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 	if(the_status==3){
 			$.jAlert({
 				'type': 'confirm',
-				'title': 'Hold Confirmation',
+				'title': 'Hold Request',
 				'content': ''+the_message+'',
 				'theme': 'blue',
 				'onConfirm': 
@@ -955,6 +953,7 @@ prep_getholds (pat_barcode);
 else{
 alert('Request could not be processed');
 }
+
 }).fail(function() {
 	alert ('Sorry, your hold request failed.');
 });
