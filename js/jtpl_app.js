@@ -459,6 +459,10 @@ function doneTyping () {
 	page_counter=1;
 	p_validate(1,''+p_searchitem+'','','','','GET','',1);
 }
+
+//$(document).on('click', '#test_btn', function () {
+//});
+
 //case 1 - get books
 function get_books(code,reqstring,thedate){
 $('#selection').collapsible( "collapse" );
@@ -899,27 +903,49 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 //3 - Conditional
 
 	if(the_status==1){
-		alert('Can not process.\n'+the_message+'.');
+			$.jAlert({
+				'type': 'modal',
+				'title': 'Error',
+				'content': 'Hold can not be processed',
+				'theme': 'blue'
+			});
+		//alert('Can not process.\n'+the_message+'.');
 		h_cont=false;
 	}
 	if(the_status==2){
 		if(the_value==1){
-			jConfirm(''+the_message+'\nYou are # '+the_pos+' in the waiting queue of '+the_queue+'', 'Hold Confirmation', function(r) {
-    		h_cont=true;
-			jAlert('Put on Hold: ' + r, 'Hold Confirmation');
+			$.jAlert({
+				'type': 'confirm',
+				'title': 'Hold Confirmation',
+				'content': ''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'',
+				'theme': 'blue',
+				'onConfirm': 
+				function(){h_cont=true;return false;}
 			});
 		}else{
-			jConfirm(''+the_message+'', 'Hold Confirmation', function(r) {
-    		h_cont=true;
-			jAlert('Put on Hold: ' + r, 'Hold Confirmation');
+			$.jAlert({
+				'type': 'confirm',
+				'title': 'Hold Confirmation',
+				'content': ''+the_message+'',
+				'theme': 'blue',
+				'onConfirm': 
+				function(){h_cont=true;return false;}
 			});
 			//alert(''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'');}else{alert(the_message);
 		}
 		//h_cont=true;
 	}
 	if(the_status==3){
-		var dec = confirm(the_message);
-	  	if (dec==true){h_cont=true;}else{h_cont=false;}
+			$.jAlert({
+				'type': 'confirm',
+				'title': 'Hold Confirmation',
+				'content': ''+the_message+'',
+				'theme': 'blue',
+				'onConfirm': 
+				function(){h_cont=true;return false;}
+			});
+		//var dec = confirm(the_message);
+	  	//if (dec==true){h_cont=true;}else{h_cont=false;}
 	}
 
 if(h_cont==true){
