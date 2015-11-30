@@ -904,9 +904,18 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 	}
 	if(the_status==2){
 		if(the_value==1){
-			alert(''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'');}else{alert(the_message);
-			}
-		h_cont=true;
+			jConfirm(''+the_message+'\nYou are # '+the_pos+' in the waiting queue of '+the_queue+'', 'Hold Confirmation', function(r) {
+    		h_cont=true;
+			jAlert('Put on Hold: ' + r, 'Hold Confirmation');
+			});
+		}else{
+			jConfirm(''+the_message+'', 'Hold Confirmation', function(r) {
+    		h_cont=true;
+			jAlert('Put on Hold: ' + r, 'Hold Confirmation');
+			});
+			//alert(''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'');}else{alert(the_message);
+		}
+		//h_cont=true;
 	}
 	if(the_status==3){
 		var dec = confirm(the_message);
