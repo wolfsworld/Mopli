@@ -994,7 +994,7 @@ var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
 var my_holds='';
-var hold_selection= ['Title', 'Author', 'StatusDescription', 'FormatDescription', 'StatusID'];
+var hold_selection= ['Title', 'Author', 'StatusDescription', 'FormatDescription'];
 
 $( "#loginresponse" ).empty();
 //alert('loginresponse should be empty now');
@@ -1019,8 +1019,6 @@ switch(media){
 }
 //check if item is in an change gradient of textbox
 var is_in=value.StatusID;
-//alert(is_in);
-//if(is_in==6){$('.txtbox').removeClass('.txtbox').addClass(".txtbox_in");
 if(is_in >= 6){
 my_holds +="<div class='p_alert'>Please Pick-up</div>";
 //$('.txtbox').removeClass('.txtbox').addClass(".txtbox_in");
