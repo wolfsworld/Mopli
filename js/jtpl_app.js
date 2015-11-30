@@ -920,14 +920,20 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 				'type': 'modal',
 				'title': 'Hold Confirmation',
 				'content': ''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'',
-				'theme': 'blue'
+				'theme': 'blue',
+				'onClose':function(){ 
+				prep_getholds (pat_barcode);
+				return false; }
 			});
 		}else{
 			$.jAlert({
 				'type': 'modal',
 				'title': 'Hold Confirmation',
 				'content': ''+the_message+'',
-				'theme': 'blue'
+				'theme': 'blue',
+				'onClose':function(){ 
+				prep_getholds (pat_barcode);
+				return false; }
 			});
 			//alert(''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'');}else{alert(the_message);
 		}
@@ -940,20 +946,21 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 				'content': ''+the_message+'',
 				'theme': 'blue',
 				'onConfirm': 
-				function(){h_cont=true;return false;}
+				function(){
+				prep_getholds (pat_barcode);
+				return false;}
 			});
 		//var dec = confirm(the_message);
 	  	//if (dec==true){h_cont=true;}else{h_cont=false;}
 	}
 
-if(h_cont==true){
-prep_getholds (pat_barcode);	
+////if(h_cont==true){
+//prep_getholds (pat_barcode);	
 //alert('now we process');
-}
-else{
-alert('Request could not be processed');
-}
-
+//}
+//else{
+//alert('Request could not be processed');
+//}
 }).fail(function() {
 	alert ('Sorry, your hold request failed.');
 });
