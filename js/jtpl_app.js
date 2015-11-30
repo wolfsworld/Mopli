@@ -1018,9 +1018,12 @@ switch(media){
 	default: my_holds +='<table class="bibtbl"><tr><td class="picbox"><img src="img/book_icon.png" /></td ><td class="txtbox">'; break;
 }
 //check if item is in an change gradient of textbox
-var is_in=value.StatusID;
+var is_in=response.StatusID;
 alert(is_in);
-if(is_in==6){$('.txtbox').removeClass('.txtbox').addClass(".txtbox_in");}
+//if(is_in==6){$('.txtbox').removeClass('.txtbox').addClass(".txtbox_in");
+if(is_in==6){alert('is_in is 6');
+$('.txtbox').removeClass('.txtbox').addClass(".txtbox_in");
+}
 
 			$.each(value, function(key2, value2) {
 								   
