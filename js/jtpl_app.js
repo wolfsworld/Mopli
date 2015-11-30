@@ -1019,10 +1019,10 @@ switch(media){
 }
 //check if item is in an change gradient of textbox
 var is_in=value.StatusID;
-alert(is_in);
+//alert(is_in);
 //if(is_in==6){$('.txtbox').removeClass('.txtbox').addClass(".txtbox_in");
-if(is_in >= 6){alert('is_in is 6');
-my_hold +='<div class="alert">Please Pick-up</div>';
+if(is_in >= 6){
+my_holds +="<div class='p_alert'>Please Pick-up</div>";
 //$('.txtbox').removeClass('.txtbox').addClass(".txtbox_in");
 }
 
