@@ -366,9 +366,7 @@ $('#hold_box').on('click', function () {
 $('#borrowed_box').collapsible( "collapse" );
 });
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //ENCRYPTION/VALIDATION
 function p_validate(p_query, p_searchitem, p_pwd, p_cn, p_bc, p_method, p_type, p_holdID ){
 if(p_pwd ==='undefined') p_pwd ='';
@@ -1579,6 +1577,87 @@ $( "#nyt" ).append(nyt1_html);
 $('.bc a').button();
 stop_spin();
 });
+}
+
+//populate static pages
+//general ajax
+pop_gen('hours',1);
+pop_gen('holidays',2);
+pop_gen('contacts',3 );
+
+//general ajax
+function pop_gen(page_categ,fctn){
+var categ=page_categ;
+var fctn=fctn;
+$.ajax({
+        type: "GET",
+		async: true,
+		url: "http://www.jeffersonlibrary.net/forms/"+categ+".php",
+        crossDomain: true,
+		dataType: "json",
+        success : function(response) {
+		switch(fctn){
+		case 1:	populate_hours(response); break;
+		case 2: populate_holidays(response); break;
+		case 3: populate_contacts(response); break;
+		}
+        },
+        error      : function() {
+            console.error("error");
+            alert('Not working3!');                  
+        }
+});
+}
+
+function populate_holidays(response){
+var holidays_html='';
+holidays_html +="<table>";
+	$.each(response, function(key, value) {
+			hol_name=key;
+				$.each(value, function(key1, value1) {
+						hol_date1=key1;
+							$.each(value1, function(key2, value2) {
+								if(!key2){hol_date2='';}else{hol_date2=' - '+key2+'';}
+								if(!value2){hol_com='';}else{hol_com=''+value2+'';}										
+holidays_html +="<tr><td width=143>"+hol_name+"</td><td width=212>"+hol_date1+""+hol_date2+"<br>"+hol_com+"</td></tr>";
+}); }); });
+holidays_html +="</table>";	
+$('#holiday_block').append(holidays_html);
+}
+
+function populate_hours(response){
+var hours_html='';
+hours_html +="<table>";	
+	$.each(response, function(key, value) {
+			hour_day=key;
+				$.each(value, function(key1, value1) {
+						hour_from=key1;
+							$.each(value1, function(key2, value2) {
+								if(!key2){hour_to='';}else{hour_to=''+key2+'';}
+								if(!value2){hour_com='';}else{hour_com=''+value2+'';}										
+
+hours_html +="<tr><td width=143>"+hour_day+"</td><td width=212>"+hour_from+"-"+hour_to+"</td></tr>";
+}); }); });
+hours_html +="</table>";		
+$('#hour_block').append(hours_html);
+}
+
+function populate_contacts(response){
+var contact_html='';
+contact_html +="<table>";
+	$.each(response, function(key, value) {
+			con_title=key;
+				$.each(value, function(key1, value1) {
+						con_name=key1;
+								$.each(value1, function(key2, value2) {
+								if(!key2){con_phone='';}else{con_phone=''+key2+'';}
+								$.each(value2, function(key3, value3) {
+									 if(!key3){con_email='';}else{con_email=''+key3+'';}
+									 if(!value3){con_pic='';}else{con_pic=''+value3+'';}		
+										contact_html +='<div class="contacts"><div class="portrait"><img src="'+con_pic+'" align="center"  /></div>'+con_title+':<br />'+con_name+'<br />Phone: '+con_phone+'<br /><a href="mailto:'+con_email+'">'+con_email+'</a></div>';
+}); }); }); });
+contact_html +="</table>";		
+$('#contact_block').append(contact_html);
 }
 
 //change page
