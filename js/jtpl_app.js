@@ -1619,7 +1619,7 @@ holidays_html +="<table>";
 							$.each(value1, function(key2, value2) {
 								if(!key2){hol_date2='';}else{hol_date2=' - '+key2+'';}
 								if(!value2){hol_com='';}else{hol_com=''+value2+'';}										
-holidays_html +="<tr><td width=143>"+hol_name+"</td><td width=212>"+hol_date1+""+hol_date2+"<br>"+hol_com+"</td></tr>";
+holidays_html +='<tr><td width="143" valign="top">'+hol_name+'</td><td width=212>'+hol_date1+''+hol_date2+'<br>'+hol_com+'</td></tr>';
 }); }); });
 holidays_html +="</table>";	
 $('#holiday_block').append(holidays_html);
