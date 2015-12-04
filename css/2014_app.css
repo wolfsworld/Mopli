@@ -20,6 +20,13 @@ margin-right: 10px;
 	margin-bottom: 10px;
 	width: 100%;
 	display: table;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius:    10px 10px 10px 10px;
+	border-radius:         10px 10px 10px 10px;
+	background: linear-gradient(to right, rgba(216,216,180,1),rgba(216,216,180,0)); /*Standard*/
+	background: -webkit-linear-gradient(rgba(216,216,180,1),rgba(216,216,180,0)); /*Safari 5.1-6*/
+  	background: -moz-linear-gradient(rgba(216,216,180,1),rgba(216,216,180,0)); /*Fx 3.6-15*/
+	padding: 4px;
 }
 
 .contacts .portrait{
