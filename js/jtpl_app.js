@@ -745,7 +745,7 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 
-var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial'];
+var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial', 'ControlNumber'];
 $( "#news" ).empty();
 var np_list_html='';
 var next_batch_news='';
@@ -771,6 +771,9 @@ switch(media){
 }else{	
 np_list_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 }
+
+alert(cont_no);
+alert(cover_no);
 
 $.each(value, function(key2, value2) {
 	
