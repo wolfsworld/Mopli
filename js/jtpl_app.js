@@ -1539,9 +1539,8 @@ var rank=key+1;
 the_isbn=value.book_details[0].primary_isbn13;
 the_cover=value.book_details[0].book_image;
 
-
-
-nyt1_html +='<table class="bibtbl"><tr><td class="picbox">'+the_cover+'<img src="'+the_cover+'" width="90px" /></td ><td class="txtbox">';
+//nyt1_html +='<table class="bibtbl"><tr><td class="picbox">'+the_cover+'<img src="'+the_cover+'" width="90px" /></td ><td class="txtbox">';
+nyt1_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+the_isbn+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 nyt1_html += "<strong>Rank: " + rank + "</strong><br>";
 
 $.each(value.book_details[0], function(key2, value2) {
