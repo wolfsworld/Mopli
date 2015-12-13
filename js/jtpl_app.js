@@ -757,9 +757,12 @@ ISBN=value.ISBN;
 UPC=value.UPC;
 if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}
 
+alert('hello world');
+
 if(UPC!=''){
 selection= ['Title', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial'];
 }
+
 
 if(cover_no==''){
 switch(media){
@@ -771,8 +774,6 @@ switch(media){
 }else{	
 np_list_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 }
-
-alert(cover_no);
 
 $.each(value, function(key2, value2) {
 	
