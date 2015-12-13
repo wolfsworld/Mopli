@@ -757,11 +757,10 @@ ISBN=value.ISBN;
 UPC=value.UPC;
 if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}
 
-alert('hello world');
-
 if(UPC!=''){
 selection= ['Title', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial'];
 }
+
 
 
 if(cover_no==''){
@@ -1539,6 +1538,9 @@ var rank=key+1;
 
 the_isbn=value.book_details[0].primary_isbn13;
 the_cover=value.book_details[0].book_image;
+
+alert(the_isbn);
+alert(the_cover);
 
 nyt1_html +='<table class="bibtbl"><tr><td class="picbox"><img src="'+the_cover+'" width="90px" /></td ><td class="txtbox">';
 nyt1_html += "<strong>Rank: " + rank + "</strong><br>";
