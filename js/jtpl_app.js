@@ -1575,12 +1575,13 @@ nyt1_html +="</td></tr></table>";
 
 $('.bc a[data-role=button]').button();
 $('.bc a').button('refresh');
-});
-//nyt1_html +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
+
 $( "#nyt" ).append(nyt1_html);
 $('.bc a').button();
 stop_spin();
-//});
+});
+nyt +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
+$( "#nyt" ).append(nyt);
 }
 
 
