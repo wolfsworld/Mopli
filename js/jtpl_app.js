@@ -299,7 +299,10 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-				   
+
+$('nyt_dev_btn').on('click', function () {
+window.open('http://developer.nytimes.com', '_blank', 'location=yes');
+});
 						   
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
@@ -1596,9 +1599,7 @@ $( "#nyt" ).append(nyt_link);
 $('#nyt_dev a').button();
 }
 
-$('nyt_dev_btn').on('click', function () {
-window.open('http://developer.nytimes.com', '_blank', 'location=yes');
-});
+
 
 
 
