@@ -223,10 +223,7 @@ $('#freegal_btn').on('click', function () {
 window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'location=yes');
 });
 
-function go_nyt(){
-alert('clickedy');
-window.open('http://developer.nytimes.com', '_blank', 'location=yes');
-};
+
 
 //google map
 var map;
@@ -302,6 +299,12 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
+						   
+function go_nyt(){
+alert('clickedy');
+window.open('http://developer.nytimes.com', '_blank', 'location=yes');
+};						   
+						   
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
