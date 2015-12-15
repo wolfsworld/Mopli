@@ -1586,6 +1586,11 @@ stop_spin();
 });
 //nyt_link +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
 
+$('#nyt_dev_btn').on('click', function () {
+alert('hello world');
+window.open('http://developer.nytimes.com', '_blank', 'location=yes');
+});
+
 nyt_link +='<div align="center"><a id="nyt_dev_btn" href="#" ><img src="img/NYT2.png"></a></div>';
 
 $('#nyt_dev_btn[data-role=button]').button();
@@ -1596,10 +1601,7 @@ $('#nyt_dev_btn').button();
 }
 
 
-$('#nyt_dev_btn').on('click', function () {
-alert('hello world');
-window.open('http://developer.nytimes.com', '_blank', 'location=yes');
-});
+
 
 
 
