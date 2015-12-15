@@ -802,11 +802,11 @@ $('.trail a').button();
 stop_spin();
 
 if(page_counter==1){
-next_batch_news +="<a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
+next_batch_news +="<a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 40 results</a>";
 $( "#news" ).append(next_batch_news);
 }
 if(page_counter>1){
-next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn_news' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 20</a><a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 20</a></div>";
+next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn_news' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 40</a><a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 40</a></div>";
 $( "#news" ).append(next_batch_news);
 }
 });
@@ -1491,7 +1491,7 @@ $(document).on('click', '#nyt_nf_btn', function () {
 var type="nonfiction";
 nyt_bestseller(type);											
 });
-//source bestseller data
+//source Bestseller data
 function nyt_bestseller(type){
 start_spin();
 $('#selection').collapsible( "collapse" );
