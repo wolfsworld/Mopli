@@ -224,6 +224,7 @@ window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'l
 });
 
 function go_nyt(){
+alert('clickedy');
 window.open('http://developer.nytimes.com', '_blank', 'location=yes');
 };
 
@@ -1584,7 +1585,7 @@ $('.bc a').button();
 stop_spin();
 });
 //nyt_link +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
-nyt_link +='<div align="center"><a id="nyt_dev_btn" href="#" onClick="go_nyt();"><img src="img/NYT2.png"></a></div>';
+nyt_link +='<div align="center"><a id="nyt_dev_btn" href="#" onclick="go_nyt()"><img src="img/NYT2.png"></a></div>';
 $( "#nyt" ).append(nyt_link);
 }
 
