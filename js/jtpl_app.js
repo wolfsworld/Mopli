@@ -458,9 +458,6 @@ function doneTyping () {
 	p_validate(1,''+p_searchitem+'','','','','GET','',1);
 }
 
-//$(document).on('click', '#test_btn', function () {
-//});
-
 //case 1 - get books
 function get_books(code,reqstring,thedate){
 $('#selection').collapsible( "collapse" );
@@ -1582,10 +1579,14 @@ $( "#nyt" ).append(nyt1_html);
 $('.bc a').button();
 stop_spin();
 });
-nyt_link +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
+//nyt_link +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
+nyt_link +='<div align="center"><a href="#" id="nyt_dev_btn"><img src="img/NYT2.png"></a></div>';
 $( "#nyt" ).append(nyt_link);
 }
 
+$('#nyt_dev_btn').on('click', function () {
+window.open('http://developer.nytimes.com', '_blank', 'location=yes');
+});
 
 
 //populate static pages
