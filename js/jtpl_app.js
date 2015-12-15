@@ -301,6 +301,7 @@ self.location.href = 'index.html';
 $(document).ready(function(){
 
 $('nyt_dev_btn').on('click', function () {
+									   alert('hello world');
 window.open('http://developer.nytimes.com', '_blank', 'location=yes');
 });
 						   
@@ -1590,13 +1591,13 @@ stop_spin();
 						   
 
 
-nyt_link +='<div id="nyt_dev" align="center"><a id="nyt_dev_btn" href="#" ><img src="img/NYT2.png"></a></div>';
+nyt_link +='<div align="center"><a id="nyt_dev_btn" href="#" ><img src="img/NYT2.png"></a></div>';
 
-$('#nyt_dev a[data-role=button]').button();
-$('#nyt_dev a').button('refresh');
+$('#nyt_dev_btn[data-role=button]').button();
+$('#nyt_dev_btn').button('refresh');
 
 $( "#nyt" ).append(nyt_link);
-$('#nyt_dev a').button();
+$('#nyt_dev_btn').button();
 }
 
 
