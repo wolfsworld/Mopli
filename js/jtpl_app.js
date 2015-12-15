@@ -1534,6 +1534,7 @@ $( "#nyt" ).empty();
 
 $.each(response.results, function(key, value) {
 var nyt1_html='';
+var nyt='';
 var rank=key+1;
 
 the_isbn=value.book_details[0].primary_isbn13;
