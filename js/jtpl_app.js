@@ -1534,7 +1534,6 @@ $( "#nyt" ).empty();
 
 $.each(response.results, function(key, value) {
 var nyt1_html='';
-var nyt='';
 var rank=key+1;
 
 the_isbn=value.book_details[0].primary_isbn13;
@@ -1545,7 +1544,7 @@ nyt1_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://conte
 nyt1_html += "<strong>Rank: " + rank + "</strong><br>";
 
 $.each(value.book_details[0], function(key2, value2) {
-					//alert('this is rank: '+key+' key2: '+ key2 +' and value2: '+ value2 +'');
+//alert('this is rank: '+key+' key2: '+ key2 +' and value2: '+ value2 +'');
 
 	if(jQuery.inArray( key2, selection )!== -1){
 	
@@ -1581,11 +1580,9 @@ $( "#nyt" ).append(nyt1_html);
 $('.bc a').button();
 stop_spin();
 });
-nyt +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
-$( "#nyt" ).append(nyt);
 }
 
-
+//nyt1_html +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
 
 //populate static pages
 //general ajax
