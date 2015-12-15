@@ -222,9 +222,10 @@ window.open('http://jeffersontwpnj.oneclickdigital.com/', '_blank', 'location=ye
 $('#freegal_btn').on('click', function () {
 window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'location=yes');
 });
-$('#nyt_dev_btn').on('click', function () {
+
+function go_nyt(){
 window.open('http://developer.nytimes.com', '_blank', 'location=yes');
-});
+};
 
 //google map
 var map;
@@ -1583,9 +1584,10 @@ $('.bc a').button();
 stop_spin();
 });
 //nyt_link +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
-nyt_link +='<div align="center"><a href="#" id="nyt_dev_btn"><img src="img/NYT2.png"></a></div>';
+nyt_link +='<div align="center"><a id="nyt_dev_btn" href="#" onClick="go_nyt();"><img src="img/NYT2.png"></a></div>';
 $( "#nyt" ).append(nyt_link);
 }
+
 
 
 
