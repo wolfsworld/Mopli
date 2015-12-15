@@ -300,7 +300,7 @@ self.location.href = 'index.html';
 
 $(document).ready(function(){
 
-$('nyt_dev_btn').on('click', function () {
+$('#nyt_dev_btn').on('click', function () {
 									   alert('hello world');
 window.open('http://developer.nytimes.com', '_blank', 'location=yes');
 });
