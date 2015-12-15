@@ -1593,7 +1593,7 @@ stop_spin();
 
 //nyt_link +='<div align="center"><a id="nyt_dev_btn" href="#" ><img src="img/NYT2.png"></a></div>';
 
-nyt_link +='<a href="#" onclick="window.open("http://developer.nytimes.com", \'_system\');"><img src="img/NYT2.png"></a>';
+nyt_link +='<a href="#" onclick="window.open(\'http://developer.nytimes.com\', \'_system\');"><img src="img/NYT2.png"></a>';
 
 //$('#nyt_dev_btn[data-role=button]').button();
 //$('#nyt_dev_btn').button('refresh');
