@@ -299,11 +299,7 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-						   
-function go_nyt(){
-alert('clickedy');
-window.open('http://developer.nytimes.com', '_blank', 'location=yes');
-};						   
+				   
 						   
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
@@ -1588,7 +1584,12 @@ $('.bc a').button();
 stop_spin();
 });
 //nyt_link +='<div align="center"><a href="http://developer.nytimes.com"><img src="img/NYT2.png"></a></div>';
-nyt_link +='<div align="center"><a id="nyt_dev_btn" href="#" onclick="go_nyt()"><img src="img/NYT2.png"></a></div>';
+						   
+$('nyt_dev_btn').on('click', function () {
+window.open('http://developer.nytimes.com', '_blank', 'location=yes');
+});
+
+nyt_link +='<div align="center"><a id="nyt_dev_btn" href="#" ><img src="img/NYT2.png"></a></div>';
 $( "#nyt" ).append(nyt_link);
 }
 
