@@ -299,8 +299,6 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-
-
 						   
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
@@ -1242,8 +1240,8 @@ switch(media){
 				key2="Renewals Count";
 				break;
 				case "DueDate":
-				var DDate= new Date( parseFloat(value2.substr(6 )));
-				value2=DDate.toDateString();
+				//var DDate= new Date( parseFloat(value2.substr(6 )));
+				//value2=DDate.toDateString();
 				key2="Due Date";
 				break;
 				case "CheckOutDate":
