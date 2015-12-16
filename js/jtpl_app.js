@@ -1585,7 +1585,7 @@ $('.bc a').button();
 stop_spin();
 });
 
-nyt_link +='<div align="center"><a href="#" onclick="window.open(encodeURI(\'http://developer.nytimes.com\'), \'_system\')"><img src="img/NYT2.png"></a></div>';
+nyt_link +='<div align="center"><a href="#" onclick="window.open(encodeURI(\'http://developer.nytimes.com\'), \'_blank\', \'location=yes\')"><img src="img/NYT2.png"></a></div>';
 $( "#nyt" ).append(nyt_link);
 }
 
