@@ -1246,11 +1246,11 @@ switch(media){
 				key2="Renewals Count";
 				break;
 				case "DueDate":
-				var cod_epoch= parseFloat(value2.substr(6 ));
+				//var cod_epoch= parseFloat(value2.substr(6 ));
 				//if(cod_epoch<=today_epoch){
 					//var overdue=true;
 
-				alert('this is cod epoch'+cod_epoch+'');
+				//alert('this is cod epoch'+cod_epoch+'');
 				//}else{
 				//alert('this is today epoch'+today_epoch+'');
 				//}
