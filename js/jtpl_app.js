@@ -10,6 +10,10 @@ var page_counter=1;
 }
 
 var newtitle_list=0;
+
+var today= new Date();
+var today_epoch= today.getTime()-500;
+
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -1185,10 +1189,6 @@ var settings = {
 }
 $.ajax(settings).done(function (response) {
 
-//var today= new Date();
-//var today_epoch= today.getTime()-500;
-//alert('this is today'+today_epoch+'');
-
 $.each(response.BibGetRows, function(key, value) {
 									 
 if(value.ElementID=='8'){
@@ -1246,7 +1246,7 @@ switch(media){
 				key2="Renewals Count";
 				break;
 				case "DueDate":
-				//var cod_epoch= parseFloat(value2.substr(6 ));
+				var cod_epoch= parseFloat(value2.substr(6 ));
 				//if(cod_epoch<=today_epoch){
 					//var overdue=true;
 
