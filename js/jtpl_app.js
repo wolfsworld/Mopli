@@ -199,17 +199,17 @@ $('.hold_req a').button();
 $(document).ready(function(){
 
 var themessage=navigator.onLine;
-if(themessage!==true){
+if(themessage!=true){
 	 $.jAlert({
     'title': 'Alert!',
-    'content': 'This App needs to be online. It appears that you have no network connection.',
+    'content': 'This App needs to be online. It appears that you have no network connection.'+themessage+'',
     'theme': 'blue',
   });
 	
 }else{
 	$.jAlert({
     'title': 'Alert!',
-    'content': 'You are connected.',
+    'content': 'You are connected'+themessage+'',
     'theme': 'blue',
   });
 }
