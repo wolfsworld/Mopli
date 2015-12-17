@@ -21,21 +21,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 	
-if(navigator.connection.type==0)
-{
-    alert('This application requires internet. Please connect to the internet.');
-
-}
-else if(navigator.connection.type=='none')
-{
-    alert('This application requires internet. Please connect to the internet.');
-
-}
-else
-{
-    alert('you are now connected to the internet');
-}
-	
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
        $.mobile.hashListeningEnabled = false;
@@ -212,6 +197,11 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
+
+var network_state;
+network_state=navigator.connection.type;
+
+alert(network_state);
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
