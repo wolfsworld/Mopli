@@ -20,6 +20,22 @@ var overdue=false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+	
+if(navigator.connection.type==0)
+{
+    alert('This application requires internet. Please connect to the internet.');
+
+}
+else if(navigator.connection.type=='none')
+{
+    alert('This application requires internet. Please connect to the internet.');
+
+}
+else
+{
+    alert('you are now connected to the internet');
+}
+	
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
        $.mobile.hashListeningEnabled = false;
@@ -107,7 +123,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Not working1!');                  
+            alert('Could not process.You might have no network connection.');                  
         }
 });
 }
@@ -228,8 +244,6 @@ window.open('http://jeffersontwpnj.oneclickdigital.com/', '_blank', 'location=ye
 $('#freegal_btn').on('click', function () {
 window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'location=yes');
 });
-
-
 
 //google map
 var map;
@@ -436,7 +450,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Not working1!');                  
+            alert('Could not process.You might have no network connection.');                  
         }
 });
 }
@@ -705,7 +719,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Not working1!');                  
+            alert('Could not process.You might have no network connection.');                  
         }
 });
 });
@@ -728,7 +742,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Not working1!');                  
+            alert('Could not process.You might have no network connection.');                  
         }
 });
 });
@@ -1170,13 +1184,11 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Not working1!');                  
+            alert('Could not process.You might have no network connection.');                  
         }
 });
 
 function filter_holds (code,reqstring,thedate,bibID){
-//get current date in json 13 digit epoch time
-
 
 var settings = {
   "async": false,
@@ -1205,20 +1217,6 @@ if(holds>0){hold_ind=true;}else{hold_ind=false;}
 });
 };
 
-/*
-if(cover_no === undefined){
-	alert('case 1:'+cover_no+'');
-switch(media){
-	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
-	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
-	case 33: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; hold_ind=true; break;
-	default: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
-	} 
-}else{
-	alert('case 2:'+cover_no+'');
-	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
-}*/
-
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
@@ -1238,8 +1236,6 @@ switch(media){
 					else{value2=""+value2+"";}
 				}
 				
-				//my_outs += "<strong>" + key2 + ": " + value2 + "</strong><br>";
-				
 				if(value2!=''){
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
@@ -1249,14 +1245,7 @@ switch(media){
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
-				if(cod_epoch>today_epoch){
-					overdue=true;
-				}
-
-				//alert('this is cod epoch'+cod_epoch+'');
-				//}else{
-				//alert('this is today epoch'+today_epoch+'');
-				//}
+				if(cod_epoch<today_epoch){overdue=true;}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
 				key2="Due Date";
@@ -1278,9 +1267,7 @@ switch(media){
 				}
 
 			});
-				if(overdue==true){
-				my_outs +="<div class='p_alert'>Item Due</div>";
-				}
+if(overdue==true){my_outs +="<div class='p_alert'>Item Due</div>";}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
 }
@@ -1534,7 +1521,7 @@ $.ajax({
 		},
         error      : function() {
             console.error("error");
-            alert('Not working1!');                  
+            alert('Could not process.You might have no network connection.');                  
         }
 });
 }
@@ -1632,7 +1619,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Not working3!');                  
+            alert('Could not process.You might have no network connection.');                  
         }
 });
 }
