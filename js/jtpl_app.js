@@ -1247,8 +1247,9 @@ switch(media){
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
-				//if(cod_epoch<=today_epoch){
-					//var overdue=true;
+				if(cod_epoch>today_epoch){
+					var overdue=true;
+				}
 
 				//alert('this is cod epoch'+cod_epoch+'');
 				//}else{
@@ -1273,9 +1274,9 @@ switch(media){
 								
 				}
 				}
-				////if(overdue==true){
-				//my_outs +="<div class='p_alert'>Item Due</div>";
-				//}
+				if(overdue==true){
+				my_outs +="<div class='p_alert'>Item Due</div>";
+				}
 			});
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
