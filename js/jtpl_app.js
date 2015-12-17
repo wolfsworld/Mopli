@@ -1170,9 +1170,7 @@ $.ajax({
 
 function filter_holds (code,reqstring,thedate,bibID){
 //get current date in json 13 digit epoch time
-var today= new Date();
-var today_epoch= today.getTime()-500;
-alert('this is today'+today_epoch+'');
+
 
 var settings = {
   "async": false,
@@ -1186,6 +1184,10 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
+
+var today= new Date();
+var today_epoch= today.getTime()-500;
+alert('this is today'+today_epoch+'');
 
 $.each(response.BibGetRows, function(key, value) {
 									 
@@ -1246,7 +1248,8 @@ switch(media){
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
 				//if(cod_epoch<=today_epoch){
-					var overdue=true;
+					//var overdue=true;
+
 				alert('this is cod epoch'+cod_epoch+'');
 				//}else{
 				alert('this is today epoch'+today_epoch+'');
