@@ -199,7 +199,7 @@ $('.hold_req a').button();
 $(document).ready(function(){
 
 var themessage=navigator.onLine;
-if(themessage!=true){
+if(themessage!==true){
 	alert('This App requires to be online.<br>It appeares that you currently don\'t have network connection');
 }
 	
