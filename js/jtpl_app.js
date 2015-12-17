@@ -20,7 +20,26 @@ var overdue=false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-	
+    checkConnection();
+}
+
+function checkConnection() {
+    var networkState = navigator.network.connection.type;
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.NONE]     = 'No network connection';
+    alert('Connection type: ' + states[networkState]);
+    if(states[networkState] == 'No network connection') { show_no_connection();
+}
+
+function show_no_connection() {
+    $('#status').html('You Have No Data Connection!');  
+}  
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
        $.mobile.hashListeningEnabled = false;
@@ -197,11 +216,6 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
-
-var network_state;
-network_state=navigator.connection.type;
-
-alert(network_state);
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
