@@ -20,7 +20,21 @@ var overdue=false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
- 
+var themessage=navigator.onLine;
+if(themessage!=true){
+	 $.jAlert({
+    'title': 'Alert!',
+    'content': 'This App needs to be online. It appears that you have no network connection.'+themessage+'',
+    'theme': 'blue',
+  });
+	
+}else{
+	$.jAlert({
+    'title': 'Alert!',
+    'content': 'You are connected'+themessage+'',
+    'theme': 'blue',
+  });
+} 
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
        $.mobile.hashListeningEnabled = false;
@@ -198,21 +212,7 @@ $('.hold_req a').button();
 
 $(document).ready(function(){
 
-var themessage=navigator.onLine;
-if(themessage!=true){
-	 $.jAlert({
-    'title': 'Alert!',
-    'content': 'This App needs to be online. It appears that you have no network connection.'+themessage+'',
-    'theme': 'blue',
-  });
-	
-}else{
-	$.jAlert({
-    'title': 'Alert!',
-    'content': 'You are connected'+themessage+'',
-    'theme': 'blue',
-  });
-}
+
 	
 	
 
