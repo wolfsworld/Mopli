@@ -21,7 +21,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 	
-/*setInterval(function () {
+setInterval(function () {
     if(navigator.network.connection.type == Connection.NONE){
     $.jAlert({
     'title': 'Alert!',
@@ -38,8 +38,8 @@ function onDeviceReady() {
             
     }
 					  }
-	, 8000);
-*/	
+	, 5000);
+	
 
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
@@ -218,13 +218,13 @@ $('.hold_req a').button();
 
 $(document).ready(function(){
 
-var tester=window.navigator.onLine;
+/*var tester=window.navigator.onLine;
     $.jAlert({
     'title': 'Alert!',
     'content': ''+tester+'',
     'theme': 'blue',
   	});
-	
+	*/
 	
 
 //make keyboard disappear on "go"
