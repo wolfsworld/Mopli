@@ -1185,9 +1185,9 @@ var settings = {
 }
 $.ajax(settings).done(function (response) {
 
-var today= new Date();
-var today_epoch= today.getTime()-500;
-alert('this is today'+today_epoch+'');
+//var today= new Date();
+//var today_epoch= today.getTime()-500;
+//alert('this is today'+today_epoch+'');
 
 $.each(response.BibGetRows, function(key, value) {
 									 
