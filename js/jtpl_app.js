@@ -1169,6 +1169,9 @@ $.ajax({
 });
 
 function filter_holds (code,reqstring,thedate,bibID){
+//get current date in json 13 digit epoch time
+var today= new Date();
+var today_epoch= today.getTime()-500;
 
 var settings = {
   "async": false,
@@ -1240,8 +1243,10 @@ switch(media){
 				key2="Renewals Count";
 				break;
 				case "DueDate":
-				//var DDate= new Date( parseFloat(value2.substr(6 )));
-				//value2=DDate.toDateString();
+				var cod_epoch= parseFloat(value2.substr(6 ));
+				if(cod_epoch<=today_epoch){var overdue=true;}
+				var DDate= new Date( parseFloat(value2.substr(6 )));
+				value2=DDate.toDateString();
 				key2="Due Date";
 				break;
 				case "CheckOutDate":
@@ -1259,7 +1264,9 @@ switch(media){
 								
 				}
 				}
-								   
+				if(overdue==true){
+				my_outs +="<div class='p_alert'>Item Due</div>";
+				}
 			});
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";

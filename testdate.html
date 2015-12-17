@@ -17,15 +17,23 @@
 <script>
 $(document).ready(function() {
 						   
-						   
-//var value2= new Date();	
-//var value3= value2.toISOString();
-//alert(value3);
+var value1= new Date();
+var value1m= value1.getTime()-500;
+var value2m= 1450501199000-0500;
 
-value3='2015-12-16T12:43:05';
+var raw='/Date(1450501199000-0500)/';
+var value3m= parseFloat(raw.substr(6 ));
+alert(value3m);
+alert(value1m);
+
+//var value2= new Date(1450501199000-0500);	
+//var value3= value2.toISOString();
+
+
+//value3='2015-12-16T12:43:05';
 var DDate= new Date( parseFloat(value3.substr(6 )));
 				value3=DDate.toDateString();
-alert(DDate);
+//alert(DDate);
 });
 </script>
 
