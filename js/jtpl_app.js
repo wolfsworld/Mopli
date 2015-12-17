@@ -200,7 +200,18 @@ $(document).ready(function(){
 
 var themessage=navigator.onLine;
 if(themessage!==true){
-	alert('This App requires to be online.<br>It appeares that you currently don\'t have network connection');
+	 $.jAlert({
+    'title': 'Alert!',
+    'content': 'This App needs to be online. It appears that you have no network connection.',
+    'theme': 'blue',
+  });
+	
+}else{
+	$.jAlert({
+    'title': 'Alert!',
+    'content': 'You are connected.',
+    'theme': 'blue',
+  });
 }
 	
 	
