@@ -1252,7 +1252,7 @@ switch(media){
 
 				alert('this is cod epoch'+cod_epoch+'');
 				//}else{
-				alert('this is today epoch'+today_epoch+'');
+				//alert('this is today epoch'+today_epoch+'');
 				//}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
@@ -1274,7 +1274,7 @@ switch(media){
 				}
 				}
 				////if(overdue==true){
-				my_outs +="<div class='p_alert'>Item Due</div>";
+				//my_outs +="<div class='p_alert'>Item Due</div>";
 				//}
 			});
 if(hold_ind==false){
