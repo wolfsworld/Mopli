@@ -198,9 +198,29 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
-						   
+
+/*document.addEventListener("offline", onoffline, false);
+
+function onoffline(){
+	 $.jAlert({
+    'title': 'Alert!',
+    'content': 'this is offline',
+    'theme': 'blue',
+  	});
+}*/
+
 function checkConnection() {
+	$.jAlert({
+    'title': 'Alert!',
+    'content': 'check connection on',
+    'theme': 'blue',
+  	});
     var networkState = navigator.connection.type;
+	$.jAlert({
+    'title': 'Alert!',
+    'content': 'network state run',
+    'theme': 'blue',
+  	});
 
     var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
