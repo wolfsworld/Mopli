@@ -20,6 +20,30 @@ var overdue=false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+	
+function checkConnection() {
+
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+
+    $.jAlert({
+    'title': 'Alert!',
+    'content': 'Connection type: ' +states[networkState]+'',
+    'theme': 'blue',
+  	});
+	
+}
+
+checkConnection();	
 
 
 //enable back button in ios9	
@@ -325,31 +349,6 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-
-function checkConnection() {
-
-    var networkState = navigator.connection.type;
-
-    var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
-
-    $.jAlert({
-    'title': 'Alert!',
-    'content': 'Connection type: ' +states[networkState]+'',
-    'theme': 'blue',
-  	});
-	
-}
-
-checkConnection();
-
 
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
