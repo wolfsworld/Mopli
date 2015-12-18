@@ -327,17 +327,8 @@ self.location.href = 'index.html';
 $(document).ready(function(){
 
 function checkConnection() {
-	$.jAlert({
-    'title': 'Alert!',
-    'content': 'check connection on',
-    'theme': 'blue',
-  	});
+
     var networkState = navigator.connection.type;
-	$.jAlert({
-    'title': 'Alert!',
-    'content': 'network state run',
-    'theme': 'blue',
-  	});
 
     var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
