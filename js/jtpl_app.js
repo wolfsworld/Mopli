@@ -20,26 +20,6 @@ var overdue=false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-	
-/*setInterval(function () {
-    if(navigator.connection.type == Connection.NONE){
-    $.jAlert({
-    'title': 'Alert!',
-    'content': 'This App needs to be online. It appears that you have no network connection.',
-    'theme': 'blue',
-  	});
-    
-	}else{
-    $.jAlert({
-    'title': 'Alert!',
-    'content': 'You are connected',
-    'theme': 'blue',
-  	});
-            
-    }
-					  }
-	, 5000);
-*/	
 
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
@@ -225,7 +205,6 @@ $(document).ready(function(){
     'theme': 'blue',
   	});
 	*/
-	
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
@@ -1710,7 +1689,6 @@ contact_html +="<div>This section requires an internet connection to populate da
 }
 $('#contact_block').append(contact_html);
 }
-
 
 //change page
 function login(){
