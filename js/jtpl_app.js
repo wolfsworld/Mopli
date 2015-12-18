@@ -16,15 +16,15 @@ var today_epoch= today.getTime()-500;
 
 var overdue=false;
 
+var net_status=true;
+
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-	
+//check network connection	
 function checkConnection() {
-
     var networkState = navigator.connection.type;
-
     var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
@@ -35,14 +35,16 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
 
-    $.jAlert({
+
+	if (networkState == Connection.NONE) {
+	net_status=false;
+	$.jAlert({
     'title': 'Alert!',
     'content': 'Connection type: ' +states[networkState]+'',
     'theme': 'blue',
   	});
-	
+	}
 }
-
 checkConnection();	
 
 
@@ -222,26 +224,6 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
-
-/*document.addEventListener("offline", onoffline, false);
-
-function onoffline(){
-	 $.jAlert({
-    'title': 'Alert!',
-    'content': 'this is offline',
-    'theme': 'blue',
-  	});
-}*/
-
-
-
-/*var tester=window.navigator.onLine;
-    $.jAlert({
-    'title': 'Alert!',
-    'content': ''+tester+'',
-    'theme': 'blue',
-  	});
-	*/
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
