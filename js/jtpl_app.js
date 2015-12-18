@@ -1625,21 +1625,26 @@ $.ajax({
 		dataType: "json",
         success : function(response) {
 		switch(fctn){
-		case 1:	populate_hours(response); break;
-		case 2: populate_holidays(response); break;
-		case 3: populate_contacts(response); break;
+		case 1:	populate_hours(response,1); break;
+		case 2: populate_holidays(response,1); break;
+		case 3: populate_contacts(response,1); break;
 		}
         },
         error      : function() {
-            console.error("error");
-            populate_offline();
+        console.error("error");
+        switch(fctn){
+		case 1:	populate_hours(response,0); break;
+		case 2: populate_holidays(response,0); break;
+		case 3: populate_contacts(response,0); break;
+		}
 			//alert('Could not process.You might have no network connection.');                  
         }
 });
 }
 
-function populate_holidays(response){
+function populate_holidays(response, status){
 var holidays_html='';
+if(status==1){
 holidays_html +="<table class='bibtbl'>";
 	$.each(response, function(key, value) {
 			hol_name=key;
@@ -1651,11 +1656,16 @@ holidays_html +="<table class='bibtbl'>";
 holidays_html +='<tr><td class="txtbox" width="143" valign="top">'+hol_name+'</td><td class="txtbox" width=212>'+hol_date1+''+hol_date2+'<br>'+hol_com+'</td></tr>';
 }); }); });
 holidays_html +="</table>";	
+}
+else{
+holidays_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";
+}
 $('#holiday_block').append(holidays_html);
 }
 
 function populate_hours(response){
 var hours_html='';
+if(status==1){
 hours_html +="<table>";	
 	$.each(response, function(key, value) {
 			hour_day=key;
@@ -1667,12 +1677,17 @@ hours_html +="<table>";
 
 hours_html +="<tr><td width=143>"+hour_day+"</td><td width=212>"+hour_from+"-"+hour_to+"</td></tr>";
 }); }); });
-hours_html +="</table>";		
+hours_html +="</table>";
+}
+else{
+hours_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";
+}
 $('#hour_block').append(hours_html);
 }
 
 function populate_contacts(response){
 var contact_html='';
+if(status==1){
 contact_html +="<table>";
 	$.each(response, function(key, value) {
 			con_title=key;
@@ -1685,17 +1700,15 @@ contact_html +="<table>";
 									 if(!value3){con_pic='';}else{con_pic=''+value3+'';}		
 										contact_html +='<div class="contacts"><div class="portrait"><img src="'+con_pic+'" align="center"  /></div>'+con_title+':<br />'+con_name+'<br />Phone: '+con_phone+'<br /><a href="mailto:'+con_email+'">'+con_email+'</a></div>';
 }); }); }); });
-contact_html +="</table>";		
+contact_html +="</table>";
+}
+else{
+contact_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";
+}
 $('#contact_block').append(contact_html);
 }
 
-function populate_offline(){
-var offline_html='';
-offline_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";	
-$('#hour_block').append(offline_html);
-$('#holiday_block').append(offline_html);
-$('#contact_block').append(offline_html);
-}
+
 	
 
 //change page
