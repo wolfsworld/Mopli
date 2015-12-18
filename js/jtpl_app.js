@@ -1687,7 +1687,7 @@ hours_html +="<div>This section requires an internet connection to populate data
 $('#hour_block').append(hours_html);
 }
 
-function populate_contacts(response){
+function populate_contacts(response, status){
 var status=status;	
 var contact_html='';
 if(status==1){
