@@ -1633,9 +1633,9 @@ $.ajax({
         error      : function() {
         console.error("error");
         switch(fctn){
-		case 1:	populate_hours(response,0); break;
-		case 2: populate_holidays(response,0); break;
-		case 3: populate_contacts(response,0); break;
+		case 1:	populate_hours('',2); break;
+		case 2: populate_holidays('',2); break;
+		case 3: populate_contacts('',2); break;
 		}
 			//alert('Could not process.You might have no network connection.');                  
         }
@@ -1643,7 +1643,7 @@ $.ajax({
 }
 
 function populate_holidays(response, status){
-var status=status;	
+var status=status;
 var holidays_html='';
 if(status==1){
 holidays_html +="<table class='bibtbl'>";
@@ -1711,8 +1711,6 @@ contact_html +="<div>This section requires an internet connection to populate da
 $('#contact_block').append(contact_html);
 }
 
-
-	
 
 //change page
 function login(){
