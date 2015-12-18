@@ -21,8 +21,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 	
-setInterval(function () {
-    if(navigator.network.connection.type == Connection.NONE){
+/*setInterval(function () {
+    if(navigator.connection.type == Connection.NONE){
     $.jAlert({
     'title': 'Alert!',
     'content': 'This App needs to be online. It appears that you have no network connection.',
@@ -39,7 +39,7 @@ setInterval(function () {
     }
 					  }
 	, 5000);
-	
+*/	
 
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
@@ -1632,7 +1632,8 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            //alert('Could not process.You might have no network connection.');                  
+            populate_offline();
+			//alert('Could not process.You might have no network connection.');                  
         }
 });
 }
@@ -1687,6 +1688,15 @@ contact_html +="<table>";
 contact_html +="</table>";		
 $('#contact_block').append(contact_html);
 }
+
+function populate_offline(){
+var offline_html='';
+offline_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";	
+$('#hour_block').append(offline_html);
+$('#holiday_block').append(offline_html);
+$('#contact_block').append(offline_html);
+}
+	
 
 //change page
 function login(){
