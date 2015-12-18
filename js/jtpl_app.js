@@ -21,6 +21,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 
+document.addEventListener("offline", function(){ 
+											      $.jAlert({
+    'title': 'Alert!',
+    'content': 'no connection',
+    'theme': 'blue',
+  	});
+											  }, false);
+
+
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
        $.mobile.hashListeningEnabled = false;
@@ -198,13 +207,13 @@ $('.hold_req a').button();
 
 $(document).ready(function(){
 
-var tester=window.navigator.onLine;
+/*var tester=window.navigator.onLine;
     $.jAlert({
     'title': 'Alert!',
     'content': ''+tester+'',
     'theme': 'blue',
   	});
-	
+	*/
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
