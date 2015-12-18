@@ -198,13 +198,13 @@ $('.hold_req a').button();
 
 $(document).ready(function(){
 
-/*var tester=window.navigator.onLine;
+var tester=window.navigator.onLine;
     $.jAlert({
     'title': 'Alert!',
     'content': ''+tester+'',
     'theme': 'blue',
   	});
-	*/
+	
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
