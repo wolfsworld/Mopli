@@ -1643,6 +1643,7 @@ $.ajax({
 }
 
 function populate_holidays(response, status){
+var status=status;	
 var holidays_html='';
 if(status==1){
 holidays_html +="<table class='bibtbl'>";
@@ -1663,7 +1664,8 @@ holidays_html +="<div>This section requires an internet connection to populate d
 $('#holiday_block').append(holidays_html);
 }
 
-function populate_hours(response){
+function populate_hours(response, status){
+var status=status;	
 var hours_html='';
 if(status==1){
 hours_html +="<table>";	
@@ -1686,6 +1688,7 @@ $('#hour_block').append(hours_html);
 }
 
 function populate_contacts(response){
+var status=status;	
 var contact_html='';
 if(status==1){
 contact_html +="<table>";
