@@ -48,11 +48,11 @@ function checkConnection() {
 checkConnection();	
 
 if(net_status==false){
-		$.jAlert({
-    'title': 'Alert!',
-    'content': 'No internet connection',
-    'theme': 'blue',
-  	});
+	//	$.jAlert({
+   // 'title': 'Alert!',
+   // 'content': 'No internet connection',
+    //'theme': 'blue',
+  //	});
 	
 	$("iframe").each(function() { 
         $(this).attr('src','');
