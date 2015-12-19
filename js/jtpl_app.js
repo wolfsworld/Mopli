@@ -48,14 +48,8 @@ function checkConnection() {
 checkConnection();	
 
 if(net_status==false){
-	//	$.jAlert({
-   // 'title': 'Alert!',
-   // 'content': 'No internet connection',
-    //'theme': 'blue',
-  //	});
-	
 	$("iframe").each(function() { 
-        $(this).attr('src','');
+        //$(this).attr('src','');
         $('this').contents().find('html').html("<h4 style='text-align: center;'>This page needs Internet Connection</h4>");
 	});
 }
