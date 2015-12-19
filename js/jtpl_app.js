@@ -38,11 +38,11 @@ function checkConnection() {
 
 	if (networkState == Connection.NONE) {
 	net_status=false;
-	$.jAlert({
-    'title': 'Alert!',
-    'content': 'Connection type: ' +states[networkState]+'',
-    'theme': 'blue',
-  	});
+	//$.jAlert({
+    //'title': 'Alert!',
+   // 'content': 'Connection type: ' +states[networkState]+'',
+    //'theme': 'blue',
+  	//});
 	}
 }
 checkConnection();	
@@ -334,9 +334,8 @@ $(document).ready(function(){
 
 if(net_status==false){
 	$("iframe").each(function() { 
-        var src= $(this).attr('src');
-        $(this).attr('src',"");
-		$(this).append("this page requires internet connection");
+        $(this).attr('src','');
+        $('this').contents().find('html').html("<h4 style='text-align: center;'>This page needs Internet Connection</h4>");
 	});
 }
 	
