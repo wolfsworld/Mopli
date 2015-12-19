@@ -54,10 +54,10 @@ if(net_status==false){
     'theme': 'blue',
   	});
 	
-	//$("iframe").each(function() { 
-    //    $(this).attr('src','');
-    //    $('this').contents().find('html').html("<h4 style='text-align: center;'>This page needs Internet Connection</h4>");
-	//});
+	$("iframe").each(function() { 
+        $(this).attr('src','');
+        $('this').contents().find('html').html("<h4 style='text-align: center;'>This page needs Internet Connection</h4>");
+	});
 }
 
 //enable back button in ios9	
