@@ -20,7 +20,6 @@ var net_status=true;
 
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
-
 function onDeviceReady() {
 //check network connection	
 function checkConnection() {
@@ -53,7 +52,6 @@ if(net_status==false){
         $(this).replaceWith("<h4 align='center'>This page needs Internet connection.<br>It appears that you are currently not online.</h4>");
 	});
 }
-
 
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
