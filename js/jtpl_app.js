@@ -332,6 +332,15 @@ self.location.href = 'index.html';
 
 $(document).ready(function(){
 
+if(net_status==false){
+	$("iframe").each(function() { 
+        var src= $(this).attr('src');
+        $(this).attr('src',"");
+		$(this).append("this page requires internet connection");
+	});
+}
+	
+
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
