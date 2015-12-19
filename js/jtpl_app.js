@@ -49,10 +49,11 @@ checkConnection();
 
 if(net_status==false){
 	$("iframe").each(function() { 
-        //$(this).attr('src','');
-        $('this').replaceWith("<h4>This page needs Internet Connection</h4>");
+	   //$(this).attr('src','');
+        $(this).replaceWith("<h4 align='center'>This page needs Internet connection.<br>It appears that you are currently not online.</h4>");
 	});
 }
+
 
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
@@ -337,9 +338,6 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-
-
-	
 
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
