@@ -47,6 +47,18 @@ function checkConnection() {
 }
 checkConnection();	
 
+if(net_status==false){
+		$.jAlert({
+    'title': 'Alert!',
+    'content': 'No internet connection',
+    'theme': 'blue',
+  	});
+	
+	//$("iframe").each(function() { 
+    //    $(this).attr('src','');
+    //    $('this').contents().find('html').html("<h4 style='text-align: center;'>This page needs Internet Connection</h4>");
+	//});
+}
 
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
@@ -332,18 +344,7 @@ self.location.href = 'index.html';
 
 $(document).ready(function(){
 
-if(net_status==false){
-		$.jAlert({
-    'title': 'Alert!',
-    'content': 'No internet connection',
-    'theme': 'blue',
-  	});
-	
-	//$("iframe").each(function() { 
-    //    $(this).attr('src','');
-    //    $('this').contents().find('html').html("<h4 style='text-align: center;'>This page needs Internet Connection</h4>");
-	//});
-}
+
 	
 
 //create browsing array for list and calendar view
