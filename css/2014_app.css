@@ -207,14 +207,12 @@ width: 100%;
 }
 
 #the_latest_frame {
-min-width: 100%; 
-width: 100px;
-}
-
-#holder{
-overflow: auto;
+width: 90%; 
+overflow:auto;
 -webkit-overflow-scrolling:touch;
 }
+
+
 
 
 
