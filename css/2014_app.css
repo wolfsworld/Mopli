@@ -138,7 +138,9 @@ width: 100%;
 }
 
 #the_latest_frame{
-	width:50%;
+	width:150px;
+	background-color:#0F9;
+	border: 1px;
 }
 
 .ui-header{
