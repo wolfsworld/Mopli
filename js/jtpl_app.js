@@ -1221,7 +1221,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
 
 $.each(response.BibGetRows, function(key, value) {
-									 
+overdue=false;									 
 if(value.ElementID=='8'){
 $.each(value, function(key2, value2) {
 if(key2=='Value'){
