@@ -206,6 +206,16 @@ width: 100%;
 	margin-right: auto;
 }
 
+#the_latest_frame {
+min-width: 100%; 
+width: 100px;
+}
+
+#holder{
+overflow: auto;
+-webkit-overflow-scrolling:touch;
+}
+
 
 
 
