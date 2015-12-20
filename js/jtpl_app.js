@@ -338,6 +338,8 @@ self.location.href = 'index.html';
 
 $(document).ready(function(){
 
+$('#the_latest_frame').css({"width":"100px"});
+
 //$(document).on('click', '#the_latest', function () {
 //$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.3, maximum-scale=5, user-scalable=yes">');
 //$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">');
