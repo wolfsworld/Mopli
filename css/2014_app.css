@@ -138,9 +138,10 @@ width: 100%;
 }
 
 #the_latest_frame{
-	width:150px;
-	background-color:#0F9;
-	border: 1px;
+	width: auto;
+	overflow: auto;
+	height: auto;
+	-webkit-overflow-scrolling:touch;
 }
 
 .ui-header{
