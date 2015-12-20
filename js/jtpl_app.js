@@ -22,7 +22,7 @@ var net_status=true;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 	
-$('#the_latest_frame').css({"width":"100px"});	
+//$('#the_latest_frame').css({"width":"100px"});	
 	
 //check network connection	
 function checkConnection() {
