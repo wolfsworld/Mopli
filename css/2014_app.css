@@ -107,11 +107,11 @@ background-color: #FC3;
 .bibtbl{
 width: 100%;
 }
-.p_alert{
+.p_alert, .p_duealert{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	color: #FFF;
-	background-color: #C00;
+	background-color: #C11C1C;
 	display: block;
 	width: 100%;
 	padding: 3px;
@@ -119,6 +119,12 @@ width: 100%;
 	-webkit-border-radius: 5px 5px 0px 0px;
 	-moz-border-radius:    5px 5px 0px 0px;
 	border-radius:         5px 5px 0px 0px;
+}
+
+.p_duealert{
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius:    0px 0px 5px 5px;
+	border-radius:         0px 0px 5px 5px;
 }
 
 #hours_content, #contact_content, #contact_direction{
