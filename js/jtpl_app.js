@@ -337,7 +337,11 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-$('head').append('<meta name="viewport" content="width=device-width, initial-scale=0.5">');
+
+$(document).on('click', '#the_latest', function () {
+$('head').append('<meta name="viewport" content="width=device-width, initial-scale=0.75">');
+});
+
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
