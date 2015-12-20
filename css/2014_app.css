@@ -207,9 +207,8 @@ width: 100%;
 }
 
 #the_latest_frame {
-width: 90%; 
-overflow:auto;
--webkit-overflow-scrolling:touch;
+        min-width: 100%; 
+        width: 100px;
 }
 
 
