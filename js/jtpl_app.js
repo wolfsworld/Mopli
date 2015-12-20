@@ -228,8 +228,6 @@ $('.hold_req a').button();
 });
 };
 
-$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1">');
-
 
 $(document).ready(function(){
 
@@ -339,7 +337,7 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-
+$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1">');
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
