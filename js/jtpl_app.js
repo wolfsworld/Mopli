@@ -21,6 +21,9 @@ var net_status=true;
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
+	
+$('#the_latest_frame').css({"width":"100px"});	
+	
 //check network connection	
 function checkConnection() {
     var networkState = navigator.connection.type;
@@ -338,7 +341,7 @@ self.location.href = 'index.html';
 
 $(document).ready(function(){
 
-$('#the_latest_frame').css({"width":"100px"});
+
 
 //$(document).on('click', '#the_latest', function () {
 //$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.3, maximum-scale=5, user-scalable=yes">');
