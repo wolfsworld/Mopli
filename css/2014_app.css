@@ -131,10 +131,14 @@ width: 100%;
 	margin-left: 10px;
 	margin-right: 10px
 }
-#events_frame_cal, #events_frame_list, #the_latest_frame{
+#events_frame_cal, #events_frame_list{
 	width: 100%;
 	height: 600px;
 	
+}
+
+#the_latest_frame{
+	width:50%;
 }
 
 .ui-header{
@@ -206,10 +210,6 @@ width: 100%;
 	margin-right: auto;
 }
 
-#the_latest_frame {
-        width: 250px;
-
-}
 
 
 
