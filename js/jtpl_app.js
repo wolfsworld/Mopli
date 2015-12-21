@@ -238,9 +238,9 @@ $('.hold_req a').button();
 $(document).ready(function(){
 						   
 //adjust for the 3.5"screen
-if(small_ip_screen==true){
-$('head').append('<meta name="viewport" content="width=device-width, initial-scale=0.75">');
-}
+//if(small_ip_screen==true){
+//$('head').append('<meta name="viewport" content="width=device-width, initial-scale=0.75">');
+//}
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
