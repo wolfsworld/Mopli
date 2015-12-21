@@ -18,6 +18,8 @@ var overdue=false;
 
 var net_status=true;
 
+var small_ip_screen=false;
+
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -70,10 +72,11 @@ if(deviceType!='NULL'){
 }
 
 var model = device.model;
-alert('this is a: '+model+'');
+//alert('this is a: '+model+'');
 if(model=='iPhone8,1'){
-	//alert('this is an iphone 6plus');
-	//$('.ui-btn').css({'margin-top':'', 'margin-bottom':''}); 
+}
+if(model=='iPhone4,1' || model=='iPhone3,1'){
+small_ip_screen=true;
 }
 }
 
@@ -233,6 +236,11 @@ $('.hold_req a').button();
 
 
 $(document).ready(function(){
+						   
+//adjust for the 3.5"screen
+if(small_ip_screen==true){
+$('head').append('<meta name="viewport" content="width=device-width, initial-scale=0.75">');
+}
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
