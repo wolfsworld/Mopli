@@ -72,7 +72,7 @@ if(deviceType!='NULL'){
 var model = device.model;
 //alert('this is a: '+model+'');
 if(model=='iPhone4,1' || model=='iPhone3,1'){
-$('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px', 'height': '20px'}); 
+$('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px'}); 
 }
 }
 
@@ -234,10 +234,6 @@ $('.hold_req a').button();
 $(document).ready(function(){
 						   
 //adjust for the 3.5"screen
-if(small_ip_screen==true){
-//$('head').append('<meta name="viewport" content="width=device-width, initial-scale=0.75">');
-$('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px', 'height': '20px'}); 
-}
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
