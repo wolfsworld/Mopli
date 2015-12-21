@@ -70,7 +70,7 @@ if(deviceType!='NULL'){
 }
 
 var model = device.model;
-//alert('this is a: '+model+'');
+alert('this is a: '+model+'');
 if(model=='iPhone8,1'){
 	//alert('this is an iphone 6plus');
 	//$('.ui-btn').css({'margin-top':'', 'margin-bottom':''}); 
