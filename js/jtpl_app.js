@@ -341,13 +341,6 @@ self.location.href = 'index.html';
 
 $(document).ready(function(){
 
-
-
-//$(document).on('click', '#the_latest', function () {
-//$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.3, maximum-scale=5, user-scalable=yes">');
-//$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">');
-//});
-
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
