@@ -238,9 +238,10 @@ $('.hold_req a').button();
 $(document).ready(function(){
 						   
 //adjust for the 3.5"screen
-//if(small_ip_screen==true){
+if(small_ip_screen==true){
 //$('head').append('<meta name="viewport" content="width=device-width, initial-scale=0.75">');
-//}
+$('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px', 'height': '20px'}); 
+}
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
