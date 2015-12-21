@@ -18,8 +18,6 @@ var overdue=false;
 
 var net_status=true;
 
-var small_ip_screen=false;
-
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -72,12 +70,9 @@ if(deviceType!='NULL'){
 }
 
 var model = device.model;
-alert('this is a: '+model+'');
-if(model=='iPhone8,1'){
-}
+//alert('this is a: '+model+'');
 if(model=='iPhone4,1' || model=='iPhone3,1'){
-alert(model);
-small_ip_screen=true;
+$('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px', 'height': '20px'}); 
 }
 }
 
