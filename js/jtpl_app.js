@@ -72,10 +72,11 @@ if(deviceType!='NULL'){
 }
 
 var model = device.model;
-//alert('this is a: '+model+'');
+alert('this is a: '+model+'');
 if(model=='iPhone8,1'){
 }
 if(model=='iPhone4,1' || model=='iPhone3,1'){
+alert(model);
 small_ip_screen=true;
 }
 }
