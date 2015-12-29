@@ -1328,7 +1328,7 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 var my_fees='';
-var fees_selection= ['TransactionDate', 'BranchName', 'TransactionTypeDescription', 'FeeDescription', 'TransactionAmount', 'OutstandingAmount','FormatID','FormatDescription','Title','Author', 'CheckOutDate', 'DueDate'];
+var fees_selection= ['TransactionDate','BranchName','TransactionTypeDescription','FeeDescription','TransactionAmount','OutstandingAmount','FormatID','FormatDescription','Title','Author','CheckOutDate','DueDate'];
 
 $( "#fees" ).empty();
 
@@ -1390,7 +1390,7 @@ switch(media){
 	
 my_fees +="</td></tr></table>";
 });
-$( "#borrowed" ).append(my_fees);
+$( "#fees" ).append(my_fees);
 });//end ajax 
 };//end fees function
 
