@@ -144,6 +144,7 @@ navigator.splashscreen.hide();
 
 
 <div data-role="page" id="inside">
+
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>MAIN Account</h3></div>
@@ -163,16 +164,14 @@ navigator.splashscreen.hide();
         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">back</a>
     </div>
 </div>
-            
-            </div>
+</div>
+
 <div data-role="collapsible" id="hold_box" data-theme="e" data-content-theme="c" data-mini="true">
    			<h4>Items currently on hold</h4>
 <div id="loginresponse"></div>
 
 <div data-role="popup" id="popupDialog_cancelhold" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
-    <div data-role="header" data-theme="a">
-    <h1>Cancel Hold?</h1>
-    </div>
+    <div data-role="header" data-theme="a"><h1>Cancel Hold?</h1></div>
     <div role="main" class="ui-content">
         <h3 class="ui-title">Are you sure you want to cancel the hold request for this item?</h3>
     <p>This action cannot be undone.</p>
@@ -180,6 +179,11 @@ navigator.splashscreen.hide();
         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">back</a>
     </div>
 </div>   			
+</div>
+
+<div data-role="collapsible" id="fees_box" data-theme="e" data-content-theme="c" data-mini="true">
+   			<h4>Fees Due</h4>
+   			<div id="fees"></div>
 </div>
 
 </div>

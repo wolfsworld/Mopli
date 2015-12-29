@@ -406,9 +406,15 @@ $.mobile.changePage("#pageone");
 //toggle borrow_box and hold_box
 $('#borrowed_box').on('click', function () {
 $('#hold_box').collapsible( "collapse" );
+$('#fees_box').collapsible( "collapse" );
 });
 $('#hold_box').on('click', function () {
 $('#borrowed_box').collapsible( "collapse" );
+$('#fees_box').collapsible( "collapse" );
+});
+$('#fees_box').on('click', function () {
+$('#borrowed_box').collapsible( "collapse" );
+$('#hold_box').collapsible( "collapse" );
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -434,6 +440,7 @@ case 10: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/items
 case 11: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/itemsout/"+p_holdID+""; break;
 case 12: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/boolean?q=COL=7+sortby+MP/sort.descending&page="+p_holdID+"";break;
 case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
+case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
 }
 
 var thedate=(new Date()).toUTCString();
@@ -468,6 +475,7 @@ $.ajax({
 			case 11: item_renew(reqstring,thedate,code,p_bc); break;
 			case 12: most_popular(code,reqstring,thedate); break;
 			case 13: get_det_nyt(p_response.code,p_response.reqstring,p_response.thedate); break;
+			case 14: fees_outstanding(reqstring,thedate,code); break;
 			}
         },
         error      : function() {
@@ -1048,12 +1056,12 @@ alert('your hold cancel request failed');
 //end cancelhold
 }
 
-//case 8 - prep_getholds and -> 8 getholds or 9 items out all
+//case 8 - prep_getholds and -> 8 getholds, 9 items out all, 14 fees due
 function prep_getholds(pat_barcode){
-	//searchitem1=pat_barcode;
-	var pwd=$('#libpin').val();
+var pwd=$('#libpin').val();
 p_validate(8,'',''+pwd+'','',''+pat_barcode+'','GET','','');
 p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
+p_validate(14,'',''+pwd+'','',''+pat_barcode+'','GET','','');
 };
 //case 8 getholds (list)
 function getholds(reqstring,thedate,code){	
@@ -1301,6 +1309,90 @@ $( "#borrowed" ).append(my_outs);
 window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
+
+//case 14 - outstanding fees(list)
+function fees_outstanding(reqstring,thedate,code){
+//window.plugins.spinnerDialog.show(null,"...processing");
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": ""+reqstring+"",
+  "method": "GET",
+  "headers": {
+    "polarisdate": ""+thedate+"",
+    "authorization": ""+code+"",
+    "content-type": "application/json"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+var my_fees='';
+var fees_selection= ['TransactionDate', 'BranchName', 'TransactionTypeDescription', 'FeeDescription', 'TransactionAmount', 'OutstandingAmount','FormatID','FormatDescription','Title','Author', 'CheckOutDate', 'DueDate'];
+
+$( "#fees" ).empty();
+
+
+
+$.each(response.PatronAccountGetRows, function(key, value) {
+
+media=value.FormatID;
+
+switch(media){
+	case 35: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
+	case 40: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">'; break;
+	case 33: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; break;
+	default: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
+}
+
+	$.each(value, function(key2, value2) {
+
+				
+				if(value2!=''){
+				if(jQuery.inArray( key2, fees_selection )!== -1){
+				
+				switch(key2){
+				case "FeeDescription":
+				key2="Fee Description";
+				break;
+				
+				case "TransactionAmount":
+				key2="Transaction Amount";
+				break;
+				
+				case "OutstandingAmount":
+				key2="Outstanding Amount";
+				break;
+
+				case "CheckOutDate":
+				key2="Check Out Date";
+				var CODate= new Date( parseFloat(value2.substr(6 )));
+				value2=CODate.toDateString();
+				break;
+				
+				case "DueDate":
+				key2="Due Date";
+				var DDate= new Date( parseFloat(value2.substr(6 )));
+				value2=DDate.toDateString();
+				break;
+				}	
+					
+				if(key2=="Title"){
+				my_fees += "<strong>" + key2 + ": " + value2 + "</strong><br>";
+				}else{
+				my_fees += key2 + ": " + value2 + "<br>";
+				}
+								
+				}
+				}
+
+	});
+	
+my_fees +="</td></tr></table>";
+});
+$( "#borrowed" ).append(my_fees);
+});//end ajax 
+};//end fees function
 
 //case 11 - extend (encrypt) - take: out_extend id, p_bc, p_pin
 $(document).on('click', '.out_extend a', function () {
