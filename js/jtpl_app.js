@@ -1313,7 +1313,6 @@ window.plugins.spinnerDialog.hide();
 //case 14 - outstanding fees(list)
 function fees_outstanding(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
-
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -1328,11 +1327,9 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 var my_fees='';
-var fees_selection= ['TransactionDate','BranchName','TransactionTypeDescription','FeeDescription','TransactionAmount','OutstandingAmount','FormatID','FormatDescription','Title','Author','CheckOutDate','DueDate'];
+var fees_selection= ['BranchName','FeeDescription','TransactionAmount','OutstandingAmount','FormatDescription','Title','Author','CheckOutDate','DueDate'];
 
 $( "#fees" ).empty();
-
-
 
 $.each(response.PatronAccountGetRows, function(key, value) {
 
@@ -1346,8 +1343,7 @@ switch(media){
 }
 
 	$.each(value, function(key2, value2) {
-
-				
+			
 				if(value2!=''){
 				if(jQuery.inArray( key2, fees_selection )!== -1){
 				
@@ -1356,8 +1352,13 @@ switch(media){
 				key2="Fee Description";
 				break;
 				
+				case "FormatDescription":
+				key2="Media Type";
+				break;
+				
 				case "TransactionAmount":
 				key2="Transaction Amount";
+				value2='$'+value2+'';
 				break;
 				
 				case "OutstandingAmount":
@@ -1377,7 +1378,7 @@ switch(media){
 				break;
 				}	
 					
-				if(key2=="Title"){
+				if(key2=="Title" || key2=='Outstanding Amount'){
 				my_fees += "<strong>" + key2 + ": " + value2 + "</strong><br>";
 				}else{
 				my_fees += key2 + ": " + value2 + "<br>";
@@ -1385,9 +1386,7 @@ switch(media){
 								
 				}
 				}
-
 	});
-	
 my_fees +="</td></tr></table>";
 });
 $( "#fees" ).append(my_fees);
