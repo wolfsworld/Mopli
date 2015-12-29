@@ -1363,6 +1363,7 @@ switch(media){
 				
 				case "OutstandingAmount":
 				key2="Outstanding Amount";
+				value2='$'+value2+'';
 				break;
 
 				case "CheckOutDate":
