@@ -230,7 +230,6 @@ $('.hold_req a').button();
 });
 };
 
-
 $(document).ready(function(){
 						   
 //adjust for the 3.5"screen
@@ -403,16 +402,24 @@ framehistory2=framehistory2.slice(0,1);
 $.mobile.changePage("#pageone");
 });
 
-//toggle borrow_box and hold_box
-$('#borrowed_box').on('click', function () {
+//jalert
+	/*$.jAlert({
+    'title': 'It works!',
+    'content': 'YAY!',
+    'theme': 'green',
+    'btns': { 'text': 'close' }
+  });*/
+
+//alternate collapsibles
+$('#borrowed_box').on( "collapsibleexpand", function() {
 $('#hold_box').collapsible( "collapse" );
 $('#fees_box').collapsible( "collapse" );
 });
-$('#hold_box').on('click', function () {
+$('#hold_box').on( "collapsibleexpand", function() {
 $('#borrowed_box').collapsible( "collapse" );
 $('#fees_box').collapsible( "collapse" );
 });
-$('#fees_box').on('click', function () {
+$('#fees_box').on( "collapsibleexpand", function() {
 $('#borrowed_box').collapsible( "collapse" );
 $('#hold_box').collapsible( "collapse" );
 });
@@ -1399,7 +1406,6 @@ $( "#fees" ).append(my_fees);
 $( "#fees" ).append("No current fees due");
 }
 });//end ajax 
-								
 };//end fees function
 
 //case 11 - extend (encrypt) - take: out_extend id, p_bc, p_pin
