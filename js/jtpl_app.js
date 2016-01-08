@@ -1326,9 +1326,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-
-if(response){
-
+var fees_due=0;
 var my_fees='';
 var fees_selection= ['BranchName','FeeDescription','TransactionAmount','OutstandingAmount','FormatDescription','Title','Author','CheckOutDate','DueDate'];
 
@@ -1337,6 +1335,8 @@ $( "#fees" ).empty();
 $.each(response.PatronAccountGetRows, function(key, value) {
 
 media=value.FormatID;
+fees=value.OutstandingAmount;
+fees_due+=fees;
 
 switch(media){
 	case 35: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
@@ -1393,11 +1393,11 @@ switch(media){
 	});
 my_fees +="</td></tr></table>";
 });
+if(fees_due>0){
 $( "#fees" ).append(my_fees);
-								}
-								else{
-									$( "#fees" ).append("No open Fees");
-								}
+}else{
+$( "#fees" ).append("No current fees due");
+}
 });//end ajax 
 								
 };//end fees function
