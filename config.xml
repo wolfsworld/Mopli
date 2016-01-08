@@ -3,7 +3,7 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.example"
         versionCode = "11" 
-        version     = "1.1.0" >
+        version     = "1.1.1" >
 
     <name>JTPL Library App</name>
     <description>
