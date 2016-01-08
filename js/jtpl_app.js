@@ -1326,6 +1326,9 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
+
+if(response){
+
 var my_fees='';
 var fees_selection= ['BranchName','FeeDescription','TransactionAmount','OutstandingAmount','FormatDescription','Title','Author','CheckOutDate','DueDate'];
 
@@ -1391,7 +1394,12 @@ switch(media){
 my_fees +="</td></tr></table>";
 });
 $( "#fees" ).append(my_fees);
+								}
+								else{
+									$( "#fees" ).append("No open Fees");
+								}
 });//end ajax 
+								
 };//end fees function
 
 //case 11 - extend (encrypt) - take: out_extend id, p_bc, p_pin
