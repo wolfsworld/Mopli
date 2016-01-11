@@ -7,9 +7,9 @@
 
     <name>MOPLI JTPL</name>
     <description>
-        Library user App with Barcode scanning and Reading Light
+        Mobile Public Library Information App for Jefferson Township Public Library
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
+    <author email="info@mopli.net" href="http://mopli.net">
         PhoneGap Team
     </author>
     <access origin="http://jeffersonlibrary.net/INTERMED.php" />
