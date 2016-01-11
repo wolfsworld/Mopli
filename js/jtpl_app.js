@@ -403,7 +403,7 @@ $.mobile.changePage("#pageone");
 });
 
 //jalert
-	/*$.jAlert({
+/*$.jAlert({
     'title': 'It works!',
     'content': 'YAY!',
     'theme': 'green',
@@ -1368,12 +1368,14 @@ switch(media){
 				
 				case "TransactionAmount":
 				key2="Transaction Amount";
-				value2='$'+value2+'';
+				value2='$'+value2.toFixed(2);
+				//value2='$'+value2+'';
 				break;
 				
 				case "OutstandingAmount":
 				key2="Outstanding Amount";
-				value2='$'+value2+'';
+				value2='$'+value2.toFixed(2);
+				//value2='$'+value2+'';
 				break;
 
 				case "CheckOutDate":
