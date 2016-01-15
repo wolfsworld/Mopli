@@ -1277,6 +1277,9 @@ switch(media){
 					if(hold_ind==true){
 						value2="not renewable";
 					}
+					else{
+						value2=""+RENPOS+"";
+					}
 					if(RENPOS<=0){
 						value2="not renewable";
 						hold_ind=true;
