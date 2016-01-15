@@ -1204,6 +1204,7 @@ var thedate=(new Date()).toUTCString();
 p_method="GET";
 p_pwd ='';
 
+/*
 $.ajax({
         type       : "POST",
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
@@ -1252,7 +1253,7 @@ if(holds=='held'){hold_ind=true;}else{hold_ind=false;}
 });
 });
 };
-
+*/
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
