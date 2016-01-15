@@ -1275,10 +1275,10 @@ switch(media){
 				case "RenewalCount":
 				key2="Renewals Left";
 					if(hold_ind==true){
-						value2='not renewable';
+						value2="not renewable";
 					}
 					if(RENPOS<=0){
-						value2='not renewable';
+						value2="not renewable";
 						hold_ind=true;
 					}
 					else{
