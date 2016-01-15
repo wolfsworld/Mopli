@@ -1273,7 +1273,7 @@ switch(media){
 				
 				switch(key2){
 				case "RenewalCount":
-				key2="Renewal Count";
+				key2="Renewals Left";
 					if(hold_ind==true){
 						value2='not renewable';
 					}
