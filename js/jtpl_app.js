@@ -1193,7 +1193,9 @@ ISBN=value.ISBN;
 
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
+//alert(''+RENLIM+' minus '+RENCT+'');
 var RENLEFT=RENLIM-RENCT;
+//alert(RENLEFT);
 bib_id=value.BibID;
 bib_bc=value.Barcode;
 var hold_ind=false;
@@ -1204,7 +1206,7 @@ var thedate=(new Date()).toUTCString();
 p_method="GET";
 p_pwd ='';
 
-alert(bib_bc);
+//alert(bib_bc);
 /*
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $.ajax({
@@ -1271,7 +1273,9 @@ switch(media){
 				out_req_id=value2;
 				}
 				
-				if(value2!=''){
+				
+				
+				//if(value2!=''){
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
 				switch(key2){
@@ -1285,7 +1289,7 @@ switch(media){
 					//	hold_ind=true;
 					//}
 					//else{
-					//	value2=""+RENLEFT+"";
+						value2=""+RENLEFT+"";
 					//}
 				break;
 				case "DueDate":
@@ -1309,7 +1313,7 @@ switch(media){
 				}
 								
 				}
-				}
+				//}
 
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
