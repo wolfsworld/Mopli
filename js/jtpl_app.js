@@ -1206,7 +1206,7 @@ p_pwd ='';
 
 //alert(bib_bc);
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//CHECK IF COPY IS ON HOLD SOMEWHERE//////////////////////////////////////////////////////////////////////
 $.ajax({
         type       : "POST",
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
@@ -1270,10 +1270,7 @@ switch(media){
 				if(key2=="ItemID"){
 				out_req_id=value2;
 				}
-				
-				
-				
-				//if(value2!=''){
+
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
 				switch(key2){
@@ -1317,8 +1314,6 @@ switch(media){
 				}
 								
 				}
-				//}
-
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){

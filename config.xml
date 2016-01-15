@@ -74,9 +74,7 @@
 	<gap:splash gap:platform="ios" height="1334" src="res/screen/ios/Splash-750x1334.png" width="750" />
     <gap:splash gap:platform="ios" height="2208" src="res/screen/ios/Splash-2208x1242.png" width="1242" />
     <gap:splash gap:platform="ios" height="1242" src="res/screen/ios/Splash-1242x2208.png" width="2208" />
-	
 
-	
 	<gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 	<engine name="android" spec="^4.0.2" />
     <engine name="ios" spec="^3.8.0" />
