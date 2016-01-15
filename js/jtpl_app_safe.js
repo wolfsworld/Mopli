@@ -1197,7 +1197,7 @@ var RENPOS=RENLIM-RENCT;
 bib_id=value.BibID;
 var hold_ind=false;
 
-var reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"";
+var reqstring=""+dest+"/REST/public/v1/1033/100/13/bib/"+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
 p_method="GET";
@@ -1267,23 +1267,20 @@ switch(media){
 				if(key2=="ItemID"){
 				out_req_id=value2;
 				}
+				if(key2=="RenewalCount"){
+					if(hold_ind==true){value2='not renewable';}
+					if(RENPOS<=0){value2='not renewable';hold_ind=true;}
+					else{value2=""+value2+"";
+					RENLEFT=RENPOS;
+					}
+				}
 				
 				if(value2!=''){
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
 				switch(key2){
 				case "RenewalCount":
-				key2="Renewal Count";
-					if(hold_ind==true){
-						value2='not renewable';
-					}
-					if(RENPOS<=0){
-						value2='not renewable';
-						hold_ind=true;
-					}
-					else{
-						value2=""+RENPOS+"";
-					}
+				key2="Renewals Count";
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
