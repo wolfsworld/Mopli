@@ -1179,7 +1179,7 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 var my_outs='';
-var out_selection= ['FormatDescription', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
+var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
 $( "#borrowed" ).empty();
 
@@ -1193,9 +1193,7 @@ ISBN=value.ISBN;
 
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
-//alert(''+RENLIM+' minus '+RENCT+'');
 var RENLEFT=RENLIM-RENCT;
-//alert(RENLEFT);
 bib_id=value.BibID;
 bib_bc=value.Barcode;
 var hold_ind=false;
@@ -1207,7 +1205,7 @@ p_method="GET";
 p_pwd ='';
 
 //alert(bib_bc);
-/*
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $.ajax({
         type       : "POST",
@@ -1217,8 +1215,8 @@ $.ajax({
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
-		timeout:60000,
-		cache: false,
+		//timeout:60000,
+		//cache: false,
         success : function(response) {
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
@@ -1249,8 +1247,8 @@ $.ajax(settings).done(function (response) {
 $.each(response.BibHoldingsGetRows, function(key, value) {
 overdue=false;									 
 
-if(value.Barcode==''+bib_bc+''){
-var holds=value2;
+if(value.Barcode==bib_bc){
+var holds=value.CircStatus;
 if(holds=='held'){hold_ind=true;}else{hold_ind=false;}
 };
 
@@ -1258,7 +1256,7 @@ if(holds=='held'){hold_ind=true;}else{hold_ind=false;}
 });
 };
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-*/
+
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
@@ -1279,18 +1277,24 @@ switch(media){
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
 				switch(key2){
+				case "AssignedBranchName":
+				key2="Asigned Library";
+				break;					
+				case "FormatDescription":
+				key2="Media";
+				break;
 				case "RenewalCount":
 				key2="Renewals Left";
-					//if(hold_ind==true){
-					//	value2="not renewable";
-					//}
-					//if(RENLEFT<=0){
-					//	value2="not renewable";
-					//	hold_ind=true;
-					//}
-					//else{
+					if(hold_ind==true){
+						value2="not renewable";
+					}
+					if(RENLEFT<=0){
+						value2="not renewable";
+						hold_ind=true;
+					}
+					else{
 						value2=""+RENLEFT+"";
-					//}
+					}
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
