@@ -1193,11 +1193,12 @@ ISBN=value.ISBN;
 
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
-var RENPOS=RENLIM-RENCT;
+var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
+bib_bc=value.Barcode;
 var hold_ind=false;
 
-var reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"";
+var reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
 var thedate=(new Date()).toUTCString();
 
 p_method="GET";
@@ -1217,7 +1218,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//alert('ready to send to filter holds');
-			filter_holds(p_response.code,p_response.reqstring,p_response.thedate, bib_id);
+			filter_holds(p_response.code,p_response.reqstring,p_response.thedate, bib_bc);
         },
         error      : function() {
             console.error("error");
@@ -1225,7 +1226,7 @@ $.ajax({
         }
 });
 
-function filter_holds (code,reqstring,thedate,bibID){
+function filter_holds (code,reqstring,thedate,bib_bc){
 
 var settings = {
   "async": false,
@@ -1240,16 +1241,14 @@ var settings = {
 }
 $.ajax(settings).done(function (response) {
 
-$.each(response.BibGetRows, function(key, value) {
+$.each(response.BibHoldingsGetRows, function(key, value) {
 overdue=false;									 
-if(value.ElementID=='8'){
-$.each(value, function(key2, value2) {
-if(key2=='Value'){
+
+if(value.Barcode==''+bib_bc+''){
 var holds=value2;
-if(holds>0){hold_ind=true;}else{hold_ind=false;}
+if(holds=='held'){hold_ind=true;}else{hold_ind=false;}
 };
-});
-};
+
 });
 });
 };
@@ -1277,15 +1276,12 @@ switch(media){
 					if(hold_ind==true){
 						value2="not renewable";
 					}
-					else{
-						value2=""+RENPOS+"";
-					}
-					if(RENPOS<=0){
+					if(RENLEFT<=0){
 						value2="not renewable";
 						hold_ind=true;
 					}
 					else{
-						value2=""+RENPOS+"";
+						value2=""+RENLEFT+"";
 					}
 				break;
 				case "DueDate":
