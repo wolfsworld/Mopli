@@ -1277,16 +1277,16 @@ switch(media){
 				switch(key2){
 				case "RenewalCount":
 				key2="Renewals Left";
-					if(hold_ind==true){
-						value2="not renewable";
-					}
-					if(RENLEFT<=0){
-						value2="not renewable";
-						hold_ind=true;
-					}
-					else{
-						value2=""+RENLEFT+"";
-					}
+					//if(hold_ind==true){
+					//	value2="not renewable";
+					//}
+					//if(RENLEFT<=0){
+					//	value2="not renewable";
+					//	hold_ind=true;
+					//}
+					//else{
+					//	value2=""+RENLEFT+"";
+					//}
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
