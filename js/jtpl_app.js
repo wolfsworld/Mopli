@@ -1204,13 +1204,15 @@ var thedate=(new Date()).toUTCString();
 p_method="GET";
 p_pwd ='';
 
+alert(bib_bc);
 /*
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $.ajax({
         type       : "POST",
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
         async: false,
 		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
+        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
 		timeout:60000,
@@ -1253,6 +1255,7 @@ if(holds=='held'){hold_ind=true;}else{hold_ind=false;}
 });
 });
 };
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 */
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
