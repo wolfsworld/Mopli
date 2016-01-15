@@ -124,7 +124,7 @@ navigator.splashscreen.hide();
 
 <div data-role="fieldcontain">
 <!--onSubmit="document.location.href='index.html#login'; return false;"-->
-<form method="get" id="loginform" action="#">
+<form method="get" id="loginform" onSubmit="document.location.href='index.html#login'; return false;">
 	         <label for="libcard">Lib Card# or Lib ID:</label>
 	         <input type="text" name="libcard" id="libcard" value=""  data-clear-btn="true" placeholder="Your Library Card #..."/><br />
              <label for="libpin">PIN #:</label>
