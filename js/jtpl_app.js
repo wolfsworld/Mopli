@@ -18,6 +18,8 @@ var overdue=false;
 
 var net_status=true;
 
+
+
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -340,6 +342,36 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
+
+//set local storage with login information
+function set_login (tog,rem_libcard, rem_libpin){
+	var tog=tog;
+	if(tog==yes){
+		localStorage["rem_libcard"]=rem_libcard;
+		localStorage["rem_libpin"]=rem_libpin;
+	}
+	else{
+		localStorage.clear();
+	}
+}
+		
+//check local storage and prepopulate login information
+if (localStorage["rem_libcard"]){
+var rem_libcard=localStorage["rem_libcard"];
+		$("#remember").prop('checked', true);
+		$("#libcard").val(rem_libcard);
+}else{
+var rem_libcard='';
+}
+if (localStorage["rem_libpin"]){
+var rem_libpin=localStorage["rem_libpin"];
+		$("#remember").prop('checked', true);
+		$("#libpin").val(rem_libpin);
+}else{
+var rem_libpin='';
+}
+	
+		
 
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
@@ -878,6 +910,15 @@ $('#cn_holdreq').val(cont_num);
 //Login
 $('#loginsubmit').on ("click", function () {
 var hold;
+
+if($('#remember').val()){
+rem_libcard=$('#libcard').val();
+rem_libpin=$('#libpin').val();
+set_login(yes,rem_libcard, rem_libpin);
+}else{
+set_login(no,rem_libcard, rem_libpin);
+}
+
 if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';}
 p_barcode=$("#libcard").val();
 p_pin=$("#libpin").val();
