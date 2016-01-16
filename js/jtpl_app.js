@@ -921,7 +921,8 @@ $('#cn_holdreq').val(cont_num);
 $('#loginsubmit').on ("click", function () {
 var hold;
 
-if($('#remember').checked){
+var rem_cred=$('#remember').is(':checked'); 
+if(rem_crd==true){
 	alert("checked");
 rem_libcard=$('#libcard').val();
 rem_libpin=$('#libpin').val();
