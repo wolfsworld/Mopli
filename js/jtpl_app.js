@@ -918,13 +918,13 @@ $('#cn_holdreq').val(cont_num);
 $('#loginsubmit').on ("click", function () {
 var hold;
 
-if($('#remember').val()){
+/*if($('#remember').val()){
 rem_libcard=$('#libcard').val();
 rem_libpin=$('#libpin').val();
 set_login(yes,rem_libcard, rem_libpin);
 }else{
 set_login(no,rem_libcard, rem_libpin);
-}
+}*/
 
 if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';}
 p_barcode=$("#libcard").val();
