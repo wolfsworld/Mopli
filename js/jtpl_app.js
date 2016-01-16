@@ -20,27 +20,30 @@ var net_status=true;
 
 var storage = window.localStorage;
 
+var rem_libcard;
+var rem_libpin;
 
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
 //check local storage and prepopulate login information
-var rem_libcard = window.localStorage.getItem("rem_libcard");
-var rem_libpin = window.localStorage.getItem("rem_libpin");
+rem_libcard = window.localStorage.getItem("rem_libcard");
+rem_libpin = window.localStorage.getItem("rem_libpin");
+alert(rem_libcard);
 
 if (rem_libcard){
 		$("#remember").prop('checked', true);
 		$("#libcard").val(rem_libcard);
 }else{
-var rem_libcard='';
+rem_libcard='';
 }
 
 if (rem_libpin){
 		$("#remember").prop('checked', true);
 		$("#libpin").val(rem_libpin);
 }else{
-var rem_libpin='';
+rem_libpin='';
 }
 
 //$('#the_latest_frame').css({"width":"100px"});	
@@ -918,13 +921,14 @@ $('#cn_holdreq').val(cont_num);
 $('#loginsubmit').on ("click", function () {
 var hold;
 
-/*if($('#remember').val()){
+if($('#remember').checked){
+	alert("checked");
 rem_libcard=$('#libcard').val();
 rem_libpin=$('#libpin').val();
 set_login(yes,rem_libcard, rem_libpin);
 }else{
 set_login(no,rem_libcard, rem_libpin);
-}*/
+}
 
 if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';}
 p_barcode=$("#libcard").val();
