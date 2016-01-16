@@ -18,12 +18,31 @@ var overdue=false;
 
 var net_status=true;
 
+var storage = window.localStorage;
 
 
 //device detection and homepage size
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-	
+
+//check local storage and prepopulate login information
+var rem_libcard = window.localStorage.getItem("rem_libcard");
+var rem_libpin = window.localStorage.getItem("rem_libpin");
+
+if (rem_libcard){
+		$("#remember").prop('checked', true);
+		$("#libcard").val(rem_libcard);
+}else{
+var rem_libcard='';
+}
+
+if (rem_libpin){
+		$("#remember").prop('checked', true);
+		$("#libpin").val(rem_libpin);
+}else{
+var rem_libpin='';
+}
+
 //$('#the_latest_frame').css({"width":"100px"});	
 	
 //check network connection	
@@ -233,7 +252,25 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
-						   
+
+// complex example
+//var records = [{ name: 'Pinky', age: 1 }, { name: 'Brain', age: 2 }];  
+//localStorage.setItem('records', JSON.stringify(records));  
+//var output = JSON.parse(localStorage.getItem('records'));  
+//console.table(output); 
+
+//set local storage with login information
+function set_login (tog,rem_libcard,rem_libpin){
+	var tog=tog;
+	if(tog=='yes'){
+		window.localStorage.setItem("rem_libcard",""+rem_libcard+"");  
+		window.localStorage.setItem("rem_libpin",""+rem_libpin+"");  
+	}
+	else{
+		window.localStorage.clear();
+	}
+}
+
 //adjust for the 3.5"screen
 
 //make keyboard disappear on "go"
@@ -342,36 +379,6 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-
-//set local storage with login information
-function set_login (tog,rem_libcard, rem_libpin){
-	var tog=tog;
-	if(tog=='yes'){
-		localStorage["rem_libcard"]=rem_libcard;
-		localStorage["rem_libpin"]=rem_libpin;
-	}
-	else{
-		localStorage.clear();
-	}
-}
-		
-//check local storage and prepopulate login information
-if (localStorage["rem_libcard"]){
-var rem_libcard=localStorage["rem_libcard"];
-		$("#remember").prop('checked', true);
-		$("#libcard").val(rem_libcard);
-}else{
-var rem_libcard='';
-}
-if (localStorage["rem_libpin"]){
-var rem_libpin=localStorage["rem_libpin"];
-		$("#remember").prop('checked', true);
-		$("#libpin").val(rem_libpin);
-}else{
-var rem_libpin='';
-}
-	
-		
 
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
