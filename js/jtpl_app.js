@@ -346,7 +346,7 @@ $(document).ready(function(){
 //set local storage with login information
 function set_login (tog,rem_libcard, rem_libpin){
 	var tog=tog;
-	if(tog==yes){
+	if(tog=='yes'){
 		localStorage["rem_libcard"]=rem_libcard;
 		localStorage["rem_libpin"]=rem_libpin;
 	}
