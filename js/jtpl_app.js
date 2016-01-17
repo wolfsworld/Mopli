@@ -30,7 +30,6 @@ function onDeviceReady() {
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
-alert(rem_libcard);
 
 if (rem_libcard){
 		$("#remember").prop('checked', true);
@@ -45,8 +44,6 @@ if (rem_libpin){
 }else{
 rem_libpin='';
 }
-
-//$('#the_latest_frame').css({"width":"100px"});	
 	
 //check network connection	
 function checkConnection() {
@@ -255,26 +252,6 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
-
-// complex example
-//var records = [{ name: 'Pinky', age: 1 }, { name: 'Brain', age: 2 }];  
-//localStorage.setItem('records', JSON.stringify(records));  
-//var output = JSON.parse(localStorage.getItem('records'));  
-//console.table(output); 
-
-//set local storage with login information
-function set_login (tog,rem_libcard,rem_libpin){
-	var tog=tog;
-	if(tog=='yes'){
-		window.localStorage.setItem("rem_libcard",""+rem_libcard+"");  
-		window.localStorage.setItem("rem_libpin",""+rem_libpin+"");  
-	}
-	else{
-		window.localStorage.clear();
-	}
-}
-
-//adjust for the 3.5"screen
 
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
@@ -920,14 +897,13 @@ $('#cn_holdreq').val(cont_num);
 //Login
 $('#loginsubmit').on ("click", function () {
 var hold;
-
+//store login credentials if checkbox is checked
 var rem_cred=$('#remember').is(':checked'); 
   if(rem_cred==true){
   rem_libcard=$('#libcard').val();
   rem_libpin=$('#libpin').val();
   window.localStorage.setItem("rem_libcard",""+rem_libcard+"");  
   window.localStorage.setItem("rem_libpin",""+rem_libpin+"");
-  alert("checked and all");
   }
   else{
   window.localStorage.clear();
