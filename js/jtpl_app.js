@@ -429,7 +429,7 @@ $.mobile.changePage("#pageone");
     'btns': { 'text': 'close' }
   });*/
 
-//alternate collapsibles
+//alternate selection collapsibles
 $('#borrowed_box').on( "collapsibleexpand", function() {
 $('#hold_box').collapsible( "collapse" );
 $('#fees_box').collapsible( "collapse" );
@@ -1670,6 +1670,10 @@ $(document).on('click', '#nyt_nf_btn', function () {
 var type="nonfiction";
 nyt_bestseller(type);											
 });
+$(document).on('click', '#nyt_yah_btn', function () {
+var type="young_adult";
+nyt_bestseller(type);											
+});
 //source Bestseller data
 function nyt_bestseller(type){
 start_spin();
@@ -1679,6 +1683,9 @@ var the_url="http://www.wolfsworld1.com/NYT_HCF.php";
 }
 if(type=='nonfiction'){
 var the_url="http://www.wolfsworld1.com/NYT_HCNF.php";
+}
+if(type=='young_adult'){
+var the_url="http://www.wolfsworld1.com/NYT_YAH.php";
 }
 
 $.ajax({
