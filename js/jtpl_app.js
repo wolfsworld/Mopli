@@ -1900,7 +1900,7 @@ window.plugins.flashlight.available(function(isAvailable) {
     setTimeout(function() {
      window.plugins.flashlight.switchOff(); // success/error callbacks may be passed
    $('.ui-grid-solo .flash .ui-btn').css({'background-color': '#FC3', 'background': '-webkit-radial-gradient(white 0%, yellow 0%)','background': '-o-radial-gradient(white 0%, yellow 0%)','background':' -moz-radial-gradient(white 0%, yellow 0%)',' background': 'radial-gradient(white 0%, yellow 0%)'});
-	}, 5000);
+	}, 8000);
 	//$('.ui-grid-solo .flash .ui-btn').css({'background-color': '#FFF7B7'});
   } 
  else {
