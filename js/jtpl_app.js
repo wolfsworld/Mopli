@@ -922,14 +922,16 @@ $('#loginsubmit').on ("click", function () {
 var hold;
 
 var rem_cred=$('#remember').is(':checked'); 
-if(rem_crd==true){
-alert("checked");	
-rem_libcard=$('#libcard').val();
-rem_libpin=$('#libpin').val();
-set_login(yes,rem_libcard, rem_libpin);
-}else{
-set_login(no,rem_libcard, rem_libpin);
-}
+  if(rem_cred==true){
+  rem_libcard=$('#libcard').val();
+  rem_libpin=$('#libpin').val();
+  window.localStorage.setItem("rem_libcard",""+rem_libcard+"");  
+  window.localStorage.setItem("rem_libpin",""+rem_libpin+"");
+  alert("checked and all");
+  }
+  else{
+  window.localStorage.clear();
+  }
 
 if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';}
 p_barcode=$("#libcard").val();
