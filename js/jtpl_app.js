@@ -923,7 +923,7 @@ var hold;
 
 var rem_cred=$('#remember').is(':checked'); 
 if(rem_crd==true){
-	alert("checked");
+alert("checked");	
 rem_libcard=$('#libcard').val();
 rem_libpin=$('#libpin').val();
 set_login(yes,rem_libcard, rem_libpin);
