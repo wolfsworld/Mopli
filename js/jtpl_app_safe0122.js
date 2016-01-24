@@ -1229,73 +1229,15 @@ bib_id=value.BibID;
 bib_bc=value.Barcode;
 var hold_ind=false;
 
-var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_id+"";
-var thedate=(new Date()).toUTCString();
-p_method="GET";
-$.ajax({
-        type       : "GET",
-		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
-        async: false,
-		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
-		error: function(jqXHR,text_status,strError){
-			alert("no connection");},
-		//timeout:60000,
-		//cache: false,
-        success : function(response) {
-			var code=response;
-			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//alert('ready to send to filter holds');
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate, bib_bc);
-        },
-        error      : function() {
-            console.error("error");
-            alert('Could not process.You might have no network connection.');                  
-        }
-});
-//see if #holds>#itwems in
-function filter_holds1 (code,reqstring,thedate,bib_bc){
-
-var settings = {
-  "async": false,
-  "crossDomain": true,
-  "url": ""+reqstring+"",
-  "method": "GET",
-  "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
-  }
-}
-$.ajax(settings).done(function (response) {
-
-$.each(response.BibSearchRows, function(key, value) {
-overdue=false;									 
-
-var sys_items_in=value.SystemItemsIn;
-var cur_hold_req=value.CurrentHoldRequests;
-
-alert('sys item in is:'+sys_items_in+'');
-alert('current holds is: '+cur_hold_req+'');
-
-if(cur_hold_req>=sys_items_in){
-hold_ind=true;}//else{hold_ind=false;}
-	
-});
-});
-};
-
-//CHECK if there is a hold on this particular item
-//
-
-
-//CHECK IF COPY IS ON HOLD SOMEWHERE//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
 var thedate=(new Date()).toUTCString();
 
 p_method="GET";
 p_pwd ='';
-///////////////////////////////////////////////////////////////////////
+
+//alert(bib_bc);
+
+//CHECK IF COPY IS ON HOLD SOMEWHERE//////////////////////////////////////////////////////////////////////
 $.ajax({
         type       : "POST",
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
@@ -1338,7 +1280,7 @@ overdue=false;
 
 if(value.Barcode==bib_bc){
 var holds=value.CircStatus;
-if(holds=='held'){hold_ind=true;}//else{hold_ind=false;}
+if(holds=='held'){hold_ind=true;}else{hold_ind=false;}
 };
 
 });
@@ -1541,27 +1483,6 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-								
-alert('line1545');
-//if error show error code, else
-$.each(response.ItemRenewResult, function(key, value) {
-
-ext_err_code=value.PAPIErrorType;
-ext_err_desc=value.ErrorDesc;
-if(key=='BlockRows'){
-	var block=true;
-}
-alert('block is'+block+'');
-alert(ext_err_code);
-alert(ext_err_desc);
-});
-
-if(block==true){
-	alert('Sorry, this item can not renew. '+ext_err_desc+'');
-}else{
-	alert('all good');
-}
-								
 pwd=$('#libpin').val();
   p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
 });
