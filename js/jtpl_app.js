@@ -1230,7 +1230,8 @@ if(RENLEFT<=0){
 hold_ind=true;
 populate_outs(key,value,media,ISBN);
 }else{
-holds_balance(bib_id, bib_bc,key,value,media,ISBN);
+	populate_outs(key,value,media,ISBN);
+//holds_balance(bib_id, bib_bc,key,value,media,ISBN);
 }
 
 });//each loop
@@ -1239,7 +1240,7 @@ holds_balance(bib_id, bib_bc,key,value,media,ISBN);
 
 /////////////////////////////////////////////////////////////////////////////////////
 //check if number of holds exceeds number of system available copies
-function holds_balance(bib_id, bib_bc, init_key, init_value,media,ISBN){
+/*function holds_balance(bib_id, bib_bc, init_key, init_value,media,ISBN){
 	
 var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
@@ -1309,8 +1310,8 @@ hold_indiv(bib_bc,init_key,init_value,media,ISBN);
 //CHECK IF COPY IS ON HOLD SOMEWHERE///////////////////////////////////////////////////////////
 function hold_indiv(bib_bc,init_key,init_value,media,ISBN){
 	
-var reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
-var thedate=(new Date()).toUTCString();
+reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
+thedate=(new Date()).toUTCString();
 
 p_method="GET";
 p_pwd ='';
@@ -1370,6 +1371,7 @@ populate_outs(init_key,init_value,media,ISBN);
 });//ajax
 };//filter_holds2
 };//hold_indiv
+*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function populate_outs(key,value,media,ISBN){
