@@ -1269,11 +1269,12 @@ var settings = {
 }
 $.ajax(settings).done(function (response) {
 
-$.each(response.BibSearchRows, function(key, value) {
+
+//$.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
 
-var sys_items_in=value.SystemItemsIn;
-var cur_hold_req=value.CurrentHoldRequests;
+var sys_items_in=response.SystemItemsIn;
+var cur_hold_req=response.CurrentHoldRequests;
 
 alert('sys item in is:'+sys_items_in+'');
 alert('current holds is: '+cur_hold_req+'');
@@ -1281,7 +1282,7 @@ alert('current holds is: '+cur_hold_req+'');
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;}//else{hold_ind=false;}
 	
-});
+//});
 });
 };
 
