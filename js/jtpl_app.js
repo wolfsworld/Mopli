@@ -1229,7 +1229,8 @@ var bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 }
-
+//////////////////////////////////////////////////////////////////
+else{
 
 //populate_outs(key,value,media,ISBN);
 //}else{
@@ -1243,7 +1244,7 @@ hold_ind=true;
 
 /////////////////////////////////////////////////////////////////////////////////////
 //check if number of holds exceeds number of system available copies
-/*function holds_balance(bib_id, bib_bc, init_key, init_value,media,ISBN){
+//function holds_balance(bib_id, bib_bc, init_key, init_value,media,ISBN){
 	
 var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
@@ -1257,13 +1258,11 @@ $.ajax({
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
-		//timeout:60000,
-		//cache: false,
         success : function(response) {
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//alert('ready to send to filter holds');
-			filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
+			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
+			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_bc);
         },
         error      : function() {
             console.error("error");
@@ -1271,7 +1270,7 @@ $.ajax({
         }
 });
 //see if #holds>#items in
-function filter_holds (code,reqstring,thedate,bib_bc,init_key,init_value,media,ISBN){
+function filter_holds1 (code,reqstring,thedate,bib_bc){
 
 var settings = {
   "async": false,
@@ -1297,21 +1296,22 @@ alert(cur_hold_req);
 
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
-populate_outs(init_key,init_value,media,ISBN);
-}
-else{
-hold_indiv(bib_bc,init_key,init_value,media,ISBN);
-}
+}else{hold_ind=false;}
+//populate_outs(init_key,init_value,media,ISBN);
+//}
+//else{
+//hold_indiv(bib_bc,init_key,init_value,media,ISBN);
+//}
 	
 });//each loop
 });//ajax
-};//filter_holds
-};//holds_balance
+};//filter_holds1
+//};//holds_balance
 /////////////////////////////////////////////////////////////////////////////////////////////
-
+						  
 
 //CHECK IF COPY IS ON HOLD SOMEWHERE///////////////////////////////////////////////////////////
-function hold_indiv(bib_bc,init_key,init_value,media,ISBN){
+//function hold_indiv(bib_bc,init_key,init_value,media,ISBN){
 	
 reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
 thedate=(new Date()).toUTCString();
@@ -1333,7 +1333,8 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//alert('ready to send to filter holds');
-			filter_holds2(p_response.code,p_response.reqstring,p_response.thedate, bib_bc,init_key,init_value,media,ISBN);
+			//filter_holds2(p_response.code,p_response.reqstring,p_response.thedate, bib_bc,init_key,init_value,media,ISBN);
+			filter_holds2(p_response.code,p_response.reqstring,p_response.thedate, bib_bc);
         },
         error      : function() {
             console.error("error");
@@ -1341,7 +1342,7 @@ $.ajax({
         }
 });
 
-function filter_holds2 (code,reqstring,thedate,bib_bc,init_key,init_value,media,ISBN){
+function filter_holds2 (code,reqstring,thedate,bib_bc){
 
 var settings = {
   "async": false,
@@ -1363,18 +1364,19 @@ if(value.Barcode==bib_bc){
 var holds=value.CircStatus;
 if(holds=='held'){
 hold_ind=true;
-populate_outs(init_key,init_value,media,ISBN);
+//populate_outs(init_key,init_value,media,ISBN);
 }
 else{
-populate_outs(init_key,init_value,media,ISBN);
+//populate_outs(init_key,init_value,media,ISBN);
+hold_ind=false;
 }
 };
 
 });//each loop
 });//ajax
 };//filter_holds2
-};//hold_indiv
-*/
+};//end of else
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //function populate_outs(key,value,media,ISBN){
@@ -1443,16 +1445,10 @@ my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_ext
 }
 			
 my_outs +="</td></tr></table>";
-//}//end screen out cancelled
-//};
 });//each loop
-
 $( "#borrowed" ).append(my_outs);
 });//ajax
 window.plugins.spinnerDialog.hide();
-//});//end ajax 
-//};//end items_out_all function
-//};//populate_outs
 };//items_out_all
 
 
