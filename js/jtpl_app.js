@@ -1238,7 +1238,7 @@ hold_ind=true;
 //}
 
 //});//each loop
-});//ajax
+//});//ajax
 
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -1447,6 +1447,7 @@ my_outs +="</td></tr></table>";
 //};
 $( "#borrowed" ).append(my_outs);
 });//each loop
+});//ajax
 window.plugins.spinnerDialog.hide();
 //});//end ajax 
 //};//end items_out_all function
