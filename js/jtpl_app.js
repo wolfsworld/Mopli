@@ -1228,15 +1228,18 @@ var bib_bc=value.Barcode;
 
 if(RENLEFT<=0){
 hold_ind=true;
-populate_outs(key,value,media,ISBN);
-}else{
-	populate_outs(key,value,media,ISBN);
-//holds_balance(bib_id, bib_bc,key,value,media,ISBN);
 }
 
-});//each loop
+
+//populate_outs(key,value,media,ISBN);
+//}else{
+//populate_outs(key,value,media,ISBN);
+//holds_balance(bib_id, bib_bc,key,value,media,ISBN);
+//}
+
+//});//each loop
 });//ajax
-};//items_out
+
 
 /////////////////////////////////////////////////////////////////////////////////////
 //check if number of holds exceeds number of system available copies
@@ -1374,11 +1377,11 @@ populate_outs(init_key,init_value,media,ISBN);
 */
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function populate_outs(key,value,media,ISBN){
+//function populate_outs(key,value,media,ISBN){
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
-	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
-	case 33: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; hold_ind=true; break;
+	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">'; break;
+	case 33: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; break;
 	default: if(ISBN==''){
 		my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
 	} else{
@@ -1443,10 +1446,12 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 //};
 $( "#borrowed" ).append(my_outs);
+});//each loop
 window.plugins.spinnerDialog.hide();
 //});//end ajax 
 //};//end items_out_all function
-};//populate_outs
+//};//populate_outs
+};//items_out_all
 
 
 //case 14 - outstanding fees(list)
