@@ -1550,6 +1550,8 @@ ext_err_code=value.PAPIErrorType;
 ext_err_desc=value.ErrorDesc;
 if(key=='BlockRows'){
 	var block=true;
+}else{
+	var block=false;
 }
 alert('block is'+block+'');
 alert(ext_err_code);
