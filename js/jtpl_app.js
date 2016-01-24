@@ -1097,9 +1097,9 @@ alert('your hold cancel request failed');
 //case 8 - prep_getholds and -> 8 getholds, 9 items out all, 14 fees due
 function prep_getholds(pat_barcode){
 var pwd=$('#libpin').val();
-p_validate(8,'',''+pwd+'','',''+pat_barcode+'','GET','','');
-p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
-p_validate(14,'',''+pwd+'','',''+pat_barcode+'','GET','','');
+p_validate(8,'',''+pwd+'','',''+pat_barcode+'','GET','','');//getholds (list)
+p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');//items_out_all
+p_validate(14,'',''+pwd+'','',''+pat_barcode+'','GET','','');//fees_outstanding
 };
 //case 8 getholds (list)
 function getholds(reqstring,thedate,code){	
@@ -1270,19 +1270,19 @@ var settings = {
 $.ajax(settings).done(function (response) {
 
 
-//$.each(response.BibSearchRows, function(key, value) {
+$.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
 
-var sys_items_in=response.SystemItemsIn;
-var cur_hold_req=response.CurrentHoldRequests;
+//var sys_items_in=response.SystemItemsIn;
+//var cur_hold_req=response.CurrentHoldRequests;
 
-alert('sys item in is:'+sys_items_in+'');
-alert('current holds is: '+cur_hold_req+'');
+alert('key:'+key+'');
+alert('value:'+value+'');
 
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;}//else{hold_ind=false;}
 	
-//});
+});
 });
 };
 
