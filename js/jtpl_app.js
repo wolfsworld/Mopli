@@ -1443,11 +1443,12 @@ my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_ext
 }
 			
 my_outs +="</td></tr></table>";
+});//each loop
+});//ajax
 //}//end screen out cancelled
 //};
 $( "#borrowed" ).append(my_outs);
-});//each loop
-});//ajax
+
 window.plugins.spinnerDialog.hide();
 //});//end ajax 
 //};//end items_out_all function
