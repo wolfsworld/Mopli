@@ -1213,7 +1213,7 @@ var my_outs='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
 $( "#borrowed" ).empty();
-});//ajax
+
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 
 var hold_ind=false;
@@ -1443,12 +1443,12 @@ my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_ext
 }
 			
 my_outs +="</td></tr></table>";
-});//each loop
-
 //}//end screen out cancelled
 //};
-$( "#borrowed" ).append(my_outs);
+});//each loop
 
+$( "#borrowed" ).append(my_outs);
+});//ajax
 window.plugins.spinnerDialog.hide();
 //});//end ajax 
 //};//end items_out_all function
