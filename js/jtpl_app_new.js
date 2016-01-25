@@ -1257,7 +1257,7 @@ if(holds=='held'){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 function hold_all_sys(bib_id, bib_bc){
-	alert(bib_id);
+	//alert(bib_id);
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
@@ -1285,8 +1285,6 @@ $.ajax({
 });
 //see if #holds>#items in
 function filter_holds1 (code,reqstring,thedate,bib_bc){
-alert('filter hold1 starting');
-
 
 var settings = {
   "async": false,
@@ -1307,16 +1305,13 @@ overdue=false;
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
-//alert('hello world');
-//alert(sys_items_in);
-//alert(cur_hold_req);
 
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
 }else{
 hold_ind=false;
 }
-
+alert(hold_ind);
 return hold_ind;
 	
 });//each loop
