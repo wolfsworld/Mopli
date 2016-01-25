@@ -1194,7 +1194,10 @@ $( "#loginresponse" ).append(my_holds);
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-window.plugins.spinnerDialog.show(null,"...processing");
+//window.plugins.spinnerDialog.show(null,"...processing");
+window.plugins.spinnerDialog.show();
+
+alert('items out strating');
 
 var settings = {
   "async": true,
@@ -1271,6 +1274,7 @@ $.ajax({
 });
 //see if #holds>#items in
 function filter_holds1 (code,reqstring,thedate,bib_bc){
+alert('filter hold1 starting');
 
 settings = {
   "async": false,
