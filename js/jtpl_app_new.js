@@ -1311,12 +1311,12 @@ hold_ind=true;
 }else{
 hold_ind=false;
 }
-alert(hold_ind);
-return hold_ind;
 	
 });//each loop
 });//ajax
 };//filter_holds1
+alert(hold_ind);
+return hold_ind;
 };
 
 
