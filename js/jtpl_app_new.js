@@ -1417,7 +1417,7 @@ switch(media){
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
 				
-				//my_outs += "System Items in: "+sys_items_in+"<br>";
+				my_outs += "Hold ind is: "+hold_ind+"<br>";
 				//my_outs += "System Items on Hold: "+cur_hold_req+"<br>";
 				
 				}
