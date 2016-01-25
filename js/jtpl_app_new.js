@@ -1253,6 +1253,7 @@ if(holds=='held'){
 });
 });
 };
+};
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 function hold_all_sys(bib_id, bib_bc){
@@ -1262,6 +1263,7 @@ thedate_b=(new Date()).toUTCString();
 
 p_method="GET";
 p_pwd ='';
+
 $.ajax({
         type       : "POST",
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
@@ -1314,18 +1316,18 @@ hold_ind=true;
 }else{
 hold_ind=false;
 }
+
 return hold_ind;
 	
 });//each loop
 });//ajax
 };//filter_holds1
-}
-}
+};
 
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-window.plugins.spinnerDialog.show(null,"...processing");
+//window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
   "async": true,
@@ -1440,7 +1442,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-window.plugins.spinnerDialog.hide();
+//window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
