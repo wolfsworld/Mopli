@@ -23,7 +23,7 @@ var storage = window.localStorage;
 var rem_libcard;
 var rem_libpin;
 
-//device detection and homepage size
+//device ready event
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
@@ -1192,7 +1192,7 @@ $( "#loginresponse" ).append(my_holds);
 };//end getholds function
 
 //CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE//////////////////////////////////////////////////////////////////////
-function hold_indiv_check(bib_id, bib_bc){
+/*function hold_indiv_check(bib_id, bib_bc){
 reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
 thedate=(new Date()).toUTCString();
 
@@ -1253,11 +1253,11 @@ if(holds=='held'){
 });
 });
 };
-};
+};*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 function hold_all_sys(bib_id, bib_bc){
-	//alert(bib_id);
+
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
@@ -1353,7 +1353,6 @@ var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
 
-
 if(RENLEFT<=0){
 hold_ind=true;
 } else{
@@ -1386,16 +1385,10 @@ switch(media){
 				break;
 				case "RenewalCount":
 				key2="Renewals Left";
-					if(hold_ind==true){
+					if(RENLEFT<=0 || hold_ind==true ){
 						value2="not renewable";
-					}
-					if(RENLEFT<=0){
-						value2="not renewable";
-						//hold_ind=true;
-					}
-					else{
-						value2=""+RENLEFT+"";
-					}
+					}else{
+						value2=""+RENLEFT+"";}
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
@@ -1416,17 +1409,14 @@ switch(media){
 				}else{
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
-				
-				my_outs += "Hold ind is: "+hold_ind+"<br>";
-				//my_outs += "System Items on Hold: "+cur_hold_req+"<br>";
-				
+				//my_outs += "Hold ind is: "+hold_ind+"<br>";
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
 }
-			
+my_outs +="<br><br>";			
 my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
