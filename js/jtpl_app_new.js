@@ -1258,9 +1258,8 @@ if(holds=='held'){
 //CHECK if total of holds exceeds total of currenlty available copies
 function hold_all_sys(bib_id, bib_bc){
 	alert(bib_id);
-reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
-
-thedate=(new Date()).toUTCString();
+var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+var thedate=(new Date()).toUTCString();
 
 p_method="GET";
 p_pwd ='';
@@ -1274,7 +1273,7 @@ $.ajax({
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
         success : function(response) {
-			code=response;
+			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
 			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_bc);
@@ -1289,7 +1288,7 @@ function filter_holds1 (code,reqstring,thedate,bib_bc){
 alert('filter hold1 starting');
 
 
-settings = {
+var settings = {
   "async": false,
   "crossDomain": true,
   "url": ""+reqstring+"",
@@ -1309,8 +1308,8 @@ var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
 //alert('hello world');
-alert(sys_items_in);
-alert(cur_hold_req);
+//alert(sys_items_in);
+//alert(cur_hold_req);
 
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
