@@ -1338,9 +1338,9 @@ overdue=false;
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
-alert('hello world');
-alert(sys_items_in);
-alert(cur_hold_req);
+//alert('hello world');
+//alert(sys_items_in);
+//alert(cur_hold_req);
 
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
@@ -1407,7 +1407,10 @@ switch(media){
 				}else{
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
-								
+				
+				my_outs += "System Items in: "+sys_items_in+"<br>";
+				my_outs += "System Items on Hold: "+cur_hold_req+"<br>";
+				
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
