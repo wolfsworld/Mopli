@@ -1238,7 +1238,8 @@ $.ajax(settings).done(function (response1) {
 
 $.each(response1.BibHoldingsGetRows, function(key, value) {
 overdue=false;									 
-
+alert(value.Barcode);
+alert(value.CircStatus)
 if(value.Barcode==bib_bc){
 var holds=value.CircStatus;
 if(holds=='held'){
