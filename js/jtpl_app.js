@@ -1230,7 +1230,7 @@ if(RENLEFT<=0){
 hold_ind=true;
 }
 //////////////////////////////////////////////////////////////////
-else{
+//else{
 
 //populate_outs(key,value,media,ISBN);
 //}else{
@@ -1246,8 +1246,8 @@ else{
 //check if number of holds exceeds number of system available copies
 //function holds_balance(bib_id, bib_bc, init_key, init_value,media,ISBN){
 	
-var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_id+"";
-var thedate=(new Date()).toUTCString();
+reqstring_b=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_id+"";
+thedate_b=(new Date()).toUTCString();
 
 p_method="GET";
 $.ajax({
@@ -1259,7 +1259,7 @@ $.ajax({
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
         success : function(response) {
-			var code=response;
+			code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
 			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_bc);
@@ -1272,7 +1272,7 @@ $.ajax({
 //see if #holds>#items in
 function filter_holds1 (code,reqstring,thedate,bib_bc){
 
-var settings = {
+settings = {
   "async": false,
   "crossDomain": true,
   "url": ""+reqstring+"",
@@ -1330,7 +1330,7 @@ $.ajax({
 		//timeout:60000,
 		//cache: false,
         success : function(response) {
-			var code=response;
+			code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//alert('ready to send to filter holds');
 			//filter_holds2(p_response.code,p_response.reqstring,p_response.thedate, bib_bc,init_key,init_value,media,ISBN);
@@ -1344,7 +1344,7 @@ $.ajax({
 
 function filter_holds2 (code,reqstring,thedate,bib_bc){
 
-var settings = {
+settings = {
   "async": false,
   "crossDomain": true,
   "url": ""+reqstring+"",
@@ -1375,7 +1375,8 @@ hold_ind=false;
 });//each loop
 });//ajax
 };//filter_holds2
-};//end of else
+
+//};//end of else
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
