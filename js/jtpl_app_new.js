@@ -1243,8 +1243,10 @@ if(value.Barcode==bib_bc){
 var holds=value.CircStatus;
 if(holds=='held'){
 	hold_ind=true;
-	return hold_ind;
+	}else{
+	hold_ind=false;
 	}
+	return hold_ind;
 };
 
 });
@@ -1292,9 +1294,9 @@ settings = {
     "content-type": "application/json"
   }
 }
-$.ajax(settings).done(function (response2) {
+$.ajax(settings).done(function (response) {
 
-$.each(response2.BibSearchRows, function(key, value) {
+$.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
 
 var sys_items_in=value.SystemItemsIn;
@@ -1306,8 +1308,10 @@ alert(cur_hold_req);
 
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
-return hold_ind;
+}else{
+hold_ind=false;
 }
+return hold_ind;
 	
 });//each loop
 });//ajax
@@ -1355,10 +1359,10 @@ bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 } else{
-//hold_ind=hold_all_sys(bib_id,bib_bc);
+hold_ind=hold_all_sys(bib_id,bib_bc);
 }
 if(hold_ind==false){
-//hold_ind=hold_indiv_check(bib_id,bib_bc);
+hold_ind=hold_indiv_check(bib_id,bib_bc);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
