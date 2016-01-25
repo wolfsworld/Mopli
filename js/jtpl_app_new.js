@@ -1305,7 +1305,6 @@ overdue=false;
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
-
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
 }else{
@@ -1315,14 +1314,13 @@ hold_ind=false;
 });//each loop
 });//ajax
 };//filter_holds1
-alert(hold_ind);
 return hold_ind;
 };
 
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-//window.plugins.spinnerDialog.show(null,"...processing");
+window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
   "async": true,
@@ -1361,10 +1359,6 @@ hold_ind=true;
 } else{
 hold_ind=hold_all_sys(bib_id,bib_bc);
 }
-//if(hold_ind==false){
-//hold_ind=hold_indiv_check(bib_id,bib_bc);
-
-//}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
@@ -1437,7 +1431,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-//window.plugins.spinnerDialog.hide();
+window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
