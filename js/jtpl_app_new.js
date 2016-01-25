@@ -1191,50 +1191,8 @@ $( "#loginresponse" ).append(my_holds);
 });//end ajax 
 };//end getholds function
 
-//case 9 - items out all (list)
-function items_out_all(reqstring,thedate,code){
-window.plugins.spinnerDialog.show(null,"...processing");
-
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": ""+reqstring+"",
-  "method": "GET",
-  "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
-  }
-}
-
-$.ajax(settings).done(function (response) {
-var my_outs='';
-var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
-
-$( "#borrowed" ).empty();
-
-$.each(response.PatronItemsOutGetRows, function(key, value) {
-
-var hold_ind=false;
-
-media=value.FormatID;
-ISBN=value.ISBN;
-
-RENCT=value.RenewalCount;
-RENLIM=value.RenewalLimit;
-var RENLEFT=RENLIM-RENCT;
-bib_id=value.BibID;
-bib_bc=value.Barcode;
-
-
-if(RENLEFT<=0){
-hold_ind=true;
-}
-
-
-
-//CHECK IF COPY IS ON HOLD SOMEWHERE//////////////////////////////////////////////////////////////////////
-
+//CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE//////////////////////////////////////////////////////////////////////
+function hold_indiv_check(bib_id, bib_bc){
 var reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
 var thedate=(new Date()).toUTCString();
 
@@ -1283,7 +1241,10 @@ overdue=false;
 
 if(value.Barcode==bib_bc){
 var holds=value.CircStatus;
-if(holds=='held'){hold_ind=true;}
+if(holds=='held'){
+	hold_ind=true;
+	return hold_ind;
+	}
 };
 
 });
@@ -1291,6 +1252,7 @@ if(holds=='held'){hold_ind=true;}
 };
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
+function hold_all_sys(bib_id, bib_bc){
 reqstring_b=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_id+"";
 thedate_b=(new Date()).toUTCString();
 
@@ -1338,18 +1300,66 @@ overdue=false;
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
-//alert('hello world');
-//alert(sys_items_in);
-//alert(cur_hold_req);
+alert('hello world');
+alert(sys_items_in);
+alert(cur_hold_req);
 
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
+return hold_ind;
 }
 	
 });//each loop
 });//ajax
 };//filter_holds1
+}
+}
 
+
+//case 9 - items out all (list)
+function items_out_all(reqstring,thedate,code){
+window.plugins.spinnerDialog.show(null,"...processing");
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": ""+reqstring+"",
+  "method": "GET",
+  "headers": {
+    "polarisdate": ""+thedate+"",
+    "authorization": ""+code+"",
+    "content-type": "application/json"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+var my_outs='';
+var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
+
+$( "#borrowed" ).empty();
+
+$.each(response.PatronItemsOutGetRows, function(key, value) {
+
+var hold_ind=false;
+
+media=value.FormatID;
+ISBN=value.ISBN;
+
+RENCT=value.RenewalCount;
+RENLIM=value.RenewalLimit;
+var RENLEFT=RENLIM-RENCT;
+bib_id=value.BibID;
+bib_bc=value.Barcode;
+
+
+if(RENLEFT<=0){
+hold_ind=true;
+} else{
+hold_ind=hold_all_sys(bib_id,bib_bc);
+}
+if(hold_ind==false){
+hold_ind=hold_indiv_check(bib_id,bib_bc);
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
@@ -1408,8 +1418,8 @@ switch(media){
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
 				
-				my_outs += "System Items in: "+sys_items_in+"<br>";
-				my_outs += "System Items on Hold: "+cur_hold_req+"<br>";
+				//my_outs += "System Items in: "+sys_items_in+"<br>";
+				//my_outs += "System Items on Hold: "+cur_hold_req+"<br>";
 				
 				}
 			});
