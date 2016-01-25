@@ -1246,7 +1246,7 @@ $.ajax({
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
         async: false,
 		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
+        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
 		//timeout:60000,
@@ -1276,9 +1276,9 @@ var settings = {
     "content-type": "application/json"
   }
 }
-$.ajax(settings).done(function (response) {
+$.ajax(settings).done(function (response1) {
 
-$.each(response.BibHoldingsGetRows, function(key, value) {
+$.each(response1.BibHoldingsGetRows, function(key, value) {
 overdue=false;									 
 
 if(value.Barcode==bib_bc){
@@ -1295,12 +1295,13 @@ reqstring_b=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_i
 thedate_b=(new Date()).toUTCString();
 
 p_method="GET";
+p_pwd ='';
 $.ajax({
         type       : "GET",
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
         async: false,
 		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
+        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
         success : function(response) {
@@ -1316,7 +1317,7 @@ $.ajax({
 });
 //see if #holds>#items in
 function filter_holds1 (code,reqstring,thedate,bib_bc){
-alert('filter hold1 starting');
+//alert('filter hold1 starting');
 
 settings = {
   "async": false,
@@ -1329,14 +1330,15 @@ settings = {
     "content-type": "application/json"
   }
 }
-$.ajax(settings).done(function (response) {
+$.ajax(settings).done(function (response2) {
 
-$.each(response.BibSearchRows, function(key, value) {
+$.each(response2.BibSearchRows, function(key, value) {
 overdue=false;									 
 
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
+alert('hello world');
 alert(sys_items_in);
 alert(cur_hold_req);
 
