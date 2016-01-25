@@ -1358,7 +1358,7 @@ hold_ind=true;
 //hold_ind=hold_all_sys(bib_id,bib_bc);
 }
 if(hold_ind==false){
-hold_ind=hold_indiv_check(bib_id,bib_bc);
+//hold_ind=hold_indiv_check(bib_id,bib_bc);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
