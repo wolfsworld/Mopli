@@ -1256,6 +1256,7 @@ if(holds=='held'){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 function hold_all_sys(bib_id, bib_bc){
+	alert('hello world');
 reqstring_b=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_id+"";
 thedate_b=(new Date()).toUTCString();
 
@@ -1282,7 +1283,8 @@ $.ajax({
 });
 //see if #holds>#items in
 function filter_holds1 (code,reqstring,thedate,bib_bc){
-//alert('filter hold1 starting');
+alert('filter hold1 starting');
+
 
 settings = {
   "async": false,
@@ -1323,7 +1325,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-//window.plugins.spinnerDialog.show(null,"...processing");
+window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
   "async": true,
@@ -1438,7 +1440,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-//window.plugins.spinnerDialog.hide();
+window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
