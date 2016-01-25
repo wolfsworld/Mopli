@@ -1257,9 +1257,10 @@ if(holds=='held'){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 function hold_all_sys(bib_id, bib_bc){
-	alert('hello world');
-reqstring_b=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/cn?q="+bib_id+"";
-thedate_b=(new Date()).toUTCString();
+	alert(bib_id);
+reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+
+thedate=(new Date()).toUTCString();
 
 p_method="GET";
 p_pwd ='';
