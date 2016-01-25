@@ -1193,8 +1193,8 @@ $( "#loginresponse" ).append(my_holds);
 
 //CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE//////////////////////////////////////////////////////////////////////
 function hold_indiv_check(bib_id, bib_bc){
-var reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
-var thedate=(new Date()).toUTCString();
+reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
+thedate=(new Date()).toUTCString();
 
 p_method="GET";
 p_pwd ='';
@@ -1210,7 +1210,7 @@ $.ajax({
 		//timeout:60000,
 		//cache: false,
         success : function(response) {
-			var code=response;
+			code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//alert('ready to send to filter holds');
 			filter_holds(p_response.code,p_response.reqstring,p_response.thedate, bib_bc);
@@ -1238,8 +1238,8 @@ $.ajax(settings).done(function (response1) {
 
 $.each(response1.BibHoldingsGetRows, function(key, value) {
 overdue=false;									 
-alert(value.Barcode);
-alert(value.CircStatus)
+//alert(value.Barcode);
+//alert(value.CircStatus)
 if(value.Barcode==bib_bc){
 var holds=value.CircStatus;
 if(holds=='held'){
@@ -1262,7 +1262,7 @@ thedate_b=(new Date()).toUTCString();
 p_method="GET";
 p_pwd ='';
 $.ajax({
-        type       : "GET",
+        type       : "POST",
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
         async: false,
 		crossDomain: true,
@@ -1303,7 +1303,7 @@ overdue=false;
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
-alert('hello world');
+//alert('hello world');
 alert(sys_items_in);
 alert(cur_hold_req);
 
@@ -1323,7 +1323,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-window.plugins.spinnerDialog.show(null,"...processing");
+//window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
   "async": true,
@@ -1360,11 +1360,12 @@ bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 } else{
-//hold_ind=hold_all_sys(bib_id,bib_bc);
+hold_ind=hold_all_sys(bib_id,bib_bc);
 }
-if(hold_ind==false){
-hold_ind=hold_indiv_check(bib_id,bib_bc);
-}
+//if(hold_ind==false){
+//hold_ind=hold_indiv_check(bib_id,bib_bc);
+
+//}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
@@ -1437,7 +1438,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-window.plugins.spinnerDialog.hide();
+//window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
