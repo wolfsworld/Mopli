@@ -1572,14 +1572,14 @@ if(block==true){
     'theme': 'red',
 				           'btns': {'text':'ok', 'theme': 'blue', 'onClick': function(e, btn){
 				           e.preventDefault();
-				           list_allitemsout(pbc,pwd);
+				           allitemsout(pbc,pwd);
 				           return false;
 						   }}
   	});
 	//alert('Sorry, this item can not renew. '+ext_err_desc+'');
 }
 else{
-list_allitemsout(pbc,pwd);
+allitemsout(pbc,pwd);
 }
 
 });//ajax
