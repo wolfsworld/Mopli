@@ -1547,17 +1547,17 @@ var settings = {
   "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": "true" }}'
 }
 
-$.ajax(settings).done(function (response) {
+//$.ajax(settings).done(function (response) {
 
-var block;
-response= jQuery.parseJSON(response);
-if(response.ItemRenewResult.BlockRows){
-block=true;}else{block=false;}
+//var block;
+//response= jQuery.parseJSON(response);
+//if(response.ItemRenewResult.BlockRows){
+//block=true;}else{block=false;}
 
-$.each(response.ItemRenewResult.BlockRows, function(key, value) {
-ext_err_code=value.PAPIErrorType;
-ext_err_desc=value.ErrorDesc;
-});
+//$.each(response.ItemRenewResult.BlockRows, function(key, value) {
+//ext_err_code=value.PAPIErrorType;
+//ext_err_desc=value.ErrorDesc;
+//});
 
 if(block==true){
 	alert('Sorry, this item can not renew. '+ext_err_desc+'');
@@ -1567,7 +1567,7 @@ else
 pwd=$('#libpin').val();
   p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
 }
-});//ajax
+//});//ajax
 };//item_renew
 
 //case 12 - get most popular (encrypt)
