@@ -1550,17 +1550,20 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 
-//var block;
-		var response=JSON.stringify(response);
-		var response= jQuery.parseJSON(response);
+var response=JSON.stringify(response);
+var response= jQuery.parseJSON(response);
 
-if(response.ItemRenewResult.BlockRows){
-block=true;}else{block=false;}
+//if(response.ItemRenewResult.BlockRows){
+//block=true;}else{block=false;}
 
 $.each(response.ItemRenewResult.BlockRows, function(key, value) {
 ext_err_code=value.PAPIErrorType;
 ext_err_desc=value.ErrorDesc;
 });
+
+var block=false;
+if(ext_err_code==1 || ext_err_code==2){
+block=true;}else{block=false;}
 
 var pbc=pat_barcode;
 var pwd=$('#libpin').val();

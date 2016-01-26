@@ -9,7 +9,7 @@ var response='{"PAPIErrorCode":-2,"ErrorMessage":"","ItemRenewResult":{"BlockRow
 
 if(response.ItemRenewResult.BlockRows){
 block=true;}else{block=false;}
-
+alert(block);
 
 $.each(response.ItemRenewResult.BlockRows, function(key, value) {
 
