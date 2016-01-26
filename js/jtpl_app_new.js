@@ -1319,7 +1319,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-$('.jAlert').closeAlert(true, function(){  });
+
 window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
