@@ -1548,16 +1548,15 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
+
 var block;
-var response= jQuery.parseJSON(response);
+response= jQuery.parseJSON(response);
 if(response.ItemRenewResult.BlockRows){
 block=true;}else{block=false;}
 
 $.each(response.ItemRenewResult.BlockRows, function(key, value) {
 ext_err_code=value.PAPIErrorType;
 ext_err_desc=value.ErrorDesc;
-//alert(value.PAPIErrorType);
-//alert(value.ErrorDesc);
 });
 
 if(block==true){
@@ -1567,8 +1566,9 @@ if(block==true){
 
 pwd=$('#libpin').val();
   p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
-});
-}
+
+});//ajax
+};//item_renew
 
 //case 12 - get most popular (encrypt)
 $(document).on('click', '#mp_btn', function () {
