@@ -1569,23 +1569,28 @@ if(block==true){
 	$.jAlert({
     'title': 'Please note',
     'content': 'Sorry, this item can not renew. '+ext_err_desc+'',
-    'theme': 'red'
-				           //'btns': {'text':'ok', 'theme': 'blue', 'onClick': function(e, btn){
-				           //e.preventDefault();
-				           //list_allitemsout(pbc,pwd);
-				           //return false;
-						   //}}
+    'theme': 'red',
+				           'btns': {'text':'ok', 'theme': 'blue', 'onClick': function(e, btn){
+				           e.preventDefault();
+				           list_allitemsout(pbc,pwd);
+				           return false;
+						   }}
   	});
 	//alert('Sorry, this item can not renew. '+ext_err_desc+'');
 }
+else{
+list_allitemsout(pbc,pwd);
+}
 
 });//ajax
-//function allitemsout (pbc, pwd){
-pwd=$('#libpin').val();
- // p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
-  p_validate(9,'',''+pwd+'','',''+pwd+'','GET','','');
-//}
+
 };//item_renew
+
+function allitemsout (pbc, pwd){
+//pwd=$('#libpin').val();
+//p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
+p_validate(9,'',''+pwd+'','',''+pbc+'','GET','','');
+}
 
 //case 12 - get most popular (encrypt)
 $(document).on('click', '#mp_btn', function () {
