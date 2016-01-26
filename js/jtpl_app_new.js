@@ -1317,7 +1317,6 @@ hold_ind=false;
 return hold_ind;
 };
 
-
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 window.plugins.spinnerDialog.show(null,"...processing");
@@ -1549,6 +1548,27 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
+
+$.each(response.ItemRenewResult, function(key, value) {
+
+ext_err_code=value.PAPIErrorType;
+ext_err_desc=value.ErrorDesc;
+if(key=='BlockRows'){
+	var block=true;
+}else{
+	var block=false;
+}
+alert('block is'+block+'');
+alert(ext_err_code);
+alert(ext_err_desc);
+});
+
+if(block==true){
+	alert('Sorry, this item can not renew. '+ext_err_desc+'');
+}else{
+	alert('all good');
+}
+
 pwd=$('#libpin').val();
   p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
 });
