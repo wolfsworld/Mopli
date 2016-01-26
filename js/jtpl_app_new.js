@@ -1564,12 +1564,10 @@ ext_err_desc=value.ErrorDesc;
 if(block==true){
 	alert('Sorry, this item can not renew. '+ext_err_desc+'');
 }
-else
-{
+
+});//ajax
 pwd=$('#libpin').val();
   p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
-}
-});//ajax
 };//item_renew
 
 //case 12 - get most popular (encrypt)
