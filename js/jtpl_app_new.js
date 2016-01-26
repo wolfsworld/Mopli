@@ -1562,7 +1562,12 @@ ext_err_desc=value.ErrorDesc;
 });
 
 if(block==true){
-	alert('Sorry, this item can not renew. '+ext_err_desc+'');
+	$.jAlert({
+    'title': 'Alert!',
+    'content': 'Sorry, this item can not renew. '+ext_err_desc+'',
+    'theme': 'red',
+  	});
+	//alert('Sorry, this item can not renew. '+ext_err_desc+'');
 }
 
 });//ajax
