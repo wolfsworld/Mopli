@@ -1550,9 +1550,9 @@ var settings = {
 $.ajax(settings).done(function (response) {
 
 //var block;
-//response= jQuery.parseJSON(response);
-//if(response.ItemRenewResult.BlockRows){
-//block=true;}else{block=false;}
+response= jQuery.parseJSON(response);
+if(response.ItemRenewResult.BlockRows){
+block=true;}else{block=false;}
 
 //$.each(response.ItemRenewResult.BlockRows, function(key, value) {
 //ext_err_code=value.PAPIErrorType;
