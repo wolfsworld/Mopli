@@ -1,6 +1,24 @@
  //set global variables
 $(document).ready(function(){
 
+
+var response='{"PAPIErrorCode":-2,"ErrorMessage":"","ItemRenewResult":{"BlockRows":[{"PAPIErrorType":2,"PolarisErrorCode":32768,"ErrorAllowOverride":false,"ErrorDesc":"Item fills a hold request, not allowed to renew","ItemRecordID":3368177}],"DueDateRows":[]}}';
+
+
+		var response= jQuery.parseJSON(response);
+
+if(response.ItemRenewResult.BlockRows){
+block=true;}else{block=false;}
+
+
+$.each(response.ItemRenewResult.BlockRows, function(key, value) {
+
+alert(value.PAPIErrorType);
+alert(value.ErrorDesc);
+
+});
+
+
 //case 9 - items out all (list)
 function prime (){
 	

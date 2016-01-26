@@ -1548,25 +1548,21 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
+var block;
+var response= jQuery.parseJSON(response);
+if(response.ItemRenewResult.BlockRows){
+block=true;}else{block=false;}
 
-$.each(response.ItemRenewResult, function(key, value) {
-
+$.each(response.ItemRenewResult.BlockRows, function(key, value) {
 ext_err_code=value.PAPIErrorType;
 ext_err_desc=value.ErrorDesc;
-if(key=='BlockRows'){
-	var block=true;
-}else{
-	var block=false;
-}
-alert('block is'+block+'');
-alert(ext_err_code);
-alert(ext_err_desc);
+//alert(value.PAPIErrorType);
+//alert(value.ErrorDesc);
 });
 
 if(block==true){
 	alert('Sorry, this item can not renew. '+ext_err_desc+'');
 }else{
-	alert('all good');
 }
 
 pwd=$('#libpin').val();
