@@ -1550,23 +1550,25 @@ var settings = {
 $.ajax(settings).done(function (response) {
 
 //var block;
-response= jQuery.parseJSON(response);
+		var response=JSON.stringify(response);
+		var response= jQuery.parseJSON(response);
+
 if(response.ItemRenewResult.BlockRows){
 block=true;}else{block=false;}
 
-//$.each(response.ItemRenewResult.BlockRows, function(key, value) {
-//ext_err_code=value.PAPIErrorType;
-//ext_err_desc=value.ErrorDesc;
-//});
+$.each(response.ItemRenewResult.BlockRows, function(key, value) {
+ext_err_code=value.PAPIErrorType;
+ext_err_desc=value.ErrorDesc;
+});
 
-//if(block==true){
-//	alert('Sorry, this item can not renew. '+ext_err_desc+'');
-//}
-//else
-//{
+if(block==true){
+	alert('Sorry, this item can not renew. '+ext_err_desc+'');
+}
+else
+{
 pwd=$('#libpin').val();
   p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
-//}
+}
 });//ajax
 };//item_renew
 
