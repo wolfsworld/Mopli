@@ -1,7 +1,40 @@
  //set global variables
 $(document).ready(function(){
 
+var counter=0;
 
+var typingTimer;                //timer identifier
+var doneTypingInterval = 1500;  //time in ms, 5 second for example
+
+$('#search_item').on('keyup',function () {
+counter +=1;
+  searchitem=0;
+  	if(counter>2){
+	//doneTyping();
+	clearTimeout(typingTimer);
+    if ($('#myInput').val) {
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	}
+	}
+});
+
+function doneTyping () {
+	$('#blist').empty();
+	//alert('done');
+   //window.p_validate=function(){return false;};
+   //window.get_books=function(){return false;};
+   //searchitem='';
+   searchitem= $('#search_item').val();
+   	p_searchitem=searchitem.replace(/\s+/g,"+");
+	
+	page_counter=1;
+	
+	$('#blist').append(p_searchitem);
+	//p_validate(1,''+p_searchitem+'','','','','GET','',1);
+}
+
+
+/*
 //var response='{"PAPIErrorCode":-2,"ErrorMessage":"","ItemRenewResult":{"BlockRows":[{"PAPIErrorType":2,"PolarisErrorCode":32768,"ErrorAllowOverride":false,"ErrorDesc":"Item fills a hold request, not allowed to renew","ItemRecordID":3368177}],"DueDateRows":[]}}';
 
 var response='{"PAPIErrorCode":0,"ErrorMessage":"","ItemRenewResult":{"BlockRows":[],"DueDateRows":[{"ItemRecordID":54335,"DueDate":"\/Date(1456289999000-0500)\/"}]}}';
@@ -32,7 +65,7 @@ alert(ext_block);
 //alert(value.ErrorDesc);
 
 //});
-
+*/
 
 //case 9 - items out all (list)
 function prime (){
