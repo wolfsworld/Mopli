@@ -34,7 +34,7 @@
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="false" />
 	<preference name="AutoHideSplashScreen" value="false" />
-	<preference name="SplashScreenDelay" value="10000"/>
+	<preference name="SplashScreenDelay" value="5000"/>
 	<preference name="EnableViewportScale" value="true" />
 	<preference name="FadeSplashScreen" value="false"/>
 	<preference name="FadeSplashScreenDuration" value="2000"/>

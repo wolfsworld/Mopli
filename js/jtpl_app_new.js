@@ -452,7 +452,7 @@ if(p_type ==='undefined') p_type ='';
 if(p_holdID ==='undefined') p_holdID ='';
 if(p_searchitem ==='undefined') p_searchitem ='';
 switch(p_query){
-case 1:	var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/KW?q="+p_searchitem+"&notran=0&bibsperpage=20&page="+p_holdID+""; break;
+case 1:	var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/KW?q="+p_searchitem+"*&notran=0&bibsperpage=20&page="+p_holdID+""; break;
 case 2: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
 case 3: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/CN?q="+p_searchitem+""; break;
 case 4: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/boolean?q=CN=%7Blist%7D"+p_searchitem+"%7B/list%7D+sortby+PD/sort.descending&bibsperpage=40&page="+p_holdID+""; break;
@@ -512,7 +512,7 @@ $.ajax({
 
 //case 1 - book search reqstring (get encryption data)
 var typingTimer;                //timer identifier
-var doneTypingInterval = 700;  //time in ms, 5 second for example
+var doneTypingInterval = 600;  //time in ms, 5 second for example
 
 $('#search_item').on('keyup',function () {
 counter +=1;
@@ -527,6 +527,7 @@ counter +=1;
 });
 
 function doneTyping () {
+   p_searchitem='';
    //window.p_validate=function(){return false;};
    //window.get_books=function(){return false;};
    searchitem= $('#search_item').val();
@@ -1378,7 +1379,7 @@ switch(media){
 				
 				switch(key2){
 				case "AssignedBranchName":
-				key2="Asigned Library";
+				key2="Assigned Library";
 				break;					
 				case "FormatDescription":
 				key2="Media";
