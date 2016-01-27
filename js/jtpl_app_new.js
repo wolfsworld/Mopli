@@ -452,7 +452,7 @@ if(p_type ==='undefined') p_type ='';
 if(p_holdID ==='undefined') p_holdID ='';
 if(p_searchitem ==='undefined') p_searchitem ='';
 switch(p_query){
-case 1:	var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/KW?q="+p_searchitem+"&bibsperpage=20&page="+p_holdID+""; break;
+case 1:	var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/KW?q="+p_searchitem+"&sortby=TIAU&bibsperpage=20&page="+p_holdID+""; break;
 case 2: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
 case 3: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/CN?q="+p_searchitem+""; break;
 case 4: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/boolean?q=CN=%7Blist%7D"+p_searchitem+"%7B/list%7D+sortby+PD/sort.descending&bibsperpage=40&page="+p_holdID+""; break;
@@ -1553,19 +1553,12 @@ $.ajax(settings).done(function (response) {
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
-//if(response.ItemRenewResult.BlockRows){
-//block=true;}else{block=false;}
-
 $.each(response.ItemRenewResult, function(key, value) {
 $.each(value, function(key2, value2) {
 if(value2.PAPIErrorType){
 ext_err_code=value2.PAPIErrorType;
 ext_err_desc=value2.ErrorDesc;
-block=true;
-}
-else{
-block=false;
-}
+block=true;}else{block=false;}
 });
 });
 
@@ -1583,7 +1576,6 @@ if(block==true){
 	   return false;
 	   }}
   	});
-	//alert('Sorry, this item can not renew. '+ext_err_desc+'');
 }
 else{
 allitemsout(pbc,pwd);
@@ -1593,8 +1585,6 @@ allitemsout(pbc,pwd);
 };//item_renew
 
 function allitemsout (pbc, pwd){
-//pwd=$('#libpin').val();
-//p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
 p_validate(9,'',''+pwd+'','',''+pbc+'','GET','','');
 }
 
