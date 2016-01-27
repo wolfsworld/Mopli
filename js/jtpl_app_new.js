@@ -512,7 +512,7 @@ $.ajax({
 
 //case 1 - book search reqstring (get encryption data)
 var typingTimer;                //timer identifier
-var doneTypingInterval = 600;  //time in ms, 5 second for example
+var doneTypingInterval = 500;  //time in ms, 5 second for example
 
 $('#search_item').on('keyup',function () {
 counter +=1;
@@ -527,9 +527,8 @@ counter +=1;
 });
 
 function doneTyping () {
-   p_searchitem='';
-   //window.p_validate=function(){return false;};
-   //window.get_books=function(){return false;};
+   window.p_validate=function(){return false;};
+   window.get_books=function(){return false;};
    searchitem= $('#search_item').val();
    	p_searchitem=searchitem.replace(/\s+/g,"+");
 	$('#most_popular').empty();
