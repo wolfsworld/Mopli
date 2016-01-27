@@ -512,7 +512,7 @@ $.ajax({
 
 //case 1 - book search reqstring (get encryption data)
 var typingTimer;                //timer identifier
-var doneTypingInterval = 1000;  //time in ms, 5 second for example
+var doneTypingInterval = 700;  //time in ms, 5 second for example
 
 $('#search_item').on('keyup',function () {
 counter +=1;
