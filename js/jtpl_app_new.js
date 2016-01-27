@@ -1556,14 +1556,18 @@ var response= jQuery.parseJSON(response);
 //if(response.ItemRenewResult.BlockRows){
 //block=true;}else{block=false;}
 
-$.each(response.ItemRenewResult.BlockRows, function(key, value) {
-ext_err_code=value.PAPIErrorType;
-ext_err_desc=value.ErrorDesc;
+$.each(response.ItemRenewResult, function(key, value) {
+$.each(value, function(key2, value2) {
+if(value2.PAPIErrorType){
+ext_err_code=value2.PAPIErrorType;
+ext_err_desc=value2.ErrorDesc;
+block=true;
+}
+else{
+block=false;
+}
 });
-
-var block=false;
-if(ext_err_code==1 || ext_err_code==2){
-block=true;}else{block=false;}
+});
 
 var pbc=pat_barcode;
 var pwd=$('#libpin').val();
@@ -1573,11 +1577,11 @@ if(block==true){
     'title': 'Please note',
     'content': 'Sorry, this item can not renew. '+ext_err_desc+'',
     'theme': 'red',
-				           'btns': {'text':'ok', 'theme': 'blue', 'onClick': function(e, btn){
-				           e.preventDefault();
-				           allitemsout(pbc,pwd);
-				           return false;
-						   }}
+	   'btns': {'text':'ok', 'theme': 'blue', 'onClick': function(e, btn){
+	   e.preventDefault();
+	   allitemsout(pbc,pwd);
+	   return false;
+	   }}
   	});
 	//alert('Sorry, this item can not renew. '+ext_err_desc+'');
 }
@@ -1586,7 +1590,6 @@ allitemsout(pbc,pwd);
 }
 
 });//ajax
-
 };//item_renew
 
 function allitemsout (pbc, pwd){
