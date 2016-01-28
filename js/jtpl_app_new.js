@@ -520,20 +520,12 @@ else{
 
 $(".ui-input-clear").on("click", function () {
 	counter=0;
-	$('#thecount').empty();
-	$('#theajaxcount').empty();
-	$('#thepreajaxcount').empty();
-	$('#thepostajaxcount').empty();
-
 });
-
 
 //case 1 - book search reqstring (get encryption data)
 var typingTimer;                //timer identifier
-var doneTypingInterval = 700;  //time in ms, 5 second for example
-
+var doneTypingInterval = 600;  //time in ms, 5 second for example
 gen_words=['the ', 'The ', 'for ', 'For ', 'how ', 'How '];
-
 $('#search_item').on('keyup',function () {
 counter +=1;
   searchitem=0;
@@ -541,11 +533,8 @@ counter +=1;
 	if($('#search_item').val()==''){counter=0;}
 	if(counter>4){
 	if(jQuery.inArray(trigger, gen_words )== -1){
-	//doneTyping();
 	clearTimeout(typingTimer);
-    //if ($('#myInput').val) {
         typingTimer = setTimeout(doneTyping, doneTypingInterval);
-	//}
 	}
 	}
 });
