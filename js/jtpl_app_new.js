@@ -444,13 +444,14 @@ $('#hold_box').collapsible( "collapse" );
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ENCRYPTION/VALIDATION
-function p_validate(p_query, p_searchitem, p_pwd, p_cn, p_bc, p_method, p_type, p_holdID ){
+function p_validate(p_query, p_searchitem, p_pwd, p_cn, p_bc, p_method, p_type, p_holdID,i){
 if(p_pwd ==='undefined') p_pwd ='';
 if(p_cn ==='undefined') p_cn ='';
 if(p_bc ==='undefined') p_bc ='';
 if(p_type ==='undefined') p_type ='';
 if(p_holdID ==='undefined') p_holdID ='';
 if(p_searchitem ==='undefined') p_searchitem ='';
+if(i ==='undefined') i ='';
 switch(p_query){
 case 1:	var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/KW?q="+p_searchitem+"&bibsperpage=20&page="+p_holdID+""; break;
 case 2: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
@@ -484,14 +485,15 @@ $.ajax({
 		cache: false,
         success : function(response) {
 			//stop_spin();
-			var array = [];
-array.push(i);
+if(i){			
+var array_i = [];
+array_i.push(i);
 var largest = Math.max.apply(Math, array);
 if(i<largest){
 	return false;
-}
+}}
 else{
-			$( "#theajaxcount" ).append(''+i+','); 
+			//$( "#theajaxcount" ).append(''+i+','); 
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			switch(p_query){
@@ -547,7 +549,7 @@ function doneTyping () {
 	$('#most_popular').empty();
 	page_counter=1;
 	i=counter;
-	p_validate(1,''+p_searchitem+'','','','','GET',''+i+'',1);
+	p_validate(1,''+p_searchitem+'','','','','GET','',1,''+i+'');
 }
 
 //case 1 - get books
@@ -588,7 +590,7 @@ $( "#nyt" ).empty();
 var blist_html='';
 var next_batch='';
 
-$( "#thepostajaxcount" ).append(''+i+',');
+//$( "#thepostajaxcount" ).append(''+i+',');
 $.each(response.BibSearchRows, function(key, value) {
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
@@ -630,7 +632,7 @@ $('.trail a').button('refresh');
 });
 
 $( "#blist" ).append(blist_html);
-$( "#thecount" ).append(''+i+',');
+//$( "#thecount" ).append(''+i+',');
 $('.trail a').button();
 if(page_counter==1){
 next_batch +="<a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
@@ -658,7 +660,7 @@ next_search(page_counter);
 function next_search(next_page){
 searchitem= $('#search_item').val();
    	p_searchitem=searchitem.replace(/\s+/g,"+");
-	p_validate(1,''+p_searchitem+'','','','','GET','',''+next_page+'');
+	p_validate(1,''+p_searchitem+'','','','','GET','',''+next_page+'','');
 }
 //next batch most popular button
 $(document).on('click', '#fwd_btn_mp', function () {
@@ -671,7 +673,7 @@ next_mp_search(page_counter);
 });
 
 function next_mp_search(next_page){
-	p_validate(12,'','','','','GET','',''+next_page+'');
+	p_validate(12,'','','','','GET','',''+next_page+'','');
 }
 //next batch new books and dvds
 $(document).on('click', '#fwd_btn_news', function () {
@@ -685,13 +687,13 @@ next_news_search(page_counter);
 
 function next_news_search(next_page){
 searchitem= newtitle_list;
-   	p_validate(4,''+searchitem+'','','','','GET','',''+next_page+'');
+   	p_validate(4,''+searchitem+'','','','','GET','',''+next_page+'','');
 }
 
 //case 3 - get book detail (get encryption data)
 $(document).on('click', '.trail a', function () {
 p_searchitem=$(this).attr("id");
-p_validate(3,''+p_searchitem+'','','','','GET','','');
+p_validate(3,''+p_searchitem+'','','','','GET','','','');
 });
 //case 3 - get detail
 function get_detail(code,reqstring,thedate){
@@ -819,7 +821,7 @@ $.ajax({
         crossDomain: true,
         success : function(response) {
 			newtitle_list=response;
-			p_validate(4,''+response+'','','','','GET','',1);
+			p_validate(4,''+response+'','','','','GET','',1,'');
 			start_spin();
         },
         error      : function() {
@@ -978,7 +980,7 @@ alert('Login information not valid. Please try again');
 
 //case 6 - function putonhold (get encryption)
 function putonhold(res_pat_id,pat_barcode,p_cn){
-p_validate(6,'','',''+p_cn+'',''+pat_barcode+'','POST','',''+res_pat_id+'');
+p_validate(6,'','',''+p_cn+'',''+pat_barcode+'','POST','',''+res_pat_id+'','');
 };
 //case 6 - function createhold & -> 8 prep getholds
 function createhold(res_pat_id,cont_num,code,reqstring,thedate,pat_barcode){
@@ -1111,7 +1113,7 @@ var cancel_confirm=response.PAPIErrorCode;
 if(cancel_confirm==0){
 var pwd=$('#libpin').val();
 var pat_barcode=$("#patron_bc").val();
-p_validate(8,'',''+pwd+'','',''+pat_barcode+'','GET','','');
+p_validate(8,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 }else{
 alert('your hold cancel request failed');
 }
@@ -1123,9 +1125,9 @@ alert('your hold cancel request failed');
 //case 8 - prep_getholds and -> 8 getholds, 9 items out all, 14 fees due
 function prep_getholds(pat_barcode){
 var pwd=$('#libpin').val();
-p_validate(8,'',''+pwd+'','',''+pat_barcode+'','GET','','');
-p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','');
-p_validate(14,'',''+pwd+'','',''+pat_barcode+'','GET','','');
+p_validate(8,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
+p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
+p_validate(14,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 };
 //case 8 getholds (list)
 function getholds(reqstring,thedate,code){	
@@ -1495,7 +1497,7 @@ p_pin=$("#libpin").val();
 //alert('ready to extend'+extend_id+'');
 $("#borrowed" ).empty();
 //alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
-p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'');
+p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 });
 //case 11 - extend (ajax & go to prep_getholds)
 function item_renew(reqstring,thedate,code,pat_barcode){
@@ -1551,7 +1553,7 @@ allitemsout(pbc,pwd);
 };//item_renew
 
 function allitemsout (pbc, pwd){
-p_validate(9,'',''+pwd+'','',''+pbc+'','GET','','');
+p_validate(9,'',''+pwd+'','',''+pbc+'','GET','','','');
 }
 
 //case 12 - get most popular (encrypt)
@@ -1563,7 +1565,7 @@ $( "#blist" ).empty();
 $( "#news_dvd" ).empty();
 $( "#nyt" ).empty();
 $('#selection').collapsible( "collapse" );
-p_validate(12,'','','','','GET','',1);
+p_validate(12,'','','','','GET','',1,'');
 start_spin();
 });
 //case 12 - list most popular
@@ -1648,7 +1650,7 @@ $(document).on('click', '.bc a', function () {
 var the_isbn=$(this).attr("id");
 //$.mobile.changePage("#scanner");
 start_spin();
-p_validate(13,''+the_isbn+'','','','','GET','','');
+p_validate(13,''+the_isbn+'','','','','GET','','','');
 });
 //case 13 Get NYT Detail in the Detail Page
 function get_det_nyt(code,reqstring,thedate){
