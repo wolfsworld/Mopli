@@ -484,6 +484,7 @@ $.ajax({
 		cache: false,
         success : function(response) {
 			//stop_spin();
+			$( "#theajaxcount" ).append(''+i+','); 
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			switch(p_query){
@@ -512,6 +513,11 @@ $.ajax({
 
 $(".ui-input-clear").on("click", function () {
 	counter=0;
+	$('#thecount').empty();
+	$('#theajaxcount').empty();
+	$('#thepreajaxcount').empty();
+	$('#thepostajaxcount').empty();
+
 });
 
 
@@ -544,7 +550,7 @@ function doneTyping () {
 
 //case 1 - get books
 function get_books(code,reqstring,thedate,i){
-  
+$( "#thepreajaxcount" ).append(''+i+',');  
 $('#selection').collapsible( "collapse" );
 var blist_html='';
 var settings = {
@@ -571,7 +577,7 @@ $( "#nyt" ).empty();
 var blist_html='';
 var next_batch='';
 
-
+$( "#thepostajaxcount" ).append(''+i+',');
 $.each(response.BibSearchRows, function(key, value) {
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
