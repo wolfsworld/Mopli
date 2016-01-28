@@ -527,8 +527,8 @@ counter +=1;
 });
 
 function doneTyping () {
-  // window.p_validate=function(){return false;};
-  // window.get_books=function(){return false;};
+   window.p_validate=function(){return false;};
+   window.get_books=function(){return false;};
    searchitem= $('#search_item').val();
    	p_searchitem=searchitem.replace(/\s+/g,"+");
 	$('#most_popular').empty();
@@ -538,6 +538,8 @@ function doneTyping () {
 
 //case 1 - get books
 function get_books(code,reqstring,thedate){
+   window.p_validate=function(){return false;};
+   window.get_books=function(){return false;};	
 $('#selection').collapsible( "collapse" );
 var blist_html='';
 var settings = {
@@ -1192,68 +1194,7 @@ $( "#loginresponse" ).append(my_holds);
 };//end getholds function
 
 //CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE//////////////////////////////////////////////////////////////////////
-/*function hold_indiv_check(bib_id, bib_bc){
-reqstring=""+dest+"/REST/public/v1/1033/100/1/bib/"+bib_id+"/holdings";
-thedate=(new Date()).toUTCString();
 
-p_method="GET";
-p_pwd ='';
-
-$.ajax({
-        type       : "POST",
-		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
-        async: false,
-		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
-		error: function(jqXHR,text_status,strError){
-			alert("no connection");},
-		//timeout:60000,
-		//cache: false,
-        success : function(response) {
-			code=response;
-			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//alert('ready to send to filter holds');
-			filter_holds(p_response.code,p_response.reqstring,p_response.thedate, bib_bc);
-        },
-        error      : function() {
-            console.error("error");
-            alert('Could not process.You might have no network connection.');                  
-        }
-});
-
-function filter_holds (code,reqstring,thedate,bib_bc){
-
-var settings = {
-  "async": false,
-  "crossDomain": true,
-  "url": ""+reqstring+"",
-  "method": "GET",
-  "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
-  }
-}
-$.ajax(settings).done(function (response1) {
-
-$.each(response1.BibHoldingsGetRows, function(key, value) {
-overdue=false;									 
-//alert(value.Barcode);
-//alert(value.CircStatus)
-if(value.Barcode==bib_bc){
-var holds=value.CircStatus;
-if(holds=='held'){
-	hold_ind=true;
-	}else{
-	hold_ind=false;
-	}
-	return hold_ind;
-};
-
-});
-});
-};
-};*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 function hold_all_sys(bib_id, bib_bc){
