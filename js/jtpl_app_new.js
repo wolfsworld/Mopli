@@ -487,7 +487,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			switch(p_query){
-			case 1:	get_books(p_response.code,p_response.reqstring,p_response.thedate); break;
+			case 1:	get_books(p_response.code,p_response.reqstring,p_response.thedate, p_type); break;
 			case 2: getit_bc(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 3: get_detail(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 4: get_news(p_response.code,p_response.reqstring,p_response.thedate); break;
@@ -533,13 +533,13 @@ function doneTyping () {
    	p_searchitem=searchitem.replace(/\s+/g,"+");
 	$('#most_popular').empty();
 	page_counter=1;
-	p_validate(1,''+p_searchitem+'','','','','GET','',1);
+	i=counter;
+	p_validate(1,''+p_searchitem+'','','','','GET',''+i+'',1);
 }
 
 //case 1 - get books
-function get_books(code,reqstring,thedate){
-   window.p_validate=function(){return false;};
-   window.get_books=function(){return false;};	
+function get_books(code,reqstring,thedate,i){
+  
 $('#selection').collapsible( "collapse" );
 var blist_html='';
 var settings = {
@@ -566,6 +566,7 @@ $( "#nyt" ).empty();
 var blist_html='';
 var next_batch='';
 
+alert(i);
 $.each(response.BibSearchRows, function(key, value) {
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
