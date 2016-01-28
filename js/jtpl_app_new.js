@@ -444,7 +444,7 @@ $('#hold_box').collapsible( "collapse" );
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ENCRYPTION/VALIDATION
-function p_validate(p_query, p_searchitem, p_pwd, p_cn, p_bc, p_method, p_type, p_holdID,i){
+function p_validate(p_query, p_searchitem, p_pwd, p_cn, p_bc, p_method, p_type, p_holdID, i){
 if(p_pwd ==='undefined') p_pwd ='';
 if(p_cn ==='undefined') p_cn ='';
 if(p_bc ==='undefined') p_bc ='';
@@ -485,7 +485,7 @@ $.ajax({
 		cache: false,
         success : function(response) {
 			//stop_spin();
-if(i){			
+if(i!=''){			
 var array_i = [];
 array_i.push(i);
 var largest = Math.max.apply(Math, array);
@@ -497,7 +497,7 @@ else{
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			switch(p_query){
-			case 1:	get_books(p_response.code,p_response.reqstring,p_response.thedate, p_type); break;
+			case 1:	get_books(p_response.code,p_response.reqstring,p_response.thedate,i); break;
 			case 2: getit_bc(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 3: get_detail(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 4: get_news(p_response.code,p_response.reqstring,p_response.thedate); break;
@@ -553,12 +553,12 @@ function doneTyping () {
 }
 
 //case 1 - get books
-function get_books(code,reqstring,thedate,i){
+function get_books(code,reqstring,thedate,thei){
 
 var array = [];
-array.push(i);
+array.push(thei);
 var largest = Math.max.apply(Math, array);
-if(i<largest){
+if(thei<largest){
 	return false;
 }
 else{
