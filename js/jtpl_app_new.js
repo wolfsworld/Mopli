@@ -571,7 +571,7 @@ $( "#nyt" ).empty();
 var blist_html='';
 var next_batch='';
 
-alert(i);
+
 $.each(response.BibSearchRows, function(key, value) {
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
