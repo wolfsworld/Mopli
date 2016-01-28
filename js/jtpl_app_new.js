@@ -554,7 +554,7 @@ $( "#thepreajaxcount" ).append(''+i+',');
 $('#selection').collapsible( "collapse" );
 var blist_html='';
 var settings = {
-  "async": true,
+  "async": false,
   "crossDomain": true,
   "url": ""+reqstring+"",
   "method": "GET",
