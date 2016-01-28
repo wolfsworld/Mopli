@@ -530,7 +530,7 @@ $(".ui-input-clear").on("click", function () {
 
 //case 1 - book search reqstring (get encryption data)
 var typingTimer;                //timer identifier
-var doneTypingInterval = 500;  //time in ms, 5 second for example
+var doneTypingInterval = 700;  //time in ms, 5 second for example
 
 gen_words=['the ', 'The ', 'for ', 'For ', 'how ', 'How '];
 
@@ -543,9 +543,9 @@ counter +=1;
 	if(jQuery.inArray(trigger, gen_words )== -1){
 	//doneTyping();
 	clearTimeout(typingTimer);
-    if ($('#myInput').val) {
+    //if ($('#myInput').val) {
         typingTimer = setTimeout(doneTyping, doneTypingInterval);
-	}
+	//}
 	}
 	}
 });
