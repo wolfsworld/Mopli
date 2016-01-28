@@ -474,7 +474,7 @@ if(p_searchitem){
 }
 $.ajax({
         type: "POST",
-		async: false,
+		async: true,
 		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
         crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
@@ -484,6 +484,13 @@ $.ajax({
 		cache: false,
         success : function(response) {
 			//stop_spin();
+			var array = [];
+array.push(i);
+var largest = Math.max.apply(Math, array);
+if(i<largest){
+	return false;
+}
+else{
 			$( "#theajaxcount" ).append(''+i+','); 
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
@@ -503,7 +510,7 @@ $.ajax({
 			case 13: get_det_nyt(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			}
-        },
+}},
         error      : function() {
             console.error("error");
             alert('Could not process.You might have no network connection.');                  
@@ -556,11 +563,20 @@ function doneTyping () {
 
 //case 1 - get books
 function get_books(code,reqstring,thedate,i){
+
+var array = [];
+array.push(i);
+var largest = Math.max.apply(Math, array);
+if(i<largest){
+	return false;
+}
+else{
+
 $( "#thepreajaxcount" ).append(''+i+',');  
 $('#selection').collapsible( "collapse" );
 var blist_html='';
 var settings = {
-  "async": false,
+  "async": true,
   "crossDomain": true,
   "url": ""+reqstring+"",
   "method": "GET",
@@ -636,6 +652,7 @@ next_batch +="<div data-role='controlgroup' data-type='horizontal' data-mini='tr
 $( "#blist" ).append(next_batch);
 }
 });
+}//the if largest
 }
 
 //create the "next"/"previous" batch search buttons
