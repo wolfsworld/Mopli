@@ -3,17 +3,33 @@ $(document).ready(function(){
 
 var counter=0;
 
+$(".ui-input-clear").on("click", function () {
+	counter=0;
+	$('#thecount').empty();
+	$('#thetrigger').empty();
+	$('#blist').empty();
+});
+
+
+
 var typingTimer;                //timer identifier
-var doneTypingInterval = 1500;  //time in ms, 5 second for example
+var doneTypingInterval = 500;  //time in ms, 5 second for example
+
+gen_words=['the ', 'The ', 'for ', 'For ', 'how ', 'How '];
 
 $('#search_item').on('keyup',function () {
 counter +=1;
+//$('#thetrigger').empty();
   searchitem=0;
-  	if(counter>2){
-	//doneTyping();
+ 	var trigger=$('#search_item').val();
+	if($('#search_item').val()==''){counter=0;}
+	if(counter>4){
+
+	if(jQuery.inArray(trigger, gen_words )== -1){
 	clearTimeout(typingTimer);
     if ($('#myInput').val) {
         typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	}
 	}
 	}
 });
@@ -26,8 +42,6 @@ function doneTyping () {
    //searchitem='';
    searchitem= $('#search_item').val();
    	p_searchitem=searchitem.replace(/\s+/g,"+");
-	
-	page_counter=1;
 	
 	$('#blist').append(p_searchitem);
 	//p_validate(1,''+p_searchitem+'','','','','GET','',1);

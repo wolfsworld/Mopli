@@ -525,14 +525,20 @@ $(".ui-input-clear").on("click", function () {
 var typingTimer;                //timer identifier
 var doneTypingInterval = 500;  //time in ms, 5 second for example
 
+gen_words=['the ', 'The ', 'for ', 'For ', 'how ', 'How '];
+
 $('#search_item').on('keyup',function () {
 counter +=1;
-  //searchitem=0;
-  	if(counter>2){
+  searchitem=0;
+ 	var trigger=$('#search_item').val();
+	if($('#search_item').val()==''){counter=0;}
+	if(counter>4){
+	if(jQuery.inArray(trigger, gen_words )== -1){
 	//doneTyping();
 	clearTimeout(typingTimer);
     if ($('#myInput').val) {
         typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	}
 	}
 	}
 });
