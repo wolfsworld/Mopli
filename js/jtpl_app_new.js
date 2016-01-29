@@ -444,14 +444,14 @@ $('#hold_box').collapsible( "collapse" );
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ENCRYPTION/VALIDATION
-function p_validate(p_query, p_searchitem, p_pwd, p_cn, p_bc, p_method, p_type, p_holdID, i){
+function p_validate(p_query, p_searchitem, p_pwd, p_cn, p_bc, p_method, p_type, p_holdID, p_i){
 if(p_pwd ==='undefined') p_pwd ='';
 if(p_cn ==='undefined') p_cn ='';
 if(p_bc ==='undefined') p_bc ='';
 if(p_type ==='undefined') p_type ='';
 if(p_holdID ==='undefined') p_holdID ='';
 if(p_searchitem ==='undefined') p_searchitem ='';
-if(i ==='undefined') i ='';
+if(p_i ==='undefined') p_i ='';
 switch(p_query){
 case 1:	var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/KW?q="+p_searchitem+"&bibsperpage=20&page="+p_holdID+""; break;
 case 2: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
@@ -469,6 +469,7 @@ case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/
 case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
 }
 
+//alert(p_i);
 var thedate=(new Date()).toUTCString();
 if(p_searchitem){
 	//start_spin();
@@ -500,7 +501,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			switch(p_query){
-			case 1:	get_books(p_response.code,p_response.reqstring,p_response.thedate,i); break;
+			case 1:	get_books(p_response.code,p_response.reqstring,p_response.thedate,p_i); break;
 			case 2: getit_bc(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 3: get_detail(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 4: get_news(p_response.code,p_response.reqstring,p_response.thedate); break;
