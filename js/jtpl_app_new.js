@@ -484,7 +484,16 @@ $.ajax({
 		timeout:60000,
 		cache: false,
         success : function(response) {
-			//stop_spin();
+
+if(p_i!==''){
+var array_i = [];
+array_i.push(p_i);
+var largest = Math.max.apply(Math, array);
+if(p_i<largest){
+	return false;
+}}
+else{
+//stop_spin();
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			switch(p_query){
@@ -503,7 +512,7 @@ $.ajax({
 			case 13: get_det_nyt(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			}
-},
+}},
         error      : function() {
             console.error("error");
             alert('Could not process.You might have no network connection.');                  
