@@ -84,7 +84,9 @@ if(device.platform === "iOS" && parseInt(device.version) === 9){
 // set homepage spacing in iphone6plus	
 //var whatis=navigator.userAgent;
 //alert('this is'+whatis+'');
-
+if(device.platform === "iOS"){
+navigator.splashscreen.hide();
+}
 
 
 var deviceType = (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : 'NULL';
@@ -255,9 +257,7 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
-setTimeout(function() {
-     navigator.splashscreen.hide();
-}, 3000);
+
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
         var code = (e.keyCode ? e.keyCode : e.which);
