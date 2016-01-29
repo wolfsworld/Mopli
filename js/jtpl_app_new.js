@@ -484,16 +484,14 @@ $.ajax({
 		timeout:60000,
 		cache: false,
         success : function(response) {
-
-if(p_i!==''){
-var array_i = [];
-array_i.push(p_i);
-var largest = Math.max.apply(Math, array);
-if(p_i<largest){
-	return false;
-}}
-else{
-//stop_spin();
+		  if(p_i!==''){
+		  var array_i = [];
+		  array_i.push(p_i);
+		  var largest = Math.max.apply(Math, array_i);
+		  if(p_i<largest){
+			  return false;
+		  }}else{
+		  //stop_spin();
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			switch(p_query){
