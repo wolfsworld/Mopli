@@ -34,7 +34,10 @@
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="false" />
 	<preference name="AutoHideSplashScreen" value="false" />
-	<preference name="SplashScreenDelay" value="1000"/>
+	<preference name="SplashScreenDelay" value="5000"/>
+	<preference name="EnableViewportScale" value="true" />
+	<preference name="FadeSplashScreen" value="true"/>
+	<preference name="FadeSplashScreenDuration" value="200"/>
 	
     <icon src="icon.png" />
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
