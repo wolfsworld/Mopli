@@ -33,7 +33,7 @@
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="false" />
-	<preference name="AutoHideSplashScreen" value="true" />
+	<preference name="AutoHideSplashScreen" value="false" />
 	<preference name="SplashScreenDelay" value="100"/>
 	<preference name="EnableViewportScale" value="true" />
 	<preference name="FadeSplashScreen" value="true"/>
