@@ -85,7 +85,7 @@ if(device.platform === "iOS" && parseInt(device.version) === 9){
 //var whatis=navigator.userAgent;
 //alert('this is'+whatis+'');
 
-if(navigator && navigator.splashscreen) navigator.splashscreen.hide();
+
 
 var deviceType = (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : 'NULL';
 //alert(deviceType);
@@ -255,7 +255,9 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
-
+setTimeout(function() {
+     navigator.splashscreen.hide();
+}, 3000);
 //make keyboard disappear on "go"
 /*$('input').keypress(function(e) {
         var code = (e.keyCode ? e.keyCode : e.which);
