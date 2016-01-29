@@ -469,7 +469,6 @@ case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/
 case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
 }
 
-//alert(p_i);
 var thedate=(new Date()).toUTCString();
 if(p_searchitem){
 	//start_spin();
@@ -486,18 +485,6 @@ $.ajax({
 		cache: false,
         success : function(response) {
 			//stop_spin();
-//if(i!==''){
-	
-//var array_i = [];
-//array_i.push(i);
-//var largest = Math.max.apply(Math, array);
-//if(i<largest){
-//	return false;
-//}
-
-//}
-//else{
-			//$( "#theajaxcount" ).append(''+i+','); 
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			switch(p_query){
@@ -516,7 +503,6 @@ $.ajax({
 			case 13: get_det_nyt(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			}
-//}
 },
         error      : function() {
             console.error("error");
@@ -525,11 +511,10 @@ $.ajax({
 });
 }
 
-$(".ui-input-clear").on("click", function () {
-	counter=0;
-});
-
 //case 1 - book search reqstring (get encryption data)
+//reset counter if filed gets cleared
+$(".ui-input-clear").on("click", function () {counter=0;});
+
 var typingTimer;                //timer identifier
 var doneTypingInterval = 600;  //time in ms, 5 second for example
 gen_words=['the ', 'The ', 'for ', 'For ', 'how ', 'How '];
@@ -538,7 +523,7 @@ counter +=1;
   searchitem=0;
  	var trigger=$('#search_item').val();
 	if($('#search_item').val()==''){counter=0;}
-	if(counter>4){
+	if(counter>3){
 	if(jQuery.inArray(trigger, gen_words )== -1){
 	clearTimeout(typingTimer);
         typingTimer = setTimeout(doneTyping, doneTypingInterval);
