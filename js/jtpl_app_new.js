@@ -84,6 +84,9 @@ if(device.platform === "iOS" && parseInt(device.version) === 9){
 //homepage spacing in iphone6plus	
 //var whatis=navigator.userAgent;
 //alert('this is'+whatis+'');
+
+if(navigator && navigator.splashscreen) navigator.splashscreen.hide();
+
 var deviceType = (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : 'NULL';
 //alert(deviceType);
 if(deviceType!='NULL'){
