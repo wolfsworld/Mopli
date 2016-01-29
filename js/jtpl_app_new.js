@@ -490,7 +490,9 @@ $.ajax({
 		  var largest = Math.max.apply(Math, array_i);
 		  if(p_i<largest){
 			  return false;
-		  }}else{
+		  }else{distribution();
+		  }}else{distribution();}
+		  function distribution(){
 		  //stop_spin();
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
@@ -511,7 +513,7 @@ $.ajax({
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			}
 }},
-        error      : function() {
+        error: function() {
             console.error("error");
             alert('Could not process.You might have no network connection.');                  
         }
@@ -559,8 +561,7 @@ if(thei<largest){
 	return false;
 }
 else{
-
-$( "#thepreajaxcount" ).append(''+i+',');  
+//$( "#thepreajaxcount" ).append(''+i+',');  
 $('#selection').collapsible( "collapse" );
 var blist_html='';
 var settings = {
