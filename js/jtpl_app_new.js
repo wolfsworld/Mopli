@@ -81,7 +81,7 @@ if(net_status==false){
 if(device.platform === "iOS" && parseInt(device.version) === 9){
        $.mobile.hashListeningEnabled = false;
    }
-//homepage spacing in iphone6plus	
+// set homepage spacing in iphone6plus	
 //var whatis=navigator.userAgent;
 //alert('this is'+whatis+'');
 
