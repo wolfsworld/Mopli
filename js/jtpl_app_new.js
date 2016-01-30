@@ -27,6 +27,15 @@ var rem_libpin;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
+if(device.platform === "iOS"){
+navigator.splashscreen.hide();
+// setTimeout(function() {
+//        navigator.splashscreen.hide();
+//    }, 0);
+
+}
+
+
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
@@ -84,7 +93,7 @@ if(device.platform === "iOS" && parseInt(device.version) === 9){
 // set homepage spacing in iphone6plus	
 //var whatis=navigator.userAgent;
 //alert('this is'+whatis+'');
-//if(device.platform === "iOS"){
+//if(device.platform === "Android"){
 //navigator.splashscreen.hide();
 //}
 
