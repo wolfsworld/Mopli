@@ -56,7 +56,6 @@ background-color: #FC3;
   >background: radial-gradient(white 15%, yellow 85%); /* Standard syntax */
 }
 
-
 .home, .home_ev {
 	float: right;
 }

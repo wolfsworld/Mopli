@@ -29,6 +29,16 @@ $.mobile.allowCrossDomainPages = true;
 <script type="text/javascript" src="js/jalert/jAlert-functions.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("books", "0");
+</script>-->
+
+<!--<script>
+document.addEventListener('deviceready', function() {
+navigator.splashscreen.hide();
+});
+</script>-->
 
 </head>
 <body>
@@ -52,14 +62,10 @@ $.mobile.allowCrossDomainPages = true;
     <div class="flash"><input type="button" id="flashlight" value="Need a reading light? Touch here."></div>
     </div>
 
-    <div id="siteloader"></div>
 	</div>
 
 <div data-role="footer" data-theme="a">&copy; Jefferson Township Public Library.<br /><br />Driven by <img src="img/mopli_10.png" width="44" height="10" alt="MOPLI"> (Version 1.1.4)</div><!-- /footer -->
 </div>
-
-<div data-role="page" id="myDialog">Hello World</div>
-
 
 <div data-role="page" id="catalog_search">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
@@ -99,6 +105,7 @@ $.mobile.allowCrossDomainPages = true;
 <h3>Detail</h3></div>
 <div data-role="ui-content" id="bib_detail">	
 <div id="bdetail"></div>
+<div id="viewerCanvas"></div>
 
 </div>
 </div>
@@ -111,18 +118,21 @@ $.mobile.allowCrossDomainPages = true;
 <div data-role="ui-content" id="login_field">	
 
 <div data-role="fieldcontain">
-
+<!--onSubmit="document.location.href='index.html#login'; return false;"-->
 <form method="get" id="loginform" onSubmit="document.location.href='index.html#login'; return false;">
 	         <label for="libcard">Library Card# or User Name:</label>
-	         <input type="text" name="libcard" id="libcard" value=""  data-clear-btn="true" placeholder="Your Lib Card# or User Name..."/>
+	         <input type="text" name="libcard" id="libcard" value=""  data-clear-btn="true" placeholder="Your Lib Card# or User Name..."/><br />
              <label for="libpin">PIN #:</label>
 	         <input type="password" name="libpin" id="libpin" value="" data-clear-btn="true" placeholder="Your PIN #..."/><br />
              <label for="remember"><input type="checkbox" name="remember" id="remember" value="yes" />
 			 Remember login</label><br />
              <input type="hidden" name="cn_holdreq" id="cn_holdreq" value="" />
              <input type="hidden" name="patron_bc" id="patron_bc" value="" />
+             
 
+             
              <input name="loginsubmit" type="submit" id="loginsubmit" value="submit">
+             <!--<input type="submit" name="loginsubmit" id="loginsubmit" data-role="none" style="visibility: hidden; position: absolute;" />-->
 </form>
 
 </div>
@@ -192,6 +202,7 @@ Fax: 973-697-7051<br />
 
 <h4>Closing Days:</h4>
 <div id="holiday_block"></div>
+
 
 </div>
 </div>
@@ -305,6 +316,7 @@ Fax: 973-697-7051<br />
 		<script type="text/javascript">
           app.initialize();
         </script>
+
 
 </div>
 </div>
