@@ -27,16 +27,6 @@ var rem_libpin;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
-/*if(device.platform === "Android"){
-navigator.splashscreen.show();
-navigator.splashscreen.hide();
- setTimeout(function() {
-        navigator.splashscreen.hide();
-    }, 5000);
-
-}
-*/
-
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
@@ -91,13 +81,6 @@ if(net_status==false){
 if(device.platform === "iOS" && parseInt(device.version) === 9){
        $.mobile.hashListeningEnabled = false;
    }
-// set homepage spacing in iphone6plus	
-//var whatis=navigator.userAgent;
-//alert('this is'+whatis+'');
-//if(device.platform === "Android"){
-//navigator.splashscreen.hide();
-//}
-
 
 var deviceType = (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : 'NULL';
 //alert(deviceType);
