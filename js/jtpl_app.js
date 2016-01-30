@@ -342,7 +342,7 @@ $('.home').on('click', function () {
 self.location.href = 'index.html';
 });
 
-//$(document).ready(function(){
+$(document).ready(function(){
 
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
@@ -1930,6 +1930,7 @@ window.plugins.flashlight.available(function(isAvailable) {
     alert("Flashlight not available on this device");
   }
 });
-//});
+
+});
 
 });
