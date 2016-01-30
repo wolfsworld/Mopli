@@ -27,13 +27,14 @@ var rem_libpin;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
-//if(device.platform === "iOS"){
-//navigator.splashscreen.hide();
-// setTimeout(function() {
-//        navigator.splashscreen.hide();
-//    }, 0);
+if(device.platform === "Android"){
+navigator.splashscreen.show();
+navigator.splashscreen.hide();
+ setTimeout(function() {
+        navigator.splashscreen.hide();
+    }, 5000);
 
-//}
+}
 
 
 //check local storage and prepopulate login information
