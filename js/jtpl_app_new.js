@@ -360,7 +360,7 @@ self.location.href = 'index.html';
 
 $(document).ready(function(){
 
-//navigator.splashscreen.hide();
+navigator.splashscreen.hide();
 
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
