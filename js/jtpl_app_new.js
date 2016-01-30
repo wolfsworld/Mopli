@@ -86,12 +86,14 @@ if(device.platform === "iOS" && parseInt(device.version) === 9){
 
 var deviceType = (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : 'NULL';
 //alert(deviceType);
+//if iphone after 5 (large screen)
 if(deviceType!='NULL'){
 	$('.ui-btn').css({'margin-top':'2px', 'margin-bottom': '2px'}); 
 }
 
 var model = device.model;
 //alert('this is a: '+model+'');
+//if iphone 4 or 5
 if(model=='iPhone4,1' || model=='iPhone3,1'){
 $('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px'}); 
 }
@@ -1970,6 +1972,7 @@ window.plugins.flashlight.available(function(isAvailable) {
 	//$('.ui-grid-solo .flash .ui-btn').css({'background-color': '#FFF7B7'});
   } 
  else {
+	   $('.ui-grid-solo .flash .ui-btn').css({'background-color': '#FC3', 'background': '-webkit-radial-gradient(white 0%, yellow 0%)','background': '-o-radial-gradient(white 0%, yellow 0%)','background':' -moz-radial-gradient(white 0%, yellow 0%)',' background': 'radial-gradient(white 0%, yellow 0%)'}); 
     alert("Flashlight not available on this device");
   }
 });
