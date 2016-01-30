@@ -27,7 +27,7 @@ var rem_libpin;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
-
+navigator.splashscreen.hide();
 
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
@@ -359,8 +359,6 @@ self.location.href = 'index.html';
 });
 
 $(document).ready(function(){
-
-navigator.splashscreen.hide();
 
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
