@@ -1112,7 +1112,7 @@ var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
 var my_holds='';
-var hold_selection= ['Title', 'Author', 'StatusDescription', 'FormatDescription', 'QueuePosition'];
+var hold_selection= ['Title', 'Author', 'StatusDescription', 'FormatDescription'];
 
 $( "#loginresponse" ).empty();
 
@@ -1154,9 +1154,6 @@ my_holds +="<div class='p_alert'>Please Pick-up</div>";
 				break;
 				case "FormatDescription":
 				key2="Media Type";
-				break;
-				case "QueuePosition":
-				key2="Queue Position";
 				break;
 				}
 
@@ -1962,5 +1959,4 @@ window.plugins.flashlight.available(function(isAvailable) {
 });
 
 });
-
 });
