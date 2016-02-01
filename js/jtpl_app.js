@@ -1348,7 +1348,7 @@ switch(media){
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
-alert('first_media:'+media+'');
+alert('days overdue:'+det_days_overdue+'');
 est_fees(media_cat, det_days_overdue, my_title, my_author); 
 alert('sent to est_fees');
 }
@@ -1369,7 +1369,7 @@ window.plugins.spinnerDialog.hide();
 function est_fees(media_cat, det_days_overdue, my_title, my_author){
 var per_item_value=0;
 var list_est='';
-alert(med_cat);
+alert(media_cat);
 alert('overdue days:'+det_days_overdue+'');
 
 switch(media_cat){
