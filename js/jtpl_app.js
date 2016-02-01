@@ -1246,7 +1246,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-window.plugins.spinnerDialog.show(null,"...processing");
+//window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
   "async": true,
@@ -1322,7 +1322,9 @@ switch(media){
 				var differ=today_epoch-cod_epoch;
 				//alert(differ);
 				var det_days_overdue=Math.floor(differ/(86400*1000));
-				//alert(det_days_overdue);
+				var late_title=value2.Title;
+				alert(late_title);
+				alert(det_days_overdue);
 				var media_cat=media;
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
@@ -1334,12 +1336,12 @@ switch(media){
 				value2=CODate.toDateString();
 				key2="Check Out Date";
 				break;
-				case "Title":
+				/*case "Title":
 				var my_title=value2;
 				break;
 				case "Author":
 				var my_author=value2;
-				break;
+				break;*/
 				}	
 					
 				if(key2=="Title"){
@@ -1350,7 +1352,7 @@ switch(media){
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
-alert('days overdue:'+det_days_overdue+' - author:'+my_author+' - title:'+my_title+'');
+//alert('days overdue:'+det_days_overdue+' - author:'+my_author+' - title:'+my_title+'');
 //var amount_due=est_fees(media_cat, det_days_overdue);
 var amount_due=5;
 list_est+="<p>: Days overdue: Estimated late fee as per today: "+amount_due+"</p>";
@@ -1365,7 +1367,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-window.plugins.spinnerDialog.hide();
+//window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
