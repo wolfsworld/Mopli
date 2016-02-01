@@ -1246,8 +1246,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-
-//window.plugins.spinnerDialog.show(null,"...processing");
+window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
   "async": true,
@@ -1320,9 +1319,9 @@ switch(media){
 				var cod_epoch= parseFloat(value2.substr(6 ));
 				if(cod_epoch<today_epoch){overdue=true;
 				var differ=today_epoch-cod_epoch;
-				alert(differ);
+				//alert(differ);
 				var det_days_overdue=Math.floor(differ/(86400*1000));
-				alert(det_days_overdue);
+				//alert(det_days_overdue);
 				var media_cat=media;
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
@@ -1350,29 +1349,10 @@ switch(media){
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
-
-var per_item_value=0;
-var list_est='';
-//alert(media_cat);
-//alert('overdue days:'+det_days_overdue+'');
-
-switch(media_cat){
-		case 33:
-		per_item_value=1.00;
-		break;
-		case 40:
-		per_item_value=1.00;
-		break;
-		default:
-		per_item_value=0.15;
-		break;
-}
-var the_amount=det_days_overdue*per_item_value;
-
-list_est+="<p>"+my_title+" ("+my_author+"): Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+the_amount+"</p>";
+//alert('days overdue:'+det_days_overdue+'');
+var amount_due=est_fees(media_cat, det_days_overdue); 
+list_est+="<p>"+my_title+" ("+my_author+"): Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+amount_due+"</p>";
 $('#fee_est_list').append(list_est);
-
-
 }
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
@@ -1382,12 +1362,27 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-//window.plugins.spinnerDialog.hide();
+window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
 
-
+function est_fees(media_cat, det_days_overduer){
+var per_item_value=0;
+alert('overdue days:'+det_days_overdue+'');
+switch(media_cat){
+		case 33:
+		per_item_value=1.00;
+		break;
+		case 40:
+		per_item_value=1.00;
+		break;
+		default:
+		per_item_value=0.15;
+}
+var the_amount=det_days_overdue*per_item_value;
+return the_amount;
+}
 
 
 //case 14 - outstanding fees(list)
