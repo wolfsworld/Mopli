@@ -1324,6 +1324,8 @@ switch(media){
 				if(value.Title!==''){var late_title=value.Title;}else{var late_title="n/a";}
 				if(value.Author!==''){var late_author=value.Author;}else{var late_author="n/a";}
 				var media_cat=media;
+				var amount_due=est_fees(media_cat, det_days_overdue);
+				list_est +="<p>: Title:"+late_title+" - Author: "+late_author+"<br>Days overdue: Estimated late fee as per today: "+amount_due+"</p>";
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
@@ -1334,12 +1336,6 @@ switch(media){
 				value2=CODate.toDateString();
 				key2="Check Out Date";
 				break;
-				/*case "Title":
-				var my_title=value2;
-				break;
-				case "Author":
-				var my_author=value2;
-				break;*/
 				}	
 					
 				if(key2=="Title"){
@@ -1350,11 +1346,6 @@ switch(media){
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
-alert('days overdue:'+det_days_overdue+' - author:'+late_author+' - title:'+late_title+'');
-//var amount_due=est_fees(media_cat, det_days_overdue);
-var amount_due=5;
-list_est+="<p>: Days overdue: Estimated late fee as per today: "+amount_due+"</p>";
-//list_est +="<p>Estimated late fee as per today: "+amount_due+"</p>";
 $('#fee_est_list').append(list_est);
 }
 if(hold_ind==false){
