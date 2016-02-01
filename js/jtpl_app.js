@@ -1262,6 +1262,7 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 var my_outs='';
+var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
 $( "#borrowed" ).empty();
@@ -1367,9 +1368,9 @@ window.plugins.spinnerDialog.hide();
 };//end items_out_all function
 
 
-function est_fees(media_cat, det_days_overduer){
+function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
-alert('overdue days:'+det_days_overdue+'');
+//alert('overdue days:'+det_days_overdue+'');
 switch(media_cat){
 		case 33:
 		per_item_value=1.00;
