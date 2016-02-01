@@ -1085,6 +1085,7 @@ alert('your hold cancel request failed');
 //case 8 - prep_getholds and -> 8 getholds, 9 items out all, 14 fees due
 function prep_getholds(pat_barcode){
 var pwd=$('#libpin').val();
+$('#fee_est_list').empty();
 p_validate(8,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 p_validate(9,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 p_validate(14,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
@@ -1317,7 +1318,12 @@ switch(media){
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
-				if(cod_epoch<today_epoch){overdue=true;}
+				if(cod_epoch<today_epoch){overdue=true;
+				var differ=today_epoch-cod_epoch;
+				var det_days_overdue=Math.floor(differ/(86400*1000));
+				var media_cat=media;
+				
+				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
 				key2="Due Date";
@@ -1326,6 +1332,12 @@ switch(media){
 				var CODate= new Date( parseFloat(value2.substr(6 )));
 				value2=CODate.toDateString();
 				key2="Check Out Date";
+				break;
+				case "Title":
+				var my_title=value2;
+				break;
+				case "Author":
+				var my_author=value2;
 				break;
 				}	
 					
@@ -1336,7 +1348,9 @@ switch(media){
 				}
 				}
 			});
-if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
+if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
+est_fees(media_cat, det_days_overdue, my_title, my_author); 
+}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
 }else{
@@ -1348,6 +1362,26 @@ $( "#borrowed" ).append(my_outs);
 window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
+
+
+
+function est_fees(media_cat, det_days_overdue, my_title, my_author){
+var per_item_value=0;
+var list_est='';
+
+switch(media_cat){
+		case 33:
+		per_item_value=1.00;
+		break;
+		case 40:
+		per_item_value=1.00;
+		break;
+		default:
+		per_item_value=0.15;
+}
+list_est+="<p>"+my_title+" ("+my_author+"): Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+(det_days_overdue*per_item_value)+"</p>";
+$('#fee_est_list').append(list_est);
+}
 
 //case 14 - outstanding fees(list)
 function fees_outstanding(reqstring,thedate,code){
