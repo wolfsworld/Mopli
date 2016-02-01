@@ -1322,7 +1322,7 @@ switch(media){
 				var differ=today_epoch-cod_epoch;
 				//alert(differ);
 				var det_days_overdue=Math.floor(differ/(86400*1000));
-				var late_title=value2.Title;
+				var late_title=value.Title;
 				alert(late_title);
 				alert(det_days_overdue);
 				var media_cat=media;
