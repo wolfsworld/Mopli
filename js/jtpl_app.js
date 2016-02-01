@@ -1353,8 +1353,8 @@ if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
 //alert('days overdue:'+det_days_overdue+'');
 //var amount_due=est_fees(media_cat, det_days_overdue);
 var amount_due=5;
-//list_est+="<p>"+my_title+" - "+my_author+": Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+amount_due+"</p>";
-list_est +="<p>Estimated late fee as per today: "+amount_due+"</p>";
+list_est+="<p>"+my_title+" - "+my_author+": Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+amount_due+"</p>";
+//list_est +="<p>Estimated late fee as per today: "+amount_due+"</p>";
 $('#fee_est_list').append(list_est);
 }
 if(hold_ind==false){
