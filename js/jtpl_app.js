@@ -1246,7 +1246,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-//window.plugins.spinnerDialog.show(null,"...processing");
+window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
   "async": true,
@@ -1323,9 +1323,9 @@ switch(media){
 				var det_days_overdue=Math.floor(differ/(86400*1000));
 				if(value.Title!==''){var late_title=value.Title;}else{var late_title="n/a";}
 				if(value.Author!==''){var late_author=value.Author;}else{var late_author="n/a";}
-				var media_cat=media;
+				if(media!==''){var media_cat=media;}else{var media_cat="n/a";}
 				var amount_due=est_fees(media_cat, det_days_overdue);
-				list_est +="<p>: Title:"+late_title+" - Author: "+late_author+"<br>Days overdue: Estimated late fee as per today: "+amount_due+"</p>";
+				list_est +="<hr><p>Title: "+late_title+" ("+late_author+")<br>Days overdue: "+det_days_overdue+"<br>Estimated late fee as per today: $"+amount_due+"</p>";
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
@@ -1356,7 +1356,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-//window.plugins.spinnerDialog.hide();
+window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
@@ -1366,16 +1366,17 @@ var per_item_value=0;
 //alert('overdue days:'+det_days_overdue+'');
 switch(media_cat){
 		case 33:
-		per_item_value=1.00;
+		per_item_value=100;
 		break;
 		case 40:
-		per_item_value=1.00;
+		per_item_value=100;
 		break;
 		default:
-		per_item_value=0.15;
+		per_item_value=15;
 }
 var the_amount=det_days_overdue*per_item_value;
-return the_amount;
+if(the_amount<100){the_amount=""+the_amount+" cents";}else{the_amount="$"+(the_amount/100)+"";}
+return the_amount.toFixed(2);
 }
 
 
@@ -1467,7 +1468,7 @@ my_fees +="</td></tr></table>";
 if(fees_due>0){
 $( "#fees" ).append(my_fees);
 }else{
-$( "#fees" ).append("No current fees due");
+$( "#fees" ).append("No current fees on file");
 }
 });//end ajax 
 };//end fees function
