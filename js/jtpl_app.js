@@ -1319,13 +1319,13 @@ switch(media){
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
 				if(cod_epoch<today_epoch){overdue=true;
-				var differ=today_epoch-cod_epoch;
+				/*var differ=today_epoch-cod_epoch;
 				var det_days_overdue=Math.floor(differ/(86400*1000));
 				if(value.Title!==''){var late_title=value.Title;}else{var late_title="n/a";}
 				if(value.Author!==''){var late_author=value.Author;}else{var late_author="n/a";}
 				if(media!==''){var media_cat=media;}else{var media_cat="n/a";}
 				var amount_due=est_fees(media_cat, det_days_overdue);
-				list_est +="<hr><p>Title: "+late_title+" ("+late_author+")<br>Days overdue: "+det_days_overdue+"<br>Estimated late fee as per today: $"+amount_due+"</p>";
+				list_est +="<hr><p>Title: "+late_title+" ("+late_author+")<br>Days overdue: "+det_days_overdue+"<br>Estimated late fee as per today: $"+amount_due+"</p>";*/
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
@@ -1345,9 +1345,7 @@ switch(media){
 				}
 				}
 			});
-if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
-$('#fee_est_list').append(list_est);
-}
+if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
 }else{
@@ -1360,8 +1358,7 @@ window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
-
-function est_fees(media_cat, det_days_overdue){
+/*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
 //alert('overdue days:'+det_days_overdue+'');
 switch(media_cat){
@@ -1377,8 +1374,7 @@ switch(media_cat){
 var the_amount=det_days_overdue*per_item_value;
 if(the_amount<100){the_amount=""+the_amount+" cents";}else{the_amount="$"+(the_amount/100)+"";}
 return the_amount;
-}
-
+}*/
 
 //case 14 - outstanding fees(list)
 function fees_outstanding(reqstring,thedate,code){
