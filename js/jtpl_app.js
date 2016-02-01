@@ -1350,9 +1350,29 @@ switch(media){
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
-//alert('days overdue:'+det_days_overdue+'');
-est_fees(media_cat, det_days_overdue, my_title, my_author); 
-alert('sent to est_fees');
+
+var per_item_value=0;
+var list_est='';
+//alert(media_cat);
+//alert('overdue days:'+det_days_overdue+'');
+
+switch(media_cat){
+		case 33:
+		per_item_value=1.00;
+		break;
+		case 40:
+		per_item_value=1.00;
+		break;
+		default:
+		per_item_value=0.15;
+		break;
+}
+var the_amount=det_days_overdue*per_item_value;
+
+list_est+="<p>"+my_title+" ("+my_author+"): Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+the_amount+"</p>";
+$('#fee_est_list').append(list_est);
+
+
 }
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
@@ -1364,27 +1384,6 @@ my_outs +="</td></tr></table>";
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
-function est_fees(media_cat, det_days_overdue, my_title, my_author){
-var per_item_value=0;
-var list_est='';
-alert(media_cat);
-alert('overdue days:'+det_days_overdue+'');
-
-switch(media_cat){
-		case 33:
-		per_item_value=1.00;
-		break;
-		case 40:
-		per_item_value=1.00;
-		break;
-		default:
-		per_item_value=0.15;
-}
-var the_amount=det_days_overdue*per_item_value;
-
-list_est+="<p>"+my_title+" ("+my_author+"): Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+the_amount+"</p>";
-$('#fee_est_list').append(list_est);
-}
 };//end items_out_all function
 
 
