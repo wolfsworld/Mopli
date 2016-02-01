@@ -1321,8 +1321,8 @@ switch(media){
 				if(cod_epoch<today_epoch){overdue=true;
 				var differ=today_epoch-cod_epoch;
 				var det_days_overdue=Math.floor(differ/(86400*1000));
-				var late_title=value.Title;
-				var late_author=value.Author;
+				if(value.Title!==''){var late_title=value.Title;}else{var late_title="n/a";}
+				if(value.Author!==''){var late_author=value.Author;}else{var late_author="n/a";}
 				var media_cat=media;
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
@@ -1350,7 +1350,7 @@ switch(media){
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
-alert('days overdue:'+det_days_overdue+' - author:'+my_author+' - title:'+my_title+'');
+alert('days overdue:'+det_days_overdue+' - author:'+late_author+' - title:'+late_title+'');
 //var amount_due=est_fees(media_cat, det_days_overdue);
 var amount_due=5;
 list_est+="<p>: Days overdue: Estimated late fee as per today: "+amount_due+"</p>";
