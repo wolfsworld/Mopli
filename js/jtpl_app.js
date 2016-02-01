@@ -1376,7 +1376,7 @@ switch(media_cat){
 }
 var the_amount=det_days_overdue*per_item_value;
 if(the_amount<100){the_amount=""+the_amount+" cents";}else{the_amount="$"+(the_amount/100)+"";}
-return the_amount.toFixed(2);
+return the_amount;
 }
 
 
