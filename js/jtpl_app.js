@@ -1322,7 +1322,6 @@ switch(media){
 				var differ=today_epoch-cod_epoch;
 				var det_days_overdue=Math.floor(differ/(86400*1000));
 				var media_cat=media;
-				
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
@@ -1349,7 +1348,9 @@ switch(media){
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
+alert(media);
 est_fees(media_cat, det_days_overdue, my_title, my_author); 
+alert('sent to est_fees');
 }
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
@@ -1368,6 +1369,8 @@ window.plugins.spinnerDialog.hide();
 function est_fees(media_cat, det_days_overdue, my_title, my_author){
 var per_item_value=0;
 var list_est='';
+alert(med_cat);
+alert(det_days_overdue);
 
 switch(media_cat){
 		case 33:
@@ -1379,7 +1382,9 @@ switch(media_cat){
 		default:
 		per_item_value=0.15;
 }
-list_est+="<p>"+my_title+" ("+my_author+"): Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+(det_days_overdue*per_item_value)+"</p>";
+var the_amount=det_days_overdue*per_item_value;
+
+list_est+="<p>"+my_title+" ("+my_author+"): Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+the_amount+"</p>";
 $('#fee_est_list').append(list_est);
 }
 
