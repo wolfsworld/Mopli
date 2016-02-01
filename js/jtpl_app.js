@@ -1247,7 +1247,7 @@ return hold_ind;
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 
-window.plugins.spinnerDialog.show(null,"...processing");
+//window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
   "async": true,
@@ -1320,7 +1320,9 @@ switch(media){
 				var cod_epoch= parseFloat(value2.substr(6 ));
 				if(cod_epoch<today_epoch){overdue=true;
 				var differ=today_epoch-cod_epoch;
+				alert(differ);
 				var det_days_overdue=Math.floor(differ/(86400*1000));
+				alert(det_days_overdue);
 				var media_cat=media;
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
@@ -1348,7 +1350,7 @@ switch(media){
 				}
 			});
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";
-alert('days overdue:'+det_days_overdue+'');
+//alert('days overdue:'+det_days_overdue+'');
 est_fees(media_cat, det_days_overdue, my_title, my_author); 
 alert('sent to est_fees');
 }
@@ -1360,7 +1362,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-window.plugins.spinnerDialog.hide();
+//window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
