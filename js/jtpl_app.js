@@ -1364,10 +1364,6 @@ my_outs +="</td></tr></table>";
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
-};//end items_out_all function
-
-
-
 function est_fees(media_cat, det_days_overdue, my_title, my_author){
 var per_item_value=0;
 var list_est='';
@@ -1389,6 +1385,11 @@ var the_amount=det_days_overdue*per_item_value;
 list_est+="<p>"+my_title+" ("+my_author+"): Days overdue: "+det_days_overdue+" <br>Estimated late fee as per today: "+the_amount+"</p>";
 $('#fee_est_list').append(list_est);
 }
+};//end items_out_all function
+
+
+
+
 
 //case 14 - outstanding fees(list)
 function fees_outstanding(reqstring,thedate,code){
