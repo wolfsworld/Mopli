@@ -891,14 +891,7 @@ $( "#news" ).append(next_batch_news);
 });
 }
 
-//case 5 - Hold Request or Login (get encryption)
-$(document).on('click', '.hold_req a', function () {
-var cont_num;
-cont_num=$(this).attr("id");
-$('#cn_holdreq').val(cont_num);
-
-p_validate(15,'','','','','GET','','','');
-
+//populate the branches
 function lib_branches(reqstring,thedate,code){
 alert('lib branches started')
 var pu_loc_list='';
@@ -926,6 +919,14 @@ pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 pu_loc_list +='</select></label>'; 
 $('#pu_loc_cont').append(pu_loc_list);
 }//funtion lib_branches
+
+
+//case 5 - Hold Request or Login (get encryption)
+$(document).on('click', '.hold_req a', function () {
+var cont_num;
+cont_num=$(this).attr("id");
+$('#cn_holdreq').val(cont_num);
+p_validate(15,'','','','','GET','','','');
 });//on click hold_req_a
 
 //Login
