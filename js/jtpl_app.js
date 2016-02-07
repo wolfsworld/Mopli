@@ -909,11 +909,10 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-								alert(response);
 $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
-//alert('id is:'+org_id+' - branch is '+org_name+'');
+alert(org_id);
 //$.each(value, function(key2, value2) {											   
 //if(key2=='OrganizationID'){
 //var org_id=value2;
