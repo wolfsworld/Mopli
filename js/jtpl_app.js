@@ -500,7 +500,6 @@ $.ajax({
 });
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //case 1 - book search reqstring (get encryption data)
 //reset counter if filed gets cleared
 $(".ui-input-clear").on("click", function () {counter=0;});
@@ -960,7 +959,6 @@ p_validate(6,'','',''+p_cn+'',''+pat_barcode+'','POST','',''+res_pat_id+'','');
 };
 //case 6 - function createhold & -> 8 prep getholds
 function createhold(res_pat_id,cont_num,code,reqstring,thedate,pat_barcode){
-alert('branch id: '+branch_id+' and name:'+branch_name+'');
 var d = new Date();
 var str_time = d.toISOString();
 
@@ -1012,7 +1010,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 			$.jAlert({
 				'type': 'modal',
 				'title': 'Hold Confirmation',
-				'content': ''+the_message+'\nYour are # '+the_pos+' in the waiting queue of '+the_queue+'',
+				'content': ''+the_message+'\nYou are # '+the_pos+' in the waiting queue of '+the_queue+'\nPickup Library will be '+branch_name+'.',
 				'theme': 'blue',
 				'onClose':function(){ 
 				prep_getholds (pat_barcode);
