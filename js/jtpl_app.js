@@ -920,11 +920,11 @@ $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
 //populate the pa_loc selection in the login screen
-pu_loc_list +='<option value="'+org_id+'>'+org_name+'</option>';
+pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 });//end each
 });//end ajax
 pu_loc_list +='</select></label>'; 
-$.('#pu_loc_cont').append(pu_loc_list);
+$('#pu_loc_cont').append(pu_loc_list);
 }//funtion lib_branches
 });//on click hold_req_a
 
