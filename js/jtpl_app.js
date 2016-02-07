@@ -910,8 +910,14 @@ var settings = {
 }
 $.ajax(settings).done(function (response) {
 $.each(response.OrganizationsGetRows, function(key, value) {
-var org_id=value.OrganizationID;
-var org_name=value.DisplayName;
+$.each(value, function(key2, value2) {											   
+if(key2=='OrganizationID'){
+var org_id=value2;
+}
+if(key2=='DisplayName'){
+var org_name=value2;
+}
+});
 //populate the pa_loc selection in the login screen
 pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 });//end each
