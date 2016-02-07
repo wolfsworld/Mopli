@@ -447,6 +447,7 @@ case 11: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/items
 case 12: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/boolean?q=COL=7+sortby+MP/sort.descending&page="+p_holdID+"";break;
 case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
 case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
+case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branch"; break;
 }
 
 var thedate=(new Date()).toUTCString();
@@ -491,6 +492,7 @@ $.ajax({
 			case 12: most_popular(code,reqstring,thedate); break;
 			case 13: get_det_nyt(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 14: fees_outstanding(reqstring,thedate,code); break;
+			case 15: lib_branches(reqstring,thedate,code); break;
 			}
 }},
         error: function() {
@@ -894,7 +896,38 @@ $(document).on('click', '.hold_req a', function () {
 var cont_num;
 cont_num=$(this).attr("id");
 $('#cn_holdreq').val(cont_num);
-});
+
+p_validate(15,'','','','','GET','','','');
+
+function lib_branches(){
+
+var pu_loc_list='';
+pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": ""+reqstring+"",
+  "method": "GET",
+  "headers": {
+    "polarisdate": ""+thedate+"",
+    "authorization": ""+code+"",
+    "content-type": "application/json"
+  }
+}
+$.ajax(settings).done(function (response) {
+$.each(response.OrganizationsGetRows, function(key, value) {
+var org_id=value.OrganizationID;
+var org_name=value.DisplayName;
+//populate the pa_loc selection in the login screen
+pu_loc_list +='<option value="'+org_id+'>'+org_name+'</option>';
+});//end each
+});//end ajax
+pu_loc_list +='</select></label>'; 
+$.('#pu_loc_cont').append(pu_loc_list);
+}//funtion lib_branches
+});//on click hold_req_a
+
 //Login
 $('#loginsubmit').on ("click", function () {
 var hold;
