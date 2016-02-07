@@ -893,7 +893,7 @@ $( "#news" ).append(next_batch_news);
 
 //populate the branches
 function lib_branches(reqstring,thedate,code){
-alert('lib branches started')
+//alert('lib branches started')
 var pu_loc_list='';
 pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 
@@ -912,7 +912,6 @@ $.ajax(settings).done(function (response) {
 $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
-alert(org_id);
 //$.each(value, function(key2, value2) {											   
 //if(key2=='OrganizationID'){
 //var org_id=value2;
@@ -927,6 +926,7 @@ pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 });//end ajax
 pu_loc_list +='</select></label>'; 
 $('#pu_loc_cont').append(pu_loc_list);
+$('#pu_loc').selectmenu( "refresh", true );
 }//funtion lib_branches
 
 
