@@ -1010,7 +1010,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 			$.jAlert({
 				'type': 'modal',
 				'title': 'Hold Confirmation',
-				'content': ''+the_message+'\nYou are # '+the_pos+' in the waiting queue of '+the_queue+'\nPickup Library will be '+branch_name+'.',
+				'content': ''+the_message+'<br />You are #'+the_pos+' in the waiting queue of '+the_queue+'.<br />Pickup Library will be '+branch_name+'.',
 				'theme': 'blue',
 				'onClose':function(){ 
 				prep_getholds (pat_barcode);
