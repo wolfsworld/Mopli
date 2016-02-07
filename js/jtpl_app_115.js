@@ -23,9 +23,6 @@ var storage = window.localStorage;
 var rem_libcard;
 var rem_libpin;
 
-var branch_id;
-var branch_name;
-
 //device ready event
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -933,8 +930,6 @@ $.ajax(settings).done(function (response) {
 var res_pat_id=response.PatronID;
 var pat_barcode=response.PatronBarcode;
 var valid_pat=response.ValidPatron;
-branch_id=response.AssignedBranchID;
-branch_name=response.AssignedBranchName;
 //alert(valid_pat);
 if(valid_pat==true){
 	if(hold=='true'){
@@ -960,10 +955,9 @@ p_validate(6,'','',''+p_cn+'',''+pat_barcode+'','POST','',''+res_pat_id+'','');
 };
 //case 6 - function createhold & -> 8 prep getholds
 function createhold(res_pat_id,cont_num,code,reqstring,thedate,pat_barcode){
-alert('branch id: '+branch_id+' and name:'+branch_name+'');
+
 var d = new Date();
 var str_time = d.toISOString();
-
 
 var settings = {
   "async": true,
@@ -977,7 +971,7 @@ var settings = {
   },
   "processData": false,
   
-  "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>'+branch_id+'</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>'+branch_id+'</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
+  "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>13</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>13</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
 }
 
 $.ajax(settings).done(function (response) {
@@ -1118,7 +1112,7 @@ var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
 var my_holds='';
-var hold_selection= ['Title', 'Author', 'StatusDescription', 'FormatDescription', 'PickupBranchName'];
+var hold_selection= ['Title', 'Author', 'StatusDescription', 'FormatDescription'];
 
 $( "#loginresponse" ).empty();
 
@@ -1157,9 +1151,6 @@ my_holds +="<div class='p_alert'>Please Pick-up</div>";
 				switch(key2){
 				case "StatusDescription":
 				key2="Status";
-				break;
-				case "PickupBranchName":
-				key2="Pickup Library";
 				break;
 				case "FormatDescription":
 				key2="Media Type";
