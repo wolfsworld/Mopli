@@ -899,8 +899,8 @@ $('#cn_holdreq').val(cont_num);
 
 p_validate(15,'','','','','GET','','','');
 
-function lib_branches(){
-
+function lib_branches(reqstring,thedate,code){
+alert('lib branches started')
 var pu_loc_list='';
 pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 
