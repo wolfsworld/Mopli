@@ -911,13 +911,16 @@ $.ajax(settings).done(function (response) {
 									
 //var response= jQuery.parseJSON(response);
 //alert(response.OrganizationsGetRows.length);
-var response=JSON.stringify(response);
-var response= jQuery.parseJSON(response);
+//var response=JSON.stringify(response);
+//var response= jQuery.parseJSON(response);
 
 $.each(response.OrganizationsGetRows, function(key, value) {
 //var org_id=value.OrganizationID;bvbv
 //var org_name=value.DisplayName;
-pu_loc_list +='ghfhg hgfhgf hgfhgf hgfhg';
+pu_loc_list +="ghfhg hgfhgf hgfhgf hgfhg";
+$.each(value, function(key2, value2){
+pu_loc_list +="popo popopo popo";	
+});
 //pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 //pu_loc_list +='<option value=2>Library B</option>';
 //alert('hi');
