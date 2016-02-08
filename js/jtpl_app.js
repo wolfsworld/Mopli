@@ -1003,6 +1003,7 @@ if( $('#pu_loc').length ){
 	}
 	else{
 	alert('you need to set a pickup location');
+	return false;
 	}
 }
 
