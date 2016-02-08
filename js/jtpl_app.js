@@ -893,7 +893,7 @@ $( "#news" ).append(next_batch_news);
 
 //populate the branches
 function lib_branches(reqstring,thedate,code){
-//alert('lib branches started')
+alert('lib branches started')
 var pu_loc_list='';
 //pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 
@@ -909,7 +909,10 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-response= jQuery.parseJSON(response);
+								alert('ajax done');
+									
+var response= jQuery.parseJSON(response);
+alert(response);
 $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
@@ -933,6 +936,7 @@ pu_loc_list +='value='+org_id+' -- '+org_name+'';
 });//end ajax
 //pu_loc_list +='</select></label>'; 
 //$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
+pu_loc_list +="sdfsdf sdfsdf dffsdf sdffsdf sdfsdf sdfsdf sdfsdfsd fsdff fsddffsdf sd"
 $( '#pu_loc_cont').append( pu_loc_list );
 }//funtion lib_branches
 
