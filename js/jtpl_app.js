@@ -909,9 +909,9 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-//$.each(response.OrganizationsGetRows, function(key, value) {
-//var org_id=value.OrganizationID;
-//var org_name=value.DisplayName;
+$.each(response.OrganizationsGetRows, function(key, value) {
+var org_id=value.OrganizationID;
+var org_name=value.DisplayName;
 //$.each(value, function(key2, value2) {											   
 //if(key2=='OrganizationID'){
 //var org_id=value2;
@@ -920,22 +920,24 @@ $.ajax(settings).done(function (response) {
 //var org_name=value2;
 //}
 //});
-pu_loc_list +='<option value=1>Library A</option>';
-pu_loc_list +='<option value=2>Library B</option>';
-pu_loc_list +='<option value=3>Library C</option>';
-
+//pu_loc_list +='<option value=1>Library A</option>';
+//pu_loc_list +='<option value=2>Library B</option>';
+//pu_loc_list +='<option value=3>Library C</option>';
+//pu_loc_list +='<fieldset id="choices" data-role="controlgroup" data-type="vertical">';
+//pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc"><option value=1>Library A</option><option value=2>Library B</option><option value=3>Library C</option></select></label>';
+//pu_loc_list +='</fieldset>';
 //populate the pa_loc selection in the login screen
-//pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
-//});//end each
+pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
+});//end each
 });//end ajax
 pu_loc_list +='</select></label>'; 
-$('#pu_loc_cont').append(pu_loc_list);
-$('#pu_loc').selectmenu( "refresh", true );
+$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
 }//funtion lib_branches
 
 
 //case 5 - Hold Request or Login (get encryption)
 $(document).on('click', '.hold_req a', function () {
+//$(document).on('click', '#main_login', function () {
 var cont_num;
 cont_num=$(this).attr("id");
 $('#cn_holdreq').val(cont_num);
@@ -1980,9 +1982,9 @@ $('#contact_block').append(contact_html);
 }
 
 //change page to inside upon login
-function login(){
-	$.mobile.changePage("#inside");
-}
+//function login(){
+	//$.mobile.changePage("#inside");
+//}
 
 //fastclick
 window.addEventListener('load', function() {
