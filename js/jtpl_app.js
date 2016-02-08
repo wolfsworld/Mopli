@@ -982,15 +982,19 @@ if( $('#pu_loc').length ){
 	if( pickup_loc_id>0){
 		pu_loc_id=pickup_loc_id;
 		pu_loc_name=pickup_loc_name;
+		//if it should be stored
+		var rem_pu_loc=$('#rem_pu_loc').is(':checked'); 
+  		if(rem_pu_loc==true){
 		window.localStorage.setItem("rem_pu_loc_id",""+pu_loc_id+"");  
 		window.localStorage.setItem("rem_pu_loc_name",""+pu_loc_name+"");  
+		}
 	}
 	else{
 	alert('you need to set a pickup location');
 	}
 }
 
-if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';}
+if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';$('#rem_pu_loc').css({"display":"none;"});}
 p_barcode=$("#libcard").val();
 p_pin=$("#libpin").val();
 p_validate(5,'',''+p_pin+'',''+cont_num+'',''+p_barcode+'','GET',''+hold+'','','');
