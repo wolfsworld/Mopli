@@ -920,7 +920,7 @@ $.each(response.OrganizationsGetRows, function(key, value) {
 pu_loc_list +='<option value=2>Library B</option>';
 //pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 //pu_loc_list +='<option value=2>Library B</option>';
-alert('hi');
+//alert('hi');
 });//end each
 });//end ajax
 pu_loc_list +='</select></label>'; 
