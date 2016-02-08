@@ -447,7 +447,7 @@ case 11: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/items
 case 12: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/boolean?q=COL=7+sortby+MP/sort.descending&page="+p_holdID+"";break;
 case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
 case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
-case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branch"; break;
+case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branches"; break;
 }
 
 var thedate=(new Date()).toUTCString();
@@ -893,9 +893,8 @@ $( "#news" ).append(next_batch_news);
 
 //populate the branches
 function lib_branches(reqstring,thedate,code){
-alert('lib branches started')
 var pu_loc_list='';
-//pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
+pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 
 var settings = {
   "async": true,
@@ -909,35 +908,22 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-								alert('ajax done');
 									
 //var response= jQuery.parseJSON(response);
-alert(response.OrganizationsGetRows[0].DisplayName);
+//alert(response.OrganizationsGetRows[3].DisplayName);
 $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
-//$.each(value, function(key2, value2) {											   
-//if(key2=='OrganizationID'){
-//var org_id=value2;
-//}
-//if(key2=='DisplayName'){
-//var org_name=value2;
-//}
-//});
-//pu_loc_list +='<option value=1>Library A</option>';
+
+pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 //pu_loc_list +='<option value=2>Library B</option>';
-//pu_loc_list +='<option value=3>Library C</option>';
-//pu_loc_list +='<fieldset id="choices" data-role="controlgroup" data-type="vertical">';
-//pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc"><option value=1>Library A</option><option value=2>Library B</option><option value=3>Library C</option></select></label>';
-//pu_loc_list +='</fieldset>';
-//populate the pa_loc selection in the login screen
-pu_loc_list +='value='+org_id+' -- '+org_name+'';
+
 });//end each
 });//end ajax
-//pu_loc_list +='</select></label>'; 
-//$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
-pu_loc_list +="sdfsdf sdfsdf dffsdf sdffsdf sdfsdf sdfsdf sdfsdfsd fsdff fsddffsdf sd"
-$( '#pu_loc_cont').append( pu_loc_list );
+pu_loc_list +='</select></label>'; 
+$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
+//pu_loc_list +="sdfsdf sdfsdf dffsdf sdffsdf sdfsdf sdfsdf sdfsdfsd fsdff fsddffsdf sd"
+//$( '#pu_loc_cont').append( pu_loc_list );
 }//funtion lib_branches
 
 
