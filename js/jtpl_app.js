@@ -898,7 +898,7 @@ var pu_loc_list='';
 pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 
 var settings = {
-  "async": false,
+  "async": true,
   "crossDomain": true,
   "url": ""+reqstring+"",
   "method": "GET",
@@ -909,7 +909,7 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-response= jQuery.parseJSON(response);
+//response= jQuery.parseJSON(response);
 $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
