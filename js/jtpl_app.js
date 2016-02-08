@@ -912,7 +912,7 @@ $.ajax(settings).done(function (response) {
 								alert('ajax done');
 									
 //var response= jQuery.parseJSON(response);
-alert(response.OrganizationsGetRows[1].OrganizationID);
+alert(response.OrganizationsGetRows[0].DisplayName);
 $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
