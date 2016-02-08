@@ -932,7 +932,8 @@ pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 });//end each
 });//end ajax
 pu_loc_list +='</select></label>'; 
-$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
+//$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
+$( '#pu_loc_cont').append( pu_loc_list );
 }//funtion lib_branches
 
 
