@@ -894,7 +894,7 @@ $( "#news" ).append(next_batch_news);
 //populate the branches
 function lib_branches(reqstring,thedate,code){
 var pu_loc_list='';
-pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
+//pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 
 var settings = {
   "async": true,
@@ -917,16 +917,16 @@ var response= jQuery.parseJSON(response);
 $.each(response.OrganizationsGetRows, function(key, value) {
 //var org_id=value.OrganizationID;
 //var org_name=value.DisplayName;
-pu_loc_list +='<option value=2>Library B</option>';
+pu_loc_list +='ghfhg hgfhgf hgfhgf hgfhg';
 //pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 //pu_loc_list +='<option value=2>Library B</option>';
 //alert('hi');
 });//end each
 });//end ajax
-pu_loc_list +='</select></label>'; 
-$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
+//pu_loc_list +='</select></label>'; 
+//$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
 //pu_loc_list +="sdfsdf sdfsdf dffsdf sdffsdf sdfsdf sdfsdf sdfsdfsd fsdff fsddffsdf sd"
-//$( '#pu_loc_cont').append( pu_loc_list );
+$( '#pu_loc_cont').append( pu_loc_list );
 }//funtion lib_branches
 
 
