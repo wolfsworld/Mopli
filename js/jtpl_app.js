@@ -909,7 +909,7 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-//response= jQuery.parseJSON(response);
+response= jQuery.parseJSON(response);
 $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
