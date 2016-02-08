@@ -909,9 +909,9 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-$.each(response.OrganizationsGetRows, function(key, value) {
-var org_id=value.OrganizationID;
-var org_name=value.DisplayName;
+//$.each(response.OrganizationsGetRows, function(key, value) {
+//var org_id=value.OrganizationID;
+//var org_name=value.DisplayName;
 //$.each(value, function(key2, value2) {											   
 //if(key2=='OrganizationID'){
 //var org_id=value2;
@@ -920,9 +920,13 @@ var org_name=value.DisplayName;
 //var org_name=value2;
 //}
 //});
+pu_loc_list +='<option value=1>Library A</option>';
+pu_loc_list +='<option value=2>Library B</option>';
+pu_loc_list +='<option value=3>Library C</option>';
+
 //populate the pa_loc selection in the login screen
-pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
-});//end each
+//pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
+//});//end each
 });//end ajax
 pu_loc_list +='</select></label>'; 
 $('#pu_loc_cont').append(pu_loc_list);
