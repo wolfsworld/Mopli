@@ -895,7 +895,7 @@ $( "#news" ).append(next_batch_news);
 function lib_branches(reqstring,thedate,code){
 //alert('lib branches started')
 var pu_loc_list='';
-pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
+//pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 
 var settings = {
   "async": true,
@@ -928,10 +928,10 @@ var org_name=value.DisplayName;
 //pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc"><option value=1>Library A</option><option value=2>Library B</option><option value=3>Library C</option></select></label>';
 //pu_loc_list +='</fieldset>';
 //populate the pa_loc selection in the login screen
-pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
+pu_loc_list +='value='+org_id+' -- '+org_name+'';
 });//end each
 });//end ajax
-pu_loc_list +='</select></label>'; 
+//pu_loc_list +='</select></label>'; 
 //$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
 $( '#pu_loc_cont').append( pu_loc_list );
 }//funtion lib_branches
