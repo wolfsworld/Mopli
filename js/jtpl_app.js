@@ -907,18 +907,20 @@ var settings = {
     "content-type": "application/json"
   }
 }
-$.ajax(settings).done(function (responses) {
+$.ajax(settings).done(function (response) {
 									
 //var response= jQuery.parseJSON(response);
-//alert(response.OrganizationsGetRows[0].DisplayName);
+//alert(response.OrganizationsGetRows.length);
+var response=JSON.stringify(response);
+var response= jQuery.parseJSON(response);
 
-$.each(responses.OrganizationsGetRows, function(key, value) {
+$.each(response.OrganizationsGetRows, function(key, value) {
 //var org_id=value.OrganizationID;
 //var org_name=value.DisplayName;
 pu_loc_list +='<option value=2>Library B</option>';
 //pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 //pu_loc_list +='<option value=2>Library B</option>';
-
+alert('hi');
 });//end each
 });//end ajax
 pu_loc_list +='</select></label>'; 
