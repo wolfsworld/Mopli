@@ -907,16 +907,16 @@ var settings = {
     "content-type": "application/json"
   }
 }
-$.ajax(settings).done(function (response) {
+$.ajax(settings).done(function (responses) {
 									
 //var response= jQuery.parseJSON(response);
-alert(response.OrganizationsGetRows[0].DisplayName);
+//alert(response.OrganizationsGetRows[0].DisplayName);
 
-$.each(response.OrganizationsGetRows, function(key, value) {
-var org_id=value.OrganizationID;
-var org_name=value.DisplayName;
-
-pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
+$.each(responses.OrganizationsGetRows, function(key, value) {
+//var org_id=value.OrganizationID;
+//var org_name=value.DisplayName;
+pu_loc_list +='<option value=2>Library B</option>';
+//pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 //pu_loc_list +='<option value=2>Library B</option>';
 
 });//end each
