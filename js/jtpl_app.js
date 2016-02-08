@@ -911,7 +911,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
 								alert('ajax done');
 									
-var response= jQuery.parseJSON(response);
+//var response= jQuery.parseJSON(response);
 alert(response);
 $.each(response.OrganizationsGetRows, function(key, value) {
 var org_id=value.OrganizationID;
