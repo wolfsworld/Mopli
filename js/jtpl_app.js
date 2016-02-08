@@ -908,14 +908,14 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-alert('raw response 1:'+response+'');									
-var response=JSON.stringify(response);
-alert('stringify:'+response+'');
+//alert('raw response 1:'+response+'');									
+//var response=JSON.stringify(response);
+//alert('stringify:'+response+'');
 var response= jQuery.parseJSON(response);
-alert('parese json:'+response+'');
+//alert('parese json:'+response+'');
 //var response=JSON.stringify(response);
 //var response= jQuery.parseJSON(response);
-
+alert(response.OrganizationsGetRows.length);
 $.each(response.OrganizationsGetRows, function(key, value) {
 //var org_id=value.OrganizationID;bvbv
 //var org_name=value.DisplayName;
