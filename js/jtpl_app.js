@@ -939,8 +939,8 @@ $.each(response.OrganizationsGetRows, function(key, value) {
 if(value.OrganizationCodeID==3){
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
-}
 pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
+}
 });//end each
 pu_loc_list +='</select></label>'; 
 $(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
