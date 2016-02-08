@@ -928,12 +928,14 @@ pu_loc_list +="popo popopo popo";
 //pu_loc_list +='<option value=2>Library B</option>';
 //alert('hi');
 });//end each
-});//end ajax
+
 pu_loc_list +="zzz zzzz";
 //pu_loc_list +='</select></label>'; 
 //$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
 //pu_loc_list +="sdfsdf sdfsdf dffsdf sdffsdf sdfsdf sdfsdf sdfsdfsd fsdff fsddffsdf sd"
+
 $( '#pu_loc_cont').append( pu_loc_list );
+});//end ajax
 }//funtion lib_branches
 
 
