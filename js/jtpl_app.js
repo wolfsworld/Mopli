@@ -952,7 +952,15 @@ $(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
 
 //case 5 - Hold Request or Login (get encryption)
 $(document).on('click', '.hold_req a', function () {
-//$(document).on('click', '#main_login', function () {
+var rem_loc_box='';
+if (rem_pu_loc_id){
+rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
+}else{
+rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" />Remember pickup location</label>';
+}
+$(rem_loc_box).appendTo( '#pu_loc_box').trigger( "create" );
+//$('#rem_pu_loc').css({"display":"none;"});
+												   
 var cont_num;
 cont_num=$(this).attr("id");
 $('#cn_holdreq').val(cont_num);
@@ -988,13 +996,17 @@ if( $('#pu_loc').length ){
 		window.localStorage.setItem("rem_pu_loc_id",""+pu_loc_id+"");  
 		window.localStorage.setItem("rem_pu_loc_name",""+pu_loc_name+"");  
 		}
+		else{
+		window.localStorage.removeItem("rem_pu_loc_id",""+pu_loc_id+"");  
+		window.localStorage.removeItem("rem_pu_loc_name",""+pu_loc_name+"");
+		}
 	}
 	else{
 	alert('you need to set a pickup location');
 	}
 }
 
-if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';$('#rem_pu_loc').css({"display":"none;"});}
+if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';}
 p_barcode=$("#libcard").val();
 p_pin=$("#libpin").val();
 p_validate(5,'',''+p_pin+'',''+cont_num+'',''+p_barcode+'','GET',''+hold+'','','');
