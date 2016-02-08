@@ -916,19 +916,20 @@ $.ajax(settings).done(function (response) {
 //var response=JSON.stringify(response);
 //var response= jQuery.parseJSON(response);
 alert(response.OrganizationsGetRows.length);
-alert('helo');
-//$.each(response.OrganizationsGetRows, function(key, value) {
+pu_loc_list +="alalala";
+$.each(response.OrganizationsGetRows, function(key, value) {
 //var org_id=value.OrganizationID;bvbv
 //var org_name=value.DisplayName;
 //pu_loc_list +="ghfhg hgfhgf hgfhgf hgfhg";
 //$.each(value, function(key2, value2){
-//pu_loc_list +="popo popopo popo";	
+pu_loc_list +="popo popopo popo";	
 //});
 //pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 //pu_loc_list +='<option value=2>Library B</option>';
 //alert('hi');
-//});//end each
+});//end each
 });//end ajax
+pu_loc_list +="zzz zzzz";
 //pu_loc_list +='</select></label>'; 
 //$(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
 //pu_loc_list +="sdfsdf sdfsdf dffsdf sdffsdf sdfsdf sdfsdf sdfsdfsd fsdff fsddffsdf sd"
