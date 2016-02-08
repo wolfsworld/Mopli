@@ -23,6 +23,9 @@ var storage = window.localStorage;
 var rem_libcard;
 var rem_libpin;
 
+var pu_loc_id;
+var pu_loc_name;
+
 var branch_id;
 var branch_name;
 
@@ -36,6 +39,9 @@ navigator.splashscreen.hide();
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
 
+rem_pu_loc_id = window.localStorage.getItem("rem_pu_loc_id");
+rem_pu_loc_name = window.localStorage.getItem("rem_pu_loc_name");
+
 if (rem_libcard){
 		$("#remember").prop('checked', true);
 		$("#libcard").val(rem_libcard);
@@ -48,6 +54,17 @@ if (rem_libpin){
 		$("#libpin").val(rem_libpin);
 }else{
 rem_libpin='';
+}
+
+if (rem_pu_loc_id){
+	pu_loc_id=rem_pu_loc_id;
+}else{
+pu_loc_id='';
+}
+if (rem_pu_loc_name){
+	pu_loc_name=rem_pu_loc_name;
+}else{
+pu_loc_name='';
 }
 	
 //check network connection	
@@ -893,8 +910,16 @@ $( "#news" ).append(next_batch_news);
 
 //populate the branches
 function lib_branches(reqstring,thedate,code){
+	
 var pu_loc_list='';
 pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
+//if stored variable for pickup location ->select the location id and name
+if(pu_loc_id){
+pu_loc_list +='<option value='+pu_loc_id+'>'+pu_loc_name+'</option>';
+}else{
+//if there is no stored pickup variable make patron pick one
+pu_loc_list +='<option value=0>Choose a pickup location...</option>';
+}
 
 var settings = {
   "async": true,
@@ -910,20 +935,20 @@ var settings = {
 $.ajax(settings).done(function (response) {
 
 $.each(response.OrganizationsGetRows, function(key, value) {
+if(value.OrganizationCodeID==3){
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
+}
 
 pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 
 });//end each
-
 
 pu_loc_list +='</select></label>'; 
 $(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
 
 });//end ajax
 }//funtion lib_branches
-
 
 //case 5 - Hold Request or Login (get encryption)
 $(document).on('click', '.hold_req a', function () {
@@ -946,8 +971,24 @@ var rem_cred=$('#remember').is(':checked');
   window.localStorage.setItem("rem_libpin",""+rem_libpin+"");
   }
   else{
-  window.localStorage.clear();
+  window.localStorage.removeItem('rem_libcard');
+  window.localStorage.removeItem('rem_libpin');
+  //window.localStorage.clear();
   }
+//if the selector is there
+if( $('#pu_loc').length ){
+	var pickup_loc_id=$("#pu_loc option:selected").val();
+	var pickup_loc_name=$("#pu_loc option:selected" ).text();
+	if( pickup_loc_id>0){
+		pu_loc_id=pickup_loc_id;
+		pu_loc_name=pickup_loc_name;
+		window.localStorage.setItem("rem_pu_loc_id",""+pu_loc_id+"");  
+		window.localStorage.setItem("rem_pu_loc_name",""+pu_loc_name+"");  
+	}
+	else{
+	alert('you need to set a pickup location');
+	}
+}
 
 if($('#cn_holdreq').val()){hold=true;cont_num=$('#cn_holdreq').val();}else{	hold=false;cont_num='';}
 p_barcode=$("#libcard").val();
