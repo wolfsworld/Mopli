@@ -61,6 +61,7 @@ if (rem_pu_loc_id){
 }else{
 pu_loc_id='';
 }
+
 if (rem_pu_loc_name){
 	pu_loc_name=rem_pu_loc_name;
 }else{
@@ -939,14 +940,10 @@ if(value.OrganizationCodeID==3){
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
 }
-
 pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
-
 });//end each
-
 pu_loc_list +='</select></label>'; 
 $(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
-
 });//end ajax
 }//funtion lib_branches
 
@@ -1059,6 +1056,11 @@ function createhold(res_pat_id,cont_num,code,reqstring,thedate,pat_barcode){
 var d = new Date();
 var str_time = d.toISOString();
 
+if(pu_loc_id){
+var pickup_location=pu_loc_id;
+}else{
+var pickup_location=branch_id;
+}
 
 var settings = {
   "async": true,
@@ -1072,7 +1074,7 @@ var settings = {
   },
   "processData": false,
   
-  "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>'+branch_id+'</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>'+branch_id+'</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
+  "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>'+pickup_location+'</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>'+branch_id+'</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
 }
 
 $.ajax(settings).done(function (response) {
