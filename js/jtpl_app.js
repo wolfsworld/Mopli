@@ -910,23 +910,17 @@ var settings = {
 $.ajax(settings).done(function (response) {
 
 $.each(response.OrganizationsGetRows, function(key, value) {
-var org_id=value.OrganizationID;bvbv
+var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
-//pu_loc_list +="ghfhg hgfhgf hgfhgf hgfhg";
-//$.each(value, function(key2, value2){
-//pu_loc_list +="popo popopo popo";	
-//});
+
 pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
-//pu_loc_list +='<option value=2>Library B</option>';
-//alert('hi');
+
 });//end each
 
 
 pu_loc_list +='</select></label>'; 
 $(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
-//pu_loc_list +="sdfsdf sdfsdf dffsdf sdffsdf sdfsdf sdfsdf sdfsdfsd fsdff fsddffsdf sd"
 
-//$( '#pu_loc_cont').append( pu_loc_list );
 });//end ajax
 }//funtion lib_branches
 
