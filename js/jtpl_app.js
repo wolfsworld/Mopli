@@ -468,6 +468,7 @@ case 12: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/boolean?q
 case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
 case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
 case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branches"; break;
+case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basicdata"; break;
 }
 
 var thedate=(new Date()).toUTCString();
@@ -513,6 +514,7 @@ $.ajax({
 			case 13: get_det_nyt(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			case 15: lib_branches(reqstring,thedate,code); break;
+			case 16: pat_basics(reqstring,thedate,code); break;
 			}
 }},
         error: function() {
@@ -1284,6 +1286,7 @@ $( "#loginresponse" ).append(my_holds);
 
 });//end ajax 
 };//end getholds function
+
 //CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE (to be added)/////////////
 //////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
