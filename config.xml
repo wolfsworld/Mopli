@@ -29,7 +29,6 @@
 	<gap:plugin name="nl.x-services.plugins.flashlight" />
 	<gap:plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" version="2.1.0" />
     <preference name="phonegap-version" value="cli-5.2.0" />
-	<preference name="EnableViewportScale" value="true" />
 	<preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />

@@ -3,8 +3,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>MOPLI JTPL</title>
-<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1.5, user-scalable=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css" />
 <link rel="stylesheet" href="css/2014_app.css" />
 <link rel="stylesheet" href="css/JTPL_icons.min.css" />
@@ -18,7 +17,10 @@
 $(document).bind("mobileinit", function(){
 $.support.cors 
 $.mobile.allowCrossDomainPages = true;
+$.mobile.metaViewportContent = 'width=device-width';
+$.extend($.mobile.zoom, {locked:false,enabled:true});
 });
+
 </script>
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?&sensor=true"></script>
