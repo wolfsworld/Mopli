@@ -946,8 +946,6 @@ pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 });//end each
 pu_loc_list +='</select></label>'; 
 $(pu_loc_list).appendTo( '#pu_loc_cont').enhanceWithin();
-$('#pu_loc').css({"z-index":"20"}).enhanceWithin();
-//$('#pu_loc').trigger( "create" );
 });//end ajax
 }//funtion lib_branches
 
@@ -959,8 +957,8 @@ rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" 
 }else{
 rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" />Remember pickup location</label>';
 }
-$(rem_loc_box).appendTo( '#pu_loc_box').trigger( "create" );
-//$('#rem_pu_loc').css({"display":"none;"});
+$(rem_loc_box).appendTo( '#pu_loc_box').enhanceWithin();
+$('#rem_pu_loc').css({"z-index":"20"}).enhanceWithin();
 												   
 var cont_num;
 cont_num=$(this).attr("id");
@@ -982,7 +980,6 @@ var rem_cred=$('#remember').is(':checked');
   else{
   window.localStorage.removeItem('rem_libcard');
   window.localStorage.removeItem('rem_libpin');
-  //window.localStorage.clear();
   }
 //if the selector is there
 if( $('#pu_loc').length ){
