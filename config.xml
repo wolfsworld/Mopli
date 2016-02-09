@@ -2,7 +2,7 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.mopli"
-        versionCode = "17" 
+        versionCode = "18" 
         version     = "1.1.6" >
 
     <name>MOPLI JTPL</name>
@@ -28,7 +28,7 @@
 	<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
 	<gap:plugin name="nl.x-services.plugins.flashlight" />
 	<gap:plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" version="2.1.0" />
-    <preference name="phonegap-version" value="cli-5.2.0" />
+   <preference name="phonegap-version" value="cli-5.2.0" />
 	<preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
