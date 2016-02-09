@@ -464,8 +464,8 @@ case 8: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/holdre
 case 9: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/itemsout/all"; break;
 case 10: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/itemsout/overdue"; break;
 case 11: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/itemsout/"+p_holdID+""; break;
-case 12: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/boolean?q=COL=7+sortby+MP/sort.descending&page="+p_holdID+"";break;
-case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
+case 12: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/boolean?q=COL=7+sortby+MP/sort.descending&page="+p_holdID+"";break;
+case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
 case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
 case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branches"; break;
 }
@@ -1512,7 +1512,7 @@ switch(media){
 	case 35: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">'; break;
 	case 33: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; break;
-	default: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
+	default: my_fees +='<table class="bibtbl"><tr><td class="picbox"><img src="img/book_icon.png" /></td ><td class="txtbox">';
 }
 
 	$.each(value, function(key2, value2) {
