@@ -913,7 +913,7 @@ $( "#news" ).append(next_batch_news);
 function lib_branches(reqstring,thedate,code){
 	
 var pu_loc_list='';
-pu_loc_list +='<label for="pu_loc" class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
+pu_loc_list +='<label class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 //if stored variable for pickup location ->select the location id and name
 if(pu_loc_id){
 pu_loc_list +='<option value='+pu_loc_id+'>'+pu_loc_name+'</option>';
@@ -944,6 +944,7 @@ pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 });//end each
 pu_loc_list +='</select></label>'; 
 $(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
+$('#pu_loc').css({"z-index":"20"});
 });//end ajax
 }//funtion lib_branches
 
