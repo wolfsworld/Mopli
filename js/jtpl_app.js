@@ -362,7 +362,7 @@ $('#cn_holdreq').val("");
 $('.home').on('click', function () {
 self.location.href = 'index.html';
 });
-
+$('#remember').css({"z-index":"20"});
 $(document).ready(function(){
 
 //create browsing array for list and calendar view
@@ -944,7 +944,8 @@ pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 });//end each
 pu_loc_list +='</select></label>'; 
 $(pu_loc_list).appendTo( '#pu_loc_cont').trigger( "create" );
-$('#pu_loc_box').css({"z-index":"20"});
+$('#pu_loc').css({"z-index":"20"});
+$('#pu_loc').trigger( "create" );
 });//end ajax
 }//funtion lib_branches
 
