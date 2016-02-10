@@ -940,7 +940,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
 
 $.each(response.OrganizationsGetRows, function(key, value) {
-if(value.OrganizationCodeID==3){
+if(value.OrganizationCodeID==3 || value.DisplayName.charAt( 0 ) != '_' ){
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
 pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
@@ -1112,7 +1112,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 			$.jAlert({
 				'type': 'modal',
 				'title': 'Hold Confirmation',
-				'content': ''+the_message+'<br />You are #'+the_pos+' in the waiting queue of '+the_queue+'.<br />Pickup Library will be '+branch_name+'.',
+				'content': ''+the_message+'<br />You are #'+the_pos+' in the waiting queue of '+the_queue+'.<br />Pickup Library will be '+pickup_location+'.',
 				'theme': 'blue',
 				'onClose':function(){ 
 				prep_getholds (pat_barcode);
