@@ -359,13 +359,13 @@ $(document).ready(function(){
 
 function new_vers_alert(){
 	alert('alert started');
-$('#v_update').empty();
-if(dev_platform ==='A'){
+//$('#v_update').empty();
+//if(dev_platform ==='A'){
 //$('#v_update').append('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>');	
-$('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>').appendTo( '#v_update').enhanceWithin();
-}else{
-	alert(dev_platform);
-}
+$('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
+//}else{
+	alert('ended');
+//}
 }
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
