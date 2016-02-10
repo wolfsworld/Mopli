@@ -31,19 +31,12 @@ var branch_name;
 
 var latest_app_version;
 var this_app_version='1.1.7';
+var dev_platform;
 
-//device ready event
+//device ready event and subsequent routines
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-
 navigator.splashscreen.hide();
-
-if(device.platform === "Android"){
-alert('this is an android phone');
-}
-if(device.platform === "iOS"){
-alert('this is an IOS phone');
-}
 
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
@@ -66,17 +59,8 @@ if (rem_libpin){
 rem_libpin='';
 }
 
-if (rem_pu_loc_id){
-	pu_loc_id=rem_pu_loc_id;
-}else{
-pu_loc_id='';
-}
-
-if (rem_pu_loc_name){
-	pu_loc_name=rem_pu_loc_name;
-}else{
-pu_loc_name='';
-}
+if (rem_pu_loc_id){pu_loc_id=rem_pu_loc_id;}else{pu_loc_id='';}
+if (rem_pu_loc_name){pu_loc_name=rem_pu_loc_name;}else{pu_loc_name='';}
 	
 //check network connection	
 function checkConnection() {
@@ -91,21 +75,14 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
 
-
 	if (networkState == Connection.NONE) {
 	net_status=false;
-	//$.jAlert({
-    //'title': 'Alert!',
-   // 'content': 'Connection type: ' +states[networkState]+'',
-    //'theme': 'blue',
-  	//});
 	}
 }
 checkConnection();	
 
 if(net_status==false){
 	$("iframe").each(function() { 
-	   //$(this).attr('src','');
         $(this).replaceWith("<h4 align='center'>This page needs Internet connection.<br>It appears that you are currently not online.</h4>");
 	});
 }
@@ -116,19 +93,22 @@ if(device.platform === "iOS" && parseInt(device.version) === 9){
    }
 
 var deviceType = (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : 'NULL';
-//alert(deviceType);
 //if iphone after 5 (large screen)
 if(deviceType!='NULL'){
 	$('.ui-btn').css({'margin-top':'2px', 'margin-bottom': '2px'}); 
 }
 
 var model = device.model;
-//alert('this is a: '+model+'');
 //if iphone 4 or 5
 if(model=='iPhone4,1' || model=='iPhone3,1'){
 $('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px'}); 
 }
-}
+
+if(device.platform === "Android"){dev_platform='A';}
+if(device.platform === "iOS"){dev_platform='I';}
+if(device.platform === "Windows"){dev_platform='W';}
+
+}//end device ready
 
 //function media material conversion
 function matconv(val2){
@@ -377,6 +357,12 @@ $('#remember').css({"z-index":"20"});
 
 $(document).ready(function(){
 
+function new_vers_alert(){
+$('#v_update').empty();
+if(dev_platform==='A'){
+$('#v_update').append('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>');	
+}
+}
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
