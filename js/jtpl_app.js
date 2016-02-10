@@ -29,6 +29,9 @@ var pu_loc_name;
 var branch_id;
 var branch_name;
 
+var latest_app_version;
+var this_app_version='1.1.7';
+
 //device ready event
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -1974,7 +1977,10 @@ $.ajax({
 function get_version(response, status){
 $.each(response, function(key, value) {	
 app_version=response.version;
-alert(app_version);
+if(this_app_version<app_version){
+	alert('new verson available');
+}
+
 });
 }
 
