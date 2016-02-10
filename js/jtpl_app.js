@@ -279,6 +279,13 @@ $('.hold_req a').button();
 
 $(document).ready(function(){
 
+if(device.platform === "Android"){
+alert('this is an android phone');
+}
+if(device.platform === "iOS"){
+alert('this is an IOS phone');
+}
+
 //open in app browser
 $('#3m_btn').on('click', function () {
 window.open('http://ebook.3m.com/library/jtpl/Featured', '_blank', 'location=yes');
@@ -1973,17 +1980,14 @@ $.ajax({
         }
 });
 }
-
+//version check
 function get_version(response, status){
 $.each(response, function(key, value) {	
 app_version=response.version;
 if(this_app_version<app_version){
-	alert('new verson available');
-}
-
+new_vers_alert();}
 });
 }
-
 
 function populate_holidays(response, status){
 var status=status;
