@@ -1939,6 +1939,7 @@ $( "#nyt" ).append(nyt_link);
 pop_gen('hours',1);
 pop_gen('holidays',2);
 pop_gen('contacts',3 );
+pop_gen('version',4 );
 //general ajax
 function pop_gen(page_categ,fctn){
 var categ=page_categ;
@@ -1954,6 +1955,7 @@ $.ajax({
 		case 1:	populate_hours(response,1); break;
 		case 2: populate_holidays(response,1); break;
 		case 3: populate_contacts(response,1); break;
+		case 4: get_version(response,1); break;
 		}
         },
         error      : function() {
@@ -1962,11 +1964,20 @@ $.ajax({
 		case 1:	populate_hours('',2); break;
 		case 2: populate_holidays('',2); break;
 		case 3: populate_contacts('',2); break;
+		case 4: get_version('',2); break;
 		}
 			//alert('Could not process.You might have no network connection.');                  
         }
 });
 }
+
+function get_version(response, status){
+$.each(response, function(key, value) {	
+app_version=response.version;
+alert(app_version);
+});
+}
+
 
 function populate_holidays(response, status){
 var status=status;
