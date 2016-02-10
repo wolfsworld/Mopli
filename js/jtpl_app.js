@@ -362,7 +362,7 @@ function new_vers_alert(){
 //$('#v_update').empty();
 //if(dev_platform ==='A'){
 //$('#v_update').append('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>');	
-$('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
+//$('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
 //}else{
 	alert('ended');
 //}
@@ -1975,6 +1975,7 @@ function get_version(response, status){
 $.each(response, function(key, value) {	
 app_version=response.version;
 if(this_app_version<app_version){
+alert('go to new vers alert');
 new_vers_alert();}
 });
 }
