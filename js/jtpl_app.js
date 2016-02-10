@@ -357,16 +357,6 @@ $('#remember').css({"z-index":"20"});
 
 $(document).ready(function(){
 
-function new_vers_alert(){
-	alert('alert started');
-//$('#v_update').empty();
-//if(dev_platform ==='A'){
-//$('#v_update').append('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>');	
-//$('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
-//}else{
-	alert('ended');
-//}
-}
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
@@ -1979,6 +1969,19 @@ alert('go to new vers alert');
 new_vers_alert();}
 });
 }
+
+
+function new_vers_alert(){
+	alert('alert started');
+$('#v_update').empty();
+if(dev_platform ==='A'){
+//$('#v_update').append('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>');	
+$('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
+}else{
+	alert('ended');
+}
+}
+
 
 function populate_holidays(response, status){
 var status=status;
