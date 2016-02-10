@@ -38,6 +38,13 @@ function onDeviceReady() {
 
 navigator.splashscreen.hide();
 
+if(device.platform === "Android"){
+alert('this is an android phone');
+}
+if(device.platform === "iOS"){
+alert('this is an IOS phone');
+}
+
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
@@ -278,13 +285,6 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
-
-if(device.platform === "Android"){
-alert('this is an android phone');
-}
-if(device.platform === "iOS"){
-alert('this is an IOS phone');
-}
 
 //open in app browser
 $('#3m_btn').on('click', function () {
