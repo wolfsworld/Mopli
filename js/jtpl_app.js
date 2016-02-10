@@ -1061,8 +1061,10 @@ var str_time = d.toISOString();
 
 if(pu_loc_id){
 var pickup_location=pu_loc_id;
+var pickup_lib_name=pu_loc_name;
 }else{
 var pickup_location=branch_id;
+var pickup_lib_name=branch_name;
 }
 
 var settings = {
@@ -1112,7 +1114,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 			$.jAlert({
 				'type': 'modal',
 				'title': 'Hold Confirmation',
-				'content': ''+the_message+'<br />You are #'+the_pos+' in the waiting queue of '+the_queue+'.<br />Pickup Library will be '+pickup_location+'.',
+				'content': ''+the_message+'<br />You are #'+the_pos+' in the waiting queue of '+the_queue+'.<br />Pickup Library will be '+pickup_lib_name+'.',
 				'theme': 'blue',
 				'onClose':function(){ 
 				prep_getholds (pat_barcode);
