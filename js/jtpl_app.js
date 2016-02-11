@@ -1973,12 +1973,16 @@ new_vers_alert();}
 function new_vers_alert(){
 $('#v_update').empty();
 if(dev_platform ==='A'){
-$('<a href="#" onclick="go_pf_link();return false;">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
+$('<a href="#" id="andr_link">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
 }
-function go_pf_link(){
+}
+
+$('#andr_link').on('click', function () {
+alert('hello');
+//function go_pf_link(){
 window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes');
-}
-}
+});
+//}
 
 
 
