@@ -1973,7 +1973,9 @@ new_vers_alert();}
 function new_vers_alert(){
 $('#v_update').empty();
 if(dev_platform ==='A'){
-$('<a href="#" id="andr_link">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
+$('#v_update').append('<a href="#" id="andr_link">Please update. Version update available</a>').enhanceWithin();
+$('#v_update').trigger("create");
+$('#andr_link').trigger("create");
 }
 }
 
