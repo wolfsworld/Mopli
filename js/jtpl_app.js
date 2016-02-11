@@ -1973,18 +1973,17 @@ new_vers_alert();}
 function new_vers_alert(){
 $('#v_update').empty();
 if(dev_platform ==='A'){
-$('#v_update').append('<a href="#" id="andr_link">Please update. Version update available</a>').enhanceWithin();
-$('#v_update').trigger("create");
-$('#andr_link').trigger("create");
+var btn_group='A';
+$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#login' data-role='button' data-inline='true' data-mini='true' data-icon='arrow-r' data-theme='a'>New Version Available</a></p>");
+$('.new_version a').button();
 }
 }
 
-$('#andr_link').on('click', function () {
+$('.new_version a').on('click', function () {
 alert('hello');
-//function go_pf_link(){
 window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes');
 });
-//}
+
 
 
 
