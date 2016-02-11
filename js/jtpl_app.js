@@ -1972,19 +1972,27 @@ new_vers_alert();}
 
 function new_vers_alert(){
 $('#v_update').empty();
-if(dev_platform ==='A'){
-var btn_group='A';
-$('#v_update').append("<p class='new_version'><a href='#' data-role='button' data-inline='true' data-mini='true' data-icon='arrow-r' data-theme='a'>New Version Available</a></p>");
+		switch(dev_platform){
+		case 'A': var btn_group='A'; break;
+		case 'I': var btn_group='I'; break;
+		case 'W': var btn_group='W'; break;
+		default: var btn_group='N'; break;
+		}
+$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='arrow-r' data-theme='a'>New Version Available</a></p>");
 $('.new_version a').button();
 }
-}
+
 
 $(document).on('click', '.new_version a', function () {
-alert('hello');
-window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes');
+var pf_no;
+pf_no=$(this).attr("id");
+switch(pf_no){
+case 'A': window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes'); break;
+case 'I': window.open('https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1043389097&mt=8'); break;
+case 'W': window.open('https://www.microsoft.com/en-us/store/apps/mopli-jtpl/9nblggh5f37p'); break;
+default: ''; break;
+}
 });
-
-
 
 
 function populate_holidays(response, status){
