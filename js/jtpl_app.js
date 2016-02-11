@@ -1,7 +1,7 @@
  //set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
-refresh_ct=0;
+var refresh_ct=0;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
@@ -352,6 +352,7 @@ $('#cn_holdreq').val("");
 //Home Button workaround to work with IOS 9
 $('.home').on('click', function () {
 refresh_ct=refresh_ct+1;
+alert(refresh_ct);
 //self.location.href = 'index.html';
 self.location.href = '#pageone';
 });
@@ -359,7 +360,7 @@ self.location.href = '#pageone';
 $('#remember').css({"z-index":"20"});
 
 $(document).ready(function(){
-alert(refresh_ct);
+
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
@@ -1929,13 +1930,13 @@ $( "#nyt" ).append(nyt_link);
 
 //populate static pages
 //selection ajax
-/*if(refresh_ct<2){
+if(refresh_ct<2){
 pop_gen('hours',1);
 pop_gen('holidays',2);
 pop_gen('contacts',3 );
 pop_gen('version',4 );
 pop_gen('alert',5 );
-}*/
+}
 //general ajax
 function pop_gen(page_categ,fctn){
 var categ=page_categ;
