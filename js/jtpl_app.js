@@ -1,6 +1,7 @@
  //set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
+var refresh_ct;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
