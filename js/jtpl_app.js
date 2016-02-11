@@ -352,7 +352,7 @@ $('#cn_holdreq').val("");
 //Home Button workaround to work with IOS 9
 $('.home').on('click', function () {
 refresh_ct=refresh_ct+1;
-//self.location.href = 'index.html';
+//self.location.href = 'index.html';fsdf
 self.location.href = '#pageone';
 history.go(0);
 });
