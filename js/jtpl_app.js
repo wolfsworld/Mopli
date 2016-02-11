@@ -352,8 +352,8 @@ $('#cn_holdreq').val("");
 //Home Button workaround to work with IOS 9
 $('.home').on('click', function () {
 refresh_ct=refresh_ct+1;
-alert(refresh_ct);
-self.location.href = 'index.html';
+alert('this is '+refresh_ct+'');
+//self.location.href = 'index.html';
 });
 //enhance the remember login credentials button
 $('#remember').css({"z-index":"20"});
@@ -1929,13 +1929,13 @@ $( "#nyt" ).append(nyt_link);
 
 //populate static pages
 //selection ajax
-if(refresh_ct<2){
+/*if(refresh_ct<2){
 pop_gen('hours',1);
 pop_gen('holidays',2);
 pop_gen('contacts',3 );
 pop_gen('version',4 );
 pop_gen('alert',5 );
-}
+}*/
 //general ajax
 function pop_gen(page_categ,fctn){
 var categ=page_categ;
