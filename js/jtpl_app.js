@@ -38,6 +38,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 navigator.splashscreen.hide();
 
+pop_gen('hours',1);
+pop_gen('holidays',2);
+pop_gen('contacts',3 );
+pop_gen('version',4 );
+pop_gen('alert',5 );
+
+
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
@@ -1926,11 +1933,11 @@ $( "#nyt" ).append(nyt_link);
 
 //populate static pages
 //selection ajax
-pop_gen('hours',1);
-pop_gen('holidays',2);
-pop_gen('contacts',3 );
-pop_gen('version',4 );
-pop_gen('alert',5 );
+//pop_gen('hours',1);
+//pop_gen('holidays',2);
+//pop_gen('contacts',3 );
+//pop_gen('version',4 );
+//pop_gen('alert',5 );
 //general ajax
 function pop_gen(page_categ,fctn){
 var categ=page_categ;
