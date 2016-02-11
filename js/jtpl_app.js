@@ -1981,7 +1981,7 @@ $('.new_version a').button();
 
 $('.new_version a').on('click', function () {
 alert('hello');
-window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes');
+//window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes');
 });
 
 
