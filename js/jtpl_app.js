@@ -90,7 +90,7 @@ if(net_status==false){
 
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
-       $.mobile.hashListeningEnabled = false;
+       //$.mobile.hashListeningEnabled = false;
    }
 
 var deviceType = (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : 'NULL';
@@ -354,7 +354,7 @@ $('.home').on('click', function () {
 refresh_ct=refresh_ct+1;
 //self.location.href = 'index.html';fsdf
 self.location.href = '#pageone';
-history.go(0);
+//history.go(0);
 });
 //enhance the remember login credentials button
 $('#remember').css({"z-index":"20"});
