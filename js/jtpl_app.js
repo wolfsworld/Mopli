@@ -1,7 +1,6 @@
  //set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
-var refresh_ct=0;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
@@ -38,6 +37,8 @@ var dev_platform;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 navigator.splashscreen.hide();
+
+refresh_ct=0;
 
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
