@@ -1,6 +1,7 @@
  //set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
+refresh_ct=0;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
@@ -350,7 +351,7 @@ $('#cn_holdreq').val("");
 
 //Home Button workaround to work with IOS 9
 $('.home').on('click', function () {
-//refresh_ct=refresh_ct+1;
+refresh_ct=refresh_ct+1;
 //self.location.href = 'index.html';
 self.location.href = '#pageone';
 });
@@ -358,7 +359,7 @@ self.location.href = '#pageone';
 $('#remember').css({"z-index":"20"});
 
 $(document).ready(function(){
-
+alert(refresh_ct);
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
