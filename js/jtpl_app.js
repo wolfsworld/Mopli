@@ -1990,25 +1990,24 @@ function get_version(response, status){
 $.each(response, function(key, value) {	
 var app_version=response.version;
 if(this_app_version<app_version){
-new_vers_alert();}
+setTimeout(function(){
+new_vers_alert();
+},1000);
+}
 });
 }
 //new version available alert
 function new_vers_alert(){
 $('#v_update').empty();
-
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
 		switch(dev_platform){
 		case 'A': var btn_group='A'; break;
 		case 'I': var btn_group='I'; break;
 		case 'W': var btn_group='W'; break;
 		default: var btn_group='N'; break;
 		}
-		
 $('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='action' data-theme='a'>New Version Available</a></p>");
 $('.new_version a').button();
-}
+
 }
 
 
