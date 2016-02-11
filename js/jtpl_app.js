@@ -1965,22 +1965,20 @@ function get_version(response, status){
 $.each(response, function(key, value) {	
 app_version=response.version;
 if(this_app_version<app_version){
-alert('go to new vers alert');
 new_vers_alert();}
 });
 }
 
 
 function new_vers_alert(){
-	alert('alert started');
 $('#v_update').empty();
 if(dev_platform ==='A'){
 //$('#v_update').append('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>');	
-$('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>').appendTo('#v_update').enhanceWithin();
-}else{
-	alert('ended');
+$("<a href='#' onclick='window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en');'>Please update. Version update available</a>").appendTo('#v_update').enhanceWithin();
+
 }
 }
+
 
 
 function populate_holidays(response, status){
