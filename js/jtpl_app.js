@@ -1930,6 +1930,7 @@ pop_gen('hours',1);
 pop_gen('holidays',2);
 pop_gen('contacts',3 );
 pop_gen('version',4 );
+pop_gen('alert',5 );
 //general ajax
 function pop_gen(page_categ,fctn){
 var categ=page_categ;
@@ -1946,6 +1947,7 @@ $.ajax({
 		case 2: populate_holidays(response,1); break;
 		case 3: populate_contacts(response,1); break;
 		case 4: get_version(response,1); break;
+		case 4: get_alert(response,1); break;
 		}
         },
         error      : function() {
@@ -1955,11 +1957,29 @@ $.ajax({
 		case 2: populate_holidays('',2); break;
 		case 3: populate_contacts('',2); break;
 		case 4: get_version('',2); break;
+		case 4: get_alert('',2); break;
 		}
 			//alert('Could not process.You might have no network connection.');                  
         }
 });
 }
+
+//alert from the library
+function get_alert(response, status){
+$.each(response, function(key, value) {	
+the_alert=response.the_alert;
+if(the_alert){
+	$.jAlert({
+    'title': 'Important Message',
+    'content': ''+the_alert+'',
+    'theme': 'red'
+  	});
+}
+});
+}
+
+
+
 //version check
 function get_version(response, status){
 $.each(response, function(key, value) {	
@@ -1978,7 +1998,7 @@ $('#v_update').empty();
 		case 'W': var btn_group='W'; break;
 		default: var btn_group='N'; break;
 		}
-$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='arrow-r' data-theme='a'>New Version Available</a></p>");
+$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='action' data-theme='a'>New Version Available</a></p>");
 $('.new_version a').button();
 }
 
