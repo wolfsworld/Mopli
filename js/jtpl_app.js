@@ -1973,13 +1973,13 @@ new_vers_alert();}
 function new_vers_alert(){
 $('#v_update').empty();
 if(dev_platform ==='A'){
-//$('#v_update').append('<a href="https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en">Please update. Version update available</a>');	
-$("<a href='#' onclick='window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en');'>Please update. Version update available</a>").appendTo('#v_update').enhanceWithin();
-
+$("<a href='#' onclick='go_pf_link("+pf+");'>Please update. Version update available</a>").appendTo('#v_update').enhanceWithin();
 }
 }
 
-
+function go_pf_link(pf){
+window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes');
+}
 
 function populate_holidays(response, status){
 var status=status;
