@@ -38,8 +38,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 navigator.splashscreen.hide();
 
-refresh_ct=0;
-
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
