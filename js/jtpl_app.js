@@ -350,7 +350,7 @@ $('#cn_holdreq').val("");
 
 //Home Button workaround to work with IOS 9
 $('.home').on('click', function () {
-refresh_ct=refresh_ct+1;
+//refresh_ct=refresh_ct+1;
 //self.location.href = 'index.html';
 self.location.href = '#pageone';
 });
@@ -358,7 +358,7 @@ self.location.href = '#pageone';
 $('#remember').css({"z-index":"20"});
 
 $(document).ready(function(){
-alert('this is '+refresh_ct+'');
+
 //create browsing array for list and calendar view
 $("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
