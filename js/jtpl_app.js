@@ -264,13 +264,14 @@ $('.hold_req a').button();
 });
 };
 
+$(document).ready(function(){
+
 pop_gen('hours',1);
 pop_gen('holidays',2);
 pop_gen('contacts',3 );
 pop_gen('version',4 );
 pop_gen('alert',5 );
 
-$(document).ready(function(){
 
 //open in app browser
 $('#3m_btn').on('click', function () {
