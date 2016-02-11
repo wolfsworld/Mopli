@@ -1928,6 +1928,8 @@ nyt_link +='<div align="center"><a href="#" onclick="window.open(encodeURI(\'htt
 $( "#nyt" ).append(nyt_link);
 }
 
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
 //populate static pages for version, alerts, hours, holidays and contacts
 if(refresh_ct<2){
 pop_gen('hours',1);
@@ -2086,6 +2088,8 @@ else{
 contact_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";
 }
 $('#contact_block').append(contact_html);
+}
+
 }
 
 //fastclick
