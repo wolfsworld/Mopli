@@ -2010,6 +2010,7 @@ $('.new_version a').button();
 $(document).on('click', '.new_version a', function () {
 var pf_no;
 pf_no=$(this).attr("id");
+alert(pf_no);
 switch(pf_no){
 case 'A': window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes'); break;
 case 'I': window.open('https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1043389097&mt=8', '_blank', 'location=yes'); break;
