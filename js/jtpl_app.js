@@ -1,7 +1,7 @@
  //set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
-var refresh_ct;
+var refresh_ct=0;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
@@ -38,7 +38,8 @@ var dev_platform;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 navigator.splashscreen.hide();
-
+alert('device is ready');
+wake_up();
 //check local storage and prepopulate login information
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
@@ -266,6 +267,10 @@ $('.hold_req a').button();
 };
 
 $(document).ready(function(){
+
+function wake_up(){
+	alert('I am waking up');
+}
 
 //open in app browser
 $('#3m_btn').on('click', function () {
