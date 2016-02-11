@@ -105,9 +105,9 @@ if(model=='iPhone4,1' || model=='iPhone3,1'){
 $('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px'}); 
 }
 
-if(device.platform === "Android"){dev_platform='A';}
-if(device.platform === "iOS"){dev_platform='I';}
-if(device.platform === "WinCE" || device.platform === "Win32NT"){dev_platform='W';}
+if(device.platform == "Android"){dev_platform='A';}
+if(device.platform == "iOS"){dev_platform='I';}
+if(device.platform == "WinCE" || device.platform === "Win32NT"){dev_platform='W';}
 
 }//end device ready
 
@@ -2009,7 +2009,7 @@ $('.new_version a').button();
 $(document).on('click', '.new_version a', function () {
 var pf_no;
 pf_no=$(this).attr("id");
-alert(pf_no);
+//alert(pf_no);
 switch(pf_no){
 case 'A': window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes'); break;
 case 'I': window.open('https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1043389097&mt=8', '_blank', 'location=yes'); break;
