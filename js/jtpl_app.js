@@ -1974,7 +1974,7 @@ function new_vers_alert(){
 $('#v_update').empty();
 if(dev_platform ==='A'){
 var btn_group='A';
-$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#login' data-role='button' data-inline='true' data-mini='true' data-icon='arrow-r' data-theme='a'>New Version Available</a></p>");
+$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='arrow-r' data-theme='a'>New Version Available</a></p>");
 $('.new_version a').button();
 }
 }
