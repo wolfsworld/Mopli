@@ -352,7 +352,7 @@ $('#cn_holdreq').val("");
 $('.home').on('click', function () {
 refresh_ct=refresh_ct+1;
 //self.location.href = 'index.html';
-location.href = "#pageone";
+self.location.href = '#pageone';
 });
 //enhance the remember login credentials button
 $('#remember').css({"z-index":"20"});
