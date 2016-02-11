@@ -16,7 +16,7 @@
     <access origin="*" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-barcodescanner" source="npm" />
-	<gap:plugin name="cordova-plugin-device" source="npm" />
+	<gap:plugin name="org.apache.cordova.device" spec="0.3.0" source="pgb" />
 	<gap:plugin name="cordova-plugin-network-information" spec="1.0.1" source="pgb" />
 	<gap:plugin name="cordova-plugin-camera" source="npm"  />
 	<gap:plugin name="org.apache.cordova.inappbrowser" spec="0.6.0" source="pgb" />

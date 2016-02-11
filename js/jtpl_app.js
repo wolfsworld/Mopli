@@ -104,6 +104,7 @@ var model = device.model;
 if(model=='iPhone4,1' || model=='iPhone3,1'){
 $('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px'}); 
 }
+alert(device.platform);
 
 if(device.platform === "Android"){dev_platform='A';}
 if(device.platform === "iOS"){dev_platform='I';}
