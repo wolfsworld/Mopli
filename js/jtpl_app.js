@@ -1,7 +1,4 @@
-//device ready event and subsequent routines
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-//set global variables
+ //set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
 var refresh_ct=0;
@@ -37,7 +34,9 @@ var latest_app_version;
 var this_app_version='1.1.8';
 var dev_platform;
 
-
+//device ready event and subsequent routines
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
 navigator.splashscreen.hide();
 
 //check local storage and prepopulate login information
@@ -110,7 +109,7 @@ if(device.platform == "Android"){dev_platform='A';}
 if(device.platform == "iOS"){dev_platform='I';}
 if(device.platform == "WinCE" || device.platform === "Win32NT"){dev_platform='W';}
 
-//}//end device ready
+}//end device ready
 
 //function media material conversion
 function matconv(val2){
@@ -2122,4 +2121,3 @@ window.plugins.flashlight.available(function(isAvailable) {
 
 });
 });
-}
