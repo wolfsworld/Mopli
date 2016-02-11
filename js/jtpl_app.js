@@ -1,4 +1,7 @@
- //set global variables
+//device ready event and subsequent routines
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+//set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
 var refresh_ct=0;
@@ -34,9 +37,7 @@ var latest_app_version;
 var this_app_version='1.1.8';
 var dev_platform;
 
-//device ready event and subsequent routines
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
+
 navigator.splashscreen.hide();
 
 //check local storage and prepopulate login information
@@ -109,7 +110,7 @@ if(device.platform == "Android"){dev_platform='A';}
 if(device.platform == "iOS"){dev_platform='I';}
 if(device.platform == "WinCE" || device.platform === "Win32NT"){dev_platform='W';}
 
-}//end device ready
+//}//end device ready
 
 //function media material conversion
 function matconv(val2){
@@ -1928,8 +1929,7 @@ nyt_link +='<div align="center"><a href="#" onclick="window.open(encodeURI(\'htt
 $( "#nyt" ).append(nyt_link);
 }
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
+
 //populate static pages for version, alerts, hours, holidays and contacts
 if(refresh_ct<2){
 pop_gen('hours',1);
@@ -2090,7 +2090,7 @@ contact_html +="<div>This section requires an internet connection to populate da
 $('#contact_block').append(contact_html);
 }
 
-}
+
 
 //fastclick
 window.addEventListener('load', function() {
@@ -2122,3 +2122,4 @@ window.plugins.flashlight.available(function(isAvailable) {
 
 });
 });
+}
