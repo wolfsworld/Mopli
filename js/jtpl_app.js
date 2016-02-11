@@ -1,7 +1,7 @@
  //set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
-var refresh_ct=0;
+//var refresh_ct=0;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
@@ -351,7 +351,7 @@ $('#cn_holdreq').val("");
 
 //Home Button workaround to work with IOS 9
 $('.home').on('click', function () {
-refresh_ct=refresh_ct+1;
+//refresh_ct=refresh_ct+1;
 //self.location.href = 'index.html';fsdf
 self.location.href = '#pageone';
 //history.go(0);
@@ -1930,13 +1930,14 @@ $( "#nyt" ).append(nyt_link);
 
 
 //populate static pages for version, alerts, hours, holidays and contacts
-if(refresh_ct<2){
+//if(refresh_ct<2){
+//	alert('going');
 pop_gen('hours',1);
 pop_gen('holidays',2);
 pop_gen('contacts',3 );
 pop_gen('version',4 );
 pop_gen('alert',5 );
-}
+//}
 //general ajax
 function pop_gen(page_categ,fctn){
 var categ=page_categ;
@@ -1992,7 +1993,7 @@ var app_version=response.version;
 if(this_app_version<app_version){
 setTimeout(function(){
 new_vers_alert();
-},1000);
+},4000);
 }
 });
 }
