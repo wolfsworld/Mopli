@@ -31,7 +31,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.1.7';
+var this_app_version='1.1.8';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -104,11 +104,10 @@ var model = device.model;
 if(model=='iPhone4,1' || model=='iPhone3,1'){
 $('.ui-btn').css({'margin-top':'1px', 'margin-bottom': '1px'}); 
 }
-alert(device.platform);
 
 if(device.platform === "Android"){dev_platform='A';}
 if(device.platform === "iOS"){dev_platform='I';}
-if(device.platform === "Windows"){dev_platform='W';}
+if(device.platform === "WinCE" || device.platform === "Win32NT"){dev_platform='W';}
 
 }//end device ready
 
@@ -1929,8 +1928,7 @@ nyt_link +='<div align="center"><a href="#" onclick="window.open(encodeURI(\'htt
 $( "#nyt" ).append(nyt_link);
 }
 
-//populate static pages
-//selection ajax
+//populate static pages for version, alerts, hours, holidays and contacts
 if(refresh_ct<2){
 pop_gen('hours',1);
 pop_gen('holidays',2);
@@ -2089,11 +2087,6 @@ contact_html +="<div>This section requires an internet connection to populate da
 }
 $('#contact_block').append(contact_html);
 }
-
-//change page to inside upon login
-//function login(){
-	//$.mobile.changePage("#inside");
-//}
 
 //fastclick
 window.addEventListener('load', function() {
