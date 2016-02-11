@@ -1947,7 +1947,7 @@ $.ajax({
 		case 2: populate_holidays(response,1); break;
 		case 3: populate_contacts(response,1); break;
 		case 4: get_version(response,1); break;
-		case 4: get_alert(response,1); break;
+		case 5: get_alert(response,1); break;
 		}
         },
         error      : function() {
@@ -1957,7 +1957,7 @@ $.ajax({
 		case 2: populate_holidays('',2); break;
 		case 3: populate_contacts('',2); break;
 		case 4: get_version('',2); break;
-		case 4: get_alert('',2); break;
+		case 5: get_alert('',2); break;
 		}
 			//alert('Could not process.You might have no network connection.');                  
         }
@@ -1967,7 +1967,7 @@ $.ajax({
 //alert from the library
 function get_alert(response, status){
 $.each(response, function(key, value) {	
-the_alert=response.the_alert;
+var the_alert=response.the_alert;
 if(the_alert){
 	$.jAlert({
     'title': 'Important Message',
@@ -1979,17 +1979,15 @@ if(the_alert){
 }
 
 
-
 //version check
 function get_version(response, status){
 $.each(response, function(key, value) {	
-app_version=response.version;
+var app_version=response.version;
 if(this_app_version<app_version){
 new_vers_alert();}
 });
 }
-
-
+//new version available alert
 function new_vers_alert(){
 $('#v_update').empty();
 		switch(dev_platform){
