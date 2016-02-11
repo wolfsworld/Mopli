@@ -2012,8 +2012,8 @@ var pf_no;
 pf_no=$(this).attr("id");
 switch(pf_no){
 case 'A': window.open('https://play.google.com/store/search?q=Mopli%20JTPL&c=apps&hl=en', '_blank', 'location=yes'); break;
-case 'I': window.open('https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1043389097&mt=8'); break;
-case 'W': window.open('https://www.microsoft.com/en-us/store/apps/mopli-jtpl/9nblggh5f37p'); break;
+case 'I': window.open('https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1043389097&mt=8', '_blank', 'location=yes'); break;
+case 'W': window.open('https://www.microsoft.com/en-us/store/apps/mopli-jtpl/9nblggh5f37p', '_blank', 'location=yes'); break;
 default: ''; break;
 }
 });
