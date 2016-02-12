@@ -625,7 +625,7 @@ $('.trail a').button('refresh');
 
 $( "#blist" ).append(blist_html);
 $('.trail a').button();
-$('html,body,#blist').animate({ scrollTop: 0 }, "fast");
+//$('html,body,#blist').animate({ scrollTop: 0 }, "fast");
 
 if(page_counter==1){
 next_batch +="<a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
