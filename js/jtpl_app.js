@@ -892,9 +892,10 @@ $('.trail a[data-role=button]').button();
 $('.trail a').button('refresh');
 
 });
-$( "#news" ).append(np_list_html).enhanceWithin();
+$( "#news" ).append(np_list_html);
 $('.trail a').button();
-$("#news").animate({ scrollTop: 0 }, "fast");
+//$("#news").animate({ scrollTop: 0 }, "fast");
+$('html,body,#news').scrollTop(0);
 stop_spin();
 
 if(page_counter==1){
