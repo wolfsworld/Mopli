@@ -1,7 +1,6 @@
  //set global variables
 var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
-//var refresh_ct=0;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
@@ -354,6 +353,9 @@ $('.home').on('click', function () {
 //refresh_ct=refresh_ct+1;
 //self.location.href = 'index.html';fsdf
 self.location.href = '#pageone';
+$("#libcard").empty();
+$("#libpin").empty();
+$('#cn_holdreq').empty();
 //history.go(0);
 });
 //enhance the remember login credentials button
@@ -945,7 +947,7 @@ $(pu_loc_list).appendTo( '#pu_loc_cont').enhanceWithin();
 });//end ajax
 }//funtion lib_branches
 
-//case 5 - Hold Request or Login (get encryption)
+//case 5 - Hold Request and/or LOGIN (get encryption)
 $(document).on('click', '.hold_req a', function () {
 var rem_loc_box='';
 if (rem_pu_loc_id){
@@ -1928,10 +1930,7 @@ nyt_link +='<div align="center"><a href="#" onclick="window.open(encodeURI(\'htt
 $( "#nyt" ).append(nyt_link);
 }
 
-
 //populate static pages for version, alerts, hours, holidays and contacts
-//if(refresh_ct<2){
-//	alert('going');
 pop_gen('hours',1);
 pop_gen('holidays',2);
 pop_gen('contacts',3 );
@@ -2093,8 +2092,6 @@ contact_html +="<div>This section requires an internet connection to populate da
 }
 $('#contact_block').append(contact_html);
 }
-
-
 
 //fastclick
 window.addEventListener('load', function() {
