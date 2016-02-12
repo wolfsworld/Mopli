@@ -350,18 +350,11 @@ $('#cn_holdreq').val("");
 
 //Home Button workaround to work with IOS 9
 $('.home').on('click', function () {
-//refresh_ct=refresh_ct+1;
-//self.location.href = 'index.html';fsdf
 var rem_cred=$('#remember').is(':checked'); 
-if (rem_cred){
-}else{
-$("#libcard").val('');
-$("#libpin").val('');
-$('#cn_holdreq').val('');
-}
+if (rem_cred){}else{$("#libcard").val('');$("#libpin").val('');$('#cn_holdreq').val('');}
 self.location.href = '#pageone';
-//history.go(0);
 });
+
 //enhance the remember login credentials button
 $('#remember').css({"z-index":"20"});
 
@@ -644,7 +637,6 @@ $( "#blist" ).append(next_batch);
 }
 });
 }//the if largest
-$("#blist").animate({ scrollTop: 0 }, "fast");
 }
 //create the "next"/"previous" batch search buttons
 //next batch general book search
@@ -900,8 +892,9 @@ $('.trail a[data-role=button]').button();
 $('.trail a').button('refresh');
 
 });
-$( "#news" ).append(np_list_html);
+$( "#news" ).append(np_list_html).enanceWithin();
 $('.trail a').button();
+$("#news").animate({ scrollTop: 0 }, "fast");
 stop_spin();
 
 if(page_counter==1){
@@ -913,7 +906,6 @@ next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-min
 $( "#news" ).append(next_batch_news);
 }
 });
-$("#news").animate({ scrollTop: 0 }, "fast");
 }
 
 //populate the branches
@@ -1739,7 +1731,6 @@ $( "#most_popular" ).append(next_mplist_html);
 
 }
 });
-$("#most_popular").animate({ scrollTop: 0 }, "fast");
 }
 
 //case 13 take the ISBN to the library
