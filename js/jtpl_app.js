@@ -892,7 +892,7 @@ $('.trail a[data-role=button]').button();
 $('.trail a').button('refresh');
 
 });
-$( "#news" ).append(np_list_html).enanceWithin();
+$( "#news" ).append(np_list_html).enhanceWithin();
 $('.trail a').button();
 $("#news").animate({ scrollTop: 0 }, "fast");
 stop_spin();
