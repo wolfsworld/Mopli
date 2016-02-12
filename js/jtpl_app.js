@@ -624,8 +624,8 @@ $('.trail a').button('refresh');
 });
 
 $( "#blist" ).append(blist_html);
-//$( "#thecount" ).append(''+i+',');
 $('.trail a').button();
+$('html,body,#blist').animate({ scrollTop: 0 }, "fast");
 
 if(page_counter==1){
 next_batch +="<a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
@@ -894,8 +894,8 @@ $('.trail a').button('refresh');
 });
 $( "#news" ).append(np_list_html);
 $('.trail a').button();
-//$("#news").animate({ scrollTop: 0 }, "fast");
-$('html,body,#news').scrollTop(0);
+$('html,body,#news').animate({ scrollTop: 0 }, "fast");
+//$('html,body,#news').scrollTop(0);
 stop_spin();
 
 if(page_counter==1){
@@ -1722,6 +1722,7 @@ $('.trail a').button('refresh');
 $( "#most_popular" ).append(mplist_html);
 stop_spin();
 $('.trail a').button();
+$('html,body,#most_popular').animate({ scrollTop: 0 }, "fast");
 if(page_counter==1){
 next_mplist_html +="<a href='#' id='fwd_btn_mp' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
 $( "#most_popular" ).append(next_mplist_html);
