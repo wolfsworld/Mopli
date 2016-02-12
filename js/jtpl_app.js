@@ -632,10 +632,12 @@ $('.trail a').button();
 if(page_counter==1){
 next_batch +="<a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
 $( "#blist" ).append(next_batch);
+$.mobile.silentScroll(0);
 }
 if(page_counter>1){
 next_batch +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 20</a><a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 20</a></div>";
 $( "#blist" ).append(next_batch);
+$.mobile.silentScroll(0);
 }
 });
 }//the if largest
