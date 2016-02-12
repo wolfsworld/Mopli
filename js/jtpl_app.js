@@ -352,10 +352,10 @@ $('#cn_holdreq').val("");
 $('.home').on('click', function () {
 //refresh_ct=refresh_ct+1;
 //self.location.href = 'index.html';fsdf
+$("#libcard").val('');
+$("#libpin").val('');
+$('#cn_holdreq').val('');
 self.location.href = '#pageone';
-$("#libcard").empty();
-$("#libpin").empty();
-$('#cn_holdreq').empty();
 //history.go(0);
 });
 //enhance the remember login credentials button
@@ -629,6 +629,7 @@ $('.trail a').button('refresh');
 $( "#blist" ).append(blist_html);
 //$( "#thecount" ).append(''+i+',');
 $('.trail a').button();
+$.mobile.silentScroll(0);
 if(page_counter==1){
 next_batch +="<a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
 $( "#blist" ).append(next_batch);
