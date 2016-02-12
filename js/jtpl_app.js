@@ -352,7 +352,9 @@ $('#cn_holdreq').val("");
 $('.home').on('click', function () {
 //refresh_ct=refresh_ct+1;
 //self.location.href = 'index.html';fsdf
-if(!rem_libcard){
+var rem_cred=$('#remember').is(':checked'); 
+if (rem_cred){
+}else{
 $("#libcard").val('');
 $("#libpin").val('');
 $('#cn_holdreq').val('');
@@ -640,9 +642,9 @@ if(page_counter>1){
 next_batch +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 20</a><a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 20</a></div>";
 $( "#blist" ).append(next_batch);
 }
-$("#blist").animate({ scrollTop: 0 }, "fast");
 });
 }//the if largest
+$("#blist").animate({ scrollTop: 0 }, "fast");
 }
 //create the "next"/"previous" batch search buttons
 //next batch general book search
@@ -911,6 +913,7 @@ next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-min
 $( "#news" ).append(next_batch_news);
 }
 });
+$("#news").animate({ scrollTop: 0 }, "fast");
 }
 
 //populate the branches
@@ -1736,6 +1739,7 @@ $( "#most_popular" ).append(next_mplist_html);
 
 }
 });
+$("#most_popular").animate({ scrollTop: 0 }, "fast");
 }
 
 //case 13 take the ISBN to the library
