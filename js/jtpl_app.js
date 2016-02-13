@@ -899,7 +899,7 @@ $('html,body,#news').animate({ scrollTop: 0 }, "fast");
 //$('html,body,#news').scrollTop(0);
 stop_spin();
 
-var qty_new=response.split(',').length;
+var qty_new=newtitle_list.split(',').length;
 alert(qty_new);
 
 if(page_counter==1){
