@@ -83,7 +83,7 @@ checkConnection();
 
 if(net_status==false){
 	$("iframe").each(function() { 
-        $(this).replaceWith("<h4 align='center'>This page needs Internet connection.<br>It appears that you are currently not online.</h4>");
+        $(this).replaceWith("<h4 align='center'>This page needs Internet connection.<br>It appears you are offline or the server is currently not available.</h4>");
 	});
 }
 
@@ -2046,7 +2046,7 @@ holidays_html +='<tr><td class="txtbox" width="143" valign="top">'+hol_name+'</t
 holidays_html +="</table>";	
 }
 else{
-holidays_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";
+holidays_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline or the server is currently not available.</div>";
 }
 $('#holiday_block').append(holidays_html);
 }
@@ -2093,7 +2093,7 @@ contact_html +="<table>";
 contact_html +="</table>";
 }
 else{
-contact_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";
+contact_html +="<div>This section requires an internet connection to populate data.<br>It appears you are offline or the server is currently not available.</div>";
 }
 $('#contact_block').append(contact_html);
 }
