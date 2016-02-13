@@ -902,7 +902,7 @@ if(page_counter==1){
 next_batch_news +="<a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 40 results</a>";
 $( "#news" ).append(next_batch_news);
 }
-if(page_counter>1){
+if(page_counter>1 && page_counter<4){
 next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn_news' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 40</a><a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 40</a></div>";
 $( "#news" ).append(next_batch_news);
 }
