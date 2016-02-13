@@ -898,19 +898,20 @@ $('.trail a').button();
 $('html,body,#news').animate({ scrollTop: 0 }, "fast");
 //$('html,body,#news').scrollTop(0);
 stop_spin();
-
+//determine qty of new titles in total
 var qty_new=newtitle_list.split(',').length;
-alert(qty_new);
+//calculate number of pages
+var pagecount=qty_new/40;
 
 if(page_counter==1){
 next_batch_news +="<a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 40 results</a>";
 $( "#news" ).append(next_batch_news);
 }
-if(page_counter>1 && page_counter<4){
+if(page_counter>1 && page_counter<pagecount+1){
 next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn_news' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 40</a><a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 40</a></div>";
 $( "#news" ).append(next_batch_news);
 }
-if(page_counter>3){
+if(page_counter>pagecount){
 next_batch_news +="<a href='#' id='rev_btn_news' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 40</a>";
 $( "#news" ).append(next_batch_news);
 }
