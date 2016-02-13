@@ -789,7 +789,8 @@ $.ajax({
         crossDomain: true,
         success : function(response) {
 			newtitle_list=response;
-			p_validate(4,''+response+'','','','','GET','',1);
+			//var new_qty=response.split(',').length;
+			p_validate(4,''+response+'','','','','GET','',1,'');
 			start_spin();
         },
         error      : function() {
@@ -897,6 +898,9 @@ $('.trail a').button();
 $('html,body,#news').animate({ scrollTop: 0 }, "fast");
 //$('html,body,#news').scrollTop(0);
 stop_spin();
+
+var qty_new=response.split(',').length;
+alert(qty_new);
 
 if(page_counter==1){
 next_batch_news +="<a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 40 results</a>";
