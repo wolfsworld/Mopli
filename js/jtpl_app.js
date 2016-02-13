@@ -161,7 +161,7 @@ var p_method="GET";
 
 $.ajax({
         type       : "POST",
-		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
+		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
 		error: function(jqXHR,text_status,strError){
@@ -176,7 +176,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Could not process.You might have no network connection.');                  
+            alert('No network connection or server currently not available.');                  
         }
 });
 }
@@ -471,7 +471,7 @@ if(p_searchitem){
 $.ajax({
         type: "POST",
 		async: true,
-		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
+		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
@@ -512,7 +512,7 @@ $.ajax({
 }},
         error: function() {
             console.error("error");
-            alert('Could not process.You might have no network connection.');                  
+            alert('No network connection or server currently not available.');                  
         }
 });
 }
@@ -785,7 +785,7 @@ $( "#nyt" ).empty();
 $.ajax({
         type: "GET",
 		async: true,
-		url: "http://www.jeffersonlibrary.net/newbook.php",
+		url: "http://www.jeffersonlibrary.net/MOPLI/newbook.php",
         crossDomain: true,
         success : function(response) {
 			newtitle_list=response;
@@ -794,7 +794,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Could not process.You might have no network connection.');                  
+            alert('No network connection or server currently not available.');                  
         }
 });
 });
@@ -808,7 +808,7 @@ $('#news').empty();
 $.ajax({
         type: "GET",
 		async: true,
-		url: "http://www.jeffersonlibrary.net/newdvd.php",
+		url: "http://www.jeffersonlibrary.net/MOPLI/newdvd.php",
         crossDomain: true,
         success : function(response) {
 			newtitle_list=response;
@@ -817,7 +817,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Could not process.You might have no network connection.');                  
+            alert('No network connection or server currently not available.');                  
         }
 });
 });
@@ -904,6 +904,10 @@ $( "#news" ).append(next_batch_news);
 }
 if(page_counter>1){
 next_batch_news +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn_news' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 40</a><a href='#' id='fwd_btn_news' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 40</a></div>";
+$( "#news" ).append(next_batch_news);
+}
+if(page_counter>3){
+next_batch_news +="<a href='#' id='rev_btn_news' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 40</a>";
 $( "#news" ).append(next_batch_news);
 }
 });
@@ -1298,7 +1302,7 @@ p_pwd ='';
 
 $.ajax({
         type       : "POST",
-		url: "http://www.jeffersonlibrary.net/INTERMED_short.php",
+		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         async: false,
 		crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
@@ -1312,7 +1316,7 @@ $.ajax({
         },
         error      : function() {
             console.error("error");
-            alert('Could not process.You might have no network connection.');                  
+            alert('No network connection or server currently not available.');                  
         }
 });
 //see if #holds>#items in
@@ -1858,7 +1862,7 @@ $.ajax({
 		},
         error      : function() {
             console.error("error");
-            alert('Could not process.You might have no network connection.');                  
+            alert('No network connection or server currently not available.');                  
         }
 });
 }
@@ -1945,7 +1949,7 @@ var fctn=fctn;
 $.ajax({
         type: "GET",
 		async: true,
-		url: "http://www.jeffersonlibrary.net/forms/"+categ+".php",
+		url: "http://www.jeffersonlibrary.net/MOPLI/"+categ+".php",
         crossDomain: true,
 		dataType: "json",
         success : function(response) {
@@ -2065,7 +2069,7 @@ hours_html +="<tr><td width=143>"+hour_day+"</td><td width=212>"+hour_from+"-"+h
 hours_html +="</table>";
 }
 else{
-hours_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline.</div>";
+hours_html +="<div>This section requires an internet connection to populate data.<br>It appears you are currently offline or the server is currently not available.</div>";
 }
 $('#hour_block').append(hours_html);
 }
