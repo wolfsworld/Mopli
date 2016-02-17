@@ -283,7 +283,7 @@ $('#calendar').on('click', function () {
 window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=yes');
 });
 $('#list').on('click', function () {
-window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=yes');
+window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_m.php', '_blank', 'location=yes');
 });
 
 //google map
