@@ -30,7 +30,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.1.9';
+var this_app_version='1.2.0';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -61,7 +61,6 @@ rem_libpin='';
 
 if (rem_pu_loc_id){pu_loc_id=rem_pu_loc_id;}else{pu_loc_id='';}
 if (rem_pu_loc_name){pu_loc_name=rem_pu_loc_name;}else{pu_loc_name='';}
-	
 //check network connection	
 function checkConnection() {
     var networkState = navigator.connection.type;
@@ -279,6 +278,12 @@ window.open('http://jeffersontwpnj.oneclickdigital.com/', '_blank', 'location=ye
 $('#freegal_btn').on('click', function () {
 window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'location=yes');
 });
+$('#calendar').on('click', function () {
+window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=yes');
+});
+$('#list').on('click', function () {
+window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=yes');
+});
 
 //google map
 var map;
@@ -348,30 +353,29 @@ $('#main_login').on('click', function () {
 $('#cn_holdreq').val("");								   
 });
 
-//Home Button workaround to work with IOS 9
+//Home Button workaround for rem_cred to work with IOS 9 
 $('.home').on('click', function () {
 var rem_cred=$('#remember').is(':checked'); 
 if (rem_cred){}else{$("#libcard").val('');$("#libpin").val('');$('#cn_holdreq').val('');}
 self.location.href = '#pageone';
 });
 
-//enhance the remember login credentials button
+//enhance the remember login credentials button with z-index for ios 9
 $('#remember').css({"z-index":"20"});
 
-$(document).ready(function(){
-
+//$(document).ready(function(){
 //create browsing array for list and calendar view
-$("#events_frame_cal").load(function(){
+/*$("#events_frame_cal").load(function(){
 var frame=window.frames[0];									 
 framehistory.push(frame.window.location.href);
 });
 $("#events_frame_list").load(function(){
 var frame2=window.frames[1];									 
 framehistory2.push(frame2.window.location.href);
-});
-});
+});*/
+//});
 //create go-back logic for calendar view
-$('#clr_ifr_cal0').on('click', function () {
+/*$('#clr_ifr_cal0').on('click', function () {
 var frame=window.frames[0];										 
 if(framehistory.length<=1 || frame.window.location.href=="http://jeffersonlibrary.net/WebCalendar/month_ap.php"){
 $.mobile.changePage("#events_main");
@@ -420,6 +424,7 @@ framehistory=framehistory.slice(0,1);
 framehistory2=framehistory2.slice(0,1);
 $.mobile.changePage("#pageone");
 });
+*/
 
 //alternate selection in account logon collapsibles
 $('#borrowed_box').on( "collapsibleexpand", function() {
@@ -1940,7 +1945,7 @@ nyt_link +='<div align="center"><a href="#" onclick="window.open(encodeURI(\'htt
 $( "#nyt" ).append(nyt_link);
 }
 
-//populate static pages for version, alerts, hours, holidays and contacts
+//prepare static pages for version, alerts, hours, holidays and contacts
 pop_gen('hours',1);
 pop_gen('holidays',2);
 pop_gen('contacts',3 );
@@ -1994,7 +1999,6 @@ if(the_alert){
 });
 }
 
-
 //version check
 function get_version(response, status){
 $.each(response, function(key, value) {	
@@ -2033,7 +2037,7 @@ default: ''; break;
 }
 });
 
-
+//populate static pages
 function populate_holidays(response, status){
 var status=status;
 var holidays_html='';
@@ -2130,6 +2134,6 @@ window.plugins.flashlight.available(function(isAvailable) {
     alert("Flashlight not available on this device");
   }
 });
-
 });
+
 });

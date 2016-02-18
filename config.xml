@@ -2,8 +2,8 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.mopli"
-        versionCode = "22" 
-        version     = "1.1.9" >
+        versionCode = "23" 
+        version     = "1.2.0" >
 
     <name>MOPLI JTPL</name>
     <description>
