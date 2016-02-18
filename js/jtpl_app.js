@@ -30,7 +30,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.2.1';
+var this_app_version='1.2.2';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -279,11 +279,9 @@ $('#freegal_btn').on('click', function () {
 window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'location=yes');
 });
 $('#calendar').on('click', function () {
-									 alert(dev_platform);
 window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=no,EnableViewPortScale=yes');
 });
 $('#list').on('click', function () {
-								 alert(dev_platform);
 window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no,EnableViewPortScale=yes');
 });
 
@@ -364,69 +362,6 @@ self.location.href = '#pageone';
 
 //enhance the remember login credentials button with z-index for ios 9
 $('#remember').css({"z-index":"20"});
-
-//$(document).ready(function(){
-//create browsing array for list and calendar view
-/*$("#events_frame_cal").load(function(){
-var frame=window.frames[0];									 
-framehistory.push(frame.window.location.href);
-});
-$("#events_frame_list").load(function(){
-var frame2=window.frames[1];									 
-framehistory2.push(frame2.window.location.href);
-});*/
-//});
-//create go-back logic for calendar view
-/*$('#clr_ifr_cal0').on('click', function () {
-var frame=window.frames[0];										 
-if(framehistory.length<=1 || frame.window.location.href=="http://jeffersonlibrary.net/WebCalendar/month_ap.php"){
-$.mobile.changePage("#events_main");
-framehistory=framehistory.slice(0,1);
-}
-else if (framehistory.length>2){
-framehistory.pop();									 
-var hist= (framehistory.length)-1;
-var thetarget=framehistory[hist];
-window.frames['events_frame_cal'].location=thetarget;
-framehistory.pop();
-}
-else{
-framehistory.pop();									 
-var hist= (framehistory.length)-1;
-var thetarget=framehistory[hist];
-window.frames['events_frame_cal'].location=thetarget;
-}
-});
-//create go-back logic for list view
-$('#clr_ifr_list0').on('click', function () {
-var frame=window.frames[1];											  
-if(framehistory2.length<=1 || frame.window.location.href=="http://jeffersonlibrary.net/forms/eventsprobe_all_app.php"){
-$.mobile.changePage("#events_main");
-framehistory2=framehistory2.slice(0,1);
-}
-else if (framehistory2.length>2){
-framehistory2.pop();									 
-var hist2= (framehistory2.length)-1;
-var thetarget2=framehistory2[hist2];
-//alert(thetarget);
-window.frames['events_frame_list'].location=thetarget2;
-framehistory2.pop();
-}
-else{
-framehistory2.pop();									 
-var hist2= (framehistory2.length)-1;
-var thetarget2=framehistory2[hist2];
-//alert(thetarget);
-window.frames['events_frame_list'].location=thetarget2;
-}
-});
-//empty go-back buffers upon leaving event section
-$('#clr_ifr').on('click', function () {
-framehistory=framehistory.slice(0,1);
-framehistory2=framehistory2.slice(0,1);
-$.mobile.changePage("#pageone");
-});
-*/
 
 //alternate selection in account logon collapsibles
 $('#borrowed_box').on( "collapsibleexpand", function() {
