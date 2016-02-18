@@ -279,10 +279,10 @@ $('#freegal_btn').on('click', function () {
 window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'location=yes');
 });
 $('#calendar').on('click', function () {
-window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=no, EnableViewPortScale=yes');
+window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=no,EnableViewPortScale=yes');
 });
 $('#list').on('click', function () {
-window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no, EnableViewPortScale=yes');
+window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no,EnableViewPortScale=yes');
 });
 
 //google map
