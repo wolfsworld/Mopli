@@ -30,7 +30,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.2.2';
+var this_app_version='1.2.3';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -900,6 +900,12 @@ $(pu_loc_list).appendTo( '#pu_loc_cont').enhanceWithin();
 
 //case 5 - Hold Request and/or LOGIN (get encryption)
 $(document).on('click', '.hold_req a', function () {
+//remove remember pickup location and label html
+if ( $( "#rem_pu_loc" ).length ) {
+$("#rem_pu_loc" ).remove();
+$('label[for=rem_pu_loc]').remove();
+}
+
 var rem_loc_box='';
 if (rem_pu_loc_id){
 rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
@@ -912,7 +918,7 @@ $('#rem_pu_loc').css({"z-index":"20"}).enhanceWithin();
 var cont_num;
 cont_num=$(this).attr("id");
 $('#cn_holdreq').val(cont_num);
-p_validate(15,'','','','','GET','','','');
+p_validate(15,'','','','','GET','','','');//next: lib_branches
 });//on click hold_req_a
 
 //Login
