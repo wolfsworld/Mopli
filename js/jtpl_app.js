@@ -911,8 +911,8 @@ else{
 }*/
 var rem_loc_box='';
 
-if ( $("#rem_pu_loc").length ) {
-return false;}else{
+if ( !$("#rem_pu_loc").length ) {
+
 if (rem_pu_loc_id){
 rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
 }else{
