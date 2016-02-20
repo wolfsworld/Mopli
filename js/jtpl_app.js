@@ -901,33 +901,33 @@ $(pu_loc_list).appendTo( '#pu_loc_cont').enhanceWithin();
 //case 5 - Hold Request and/or LOGIN (get encryption)
 $(document).on('click', '.hold_req a', function () {
 //remove remember pickup location and label html
-/*if ( $( "#rem_pu_loc" ).length ) {
+/*if ( $( ".rem_pu_loc" ).length ) {
 	alert('element is there');
-$("#rem_pu_loc" ).remove();
+$(".rem_pu_loc" ).remove();
 $('label[for=rem_pu_loc]').remove();
 }
 else{
 	alert('element is not there');
 }*/
 var rem_loc_box='';
-var lcount=$("#rem_pu_loc").length;
-if ( $("#rem_pu_loc").length==0) {
+var lcount=$(".rem_pu_loc").length;
+if ( $(".rem_pu_loc").length==0) {
 //$("#pu_loc_box input[type='checkbox']")
 alert('rem pu loc is not there yet. '+lcount+' times');
 ///////////////////////
 if (rem_pu_loc_id){
-rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
+rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id class="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
 }else{
-rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" />Remember pickup location</label>';
+rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id class="rem_pu_loc" value="yes" />Remember pickup location</label>';
 }
 $(rem_loc_box).appendTo( '#pu_loc_box').enhanceWithin();
-$('#rem_pu_loc').css({"z-index":"20"}).enhanceWithin();
+$('.rem_pu_loc').css({"z-index":"20"}).enhanceWithin();
 ////////////////////////
 }
 else{
 	
 	alert('rem pu loc is there: '+lcount+' times');
-//$("#rem_pu_loc" ).remove();
+$(".rem_pu_loc" ).remove();
 //$("#pu_loc_box :checkbox").remove();
 //$('label[for=rem_pu_loc]').remove();	
 }
@@ -961,7 +961,7 @@ if( $('#pu_loc').length ){
 		pu_loc_id=pickup_loc_id;
 		pu_loc_name=pickup_loc_name;
 		//if it should be stored
-		var rem_pu_loc=$('#rem_pu_loc').is(':checked'); 
+		var rem_pu_loc=$('.rem_pu_loc').is(':checked'); 
   		if(rem_pu_loc==true){
 		window.localStorage.setItem("rem_pu_loc_id",""+pu_loc_id+"");  
 		window.localStorage.setItem("rem_pu_loc_name",""+pu_loc_name+"");  
