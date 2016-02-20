@@ -910,10 +910,11 @@ else{
 	alert('element is not there');
 }*/
 var rem_loc_box='';
-
+var lcount=$("#rem_pu_loc").length;
 if ( $("#rem_pu_loc").length==0) {
 //$("#pu_loc_box input[type='checkbox']")
-alert('rem pu loc is not there yet');
+alert('rem pu loc is not there yet. '+lcount+' times');
+///////////////////////
 if (rem_pu_loc_id){
 rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
 }else{
@@ -921,11 +922,13 @@ rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" 
 }
 $(rem_loc_box).appendTo( '#pu_loc_box').enhanceWithin();
 $('#rem_pu_loc').css({"z-index":"20"}).enhanceWithin();
+////////////////////////
 }
 else{
-	alert('there is a rem pu loc');
+	
+	alert('rem pu loc is there: '+lcount+' times');
 //$("#rem_pu_loc" ).remove();
-$("#pu_loc_box :checkbox").remove();
+//$("#pu_loc_box :checkbox").remove();
 //$('label[for=rem_pu_loc]').remove();	
 }
 												   
