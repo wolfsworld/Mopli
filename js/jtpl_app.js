@@ -922,6 +922,11 @@ rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" 
 $(rem_loc_box).appendTo( '#pu_loc_box').enhanceWithin();
 $('#rem_pu_loc').css({"z-index":"20"}).enhanceWithin();
 }
+else{
+	alert('there is a rem pu loc');
+$("#rem_pu_loc" ).remove();
+$('label[for=rem_pu_loc]').remove();	
+}
 												   
 var cont_num;
 cont_num=$(this).attr("id");
