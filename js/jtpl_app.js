@@ -22,6 +22,7 @@ var storage = window.localStorage;
 
 var rem_libcard;
 var rem_libpin;
+var rem_count;
 
 var pu_loc_id;
 var pu_loc_name;
@@ -860,7 +861,7 @@ $( "#news" ).append(next_batch_news);
 });
 }
 
-//populate the branches
+// fct 15 populate the branches
 function lib_branches(reqstring,thedate,code){
 	
 var pu_loc_list='';
@@ -900,43 +901,27 @@ $(pu_loc_list).appendTo( '#pu_loc_cont').enhanceWithin();
 
 //case 5 - Hold Request and/or LOGIN (get encryption)
 $(document).on('click', '.hold_req a', function () {
-//remove remember pickup location and label html
-/*if ( $( "#rem_pu_loc" ).length ) {
-	alert('element is there');
-$("#rem_pu_loc" ).remove();
-$('label[for=rem_pu_loc]').remove();
-}
-else{
-	alert('element is not there');
-}*/
+
 var rem_loc_box='';
-var lcount=$("#rem_pu_loc").length;
-if ( $("#rem_pu_loc").length==0) {
-//$("#pu_loc_box input[type='checkbox']")
-alert('rem pu loc is not there yet. '+lcount+' times');
+
+rem_count=$("#rem_pu_loc").length;
+if (rem_count==0) {
 ///////////////////////
 if (rem_pu_loc_id){
-//rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
+rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
 }else{
-//rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" />Remember pickup location</label>';
+rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" />Remember pickup location</label>';
 }
 $(rem_loc_box).appendTo( '#pu_loc_box').enhanceWithin();
 $('#rem_pu_loc').css({"z-index":"20"}).enhanceWithin();
 ////////////////////////
+p_validate(15,'','','','','GET','','','');//next: lib_branches
+}
 
-}
-else{
-	
-	alert('rem pu loc is there: '+lcount+' times');
-//$("#rem_pu_loc" ).remove();
-//$("#pu_loc_box :checkbox").remove();
-//$('label[for=rem_pu_loc]').remove();	
-}
-												   
 var cont_num;
 cont_num=$(this).attr("id");
 $('#cn_holdreq').val(cont_num);
-p_validate(15,'','','','','GET','','','');//next: lib_branches
+
 });//on click hold_req_a
 
 //Login
