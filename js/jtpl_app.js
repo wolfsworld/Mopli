@@ -901,10 +901,14 @@ $(pu_loc_list).appendTo( '#pu_loc_cont').enhanceWithin();
 //case 5 - Hold Request and/or LOGIN (get encryption)
 $(document).on('click', '.hold_req a', function () {
 //remove remember pickup location and label html
-//if ( $( "#rem_pu_loc" ).length ) {
+if ( $( "#rem_pu_loc" ).length ) {
+	alert('element is there');
 $("#rem_pu_loc" ).remove();
 $('label[for=rem_pu_loc]').remove();
-//}
+}
+else{
+	alert('element is not there');
+}
 
 var rem_loc_box='';
 if (rem_pu_loc_id){
