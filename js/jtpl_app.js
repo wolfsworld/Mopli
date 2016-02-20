@@ -901,10 +901,10 @@ $(pu_loc_list).appendTo( '#pu_loc_cont').enhanceWithin();
 //case 5 - Hold Request and/or LOGIN (get encryption)
 $(document).on('click', '.hold_req a', function () {
 //remove remember pickup location and label html
-if ( $( "#rem_pu_loc" ).length ) {
+//if ( $( "#rem_pu_loc" ).length ) {
 $("#rem_pu_loc" ).remove();
 $('label[for=rem_pu_loc]').remove();
-}
+//}
 
 var rem_loc_box='';
 if (rem_pu_loc_id){
@@ -1055,7 +1055,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 			$.jAlert({
 				'type': 'modal',
 				'title': 'Error',
-				'content': 'Hold can not be processed',
+				'content': 'Hold can not be processed at this time',
 				'theme': 'blue'
 			});
 		//alert('Can not process.\n'+the_message+'.');
