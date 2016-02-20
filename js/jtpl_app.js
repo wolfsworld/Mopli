@@ -924,8 +924,9 @@ $('#rem_pu_loc').css({"z-index":"20"}).enhanceWithin();
 }
 else{
 	alert('there is a rem pu loc');
-$("#rem_pu_loc" ).remove();
-$('label[for=rem_pu_loc]').remove();	
+//$("#rem_pu_loc" ).remove();
+$("#pu_loc_box :checkbox").remove();
+//$('label[for=rem_pu_loc]').remove();	
 }
 												   
 var cont_num;
