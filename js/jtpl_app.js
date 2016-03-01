@@ -722,12 +722,22 @@ $(".picbox").on("tap",function(){
 if(pic_large){
 if($('.pic_large img').length){
 	$('.pic_large').empty();
-	$('html,body,#bdetail').animate({ scrollTop: 0 }, "slow");
+	//$('html,body,#bdetail').animate({ scrollTop: 0 }, "slow");
+	
+	event.preventDefault();
+    $('html,body').stop().animate({
+        scrollTop: $("#"+$(this).attr("rel")).position().top
+    }, 500, 'swing');
+	
 	
 }
 	else{
 $('.pic_large').append(pic_large);
-$('html,body,#bdetail').animate({ scrollBottom: 0 }, "slow");
+	event.preventDefault();
+    $('html,body').stop().animate({
+        scrollTop: $("#"+$(this).attr("rel")).position().bottom
+    }, 500, 'swing');
+//$('html,body,.pic_large').animate({ scrollBottom: 0 }, "slow");
 //$('.pic_large').css({"opacity":"1"});
 }
 }
