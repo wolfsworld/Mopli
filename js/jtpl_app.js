@@ -722,12 +722,12 @@ $(".picbox").on("tap",function(){
 if(pic_large){
 if($('.pic_large img').length){
 	$('.pic_large').empty();
-	$('html,body').animate({ scrollTop: 0 }, "slow");
+	$('html,body,#bdetail').animate({ scrollTop: 0 }, "slow");
 	
 }
 	else{
 $('.pic_large').append(pic_large);
-$('html,body').animate({ scrollBottom: 0 }, "slow");
+$('html,body,#bdetail').animate({ scrollBottom: 0 }, "slow");
 //$('.pic_large').css({"opacity":"1"});
 }
 }
