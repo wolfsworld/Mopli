@@ -632,7 +632,6 @@ p_validate(3,''+p_searchitem+'','','','','GET','','','');
 });
 //case 3 - get detail
 function get_detail(code,reqstring,thedate){
-var detlist_html='';
 
 var settings = {
   "async": true,
@@ -651,6 +650,7 @@ $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'ISBN', 'PrimaryTypeOfMaterial', 'LocalItemsTotal', 'LocalItemsIn', , 'SystemItemsTotal', 'CurrentHoldRequests', 'Summary','CallNumber'];
 
 $( "#bdetail" ).empty();
+$('.pic_large').empty();
 var detlist_html='';
 var pic_large='';
 //$('.pic_large').css({"opacity":"0"});
@@ -721,7 +721,7 @@ $('.hold_req a').button();
 $(".picbox").on("tap",function(){
 if(pic_large){
 if($('.pic_large img').length){
-	alert('picture in');
+	return;
 }
 	else{
 $('.pic_large').append(pic_large);

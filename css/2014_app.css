@@ -204,6 +204,12 @@ width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 }
+.pic_large{
+	text-align: center;
+}
+.pic_large img{
+box-shadow: 7px 7px 3px #999;
+}
 
 
 
