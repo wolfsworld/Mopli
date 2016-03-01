@@ -720,8 +720,8 @@ $('.hold_req a').button();
 
 $(".picbox").on("tap",function(){
 if(pic_large){
-if($('.pic_large img').length()){
-	return;
+if($('.pic_large img').length){
+	alert('picture in');
 }
 	else{
 $('.pic_large').append(pic_large);
