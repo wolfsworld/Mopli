@@ -679,13 +679,13 @@ selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfM
 
 if(cover_no==''){
 switch(media){
-	case 35: np_list_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
-	case 40: np_list_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">'; break;
-	case 33: np_list_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; break;
-	default: np_list_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/book_icon.png" /></td ><td class="txtbox">'; break;
+	case 35: np_list_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
+	case 40: np_list_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="img/blueray_icon.png" /></td ><td class="txtbox">'; break;
+	case 33: np_list_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; break;
+	default: np_list_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="img/book_icon.png" /></td ><td class="txtbox">'; break;
 }
 }else{	
-detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
+detlist_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 pic_large +='<img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=M&Value='+cover_no+'&userID=MAIN37789&password=CC10073" />';
 }
 
@@ -729,13 +729,13 @@ detlist_html +="</td></tr></table>";
 $( "#bdetail" ).append(detlist_html);
 $('.hold_req a').button();
 
-$(".picbox").on("tap",function(){
+$(".picbox_dtl").on("tap",function(){
 	if(pic_large){
 		if($('.pic_large img').length){
 			$('.pic_large').empty();
   			$("html, body").animate({ scrollTop: 0 }, "slow");
   			return false;	
-			}else{
+		}else{
 			$('.pic_large').append(pic_large);
 			setTimeout(function(){
 			$('html, body').animate({ 

@@ -59,7 +59,7 @@ background-color: #FC3;
 .home, .home_ev {
 	float: right;
 }
-.picbox{
+.picbox, .picbox_dtl{
 	<background-color: #d8d6b4;
 	font-family: Arial, Helvetica, sans-serif;
 	<color: #FFF;
