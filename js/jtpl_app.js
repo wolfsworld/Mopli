@@ -724,12 +724,13 @@ if($('.pic_large img').length){
 	$('.pic_large').empty();
 	//$('html,body,#bdetail').animate({ scrollTop: 0 }, "slow");
   $("html, body").animate({ scrollTop: 0 }, "slow");
+  $(document).resize();
   return false;	
 	
 }
 	else{
 $('.pic_large').append(pic_large);
-$('html, body').enhanceWithin();
+$(document).resize();
 $('html, body').animate({ 
    scrollTop: $(document).height()-$(window).height()}, 
    700, "swing"
