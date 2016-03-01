@@ -750,9 +750,8 @@ $(".picbox_dtl").on("tap",function(){
 		}
 	}
 });//end tap function
-
+//erase large pic and scroll back to top on tap
 $(".pic_large").on("tap",function(){
-alert('tapped on the img');
 $("html, body").animate({ scrollTop: 0 }, "slow");
 $('.pic_large').empty();
 });
