@@ -751,7 +751,7 @@ $(".picbox_dtl").on("tap",function(){
 	}
 });//end tap function
 
-$(".pic_large img").on("tap",function(){
+$(".pic_large").on("tap",function(){
 alert('tapped on the img');
 $("html, body").animate({ scrollTop: 0 }, "slow");
 $('.pic_large').empty();
