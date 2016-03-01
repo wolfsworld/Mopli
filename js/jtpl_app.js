@@ -733,14 +733,11 @@ if($('.pic_large img').length){
 	else{
 $('.pic_large').append(pic_large);
 setTimeout(function(){
-alert($(document).height());
-alert($(window).height());
-},200);
-//$(document).resize();
 $('html, body').animate({ 
-   scrollTop: $(document).height()-$(window).height()}, 
+   scrollTop: $(document).height()}, 
    700, "swing"
 );
+},150);
 //$('html,body,.pic_large').animate({ scrollBottom: 0 }, "slow");
 //$('.pic_large').css({"opacity":"1"});
 }
