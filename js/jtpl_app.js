@@ -722,15 +722,19 @@ $(".picbox").on("tap",function(){
 if(pic_large){
 if($('.pic_large img').length){
 	$('.pic_large').empty();
+	alert($(document).height());
+alert($(window).height());
 	//$('html,body,#bdetail').animate({ scrollTop: 0 }, "slow");
   $("html, body").animate({ scrollTop: 0 }, "slow");
-  $(document).resize();
+  //$(document).resize();
   return false;	
 	
 }
 	else{
 $('.pic_large').append(pic_large);
-$(document).resize();
+alert($(document).height());
+alert($(window).height());
+//$(document).resize();
 $('html, body').animate({ 
    scrollTop: $(document).height()-$(window).height()}, 
    700, "swing"
