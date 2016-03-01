@@ -722,8 +722,8 @@ $(".picbox").on("tap",function(){
 if(pic_large){
 if($('.pic_large img').length){
 	$('.pic_large').empty();
-	alert($(document).height());
-alert($(window).height());
+	//alert($(document).height());
+//alert($(window).height());
 	//$('html,body,#bdetail').animate({ scrollTop: 0 }, "slow");
   $("html, body").animate({ scrollTop: 0 }, "slow");
   //$(document).resize();
@@ -732,8 +732,10 @@ alert($(window).height());
 }
 	else{
 $('.pic_large').append(pic_large);
+setTimeout(function(){
 alert($(document).height());
 alert($(window).height());
+},200);
 //$(document).resize();
 $('html, body').animate({ 
    scrollTop: $(document).height()-$(window).height()}, 
