@@ -728,11 +728,11 @@ if($('.pic_large img').length){
 	
 }
 	else{
-$('.pic_large').append(pic_large).enhanceWithin();
+$('.pic_large').append(pic_large);
+$('html, body').enhanceWithin();
 $('html, body').animate({ 
    scrollTop: $(document).height()-$(window).height()}, 
-   1000, 
-   "swing"
+   700, "swing"
 );
 //$('html,body,.pic_large').animate({ scrollBottom: 0 }, "slow");
 //$('.pic_large').css({"opacity":"1"});
