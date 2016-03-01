@@ -675,7 +675,7 @@ switch(media){
 }
 }else{	
 detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
-pic_large +='<img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=M&Value='+cover_no+'&userID=MAIN37789&password=CC10073" />';
+pic_large +='<img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=M&Value='+cover_no+'&userID=MAIN37789&password=CC10073" width="100%" />';
 }
 
 
@@ -717,10 +717,16 @@ detlist_html +="</td></tr></table>";
  
 $( "#bdetail" ).append(detlist_html);
 $('.hold_req a').button();
+
 $(".picbox").on("tap",function(){
 if(pic_large){
+if($('.pic_large img').length()){
+	return false;
+}
+	else{
 $('.pic_large').append(pic_large);
 //$('.pic_large').css({"opacity":"1"});
+}
 }
 });
 });
