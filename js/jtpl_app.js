@@ -731,26 +731,27 @@ $('.hold_req a').button();
 
 $(".picbox_dtl").on("tap",function(){
 	if(pic_large){
-		//if($('.pic_large img').length){
+		if($('.pic_large img').length){
+			$(".pic_large img").on("tap",function(){
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+			});
+	$('.pic_large').empty();
 			//$(".picbox_large img").on("tap",function(){
   			//$("html, body").animate({ scrollTop: 0 }, "slow");
 			//});
 			//$('.pic_large').empty();
-		//}else{
+		}else{
 			$('.pic_large').append(pic_large);
 			setTimeout(function(){
 			$('html, body').animate({ 
    			scrollTop: $(document).height()}, 
    			700, "swing");
 			},150);
-		//}
+		}
 	}
 });//end tap function
 
-$(".pic_large img").on("tap",function(){
-$("html, body").animate({ scrollTop: 0 }, "slow");
-$('.pic_large').empty();
-});
+
 
 
 });//end ajax?
