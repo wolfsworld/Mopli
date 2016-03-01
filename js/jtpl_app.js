@@ -732,10 +732,10 @@ $('.hold_req a').button();
 $(".picbox_dtl").on("tap",function(){
 	if(pic_large){
 		if($('.pic_large img').length){
-			$(".pic_large img").on("tap",function(){
+			//$(".pic_large img").on("tap",function(){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
-			});
-	$('.pic_large').empty();
+			//});
+			$('.pic_large').empty();
 			//$(".picbox_large img").on("tap",function(){
   			//$("html, body").animate({ scrollTop: 0 }, "slow");
 			//});
@@ -751,8 +751,11 @@ $(".picbox_dtl").on("tap",function(){
 	}
 });//end tap function
 
-
-
+$(".pic_large img").on("tap",function(){
+alert('tapped on the img');
+$("html, body").animate({ scrollTop: 0 }, "slow");
+$('.pic_large').empty();
+});
 
 });//end ajax?
 };//end get_detail function
