@@ -728,7 +728,7 @@ if($('.pic_large img').length){
 	
 }
 	else{
-$('.pic_large').append(pic_large);
+$('.pic_large').append(pic_large).enhanceWithin();
 $('html, body').animate({ 
    scrollTop: $(document).height()-$(window).height()}, 
    1000, 
