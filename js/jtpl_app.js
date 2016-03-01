@@ -747,7 +747,7 @@ $(".picbox_dtl").on("tap",function(){
 	}
 });//end tap function
 
-$(".picbox_large img").on("tap",function(){
+$(".pic_large img").on("tap",function(){
 $("html, body").animate({ scrollTop: 0 }, "slow");
 $('.pic_large').empty();
 });
