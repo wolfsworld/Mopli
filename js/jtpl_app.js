@@ -266,6 +266,17 @@ $('.hold_req a').button();
 
 $(document).ready(function(){
 
+$(window).on("navigate", function (event, data) {
+  var direction = data.state.direction;
+  if (direction == 'back') {
+   $('.pic_large').empty();
+	$( "#bdetail" ).empty(); 
+  }
+  if (direction == 'forward') {
+    return
+  }
+});
+
 //open in app browser
 $('#3m_btn').on('click', function () {
 window.open('http://ebook.3m.com/library/jtpl/Featured', '_blank', 'location=yes');
@@ -719,32 +730,23 @@ $( "#bdetail" ).append(detlist_html);
 $('.hold_req a').button();
 
 $(".picbox").on("tap",function(){
-if(pic_large){
-if($('.pic_large img').length){
-	$('.pic_large').empty();
-	//alert($(document).height());
-//alert($(window).height());
-	//$('html,body,#bdetail').animate({ scrollTop: 0 }, "slow");
-  $("html, body").animate({ scrollTop: 0 }, "slow");
-  //$(document).resize();
-  return false;	
-	
-}
-	else{
-$('.pic_large').append(pic_large);
-setTimeout(function(){
-$('html, body').animate({ 
-   scrollTop: $(document).height()}, 
-   700, "swing"
-);
-},150);
-//$('html,body,.pic_large').animate({ scrollBottom: 0 }, "slow");
-//$('.pic_large').css({"opacity":"1"});
-}
-}
-});
-});
-};
+	if(pic_large){
+		if($('.pic_large img').length){
+			$('.pic_large').empty();
+  			$("html, body").animate({ scrollTop: 0 }, "slow");
+  			return false;	
+			}else{
+			$('.pic_large').append(pic_large);
+			setTimeout(function(){
+			$('html, body').animate({ 
+   			scrollTop: $(document).height()}, 
+   			700, "swing");
+			},150);
+		}
+	}
+});//end tap function
+});//end ajax?
+};//end get_detail function
 
 //case 4 - get new publications - book & dvd  (encrypt)
 $(document).on('click', '#nb_btn', function () {
