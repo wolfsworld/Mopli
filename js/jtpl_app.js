@@ -737,6 +737,7 @@ $(".picbox_dtl").on("tap",function(){
 			$('.pic_large').empty();
 		}else{
 			$('.pic_large').append(pic_large);
+			$('.pic_large').fadeIn();
 			setTimeout(function(){
 			$('html, body').animate({ 
    			scrollTop: $(document).height()}, 
