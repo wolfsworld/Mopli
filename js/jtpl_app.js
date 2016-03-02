@@ -31,7 +31,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.2.3';
+var this_app_version='1.2.4';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -266,6 +266,7 @@ $('.hold_req a').button();
 
 $(document).ready(function(){
 
+//delete large cover picture when leaving the detail section
 $(window).on("navigate", function (event, data) {
   var direction = data.state.direction;
   if (direction == 'back') {
@@ -732,14 +733,8 @@ $('.hold_req a').button();
 $(".picbox_dtl").on("tap",function(){
 	if(pic_large){
 		if($('.pic_large img').length){
-			//$(".pic_large img").on("tap",function(){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
-			//});
 			$('.pic_large').empty();
-			//$(".picbox_large img").on("tap",function(){
-  			//$("html, body").animate({ scrollTop: 0 }, "slow");
-			//});
-			//$('.pic_large').empty();
 		}else{
 			$('.pic_large').append(pic_large);
 			setTimeout(function(){
@@ -753,7 +748,9 @@ $(".picbox_dtl").on("tap",function(){
 //erase large pic and scroll back to top on tap
 $(".pic_large").on("tap",function(){
 $("html, body").animate({ scrollTop: 0 }, "slow");
-$('.pic_large').empty();
+$('.pic_large').fadeOut(500, function() {
+    $(this).empty();
+});
 });
 
 });//end ajax?
