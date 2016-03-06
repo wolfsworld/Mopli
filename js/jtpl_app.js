@@ -1771,7 +1771,7 @@ var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'ISBN', 'Pr
 $( "#bdetail" ).empty();
 
 var det_nyt_html='';
-var pic_large='';
+var pic_large_nyt='';
   
 $.each(response.BibSearchRows, function(key, value) {
 cont_no=value.ControlNumber;
@@ -1786,7 +1786,7 @@ switch(media){
 		detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
 	} else{
 det_nyt_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
-pic_large +='<img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=M&Value='+cover_no+'&userID=MAIN37789&password=CC10073" />';
+pic_large_nyt +='<img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=M&Value='+cover_no+'&userID=MAIN37789&password=CC10073" />';
 }
 }
 								  
@@ -1827,12 +1827,12 @@ stop_spin();
 $('.hold_req a').button();
 
 $(".picbox_dtl").on("tap",function(){
-	if(pic_large){
+	if(pic_large_nyt){
 		if($('.pic_large img').length){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			$('.pic_large').empty();
 		}else{
-			$('.pic_large').append(pic_large);
+			$('.pic_large').append(pic_large_nyt);
 			$('.pic_large').fadeIn();
 			setTimeout(function(){
 			$('html, body').animate({ 
