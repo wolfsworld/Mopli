@@ -72,6 +72,7 @@ background-color: #FC3;
   	background: -moz-linear-gradient(rgba(216,216,180,1),rgba(216,216,180,0)); /*Fx 3.6-15*/
 	padding: 8px;
 	vertical-align: top;
+	text-align: center;
 }
 .txtbox{
 	<background-color: #ECECFF;
