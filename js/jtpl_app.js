@@ -675,7 +675,7 @@ ISBN=value.ISBN;
 UPC=value.UPC;
 if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}
 if(UPC!=''){
-selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial', 'LocalItemsTotal', 'LocalItemsIn', , 'SystemItemsTotal', 'CurrentHoldRequests', 'Summary','CallNumber'];
+selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial', 'LocalItemsTotal', 'LocalItemsIn', 'SystemItemsTotal', 'CurrentHoldRequests', 'Summary','CallNumber'];
 }
 
 if(cover_no==''){
@@ -1219,6 +1219,7 @@ var response= jQuery.parseJSON(response);
 
 var my_holds='';
 var hold_selection= ['Title', 'Author', 'StatusDescription', 'FormatDescription', 'PickupBranchName'];
+//var hold_selection= ['Title', 'Author', 'StatusDescription', 'FormatDescription', 'PickupBranchName', 'QueuePosition'];
 
 $( "#loginresponse" ).empty();
 
@@ -1244,7 +1245,6 @@ var is_in=value.StatusID;
 if(is_in >= 6){
 my_holds +="<div class='p_alert'>Please Pick-up</div>";
 }
-
 			$.each(value, function(key2, value2) {
 								   
 				if(key2=="HoldRequestID"){
@@ -1264,6 +1264,9 @@ my_holds +="<div class='p_alert'>Please Pick-up</div>";
 				case "FormatDescription":
 				key2="Media Type";
 				break;
+				//case "QueuePosition":
+				//key2="Queue Position";
+				//break;
 				}
 
 					if(key2=="Title"){
@@ -1747,6 +1750,8 @@ p_validate(13,''+the_isbn+'','','','','GET','','','');
 //case 13 Get NYT Detail in the Detail Page
 function get_det_nyt(code,reqstring,thedate){
 
+$('.pic_large').empty();
+
 var det_nyt_html='';
 var settings = {
   "async": true,
@@ -1766,6 +1771,7 @@ var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'ISBN', 'Pr
 $( "#bdetail" ).empty();
 
 var det_nyt_html='';
+var pic_large='';
   
 $.each(response.BibSearchRows, function(key, value) {
 cont_no=value.ControlNumber;
@@ -1780,6 +1786,7 @@ switch(media){
 		detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
 	} else{
 det_nyt_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
+pic_large +='<img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=M&Value='+cover_no+'&userID=MAIN37789&password=CC10073" />';
 }
 }
 								  
@@ -1818,6 +1825,31 @@ det_nyt_html +="</td></tr></table>";
 $( "#bdetail" ).append(det_nyt_html);
 stop_spin();
 $('.hold_req a').button();
+
+$(".picbox_dtl").on("tap",function(){
+	if(pic_large){
+		if($('.pic_large img').length){
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+			$('.pic_large').empty();
+		}else{
+			$('.pic_large').append(pic_large);
+			$('.pic_large').fadeIn();
+			setTimeout(function(){
+			$('html, body').animate({ 
+   			scrollTop: $(document).height()}, 
+   			700, "swing");
+			},150);
+		}
+	}
+});//end tap function
+//erase large pic and scroll back to top on tap
+$(".pic_large").on("tap",function(){
+$("html, body").animate({ scrollTop: 0 }, "slow");
+$('.pic_large').fadeOut(500, function() {
+    $(this).empty();
+});
+});
+
 });
 };
 
