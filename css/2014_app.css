@@ -71,6 +71,7 @@ background-color: #FC3;
 	background: -webkit-linear-gradient(rgba(216,216,180,1),rgba(216,216,180,0)); /*Safari 5.1-6*/
   	background: -moz-linear-gradient(rgba(216,216,180,1),rgba(216,216,180,0)); /*Fx 3.6-15*/
 	padding: 8px;
+	vertical-align: top;
 }
 .txtbox{
 	<background-color: #ECECFF;
