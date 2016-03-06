@@ -686,7 +686,7 @@ switch(media){
 	default: np_list_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="img/book_icon.png" /></td ><td class="txtbox">'; break;
 }
 }else{	
-detlist_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
+detlist_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+cover_no+'&userID=MAIN37789&password=CC10073" /><br /><img src="img/magglass.png" /></td><td class="txtbox">';
 pic_large +='<img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=M&Value='+cover_no+'&userID=MAIN37789&password=CC10073" />';
 }
 
@@ -1785,7 +1785,7 @@ switch(media){
 	default: if(ISBN==''){
 		detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
 	} else{
-det_nyt_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /><img src="img/magglas.png" /></td ><td class="txtbox">';
+det_nyt_html +='<table class="bibtbl"><tr><td class="picbox_dtl"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /><br /><img src="img/magglass.png" /></td ><td class="txtbox">';
 pic_large_nyt +='<img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=M&Value='+ISBN+'&userID=MAIN37789&password=CC10073" />';
 }
 }
