@@ -25,7 +25,6 @@
 		<feature name="StatusBar">
 	 		<param name="ios-package" value="CDVStatusBar" onload="true" />
 	 	</feature>
-		<feature name="http://api.phonegap.com/1.0/network"/>
 	<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
 	<gap:plugin name="nl.x-services.plugins.flashlight" />
 	<gap:plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" version="2.1.0" />

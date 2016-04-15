@@ -434,7 +434,6 @@ $.ajax({
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
-		timeout:60000,
 		cache: false,
         success : function(response) {
 		  if(p_i!==''){
