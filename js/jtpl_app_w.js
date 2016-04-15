@@ -425,6 +425,8 @@ if(p_searchitem){
 }
 $.ajax({
         type: "POST",
+		isLocal: true,
+		dataType: 'json',
 		async: true,
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: true,
