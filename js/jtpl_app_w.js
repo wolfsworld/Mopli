@@ -426,7 +426,7 @@ if(p_searchitem){
 $.support.cors=true;
 
 $.ajax({
-        type: "POST",
+        type: "GET",
 		async: true,
 		dataType: "json",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
