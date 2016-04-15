@@ -423,11 +423,12 @@ var thedate=(new Date()).toUTCString();
 if(p_searchitem){
 	//start_spin();
 }
+$.support.cors=true;
+
 $.ajax({
         type: "POST",
-		isLocal: true,
-		dataType: 'json',
 		async: true,
+		dataType: "json",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
