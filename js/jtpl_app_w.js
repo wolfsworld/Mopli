@@ -437,6 +437,7 @@ $.ajax({
 		timeout:60000,
 		cache: false,
         success : function(response) {
+			alert(response);
 		  if(p_i!==''){
 		  var array_i = [];
 		  array_i.push(p_i);
