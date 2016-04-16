@@ -468,9 +468,11 @@ $.ajax({
 			case 16: pat_basics(reqstring,thedate,code); break;
 			}
 }},
-        error: function() {
-            console.error("error");
-            alert('No network connection or server currently not available.');                  
+        error: function(exception) {
+			alert('Exeption:'+exception);
+            //console.error("error");
+           //console.error("error");
+           //alert('No network connection or server currently not available.');                  
         }
 });
 }
