@@ -1677,7 +1677,7 @@ var settings = {
   "headers": {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"",
-    "content-type": "application/json"
+    
   }
 }
 alert('ajax setting done');
