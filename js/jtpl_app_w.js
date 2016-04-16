@@ -434,7 +434,7 @@ $.ajax({
 		timeout:60000,
 		cache: false,
         success : function(response) {
-			alert(response);
+			//alert(response);
 		  if(p_i!==''){
 		  var array_i = [];
 		  array_i.push(p_i);
@@ -447,9 +447,9 @@ $.ajax({
 		  //stop_spin();
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			alert(code);
-			alert(reqstring);
-			alert(thedate);
+			//alert(code);
+			//alert(reqstring);
+			//alert(thedate);
 			switch(p_query){
 			case 1:	get_books(p_response.code,p_response.reqstring,p_response.thedate,p_i); break;
 			case 2: getit_bc(p_response.code,p_response.reqstring,p_response.thedate); break;
@@ -1680,9 +1680,9 @@ var settings = {
     "content-type": "application/json"
   }
 }
-
+alert('ajax setting done');
 $.ajax(settings).done(function (response) {
-
+alert('response');
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial', 'LocalItemsTotal','LocalItemsIn', 'SystemItemsTotal', 'SystemItemsIn'];
 $( "#most_popular" ).empty();
 var mplist_html='';
