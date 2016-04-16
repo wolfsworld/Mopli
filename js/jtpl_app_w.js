@@ -429,7 +429,7 @@ $.ajax({
         type: "POST",
 		async: true,
 		dataType: "json",
-		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short_test.php",
         crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
