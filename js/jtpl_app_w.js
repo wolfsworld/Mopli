@@ -437,7 +437,7 @@ $.ajax({
 		timeout:60000,
 		cache: false,
         success : function(response) {
-			alert(response);
+			//alert(response);
 		  if(p_i!==''){
 		  var array_i = [];
 		  array_i.push(p_i);
@@ -1670,7 +1670,8 @@ start_spin();
 });
 //case 12 - list most popular
 function most_popular(code,reqstring,thedate){
-alert('this is fct most popular');
+alert(''+code+' and '+regstring+' and '+thedate+'');
+
 var settings = {
   "async": true,
   "crossDomain": true,
