@@ -428,7 +428,7 @@ $.support.cors=true;
 $.ajax({
         type: "POST",
 		async: true,
-		//dataType: "json",
+		dataType: "json",
 		url: "http://jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
@@ -1670,7 +1670,7 @@ start_spin();
 });
 //case 12 - list most popular
 function most_popular(code,reqstring,thedate){
-
+alert('this is fct most popular');
 var settings = {
   "async": true,
   "crossDomain": true,
