@@ -1668,7 +1668,7 @@ start_spin();
 });
 //case 12 - list most popular
 function most_popular(code,reqstring,thedate){
-
+alert('thedate: '+thedate+' - code: '+code+' - reqstring: '+reqstring+'');
 var settings = {
   "async": true,
   "crossDomain": true,
