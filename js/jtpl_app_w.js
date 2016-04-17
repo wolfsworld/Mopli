@@ -1666,41 +1666,14 @@ $('#selection').collapsible( "collapse" );
 p_validate(12,'','','','','GET','',1,'');
 start_spin();
 });
-
 //case 12 - list most popular
 function most_popular(code,reqstring,thedate){
 
-
-alert('ajax setting done');
-
-$.ajax({
-method: "GET",
-async: true,
-crossDomain: true,
-url: ""+reqstring+"",
-headers: {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
-  },
-  success : function(response) {
-		alert('success');
-		thenext();
-		},
-        error      : function() {
-        alert('error');                  
-        }
-});
-  
-function thenext(){ 
-alert('the next has started');
-
-/*var settings = {
-  "method": "GET",
+var settings = {
   "async": true,
   "crossDomain": true,
   "url": ""+reqstring+"",
-  "dataType": "json",
+  "method": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"",
@@ -1710,7 +1683,7 @@ alert('the next has started');
 alert('ajax setting done');
 $.ajax(settings).done(function (response) {
 alert('response');
-*/
+
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial', 'LocalItemsTotal','LocalItemsIn', 'SystemItemsTotal', 'SystemItemsIn'];
 $( "#most_popular" ).empty();
 var mplist_html='';
@@ -1769,7 +1742,7 @@ next_mplist_html +="<div data-role='controlgroup' data-type='horizontal' data-mi
 $( "#most_popular" ).append(next_mplist_html);
 
 }
-								}
+});
 }
 
 //case 13 take the ISBN to the library
