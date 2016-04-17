@@ -419,7 +419,7 @@ case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branche
 case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basicdata"; break;
 }
 
-var thedate=(new Date()).toUTCString();
+var thedate=(new Date()).toGMTString();
 if(p_searchitem){
 	//start_spin();
 }
@@ -1668,7 +1668,6 @@ start_spin();
 });
 //case 12 - list most popular
 function most_popular(code,reqstring,thedate){
-var thedate=""+thedate+" GMT";
 alert('thedate: '+thedate+'  - code: '+code+' - reqstring: '+reqstring+'');
 //var code="PWS WebDev:u2pjMOAcp2yPyziu9ZAd3y4o2a8=";
 //var thedate="Sun, 17 Apr 2016 13:30:20 GMT";
