@@ -1670,14 +1670,15 @@ start_spin();
 function most_popular(code,reqstring,thedate){
 
 var settings = {
+  "method": "GET",
   "async": true,
   "crossDomain": true,
   "url": ""+reqstring+"",
-  "method": "GET",
+  "dataType": "json",
   "headers": {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"",
-    
+    "content-type": "application/json"
   }
 }
 alert('ajax setting done');
