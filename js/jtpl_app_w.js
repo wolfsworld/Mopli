@@ -1666,6 +1666,7 @@ $('#selection').collapsible( "collapse" );
 p_validate(12,'','','','','GET','',1,'');
 start_spin();
 });
+
 //case 12 - list most popular
 function most_popular(code,reqstring,thedate){
 
@@ -1677,7 +1678,6 @@ method: "GET",
 async: true,
 crossDomain: true,
 url: ""+reqstring+"",
-dataType: "json",
 headers: {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"",
