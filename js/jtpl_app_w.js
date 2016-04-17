@@ -419,7 +419,7 @@ case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branche
 case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basicdata"; break;
 }
 
-var thedate=(new Date()).toGMTString();
+var thedate=(new Date()).toUTCString();
 if(p_searchitem){
 	//start_spin();
 }
@@ -462,7 +462,7 @@ $.ajax({
 			case 9: items_out_all(reqstring,thedate,code); break;
 			case 10: items_out_over(reqstring,thedate,code); break;
 			case 11: item_renew(reqstring,thedate,code,p_bc); break;
-			case 12: most_popular(code,reqstring,thedate); break;
+			case 12: most_popular(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 13: get_det_nyt(p_response.code,p_response.reqstring,p_response.thedate); break;
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			case 15: lib_branches(reqstring,thedate,code); break;
