@@ -1676,9 +1676,17 @@ var settings = {
   "method": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+""
-  }
+    "authorization": ""+code+"",
+    "content-type": "application/json"
+  },
+  "success": function (msg) {
+             alert("good");
+         },
+         "error": function (xhr, status) {
+  alert(xhr.statusText)
 }
+}
+
 alert('ajax setting done');
 $.ajax(settings).done(function (response) {
 alert('response');
