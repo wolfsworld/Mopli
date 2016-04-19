@@ -156,12 +156,15 @@ return val2;
 function getData(barcode,referer){  
 p_searchitem=barcode;
 var thedate=(new Date()).toUTCString();
+if(dev_platform=='W'){
+var thedate = thedate.replace("UTC", "GMT");
+}
 var reqstring="https://catalog.mainlib.org/PAPIService/REST/public/v1/1033/100/13/search/bibs/keyword/ISBN?q="+p_searchitem+"";
 var p_method="GET";
 
 $.ajax({
         type       : "POST",
-		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+		url: "http://jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
 		error: function(jqXHR,text_status,strError){
@@ -420,9 +423,11 @@ case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basic
 }
 
 var thedate=(new Date()).toUTCString();
-var thedate = thedate.replace("UTC", "GMT"); 
+if(dev_platform=='W'){
+var thedate = thedate.replace("UTC", "GMT");
+}
 //test
-alert(thedate);
+//alert(thedate);
 if(p_searchitem){
 	//start_spin();
 }
@@ -778,7 +783,7 @@ $( "#nyt" ).empty();
 $.ajax({
         type: "GET",
 		async: true,
-		url: "http://www.jeffersonlibrary.net/MOPLI/newbook.php",
+		url: "http://jeffersonlibrary.net/MOPLI/newbook.php",
         crossDomain: true,
         success : function(response) {
 			newtitle_list=response;
@@ -802,7 +807,7 @@ $('#news').empty();
 $.ajax({
         type: "GET",
 		async: true,
-		url: "http://www.jeffersonlibrary.net/MOPLI/newdvd.php",
+		url: "http://jeffersonlibrary.net/MOPLI/newdvd.php",
         crossDomain: true,
         success : function(response) {
 			newtitle_list=response;
@@ -1305,13 +1310,16 @@ function hold_all_sys(bib_id, bib_bc){
 
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
+if(dev_platform=='W'){
+var thedate = thedate.replace("UTC", "GMT");
+}
 
 p_method="GET";
 p_pwd ='';
 
 $.ajax({
         type       : "POST",
-		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+		url: "http://jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         async: false,
 		crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
@@ -1688,16 +1696,16 @@ var settings = {
     "content-type": "application/json"
   },
   "success": function (msg) {
-             alert("good");
+             //alert("good");
          },
          "error": function (xhr, status) {
   alert(xhr.statusText)
 }
 }
 
-alert('ajax setting done');
+//alert('ajax setting done');
 $.ajax(settings).done(function (response) {
-alert('response');
+//alert('response');
 
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial', 'LocalItemsTotal','LocalItemsIn', 'SystemItemsTotal', 'SystemItemsIn'];
 $( "#most_popular" ).empty();
@@ -1999,7 +2007,7 @@ var fctn=fctn;
 $.ajax({
         type: "GET",
 		async: true,
-		url: "http://www.jeffersonlibrary.net/MOPLI/"+categ+".php",
+		url: "http://jeffersonlibrary.net/MOPLI/"+categ+".php",
         crossDomain: true,
 		dataType: "json",
         success : function(response) {
