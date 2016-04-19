@@ -420,7 +420,7 @@ case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basic
 }
 
 var thedate=(new Date()).toUTCString();
-//var thedate = thedate.replace("UTC", "GMT"); 
+var thedate = thedate.replace("UTC", "GMT"); 
 //test
 alert(thedate);
 if(p_searchitem){
@@ -449,11 +449,11 @@ $.ajax({
 		  function distribution(){
 		  //stop_spin();
 			var code=response;
-			alert('second'+thedate+'');
+			//alert('second'+thedate+'');
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//alert(code);
 			//alert(reqstring);
-			alert('third'+thedate+'');
+			//alert('third'+thedate+'');
 			switch(p_query){
 			case 1:	get_books(p_response.code,p_response.reqstring,p_response.thedate,p_i); break;
 			case 2: getit_bc(p_response.code,p_response.reqstring,p_response.thedate); break;
