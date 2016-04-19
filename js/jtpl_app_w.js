@@ -420,7 +420,7 @@ case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basic
 }
 
 var thedate=(new Date()).toUTCString();
-var thedate = thedate.replace("UTC", "GMT"); 
+//var thedate = thedate.replace("UTC", "GMT"); 
 alert(thedate);
 if(p_searchitem){
 	//start_spin();
