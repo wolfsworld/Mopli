@@ -419,7 +419,8 @@ case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branche
 case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basicdata"; break;
 }
 
-var thedate=(new Date()).toGMTString();
+var thedate=(new Date()).toUTCString();
+var thedate = thedate.replace("UTC", "GMT"); 
 alert(thedate);
 if(p_searchitem){
 	//start_spin();
