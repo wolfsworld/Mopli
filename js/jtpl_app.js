@@ -62,6 +62,7 @@ rem_libpin='';
 
 if (rem_pu_loc_id){pu_loc_id=rem_pu_loc_id;}else{pu_loc_id='';}
 if (rem_pu_loc_name){pu_loc_name=rem_pu_loc_name;}else{pu_loc_name='';}
+
 //check network connection	
 function checkConnection() {
     var networkState = navigator.connection.type;
