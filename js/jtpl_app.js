@@ -662,7 +662,7 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 
-var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'ISBN', 'PrimaryTypeOfMaterial', 'LocalItemsTotal', 'LocalItemsIn', 'SystemItemsTotal', 'CurrentHoldRequests', 'Summary','CallNumber'];
+var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'ISBN', 'PrimaryTypeOfMaterial', 'LocalItemsTotal', 'LocalItemsIn', 'SystemItemsTotal', 'CurrentHoldRequests', 'Summary', 'CallNumber', 'Contents'];
 
 var detlist_html='';
 var pic_large='';
@@ -676,7 +676,7 @@ ISBN=value.ISBN;
 UPC=value.UPC;
 if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}
 if(UPC!=''){
-selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial', 'LocalItemsTotal', 'LocalItemsIn', 'SystemItemsTotal', 'CurrentHoldRequests', 'Summary','CallNumber'];
+selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial', 'LocalItemsTotal', 'LocalItemsIn', 'SystemItemsTotal', 'CurrentHoldRequests', 'Summary','CallNumber', 'Contents'];
 }
 
 if(cover_no==''){
