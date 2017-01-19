@@ -14,7 +14,6 @@
     </author>
     <access origin="http://jeffersonlibrary.net/INTERMED.php" />
     <access origin="*" />
-    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-barcodescanner" source="npm" />
 	<gap:plugin name="cordova-plugin-device"  source="npm" />
 	<gap:plugin name="cordova-plugin-network-information" spec="1.3.1" source="npm" />
