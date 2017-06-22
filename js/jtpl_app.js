@@ -547,11 +547,12 @@ $('#selection').collapsible( "collapse" );
 var blist_html='';
 var settings = {
 "content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
   "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"", 
+    "authorization": ""+code+"" 
   }
 }
 //alert('ajax to start: ' +thedate);
