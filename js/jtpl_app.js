@@ -505,20 +505,6 @@ function doneTyping () {
 }
 
 //case 1 - get books
-function get_books(code,reqstring,thedate,thei){
-alert('get books started');
-var array = [];
-array.push(thei);
-var largest = Math.max.apply(Math, array);
-
-
-//alert('ajax to start: ' +thedate);
-
-
-
-}
-
-
 
 
 //case 3 - get book detail (get encryption data)
