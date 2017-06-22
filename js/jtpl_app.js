@@ -415,7 +415,7 @@ case 11: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/items
 case 12: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/boolean?q=COL=7+sortby+MP/sort.descending&page="+p_holdID+"";break;
 case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
 case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
-case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branches"; break;
+case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branch"; break;
 case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basicdata"; break;
 }
 
