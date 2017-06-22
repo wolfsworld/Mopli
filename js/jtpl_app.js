@@ -518,10 +518,11 @@ function get_books(code,reqstring,thedate,thei){
   },  
         success: function (response) {
             alert(response);
-    }
-else{
-alert('did not work');
-}
+    },
+        error: function() {
+            console.error("error");
+            alert('ajax id not work');                  
+        }
 });
 }
 
