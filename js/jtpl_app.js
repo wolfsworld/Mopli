@@ -188,14 +188,13 @@ function getit_bc(code,reqstring,thedate,referer){
 //}
 var detlist_html='';
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
@@ -505,35 +504,6 @@ function doneTyping () {
 }
 
 //case 1 - get books
-/*function get_books(code,reqstring,thedate,thei){
-	
-	$.ajax({
-        url: reqstring,
-        contentType: "application/json",
-        dataType: "json",
-        type: "GET",
-     headers: {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+""
-  },  
-        success: function (response) {
-            showme(response);
-    },
-        error: function() {
-            console.error("error");
-            alert('ajax id not work');                  
-        }
-});
-	
-function showme(obj1){
-	var theshowme=JSON.stringify(obj1);
-	alert(theshowme);
-}	
-	
-}*/
-
-	
-	//case 1 - get books
 function get_books(code,reqstring,thedate,thei){
 //alert('get books started');
 var array = [];
@@ -679,14 +649,13 @@ $('.pic_large').empty();
 $( "#bdetail" ).empty();
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
@@ -844,14 +813,13 @@ var np_list_html='';
 var next_batch_news='';
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
@@ -948,14 +916,13 @@ pu_loc_list +='<option value=0>Choose a pickup location...</option>';
 }
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 $.ajax(settings).done(function (response) {
@@ -1044,14 +1011,13 @@ p_validate(5,'',''+p_pin+'',''+cont_num+'',''+p_barcode+'','GET',''+hold+'','','
 //case 5 - check login with indicator for hold or no hold (-> to putonhold or prepgetholds)
 function checklogin(code,reqstring,thedate,hold,p_cn){
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 $.ajax(settings).done(function (response) {
@@ -1097,14 +1063,13 @@ var pickup_lib_name=branch_name;
 }
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/xml",
+	"dataType": "xml",
   "url": ""+reqstring+"",
-  "method": "POST",
+  "type": "POST",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/xml"
+    "authorization": ""+code+"" 
   },
   "processData": false,
   
@@ -1194,14 +1159,13 @@ p_validate(7,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+hold_id+'','');
 function cancelhold(reqstring, thedate, code){
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "PUT",
+  "type": "PUT",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 $.ajax(settings).done(function (response) {
@@ -1232,14 +1196,13 @@ function getholds(reqstring,thedate,code){
 $.mobile.changePage("#inside");
 ////var response='';	
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
@@ -1355,14 +1318,13 @@ $.ajax({
 function filter_holds1 (code,reqstring,thedate,bib_bc){
 
 var settings = {
-  "async": false,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 $.ajax(settings).done(function (response) {
@@ -1390,14 +1352,13 @@ function items_out_all(reqstring,thedate,code){
 window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
@@ -1521,14 +1482,13 @@ return the_amount;
 function fees_outstanding(reqstring,thedate,code){
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
@@ -1627,14 +1587,13 @@ p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 function item_renew(reqstring,thedate,code,pat_barcode){
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "PUT",
+  "type": "PUT",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   },
   "processData": false,
   "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": "true" }}'
@@ -1697,14 +1656,13 @@ start_spin();
 function most_popular(code,reqstring,thedate){
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
@@ -1785,14 +1743,13 @@ $('.pic_large').empty();
 
 var det_nyt_html='';
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
