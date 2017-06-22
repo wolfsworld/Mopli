@@ -904,7 +904,7 @@ $( "#news" ).append(next_batch_news);
 
 // fct 15 populate the branches
 function lib_branches(reqstring,thedate,code){
-	
+	alert('lib branches started');
 var pu_loc_list='';
 pu_loc_list +='<label class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 //if stored variable for pickup location ->select the location id and name
