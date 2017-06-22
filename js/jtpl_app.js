@@ -1062,7 +1062,7 @@ var pickup_lib_name=pu_loc_name;
 var pickup_location=branch_id;
 var pickup_lib_name=branch_name;
 }
-alert('res_pat_id:'+ res_pat_id + 'cont_num:'+ cont_num + 'pickup_location:' + pickup_location + 'str_time:'+ str_time + 'branch_id:'+ branch_id);
+//alert('res_pat_id:'+ res_pat_id + 'cont_num:'+ cont_num + 'pickup_location:' + pickup_location + 'str_time:'+ str_time + 'branch_id:'+ branch_id);
 
 	var settings = {
 "content-type": "application/xml",
@@ -1073,8 +1073,6 @@ alert('res_pat_id:'+ res_pat_id + 'cont_num:'+ cont_num + 'pickup_location:' + p
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"" 
   },
-  "processData": false,
-  
   "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>'+pickup_location+'</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>'+branch_id+'</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
 }
 
