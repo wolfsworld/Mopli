@@ -1064,15 +1064,17 @@ var pickup_lib_name=branch_name;
 }
 //alert('res_pat_id:'+ res_pat_id + 'cont_num:'+ cont_num + 'pickup_location:' + pickup_location + 'str_time:'+ str_time + 'branch_id:'+ branch_id);
 
-	var settings = {
-"content-type": "application/xml",
-	"dataType": "xml",
+var settings = {
+  "dataType": "XML",
   "url": ""+reqstring+"",
-  "type": "POST",
+  "method": "POST",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
+    "authorization": ""+code+"",
+    "content-type": "application/xml"
   },
+  "processData": false,
+  
   "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>'+pickup_location+'</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>'+branch_id+'</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
 }
 
@@ -1086,6 +1088,8 @@ var the_queue = response.getElementsByTagName("QueueTotal")[0].childNodes[0].nod
 var the_message = response.getElementsByTagName("Message")[0].childNodes[0].nodeValue;
 the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 
+	
+	alert ('status id:' + the_status + 'the_value:' + the_value + 'the_message:' + the_message);
 //Status type
 //1 - Error
 //2 - Answer
@@ -1140,8 +1144,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 	}
 
 }).fail(function() {
-	alert ('status id:' + the_status + 'the_value:' + the_value + 'the_message:' + the_message);
-	//alert ('Sorry, your hold request failed.');
+	alert ('Sorry, your hold request failed.');
 });
 }
 
