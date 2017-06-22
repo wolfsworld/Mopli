@@ -506,7 +506,7 @@ function doneTyping () {
 
 //case 1 - get books
 function get_books(code,reqstring,thedate,thei){
-//alert('get books started');
+alert('get books started');
 var array = [];
 array.push(thei);
 var largest = Math.max.apply(Math, array);
@@ -527,7 +527,7 @@ var settings = {
     "content-type": "application/json"
   }
 }
-alert('ajax to start' + reqstring +);
+alert('ajax to start');
 $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
 
