@@ -1051,6 +1051,7 @@ p_validate(6,'','',''+p_cn+'',''+pat_barcode+'','POST','',''+res_pat_id+'','');
 };
 //case 6 - function createhold & -> 8 prep getholds
 function createhold(res_pat_id,cont_num,code,reqstring,thedate,pat_barcode){
+	
 var d = new Date();
 var str_time = d.toISOString();
 
@@ -1061,8 +1062,9 @@ var pickup_lib_name=pu_loc_name;
 var pickup_location=branch_id;
 var pickup_lib_name=branch_name;
 }
+alert('res_pat_id:'+ res_pat_id + 'cont_num:'+ cont_num + 'pickup_location:' + pickup_location + 'str_time:'+ str_time + 'branch_id:'+ branch_id);
 
-var settings = {
+	var settings = {
 "content-type": "application/xml",
 	"dataType": "xml",
   "url": ""+reqstring+"",
