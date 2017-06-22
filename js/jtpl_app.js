@@ -527,7 +527,7 @@ var settings = {
     "content-type": "application/json"
   }
 }
-alert('ajax to start: ' +code);
+alert('ajax to start: ' +thedate);
 $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
 
