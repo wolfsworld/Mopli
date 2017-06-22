@@ -1140,7 +1140,7 @@ the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 	}
 
 }).fail(function() {
-	alert ('status id:' + the_status + 'the_value:' + the_value + 'the_message:' + the_message');
+	alert ('status id:' + the_status + 'the_value:' + the_value + 'the_message:' + the_message);
 	//alert ('Sorry, your hold request failed.');
 });
 }
