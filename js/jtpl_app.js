@@ -523,11 +523,11 @@ var settings = {
   "method": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+""
+    //"content-type": "application/json"
   }
 }
-alert('ajax to start: ' +thedate);
+//alert('ajax to start: ' +thedate);
 $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
 
