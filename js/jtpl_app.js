@@ -506,7 +506,7 @@ function doneTyping () {
 
 //case 1 - get books
 function get_books(code,reqstring,thedate,thei){
-alert('get books started');
+//alert('get books started');
 var array = [];
 array.push(thei);
 var largest = Math.max.apply(Math, array);
@@ -527,10 +527,10 @@ var settings = {
     "content-type": "application/json"
   }
 }
-alert('ajax to start');
+//alert('ajax to start');
 $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
-
+alert(response);
 $( "#most_popular" ).empty();
 $( "#news" ).empty();
 $( "#blist" ).empty();
@@ -539,7 +539,7 @@ $( "#nyt" ).empty();
 
 var blist_html='';
 var next_batch='';
-alert('ajax done');
+//alert('ajax done');
 $.each(response.BibSearchRows, function(key, value) {
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
