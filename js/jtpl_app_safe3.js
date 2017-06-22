@@ -506,7 +506,7 @@ function doneTyping () {
 
 //case 1 - get books
 function get_books(code,reqstring,thedate,thei){
-alert('get books started');
+//alert('get books started');
 var array = [];
 array.push(thei);
 var largest = Math.max.apply(Math, array);
@@ -523,35 +523,12 @@ var settings = {
   "method": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+""
-    //"content-type": "application/json"
+    "authorization": ""+code+"",
+    "content-type": "application/json"
   }
 }
 //alert('ajax to start: ' +thedate);
-
- $.ajax({
-        url: reqstring,
-        contentType: "application/xml",
-        dataType: "xml",
-        type: "GET",
-     headers: {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+""
-  }   
-        success: function (response) {
-            alert(response);
-    }
-});
-
-
-
-
-
-
-
-
-
-/*$.ajax(settings).done(function (response) {
+$.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
 
 $( "#most_popular" ).empty();
@@ -615,7 +592,7 @@ if(page_counter>1){
 next_batch +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 20</a><a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 20</a></div>";
 $( "#blist" ).append(next_batch);
 }
-});*/
+});
 }//the if largest
 }
 //create the "next"/"previous" batch search buttons
