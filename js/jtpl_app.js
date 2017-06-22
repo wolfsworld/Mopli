@@ -435,7 +435,7 @@ $.ajax({
 		timeout:60000,
 		cache: false,
         success : function(response) {
-			alert('ajax seems to work line 438');
+			//alert('ajax seems to work line 438');
 		  if(p_i!==''){
 		  var array_i = [];
 		  array_i.push(p_i);
@@ -506,7 +506,7 @@ function doneTyping () {
 
 //case 1 - get books
 function get_books(code,reqstring,thedate,thei){
-
+alert('get books started');
 var array = [];
 array.push(thei);
 var largest = Math.max.apply(Math, array);
@@ -527,7 +527,7 @@ var settings = {
     "content-type": "application/json"
   }
 }
-
+alert('ajax to start');
 $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
 
@@ -539,7 +539,7 @@ $( "#nyt" ).empty();
 
 var blist_html='';
 var next_batch='';
-
+alert('ajax done');
 $.each(response.BibSearchRows, function(key, value) {
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
