@@ -556,7 +556,7 @@ switch(media){
 }
 
 $.each(value, function(key2, value2) {
-	alert("<strong>" + key2 + "</strong>: " + value2 + ");
+	alert("<strong>" + key2 + "</strong>: " + value2 + );
 	if(jQuery.inArray( key2, selection )!== -1){
 		
 	switch(key2){
