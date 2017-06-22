@@ -522,7 +522,7 @@ var largest = Math.max.apply(Math, array);
      headers: {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+""
-  }   
+  } ,  
         success: function (response) {
             alert(response);
     }
@@ -532,49 +532,9 @@ var largest = Math.max.apply(Math, array);
 });
 
 }
-//create the "next"/"previous" batch search buttons
-//next batch general book search
-$(document).on('click', '#fwd_btn', function () {
-page_counter=page_counter+1;
-next_search(page_counter);
-});
-$(document).on('click', '#rev_btn', function () {
-page_counter=page_counter-1;
-next_search(page_counter);
-});
 
-function next_search(next_page){
-searchitem= $('#search_item').val();
-   	p_searchitem=searchitem.replace(/\s+/g,"+");
-	p_validate(1,''+p_searchitem+'','','','','GET','',''+next_page+'','');
-}
-//next batch most popular button
-$(document).on('click', '#fwd_btn_mp', function () {
-page_counter=page_counter+1;
-next_mp_search(page_counter);
-});
-$(document).on('click', '#rev_btn_mp', function () {
-page_counter=page_counter-1;
-next_mp_search(page_counter);
-});
 
-function next_mp_search(next_page){
-	p_validate(12,'','','','','GET','',''+next_page+'','');
-}
-//next batch new books and dvds
-$(document).on('click', '#fwd_btn_news', function () {
-page_counter=page_counter+1;
-next_news_search(page_counter);
-});
-$(document).on('click', '#rev_btn_news', function () {
-page_counter=page_counter-1;
-next_news_search(page_counter);
-});
 
-function next_news_search(next_page){
-searchitem= newtitle_list;
-   	p_validate(4,''+searchitem+'','','','','GET','',''+next_page+'','');
-}
 
 //case 3 - get book detail (get encryption data)
 $(document).on('click', '.trail a', function () {
