@@ -526,8 +526,9 @@ var settings = {
     "authorization": ""+code+"",
     "content-type": "application/json"
   }
+	alert(reqstring);
 }
-alert(reqstring   thedate   code);
+
 $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
 //alert(response);
