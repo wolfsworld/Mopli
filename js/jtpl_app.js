@@ -527,7 +527,7 @@ var settings = {
     "content-type": "application/json"
   }
 }
-//alert('ajax to start');
+alert(reqstring   thedate   code);
 $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
 //alert(response);
@@ -541,7 +541,7 @@ var blist_html='';
 var next_batch='';
 //alert('ajax done');
 $.each(response.BibSearchRows, function(key, value) {
-	alert('response');
+	//alert('response');
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
 ISBN=value.ISBN;
@@ -557,7 +557,7 @@ switch(media){
 }
 
 $.each(value, function(key2, value2) {
-	alert('hey');
+	//alert('hey');
 	if(jQuery.inArray( key2, selection )!== -1){
 		
 	switch(key2){
