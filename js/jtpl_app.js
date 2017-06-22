@@ -435,6 +435,7 @@ $.ajax({
 		timeout:60000,
 		cache: false,
         success : function(response) {
+			alert('ajax seems to work line 438');
 		  if(p_i!==''){
 		  var array_i = [];
 		  array_i.push(p_i);
