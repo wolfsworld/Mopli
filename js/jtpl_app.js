@@ -904,7 +904,6 @@ $( "#news" ).append(next_batch_news);
 
 // fct 15 populate the branches
 function lib_branches(reqstring,thedate,code){
-	alert('lib branches started');
 var pu_loc_list='';
 pu_loc_list +='<label class="select">Pickup Location:<select name="pu_loc" id="pu_loc">';
 //if stored variable for pickup location ->select the location id and name
@@ -927,13 +926,13 @@ var settings = {
 }
 $.ajax(settings).done(function (response) {
 alert('ajax lib branches started:'+ response);
-	alert(JSON.stringify(response));
+	//alert(JSON.stringify(response));
 $.each(response.OrganizationsGetRows, function(key, value) {
-//if(value.OrganizationCodeID==3 && value.OrganizationID != 42 ){
+if(value.OrganizationCodeID==3 && value.OrganizationID != 42 ){
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
 pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
-//}
+}
 });//end each
 pu_loc_list +='</select></label>'; 
 $(pu_loc_list).appendTo( '#pu_loc_cont').enhanceWithin();
@@ -946,7 +945,7 @@ $(document).on('click', '.hold_req a', function () {
 var rem_loc_box='';
 
 rem_count=$("#rem_pu_loc").length;
-	alert("rem_count is" +rem_count);
+	//alert("rem_count is" +rem_count);
 if (rem_count==0) {
 ///////////////////////
 if (rem_pu_loc_id){
