@@ -541,6 +541,7 @@ var blist_html='';
 var next_batch='';
 //alert('ajax done');
 $.each(response.BibSearchRows, function(key, value) {
+	alert('response');
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
 ISBN=value.ISBN;
@@ -556,7 +557,7 @@ switch(media){
 }
 
 $.each(value, function(key2, value2) {
-	alert(key2);
+	alert('hey');
 	if(jQuery.inArray( key2, selection )!== -1){
 		
 	switch(key2){
