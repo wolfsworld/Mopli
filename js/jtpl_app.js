@@ -509,8 +509,8 @@ function get_books(code,reqstring,thedate,thei){
 	
 	$.ajax({
         url: reqstring,
-        contentType: "application/xml",
-        dataType: "xml",
+        contentType: "application/json",
+        dataType: "json",
         type: "GET",
      headers: {
     "polarisdate": ""+thedate+"",
