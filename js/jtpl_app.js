@@ -514,22 +514,7 @@ var largest = Math.max.apply(Math, array);
 
 //alert('ajax to start: ' +thedate);
 
- $.ajax({
-        url: reqstring,
-        contentType: "application/xml",
-        dataType: "xml",
-        type: "GET",
-     headers: {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+""
-  } ,  
-        success: function (response) {
-            alert(response);
-    }
-		else{
-		alert('did not work');
-		}
-});
+
 
 }
 
