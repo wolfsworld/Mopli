@@ -517,13 +517,19 @@ function get_books(code,reqstring,thedate,thei){
     "authorization": ""+code+""
   },  
         success: function (response) {
-            alert(response);
+            showme(response);
     },
         error: function() {
             console.error("error");
             alert('ajax id not work');                  
         }
 });
+	
+function showme(obj1){
+	var theshowme=JSON.stringify(obj1);
+	alert(theshowme);
+}	
+	
 }
 
 
