@@ -926,7 +926,7 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-
+alert('ajax lib branches started:'+ response);
 $.each(response.OrganizationsGetRows, function(key, value) {
 //if(value.OrganizationCodeID==3 && value.OrganizationID != 42 ){
 var org_id=value.OrganizationID;
