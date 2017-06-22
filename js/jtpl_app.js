@@ -505,7 +505,7 @@ function doneTyping () {
 }
 
 //case 1 - get books
-function get_books(code,reqstring,thedate,thei){
+/*function get_books(code,reqstring,thedate,thei){
 	
 	$.ajax({
         url: reqstring,
@@ -530,6 +530,140 @@ function showme(obj1){
 	alert(theshowme);
 }	
 	
+}*/
+
+	
+	//case 1 - get books
+function get_books(code,reqstring,thedate,thei){
+//alert('get books started');
+var array = [];
+array.push(thei);
+var largest = Math.max.apply(Math, array);
+if(thei<largest){
+	return false;
+}else{
+
+$('#selection').collapsible( "collapse" );
+var blist_html='';
+var settings = {
+"content-type": "application/json",
+  "url": ""+reqstring+"",
+  "type": "GET",
+  "headers": {
+    "polarisdate": ""+thedate+"",
+    "authorization": ""+code+"", 
+  }
+}
+//alert('ajax to start: ' +thedate);
+$.ajax(settings).done(function (response) {
+var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
+
+$( "#most_popular" ).empty();
+$( "#news" ).empty();
+$( "#blist" ).empty();
+$( "#news_dvd" ).empty();
+$( "#nyt" ).empty();
+
+var blist_html='';
+var next_batch='';
+//alert('ajax done');
+$.each(response.BibSearchRows, function(key, value) {
+cont_no=value.ControlNumber;
+media=value.PrimaryTypeOfMaterial;
+ISBN=value.ISBN;
+
+switch(media){
+	case 35: blist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
+	case 40: blist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">'; break;
+	case 33: blist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; break;
+	default: if(ISBN==''){
+		blist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
+	} else{
+		blist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
+}
+
+$.each(value, function(key2, value2) {
+	
+	if(jQuery.inArray( key2, selection )!== -1){
+		
+	switch(key2){
+		case "PublicationDate":
+		key2="Publication Date";
+		break;
+		case "PrimaryTypeOfMaterial":
+		key2="Media Type";
+		value2=matconv(value2);
+		break;
+	}
+	
+	blist_html += "<strong>" + key2 + "</strong>: " + value2 + "<br>";
+	}
+
+});
+blist_html +="<p class='trail'><a id=" + cont_no + " href='#bib_detail' data-role='button' data-inline='true' data-mini='true' data-icon='arrow-r' data-theme='a'>Detail</a></p>";
+blist_html +="</td></tr></table>";
+
+$('.trail a[data-role=button]').button();
+$('.trail a').button('refresh');
+});
+
+$( "#blist" ).append(blist_html);
+$('.trail a').button();
+$('html,body,#blist').animate({ scrollTop: 0 }, "fast");
+
+if(page_counter==1){
+next_batch +="<a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-cloud ui-btn-icon-left'>...next 20 results</a>";
+$( "#blist" ).append(next_batch);
+}
+if(page_counter>1){
+next_batch +="<div data-role='controlgroup' data-type='horizontal' data-mini='true'><a href='#' id='rev_btn' class='ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left'>show last 20</a><a href='#' id='fwd_btn' class='ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-left'>show next 20</a></div>";
+$( "#blist" ).append(next_batch);
+}
+});
+}//the if largest
+}
+//create the "next"/"previous" batch search buttons
+//next batch general book search
+$(document).on('click', '#fwd_btn', function () {
+page_counter=page_counter+1;
+next_search(page_counter);
+});
+$(document).on('click', '#rev_btn', function () {
+page_counter=page_counter-1;
+next_search(page_counter);
+});
+
+function next_search(next_page){
+searchitem= $('#search_item').val();
+   	p_searchitem=searchitem.replace(/\s+/g,"+");
+	p_validate(1,''+p_searchitem+'','','','','GET','',''+next_page+'','');
+}
+//next batch most popular button
+$(document).on('click', '#fwd_btn_mp', function () {
+page_counter=page_counter+1;
+next_mp_search(page_counter);
+});
+$(document).on('click', '#rev_btn_mp', function () {
+page_counter=page_counter-1;
+next_mp_search(page_counter);
+});
+
+function next_mp_search(next_page){
+	p_validate(12,'','','','','GET','',''+next_page+'','');
+}
+//next batch new books and dvds
+$(document).on('click', '#fwd_btn_news', function () {
+page_counter=page_counter+1;
+next_news_search(page_counter);
+});
+$(document).on('click', '#rev_btn_news', function () {
+page_counter=page_counter-1;
+next_news_search(page_counter);
+});
+
+function next_news_search(next_page){
+searchitem= newtitle_list;
+   	p_validate(4,''+searchitem+'','','','','GET','',''+next_page+'','');
 }
 
 
