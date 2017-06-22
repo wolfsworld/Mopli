@@ -31,7 +31,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.2.4';
+var this_app_version='1.2.5';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -925,7 +925,6 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-alert('ajax lib branches started:'+ response);
 	//alert(JSON.stringify(response));
 $.each(response.OrganizationsGetRows, function(key, value) {
 if(value.OrganizationCodeID==3 && value.OrganizationID != 42 ){
