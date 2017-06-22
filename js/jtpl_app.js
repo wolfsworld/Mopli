@@ -945,6 +945,7 @@ $(document).on('click', '.hold_req a', function () {
 var rem_loc_box='';
 
 rem_count=$("#rem_pu_loc").length;
+	alert("rem_count is" +rem_count);
 if (rem_count==0) {
 ///////////////////////
 if (rem_pu_loc_id){
