@@ -505,6 +505,25 @@ function doneTyping () {
 }
 
 //case 1 - get books
+function get_books(code,reqstring,thedate,thei){
+	
+	$.ajax({
+        url: reqstring,
+        contentType: "application/xml",
+        dataType: "xml",
+        type: "GET",
+     headers: {
+    "polarisdate": ""+thedate+"",
+    "authorization": ""+code+""
+  },  
+        success: function (response) {
+            alert(response);
+    }
+else{
+alert('did not work');
+}
+});
+}
 
 
 //case 3 - get book detail (get encryption data)
