@@ -530,7 +530,7 @@ var settings = {
 //alert('ajax to start');
 $.ajax(settings).done(function (response) {
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial'];
-alert(response);
+//alert(response);
 $( "#most_popular" ).empty();
 $( "#news" ).empty();
 $( "#blist" ).empty();
@@ -558,7 +558,7 @@ switch(media){
 $.each(value, function(key2, value2) {
 	
 	if(jQuery.inArray( key2, selection )!== -1){
-		
+	alert(key2);	
 	switch(key2){
 		case "PublicationDate":
 		key2="Publication Date";
