@@ -1089,7 +1089,7 @@ var the_message = response.getElementsByTagName("Message")[0].childNodes[0].node
 the_message = the_message.replace(/<br\s*[\/]?>/gi, "\n");
 
 	
-	alert ('status id:' + the_status + 'the_value:' + the_value + 'the_message:' + the_message);
+	//alert ('status id:' + the_status + 'the_value:' + the_value + 'the_message:' + the_message);
 //Status type
 //1 - Error
 //2 - Answer
@@ -1356,13 +1356,12 @@ function items_out_all(reqstring,thedate,code){
 window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
-"content-type": "application/json",
-	"dataType": "json",
-  "url": ""+reqstring+"",
-  "type": "GET",
+"url": ""+reqstring+"",
+  "method": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
+    "authorization": ""+code+"",
+    "content-type": "application/json"
   }
 }
 
