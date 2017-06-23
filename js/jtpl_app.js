@@ -1211,7 +1211,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-
+alert(JSON.stringify(response));
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
@@ -1353,7 +1353,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-window.plugins.spinnerDialog.show(null,"...processing");
+//window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
 "content-type": "application/json",
@@ -1461,7 +1461,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-window.plugins.spinnerDialog.hide();
+//window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
