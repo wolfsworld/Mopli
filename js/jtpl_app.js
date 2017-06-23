@@ -1386,11 +1386,11 @@ RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
-if(RENLEFT<=0){
-hold_ind=true;
-} else{
-hold_ind=hold_all_sys(bib_id,bib_bc);
-}
+//if(RENLEFT<=0){
+//hold_ind=true;
+//} else{
+//hold_ind=hold_all_sys(bib_id,bib_bc);
+//}
 	alert(value.BibID);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
