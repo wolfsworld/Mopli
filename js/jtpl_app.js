@@ -1353,7 +1353,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-window.plugins.spinnerDialog.show(null,"...processing");
+//window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
 "content-type": "application/json",
@@ -1372,7 +1372,7 @@ var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
-//$( "#borrowed" ).empty();
+$( "#borrowed" ).empty();
 
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 
@@ -1401,6 +1401,7 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
+	alert(value.BibID);
 			$.each(value, function(key2, value2) {
 				if(key2=="ItemID"){
 				out_req_id=value2;
@@ -1461,7 +1462,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-window.plugins.spinnerDialog.hide();
+//window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
