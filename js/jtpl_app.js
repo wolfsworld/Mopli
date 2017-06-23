@@ -1200,13 +1200,13 @@ function getholds(reqstring,thedate,code){
 $.mobile.changePage("#inside");
 ////var response='';	
 var settings = {
-  "url": ""+reqstring+"",
+"content-type": "application/json",
 	"dataType": "json",
-  "method": "GET",
+  "url": ""+reqstring+"",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
@@ -1356,17 +1356,18 @@ function items_out_all(reqstring,thedate,code){
 window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
-"url": ""+reqstring+"",
+"content-type": "application/json",
 	"dataType": "json",
-  "method": "GET",
+  "url": ""+reqstring+"",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
 $.ajax(settings).done(function (response) {
+	alert(JSON.stringify(response));
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
