@@ -1373,9 +1373,9 @@ var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
 $( "#borrowed" ).empty();
-alert('line 1376');
+
 $.each(response.PatronItemsOutGetRows, function(key, value) {
-alert(value);
+
 var hold_ind=false;
 
 media=value.FormatID;
@@ -1386,7 +1386,7 @@ RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
-
+alert(bib_id);
 if(RENLEFT<=0){
 hold_ind=true;
 } else{
@@ -1406,7 +1406,7 @@ switch(media){
 				if(key2=="ItemID"){
 				out_req_id=value2;
 				}
-alert('line 1409');
+alert(value2);
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
 				switch(key2){
