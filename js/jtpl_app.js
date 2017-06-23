@@ -1354,7 +1354,7 @@ return hold_ind;
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
-alert('items out all started 1357');'
+alert('items out all started 1357');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
