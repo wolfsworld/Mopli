@@ -1291,49 +1291,7 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE (to be added)/////////////
 //////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
-
-
-//case 9 - items out all (list)
-function items_out_all(reqstring,thedate,code){
-//window.plugins.spinnerDialog.show(null,"...processing");
-//alert('items out all started 1357');
-var settings = {
-"content-type": "application/json",
-	"dataType": "json",
-  "url": ""+reqstring+"",
-  "type": "GET",
-  "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
-  }
-}
-
-$.ajax(settings).done(function (response) {
-	//alert(JSON.stringify(response));
-var my_outs='';
-var list_est='';
-var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
-
-$( "#borrowed" ).empty();
-
-$.each(response.PatronItemsOutGetRows, function(key, value) {
-
-var hold_ind=false;
-
-media=value.FormatID;
-ISBN=value.ISBN;
-
-RENCT=value.RenewalCount;
-RENLIM=value.RenewalLimit;
-var RENLEFT=RENLIM-RENCT;
-bib_id=value.BibID;
-bib_bc=value.Barcode;
-
-
-if(RENLEFT<=0){
-hold_ind=true;
-} else{
-	//function hold_all_sys(bib_id, bib_bc){
+function hold_all_sys(bib_id, bib_bc){
 //alert('hold_all_sys1');
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
@@ -1390,11 +1348,51 @@ hold_ind=false;
 });//each loop
 });//ajax
 };//filter_holds1
+	alert(hold_ind);
 return hold_ind;
-//};
-//hold_ind=hold_all_sys(bib_id,bib_bc);
+};
 
-	
+//case 9 - items out all (list)
+function items_out_all(reqstring,thedate,code){
+//window.plugins.spinnerDialog.show(null,"...processing");
+//alert('items out all started 1357');
+var settings = {
+"content-type": "application/json",
+	"dataType": "json",
+  "url": ""+reqstring+"",
+  "type": "GET",
+  "headers": {
+    "polarisdate": ""+thedate+"",
+    "authorization": ""+code+"" 
+  }
+}
+
+$.ajax(settings).done(function (response) {
+	//alert(JSON.stringify(response));
+var my_outs='';
+var list_est='';
+var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
+
+$( "#borrowed" ).empty();
+
+$.each(response.PatronItemsOutGetRows, function(key, value) {
+
+var hold_ind=false;
+
+media=value.FormatID;
+ISBN=value.ISBN;
+
+RENCT=value.RenewalCount;
+RENLIM=value.RenewalLimit;
+var RENLEFT=RENLIM-RENCT;
+bib_id=value.BibID;
+bib_bc=value.Barcode;
+
+
+if(RENLEFT<=0){
+hold_ind=true;
+} else{
+hold_ind=hold_all_sys(bib_id,bib_bc);
 }
 	
 	//alert('it made it to final query');
