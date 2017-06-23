@@ -1188,7 +1188,6 @@ alert('your hold cancel request failed');
 }
 
 //case 8 - prep_getholds and -> 8 getholds, 9 items out all, 14 fees due
-//case 8 - prep_getholds and -> 8 getholds, 9 items out all, 14 fees due
 function prep_getholds(pat_barcode){
 var pwd=$('#libpin').val();
 $('#fee_est_list').empty();
@@ -1201,19 +1200,18 @@ function getholds(reqstring,thedate,code){
 $.mobile.changePage("#inside");
 ////var response='';	
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
 $.ajax(settings).done(function (response) {
-
+//alert(JSON.stringify(response));
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
@@ -1324,14 +1322,13 @@ $.ajax({
 function filter_holds1 (code,reqstring,thedate,bib_bc){
 
 var settings = {
-  "async": false,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 $.ajax(settings).done(function (response) {
@@ -1359,23 +1356,23 @@ function items_out_all(reqstring,thedate,code){
 window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
-  "async": true,
-  "crossDomain": true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "GET",
+  "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"",
-    "content-type": "application/json"
+    "authorization": ""+code+"" 
   }
 }
 
 $.ajax(settings).done(function (response) {
+	//alert(JSON.stringify(response));
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
-$( "#borrowed" ).empty();
+//$( "#borrowed" ).empty();
 
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 
@@ -1389,7 +1386,6 @@ RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
-
 if(RENLEFT<=0){
 hold_ind=true;
 } else{
@@ -1409,7 +1405,6 @@ switch(media){
 				if(key2=="ItemID"){
 				out_req_id=value2;
 				}
-
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
 				switch(key2){
@@ -1454,7 +1449,9 @@ switch(media){
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
 				}
+				
 			});
+	
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
