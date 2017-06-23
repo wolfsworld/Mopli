@@ -1211,7 +1211,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-alert(JSON.stringify(response));
+//alert(JSON.stringify(response));
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
@@ -1353,7 +1353,7 @@ return hold_ind;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-//window.plugins.spinnerDialog.show(null,"...processing");
+window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
 "content-type": "application/json",
@@ -1367,7 +1367,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-	alert(JSON.stringify(response));
+	//alert(JSON.stringify(response));
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
@@ -1452,6 +1452,7 @@ switch(media){
 				}
 				}
 			});
+	alert('key:'+ key + 'value:' + value);
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
@@ -1461,7 +1462,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-//window.plugins.spinnerDialog.hide();
+window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
