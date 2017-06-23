@@ -1200,13 +1200,13 @@ function getholds(reqstring,thedate,code){
 $.mobile.changePage("#inside");
 ////var response='';	
 var settings = {
-"content-type": "application/json",
-	"dataType": "json",
   "url": ""+reqstring+"",
-  "type": "GET",
+	"dataType": "json",
+  "method": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
+    "authorization": ""+code+"",
+    "content-type": "application/json"
   }
 }
 
@@ -1357,6 +1357,7 @@ window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
 "url": ""+reqstring+"",
+	"dataType": "json",
   "method": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
