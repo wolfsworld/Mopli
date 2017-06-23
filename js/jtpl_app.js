@@ -1391,6 +1391,7 @@ hold_ind=true;
 } else{
 hold_ind=hold_all_sys(bib_id,bib_bc);
 }
+	alert(value.BibID);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
@@ -1401,7 +1402,7 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	alert(value.BibID);
+	
 			$.each(value, function(key2, value2) {
 				if(key2=="ItemID"){
 				out_req_id=value2;
