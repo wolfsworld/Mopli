@@ -1451,8 +1451,9 @@ switch(media){
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
 				}
+				alert('key:'+ key2 + 'value:' + value2);
 			});
-	alert('key:'+ key + 'value:' + value);
+	
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
