@@ -1375,7 +1375,7 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 $( "#borrowed" ).empty();
 
 $.each(response.PatronItemsOutGetRows, function(key, value) {
-
+alert('key:'+ key + 'value:' + value);
 var hold_ind=false;
 
 media=value.FormatID;
@@ -1406,7 +1406,7 @@ switch(media){
 				if(key2=="ItemID"){
 				out_req_id=value2;
 				}
-
+alert('key2:'+ key2 + 'value2:' + value2);
 				if(jQuery.inArray( key2, out_selection )!== -1){
 				
 				switch(key2){
@@ -1451,7 +1451,7 @@ switch(media){
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
 				}
-				alert('key:'+ key2 + 'value:' + value2);
+				
 			});
 	
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
