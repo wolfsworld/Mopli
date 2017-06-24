@@ -1303,7 +1303,7 @@ p_pwd ='';
 $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        //async: false,
+        async: false,
 		//crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
@@ -1350,7 +1350,7 @@ hold_ind=false;
 });//each loop
 });//ajax
 };//filter_holds1
-	alert(hold_ind);
+	
 return hold_ind;
 };
 
@@ -1390,7 +1390,7 @@ var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
 
-
+alert(RENLEFT);
 if(RENLEFT<=0){
 hold_ind=true;
 } else{
