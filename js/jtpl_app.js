@@ -1291,6 +1291,7 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE (to be added)/////////////
 //////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
+//case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc){
 //alert('hold_all_sys1');
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
@@ -1302,8 +1303,8 @@ p_pwd ='';
 $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        async: false,
-		crossDomain: true,
+        //async: false,
+		//crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
@@ -1319,6 +1320,7 @@ $.ajax({
         }
 });
 //see if #holds>#items in
+//case 9c
 function filter_holds1 (code,reqstring,thedate,bib_bc){
 //alert('filter_hold1');
 var settings = {
