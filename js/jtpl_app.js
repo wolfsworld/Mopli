@@ -1340,7 +1340,7 @@ overdue=false;
 //alert('bibsearchrows:' +value);
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
-aleert('sys_in:' + sys_items_in + 'cur_hold:' + cur_hold_req);
+alert('sys_in:' + sys_items_in + 'cur_hold:' + cur_hold_req);
 	
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
