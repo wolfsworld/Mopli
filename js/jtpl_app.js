@@ -1412,15 +1412,9 @@ switch(media){
 			$.each(value, function(key2, value2) {
 				
 				if(hold_in==false){
-				
-				if(key2=="BibID"){
-					bibid=value2;
-				}
-				if(key2=="Barcode"){
-					bib_bc=value2;
-				}
-				
-				hold_ind=hold_all_sys(bib_id,bib_bc);
+					bib_id=value.BibID;
+					bib_bc=value.Barcode;
+					hold_ind=hold_all_sys(bib_id,bib_bc);
 				}
 				
 				if(key2=="ItemID"){
