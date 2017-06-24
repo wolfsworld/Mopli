@@ -1304,7 +1304,7 @@ $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         async: false,
-		//crossDomain: true,
+		crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
@@ -1340,7 +1340,8 @@ overdue=false;
 //alert('bibsearchrows:' +value);
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
-
+aleert('sys_in:' + sys_items_in + 'cur_hold:' + cur_hold_req);
+	
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
 }else{
@@ -1390,7 +1391,7 @@ var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
 
-alert(RENLEFT);
+//alert(RENLEFT);
 if(RENLEFT<=0){
 hold_ind=true;
 } else{
