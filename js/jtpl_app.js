@@ -1338,9 +1338,10 @@ $.ajax(settings).done(function (response) {
 $.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
 //alert('bibsearchrows:' +value);
-var sys_items_in=value.SystemItemsIn;
+var title=value.Title;
+	var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
-alert('sys_in:' + sys_items_in + 'cur_hold:' + cur_hold_req);
+alert('title:'+ title + 'sys_in:' + sys_items_in + 'cur_hold:' + cur_hold_req);
 	
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
