@@ -1292,7 +1292,75 @@ $( "#loginresponse" ).append(my_holds);
 //////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
+function hold_all_sys(bib_id, bib_bc){
+//alert('hold_all_sys1');
+var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+var thedate=(new Date()).toUTCString();
 
+p_method="GET";
+p_pwd ='';
+
+$.ajax({
+        type: "POST",
+		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+        async: false,
+		crossDomain: true,
+        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
+		error: function(jqXHR,text_status,strError){
+			alert("no connection");},
+        success : function(response) {
+			var code=response;
+			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
+			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
+			hold_ind=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
+			return hold_int;
+        },
+        error      : function() {
+            console.error("error");
+            alert('No network connection or server currently not available.');                  
+        }
+});
+	
+
+
+	
+//see if #holds>#items in
+//case 9c
+function filter_holds1 (code,reqstring,thedate){
+//alert('filter_hold1 before ajax');
+var settings = {
+	"async":"false",
+"content-type": "application/json",
+	"dataType": "json",
+  "url": ""+reqstring+"",
+  "type": "GET",
+  "headers": {
+    "polarisdate": ""+thedate+"",
+    "authorization": ""+code+"" 
+  }
+}
+$.ajax(settings).done(function (response) {
+//alert('filter_hold1 after ajax');
+$.each(response.BibSearchRows, function(key, value) {
+overdue=false;									 
+//alert('bibsearchrows:' +value);
+var title=value.Title;
+var sys_items_in=value.SystemItemsIn;
+var cur_hold_req=value.CurrentHoldRequests;
+
+	
+if(cur_hold_req>=sys_items_in){
+hold_ind=true;
+}else{
+hold_ind=false;
+}
+alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+return hold_int;	
+});//each loop
+});//ajax	
+};//filter_holds1
+	
+};
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
@@ -1335,76 +1403,9 @@ bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 }else{
-//hold_ind=hold_all_sys(bib_id,bib_bc);	
-
-//alert('hold_all_sys1');
-var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
-var thedate=(new Date()).toUTCString();
-
-p_method="GET";
-p_pwd ='';
-
-$.ajax({
-        type: "POST",
-		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        async: false,
-		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
-		error: function(jqXHR,text_status,strError){
-			alert("no connection");},
-        success : function(response) {
-			var code=response;
-			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			hold_int=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
-        },
-        error      : function() {
-            console.error("error");
-            alert('No network connection or server currently not available.');                  
-        }
-});
-	
-
-
-	
-//see if #holds>#items in
-//case 9c
-function filter_holds1 (code,reqstring,thedate){
-//alert('filter_hold1 before ajax');
-var settings = {
-"async":"false",
-	"content-type": "application/json",
-	"dataType": "json",
-  "url": ""+reqstring+"",
-  "type": "GET",
-  "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
-  }
+hold_ind=hold_all_sys(bib_id,bib_bc);		
 }
-$.ajax(settings).done(function (response) {
-//alert('filter_hold1 after ajax');
-$.each(response.BibSearchRows, function(key, value) {
-overdue=false;									 
-//alert('bibsearchrows:' +value);
-var title=value.Title;
-var sys_items_in=value.SystemItemsIn;
-var cur_hold_req=value.CurrentHoldRequests;
 
-	
-if(cur_hold_req>=sys_items_in){
-hold_ind=true;
-}else{
-hold_ind=false;
-}
-alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
-return hold_int;	
-});//each loop
-});//ajax	
-};//filter_holds1
-	
-}
-alert(hold_ind);
 	//alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
