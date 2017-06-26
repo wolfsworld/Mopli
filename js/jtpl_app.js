@@ -1320,15 +1320,14 @@ $.ajax({
         }
 });
 	
-return hold_ind;
-};
+
+
 	
 //see if #holds>#items in
 //case 9c
 function filter_holds1 (code,reqstring,thedate){
 //alert('filter_hold1 before ajax');
 var settings = {
-	"async": "false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1353,23 +1352,19 @@ hold_ind=true;
 }else{
 hold_ind=false;
 }
-//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 	
 });//each loop
-});//ajax
-	alert(hold_ind);
-	return hold_ind;
-	
+});//ajax	
 };//filter_holds1
 	
-
+};
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
-	"async": "false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
