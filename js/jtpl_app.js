@@ -1328,6 +1328,7 @@ return hold_ind;
 function filter_holds1 (code,reqstring,thedate){
 //alert('filter_hold1 before ajax');
 var settings = {
+	"async": "false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1343,7 +1344,7 @@ $.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
 //alert('bibsearchrows:' +value);
 var title=value.Title;
-	var sys_items_in=value.SystemItemsIn;
+var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
 	
@@ -1356,7 +1357,9 @@ hold_ind=false;
 	
 });//each loop
 });//ajax
+	alert(hold_ind);
 	return hold_ind;
+	
 };//filter_holds1
 	
 
@@ -1366,6 +1369,7 @@ function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
+	"async": "false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
