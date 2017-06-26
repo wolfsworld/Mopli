@@ -1358,8 +1358,9 @@ hold_ind=false;
 	
 });//each loop
 });//ajax	
-};//filter_holds1
 	return hold_ind;
+};//filter_holds1
+	
 };
 
 //case 9 - items out all (list)
