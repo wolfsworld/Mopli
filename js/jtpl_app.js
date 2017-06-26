@@ -1411,7 +1411,7 @@ switch(media){
 	
 			$.each(value, function(key2, value2) {
 				
-				if(hold_in==false){
+				if(hold_ind==false){
 					bib_id=value.BibID;
 					bib_bc=value.Barcode;
 					hold_ind=hold_all_sys(bib_id,bib_bc);
