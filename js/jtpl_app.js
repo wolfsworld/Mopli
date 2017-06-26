@@ -1303,7 +1303,7 @@ p_pwd ='';
 $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        //async: false,
+        async: false,
 		crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
@@ -1341,14 +1341,14 @@ overdue=false;
 var title=value.Title;
 	var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
-//alert('title:'+ title + 'sys_in:' + sys_items_in + 'cur_hold:' + cur_hold_req);
+
 	
 if(cur_hold_req>=sys_items_in){
 hold_ind=true;
 }else{
 hold_ind=false;
 }
-	
+alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind');	
 });//each loop
 });//ajax
 };//filter_holds1
@@ -1396,10 +1396,14 @@ bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 } 
-	
+else{
+hold_ind=hold_all_sys(bib_id,bib_bc);		
+	}
+
+	alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-switch(media){
+/*switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
 	case 33: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; hold_ind=true; break;
@@ -1410,13 +1414,7 @@ switch(media){
 }
 	
 			$.each(value, function(key2, value2) {
-				
-				if(hold_ind==false){
-					bib_id=value.BibID;
-					bib_bc=value.Barcode;
-					hold_ind=hold_all_sys(bib_id,bib_bc);
-				}
-				
+	
 				if(key2=="ItemID"){
 				out_req_id=value2;
 				}
@@ -1478,7 +1476,7 @@ my_outs +="</td></tr></table>";
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
-};//end items_out_all function
+};//end items_out_all function*/
 
 /*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
