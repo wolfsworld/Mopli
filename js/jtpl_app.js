@@ -1349,13 +1349,13 @@ var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
 	
-if(cur_hold_req>=sys_items_in){
+if(cur_hold_req>sys_items_in){
 hold_ind=true;
 }else{
 hold_ind=false;
 }
 alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
-//return hold_int;	
+return hold_ind;	
 });//each loop
 });//ajax	
 };//filter_holds1
