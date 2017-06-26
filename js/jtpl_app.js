@@ -1299,6 +1299,7 @@ function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
+	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1355,7 +1356,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
+			hold_int=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
         },
         error      : function() {
             console.error("error");
@@ -1371,7 +1372,8 @@ $.ajax({
 function filter_holds1 (code,reqstring,thedate){
 //alert('filter_hold1 before ajax');
 var settings = {
-"content-type": "application/json",
+"async":"false",
+	"content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
   "type": "GET",
@@ -1396,7 +1398,7 @@ hold_ind=true;
 hold_ind=false;
 }
 alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
-	
+return hold_int;	
 });//each loop
 });//ajax	
 };//filter_holds1
