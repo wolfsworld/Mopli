@@ -1312,13 +1312,17 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
+			hold_ind=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
         },
         error      : function() {
             console.error("error");
             alert('No network connection or server currently not available.');                  
         }
 });
+	
+return hold_ind;
+};
+	
 //see if #holds>#items in
 //case 9c
 function filter_holds1 (code,reqstring,thedate){
@@ -1349,12 +1353,13 @@ hold_ind=true;
 hold_ind=false;
 }
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
-	return hold_ind;
+	
 });//each loop
 });//ajax
-};//filter_holds1
 	return hold_ind;
-};
+};//filter_holds1
+	
+
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
