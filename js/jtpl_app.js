@@ -1354,17 +1354,17 @@ hold_ind=true;
 }else{
 hold_ind=false;
 }
-alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
-return hold_ind;	
+//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+	
 });//each loop
 });//ajax	
 };//filter_holds1
-	
+	return hold_ind;
 };
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-//window.plugins.spinnerDialog.show(null,"...processing");
+window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
 	"async":"false",
@@ -1480,7 +1480,7 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-//window.plugins.spinnerDialog.hide();
+window.plugins.spinnerDialog.hide();
 });//end ajax 
 };//end items_out_all function
 
