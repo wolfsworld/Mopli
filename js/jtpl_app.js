@@ -1293,7 +1293,7 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc){
-alert('hold_all_sys1');
+//alert('hold_all_sys1');
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
@@ -1312,7 +1312,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_bc);
+			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
         },
         error      : function() {
             console.error("error");
@@ -1321,8 +1321,8 @@ $.ajax({
 });
 //see if #holds>#items in
 //case 9c
-function filter_holds1 (code,reqstring,thedate,bib_bc){
-//alert('filter_hold1');
+function filter_holds1 (code,reqstring,thedate){
+alert('filter_hold1 before ajax');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -1334,10 +1334,10 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-
+alert('filter_hold1 after ajax');
 $.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
-alert('bibsearchrows:' +value);
+//alert('bibsearchrows:' +value);
 var title=value.Title;
 	var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
@@ -1352,7 +1352,7 @@ hold_ind=false;
 });//each loop
 });//ajax
 };//filter_holds1
-	alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+	
 return hold_ind;
 };
 
@@ -1399,13 +1399,10 @@ hold_ind=true;
 hold_ind=hold_all_sys(bib_id,bib_bc);		
 }
 
-	alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
+	//alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
-});
-	});//end ajax 
-};//end items_out_all function
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*switch(media){
+switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
 	case 33: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; hold_ind=true; break;
@@ -1439,6 +1436,13 @@ hold_ind=hold_all_sys(bib_id,bib_bc);
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
 				if(cod_epoch<today_epoch){overdue=true;
+				/*var differ=today_epoch-cod_epoch;
+				var det_days_overdue=Math.floor(differ/(86400*1000));
+				if(value.Title!==''){var late_title=value.Title;}else{var late_title="n/a";}
+				if(value.Author!==''){var late_author=value.Author;}else{var late_author="n/a";}
+				if(media!==''){var media_cat=media;}else{var media_cat="n/a";}
+				var amount_due=est_fees(media_cat, det_days_overdue);
+				list_est +="<hr><p>Title: "+late_title+" ("+late_author+")<br>Days overdue: "+det_days_overdue+"<br>Estimated late fee as per today: $"+amount_due+"</p>";*/
 				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
@@ -1471,7 +1475,7 @@ my_outs +="</td></tr></table>";
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
-};//end items_out_all function*/
+};//end items_out_all function
 
 /*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
