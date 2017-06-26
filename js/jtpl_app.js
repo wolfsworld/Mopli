@@ -1293,7 +1293,7 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc){
-//alert('hold_all_sys1');
+alert('hold_all_sys1');
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
@@ -1337,7 +1337,7 @@ $.ajax(settings).done(function (response) {
 
 $.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
-//alert('bibsearchrows:' +value);
+alert('bibsearchrows:' +value);
 var title=value.Title;
 	var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
@@ -1399,7 +1399,7 @@ hold_ind=true;
 hold_ind=hold_all_sys(bib_id,bib_bc);		
 }
 
-	//alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
+	alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
 });
 	});//end ajax 
