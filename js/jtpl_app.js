@@ -1352,7 +1352,7 @@ hold_ind=false;
 });//each loop
 });//ajax
 };//filter_holds1
-	alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+	
 return hold_ind;
 };
 
@@ -1400,10 +1400,7 @@ else{
 hold_ind=hold_all_sys(bib_id,bib_bc);		
 	}
 
-	//alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
-});
-	});
-}
+	alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*switch(media){
