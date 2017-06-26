@@ -1357,7 +1357,8 @@ alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hol
 });//each loop
 });//ajax	
 };//filter_holds1
-	
+	alert(hold_int);
+	return hold_int;
 };
 
 //case 9 - items out all (list)
