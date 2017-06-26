@@ -1395,15 +1395,14 @@ bib_bc=value.Barcode;
 //alert(RENLEFT);
 if(RENLEFT<=0){
 hold_ind=true;
-} 
-else{
+}else{
 hold_ind=hold_all_sys(bib_id,bib_bc);		
-	}
+}
 
-	alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
+	//alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*switch(media){
+switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
 	case 33: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/dvd_icon.png" /></td ><td class="txtbox">'; hold_ind=true; break;
@@ -1476,7 +1475,7 @@ my_outs +="</td></tr></table>";
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
-};//end items_out_all function*/
+};//end items_out_all function
 
 /*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
