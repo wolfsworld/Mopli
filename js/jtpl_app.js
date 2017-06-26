@@ -1322,7 +1322,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds1 (code,reqstring,thedate){
-alert('filter_hold1 before ajax');
+//alert('filter_hold1 before ajax');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -1334,7 +1334,7 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-alert('filter_hold1 after ajax');
+//alert('filter_hold1 after ajax');
 $.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
 //alert('bibsearchrows:' +value);
@@ -1348,7 +1348,7 @@ hold_ind=true;
 }else{
 hold_ind=false;
 }
-
+alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 });//each loop
 });//ajax
 };//filter_holds1
