@@ -1424,9 +1424,10 @@ hold_ind=true;
 	   
 continuation(value, hold_ind,media,ISBN);
 });
+
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function continuation(value, hold_ind, media, ISBN){
+function continuation(value,hold_ind,media,ISBN){
 alert('continuation');
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
@@ -1497,11 +1498,11 @@ my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_ext
 my_outs +="<br><br>";}			
 my_outs +="</td></tr></table>";
 //}//end screen out cancelled
-});
+};
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
+};
 
-};//end items_out_all function
 
 
 /*function est_fees(media_cat, det_days_overdue){
