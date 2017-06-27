@@ -1309,11 +1309,11 @@ return $.ajax({
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
         success : function(response) {
-			var code=response;
-			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
+			//var code=response;
+			//p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
 			//return (p_response.code,p_response.reqstring,p_response.thedate);
-			first_call=true;
+			//first_call=true;
         },
         error      : function() {
             console.error("error");
@@ -1329,7 +1329,6 @@ return $.ajax({
 function filter_holds1 (code,reqstring,thedate){
 //alert('filter_hold1 before ajax');
 var settings = {
-	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1385,8 +1384,6 @@ bib_bc=value.Barcode;
 //alert(RENLEFT);
 if(RENLEFT<=0){
 hold_ind=true;
-}else{
-hold_ind=hold_all_sys(bib_id,bib_bc);		
 }
 
 	//var first_call=false;
@@ -1400,10 +1397,10 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		code2=p_response.code;
 		reqstring2=p_response.reqstring;
 		thedate2=p_response.thedate;
-}.fail(function(){
+}).fail(function(){
     //handle errors
 	alert('second ajax failed');
-}.then(filter_holds1 (code2,reqstring2,thedate2).done(function(response){
+}).then(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
 		//alert('bibsearchrows:' +value);
@@ -1420,11 +1417,12 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		continuation(value, hold_ind)	
 		alert('going on' + hold_ind);
 		});//each loop
-}.fail(function(){
+}).fail(function(){
 	alert('third ajax failed');
 });
-
-	
+};
+	   
+													  
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function continuation(value, hold_ind){
@@ -1500,9 +1498,10 @@ my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
 $( "#borrowed" ).append(my_outs);
-window.plugins.spinnerDialog.hide();
- 
+//window.plugins.spinnerDialog.hide();
+
 };//end items_out_all function
+
 
 /*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
