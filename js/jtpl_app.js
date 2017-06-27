@@ -1370,6 +1370,7 @@ $( "#borrowed" ).empty();
 
 	
 function go_through_list(response){	
+	alert(JSON.stringify(response));
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 
 var hold_ind=false;
