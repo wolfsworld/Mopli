@@ -1432,7 +1432,7 @@ continuation(value,hold_ind,media,ISBN,RENLEFT);
 
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function continuation(value,hold_ind,media,ISBN){
+function continuation(value,hold_ind,media,ISBN,RENLEFT){
 alert('continuation');
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
