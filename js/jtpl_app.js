@@ -1360,10 +1360,6 @@ var settings = {
 }
 $.ajax(settings).done(function (response) {
 	//alert(JSON.stringify(response));
-var my_outs='';
-var list_est='';
-var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
-$( "#borrowed" ).empty();
 	go_through_list(response);
 });//end ajax
 }//end items_out_all
@@ -1375,6 +1371,11 @@ function go_through_list(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 	//alert(i);
 	//i++;
+
+var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
+$( "#borrowed" ).empty();
+var my_outs='';
+var list_est='';
 var hold_ind=false;
 media=value.FormatID;
 ISBN=value.ISBN;
