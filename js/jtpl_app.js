@@ -1371,10 +1371,10 @@ $( "#borrowed" ).empty();
 	
 function go_through_list(response){	
 	//alert(JSON.stringify(response));
-	var i=0;
+	//var i=0;
 $.each(response.PatronItemsOutGetRows, function(key, value) {
-	alert(i);
-	i++;
+	//alert(i);
+	//i++;
 var hold_ind=false;
 media=value.FormatID;
 ISBN=value.ISBN;
@@ -1427,7 +1427,7 @@ hold_ind=true;
 
 
 	
-//continuation(value,hold_ind,media,ISBN);
+continuation(value,hold_ind,media,ISBN,RENLEFT);
 });
 
 	
