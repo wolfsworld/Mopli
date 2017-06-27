@@ -1370,10 +1370,11 @@ $( "#borrowed" ).empty();
 
 	
 function go_through_list(response){	
-	alert(JSON.stringify(response));
-	var zahler=0;
+	//alert(JSON.stringify(response));
+	var i=0;
 $.each(response.PatronItemsOutGetRows, function(key, value) {
-
+	alert(i);
+	i++;
 var hold_ind=false;
 media=value.FormatID;
 ISBN=value.ISBN;
@@ -1424,10 +1425,9 @@ hold_ind=true;
 });
 };*/
 
-	alert(zahler);
-	zahler++;
+
 	
-continuation(value,hold_ind,media,ISBN);
+//continuation(value,hold_ind,media,ISBN);
 });
 
 	
