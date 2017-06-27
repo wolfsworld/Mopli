@@ -1389,14 +1389,45 @@ hold_ind=true;
 	//var first_call=false;
 	//var second_call=false;
 	
+/*$.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
+		var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+		var thedate=(new Date()).toUTCString();
+		var code=response;
+		p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
+		code2=p_response.code;
+		reqstring2=p_response.reqstring;
+		thedate2=p_response.thedate;
+}).fail(function(){
+    //handle errors
+	alert('second ajax failed');
+}).then(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
+		$.each(response.BibSearchRows, function(key, value) {
+		overdue=false;									 
+		//alert('bibsearchrows:' +value);
+		var title=value.Title;
+		var sys_items_in=value.SystemItemsIn;
+		var cur_hold_req=value.CurrentHoldRequests;
 
-};
+		if(cur_hold_req>sys_items_in){
+		hold_ind=true;
+		}else{
+		hold_ind=false;
+		}
+		//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+		continuation(value, hold_ind)	
+		alert('going on' + hold_ind);
+		});//each loop
+}).fail(function(){
+	alert('third ajax failed');
+});
+};*/
 	   
-													  
+continuation(value, hold_ind,media,ISBN);
+});
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function continuation(value, hold_ind){
-
+function continuation(value, hold_ind, media, ISBN){
+alert('continuation');
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
