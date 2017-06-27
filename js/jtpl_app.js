@@ -1424,16 +1424,13 @@ hold_ind=true;
 	alert('third ajax failed');
 });
 };*/
-
-
 	
-continuation(value,hold_ind,media,ISBN,RENLEFT);
-});
+//continuation(value,hold_ind,media,ISBN,RENLEFT);
 
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function continuation(value,hold_ind,media,ISBN,RENLEFT){
-alert('continuation');
+//function continuation(value,hold_ind,media,ISBN,RENLEFT){
+
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
@@ -1495,7 +1492,7 @@ switch(media){
 				}
 				
 			});
-	
+
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
@@ -1503,11 +1500,10 @@ my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_ext
 my_outs +="<br><br>";}			
 my_outs +="</td></tr></table>";
 //}//end screen out cancelled
-};
+});
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 };
-
 
 
 /*function est_fees(media_cat, det_days_overdue){
