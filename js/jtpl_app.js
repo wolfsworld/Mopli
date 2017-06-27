@@ -1371,6 +1371,7 @@ $( "#borrowed" ).empty();
 	
 function go_through_list(response){	
 	alert(JSON.stringify(response));
+	var zahler=0;
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 
 var hold_ind=false;
@@ -1422,8 +1423,11 @@ hold_ind=true;
 	alert('third ajax failed');
 });
 };*/
-	   
-continuation(value, hold_ind,media,ISBN);
+
+	alert(zahler);
+	zahler++;
+	
+continuation(value,hold_ind,media,ISBN);
 });
 
 	
