@@ -1393,11 +1393,14 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var reqstring2=p_response.reqstring;
 		var thedate2=p_response.thedate;
 	alert('first when: '+ p_response.code);
-}).fail(function(){
+	det_hold();
+}).fail(function(code2,reqstring2,thedate2){
     //handle errors
 	alert('second ajax failed');
-})
-	/*.then(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
+});
+
+function det_hold(code2,reqstring2,thedate2){
+$.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 	alert('second then');
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
@@ -1417,9 +1420,10 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		});//each loop
 }).fail(function(){
 	alert('third ajax failed');
-});*/
+});
+};
 
-alert('hello');	
+//alert('hello');	
 //continuation(value,hold_ind,media,ISBN,RENLEFT);
 
 	
