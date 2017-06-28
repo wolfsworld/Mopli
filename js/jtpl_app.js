@@ -1401,7 +1401,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 
 function det_hold(code2,reqstring2,thedate2){
 $.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
-	alert('second then');
+	//alert('second then');
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
 		//alert('bibsearchrows:' +value);
@@ -1410,13 +1410,13 @@ $.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 		var cur_hold_req=value.CurrentHoldRequests;
 
 		if(cur_hold_req>sys_items_in){
-		hold_ind=true;
+		var hold_ind=true;
 		}//else{
 		//hold_ind=false;
 		//}
 		//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 		//continuation(value, hold_ind)	
-		alert('going on' + hold_ind);
+		//alert('going on' + hold_ind);
 		});//each loop
 }).fail(function(){
 	alert('third ajax failed');
