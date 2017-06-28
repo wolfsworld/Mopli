@@ -1383,7 +1383,7 @@ hold_ind=true;
 	//var first_call=false;
 	//var second_call=false;
 	
-$.when(hold_all_sys(bib_id, bib_bc)){
+$.when(hold_all_sys(bib_id, bib_bc)).then(function(response){
 		var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 		var thedate=(new Date()).toUTCString();
 		var code=response;
@@ -1392,8 +1392,11 @@ $.when(hold_all_sys(bib_id, bib_bc)){
 		var code2=p_response.code;
 		var reqstring2=p_response.reqstring;
 		var thedate2=p_response.thedate;
-	alert('first when: '+ p_response.code);
-}
+	//alert('first when: '+ p_response.code);
+}).fail(function(){
+    //handle errors
+	alert('second ajax failed');
+})
 	/*.then(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 	alert('second then');
 		$.each(response.BibSearchRows, function(key, value) {
