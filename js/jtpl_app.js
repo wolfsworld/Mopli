@@ -1305,20 +1305,8 @@ return $.ajax({
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         //async: false,
 		//crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
-		error: function(jqXHR,text_status,strError){
-			alert("no connection");},
-        success : function(response) {
-			//var code=response;
-			//p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			//return (p_response.code,p_response.reqstring,p_response.thedate);
-			//first_call=true;
-        },
-        error      : function() {
-            console.error("error");
-            alert('No network connection or server currently not available.');                  
-        }
+        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
+
 });
 };	
 
@@ -1404,7 +1392,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var code2=p_response.code;
 		var reqstring2=p_response.reqstring;
 		var thedate2=p_response.thedate;
-	alert('first when'+ p_response);
+	alert('first when'+ response);
 }).fail(function(){
     //handle errors
 	alert('second ajax failed');
