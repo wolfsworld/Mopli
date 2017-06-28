@@ -1396,8 +1396,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 }).fail(function(){
     //handle errors
 	alert('second ajax failed');
-});
-.then(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
+}).then(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 	alert('second then');
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
