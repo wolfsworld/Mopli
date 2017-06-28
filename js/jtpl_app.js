@@ -1418,7 +1418,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 }).fail(function(){
 	alert('third ajax failed');
 });
-};
+
 alert('hello');	
 //continuation(value,hold_ind,media,ISBN,RENLEFT);
 
