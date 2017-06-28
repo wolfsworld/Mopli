@@ -1371,12 +1371,13 @@ function go_through_list(response){
 $( "#borrowed" ).empty();
 var my_outs='';
 var list_est='';
-var hold_ind=false;
+
+var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 	//alert(i);
 	//i++;
 
-var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
+var hold_ind=false;
 
 media=value.FormatID;
 ISBN=value.ISBN;
@@ -1394,7 +1395,7 @@ hold_ind=true;
 	//var first_call=false;
 	//var second_call=false;
 	
-/*$.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
+$.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 		var thedate=(new Date()).toUTCString();
 		var code=response;
@@ -1415,8 +1416,6 @@ hold_ind=true;
 
 		if(cur_hold_req>sys_items_in){
 		hold_ind=true;
-		}else{
-		hold_ind=false;
 		}
 		//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 		continuation(value, hold_ind)	
@@ -1425,7 +1424,7 @@ hold_ind=true;
 }).fail(function(){
 	alert('third ajax failed');
 });
-};*/
+};
 alert('hello');	
 //continuation(value,hold_ind,media,ISBN,RENLEFT);
 
