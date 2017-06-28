@@ -1423,7 +1423,7 @@ $.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 });
 };
 
-//alert('hello');	
+////alert('hello');	
 //continuation(value,hold_ind,media,ISBN,RENLEFT);
 
 	
