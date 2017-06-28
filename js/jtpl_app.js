@@ -1392,9 +1392,9 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var code2=p_response.code;
 		var reqstring2=p_response.reqstring;
 		var thedate2=p_response.thedate;
-	alert('first when: '+ p_response.code);
-	det_hold();
-}).fail(function(code2,reqstring2,thedate2){
+	//alert('first when: '+ p_response.code);
+	det_hold(code2,reqstring2,thedate2);
+}).fail(function(){
     //handle errors
 	alert('second ajax failed');
 });
