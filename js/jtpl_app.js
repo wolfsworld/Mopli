@@ -1399,16 +1399,18 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 		var thedate=(new Date()).toUTCString();
 		var code=response;
-	alert('first when');
-		p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-		code2=p_response.code;
-		reqstring2=p_response.reqstring;
-		thedate2=p_response.thedate;
+	
+		var p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
+		var code2=p_response.code;
+		var reqstring2=p_response.reqstring;
+		var thedate2=p_response.thedate;
+	alert('first when'+ p_response);
 }).fail(function(){
     //handle errors
 	alert('second ajax failed');
 });
-	/*.then(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
+/*.then(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
+	alert('second then');
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
 		//alert('bibsearchrows:' +value);
@@ -1429,8 +1431,8 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 	alert('third ajax failed');
 });
 };
-alert('hello');	*/
-//continuation(value,hold_ind,media,ISBN,RENLEFT);
+alert('hello');	
+//continuation(value,hold_ind,media,ISBN,RENLEFT);*/
 
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
