@@ -1314,16 +1314,16 @@ return $.ajax({
 	
 //see if #holds>#items in
 //case 9c
-function filter_holds1 (code,reqstring,thedate){
+function filter_holds1 (code2,reqstring2,thedate2){
 //alert('filter_hold1 before ajax');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
-  "url": ""+reqstring+"",
+  "url": ""+reqstring2+"",
   "type": "GET",
   "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
+    "polarisdate": ""+thedate2+"",
+    "authorization": ""+code2+"" 
   }
 }
 return $.ajax(settings).done(function (response) {
