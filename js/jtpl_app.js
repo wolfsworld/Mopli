@@ -1395,7 +1395,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var thedate2=p_response.thedate;
 	response=null;
 	//alert('first when: '+ p_response.code);
-	$.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
+	setTimeout($.when(filter_holds1 (code2,reqstring2,thedate2)),1000).done(function(response){
 	//alert('second then');
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
@@ -1459,7 +1459,7 @@ switch(media){
 				break;
 				case "RenewalCount":
 				key2="Renewals Left";
-					if(RENLEFT<=0 || hold_ind==true ){
+					if(RENLEFT<=0 || hold_ind2==true ){
 						value2="not renewable";
 					}else{
 						value2=""+RENLEFT+"";}
