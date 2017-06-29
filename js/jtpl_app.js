@@ -1326,7 +1326,8 @@ var settings = {
     "authorization": ""+code2+"" 
   }
 }
-return $.ajax(settings).done(function (response) {
+return $.ajax(settings) {
+//return $.ajax(settings).done(function (response) {
 //alert('filter_hold1 after ajax');
 	});//ajax	
 };//filter_holds1
@@ -1400,9 +1401,8 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 });
 
 function det_hold(code2,reqstring2,thedate2){
-//$.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
+$.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 	//alert('second then');
-response=filter_holds1 (code2,reqstring2,thedate2);		
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
 		//alert('bibsearchrows:' +value);
@@ -1419,11 +1419,10 @@ response=filter_holds1 (code2,reqstring2,thedate2);
 		//continuation(value, hold_ind)	
 		//alert('going on' + hold_ind);
 		});//each loop
-	
-//}).fail(function(){
-	//alert('third ajax failed');
+}).fail(function(){
+	alert('third ajax failed');
+});
 };
-//};
 
 ////alert('hello');	
 //continuation(value,hold_ind,media,ISBN,RENLEFT);
