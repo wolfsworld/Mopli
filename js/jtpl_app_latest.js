@@ -1300,74 +1300,62 @@ var thedate=(new Date()).toUTCString();
 p_method="GET";
 p_pwd ='';
 
-$.ajax({
+return $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        async: false,
-		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
-		error: function(jqXHR,text_status,strError){
-			alert("no connection");},
-        success : function(response) {
-			var code=response;
-			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
-			
-        },
-        error      : function() {
-            console.error("error");
-            alert('No network connection or server currently not available.');                  
-        }
+        //async: false,
+		//crossDomain: true,
+        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
+
 });
-	
+};	
 
 
 	
 //see if #holds>#items in
 //case 9c
-function filter_holds1 (code,reqstring,thedate){
+function filter_holds1 (code2,reqstring2,thedate2){
 //alert('filter_hold1 before ajax');
 var settings = {
-	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
-  "url": ""+reqstring+"",
+  "url": ""+reqstring2+"",
   "type": "GET",
   "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
+    "polarisdate": ""+thedate2+"",
+    "authorization": ""+code2+"" 
   }
 }
+//return $.ajax(settings);
 $.ajax(settings).done(function (response) {
 //alert('filter_hold1 after ajax');
-$.each(response.BibSearchRows, function(key, value) {
-overdue=false;									 
-//alert('bibsearchrows:' +value);
-var title=value.Title;
-var sys_items_in=value.SystemItemsIn;
-var cur_hold_req=value.CurrentHoldRequests;
+	$.each(response.BibSearchRows, function(key, value) {
+		overdue=false;									 
+		//alert('bibsearchrows:' +value);
+		var title=value.Title;
+		var sys_items_in=value.SystemItemsIn;
+		var cur_hold_req=value.CurrentHoldRequests;
 
+		if(cur_hold_req>sys_items_in){
+		hold_ind=true;
+		}else{
+		hold_ind=false;
+		}
+		return hold_ind;
+		alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
+		//continuation(value, hold_ind)	
+		//alert('going on' + hold_ind);
+		});//each loop
+	});//ajax
 	
-if(cur_hold_req>=sys_items_in){
-hold_ind=true;
-}else{
-hold_ind=false;
-}
-alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
-//return hold_int;	
-});//each loop
-});//ajax	
 };//filter_holds1
-	
-};
+
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
-	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1377,22 +1365,29 @@ var settings = {
     "authorization": ""+code+"" 
   }
 }
-
 $.ajax(settings).done(function (response) {
 	//alert(JSON.stringify(response));
+	go_through_list(response);
+});//end ajax
+}//end items_out_all
+
+	
+function go_through_list(response){	
+	//alert(JSON.stringify(response));
+	//var i=0;
+$( "#borrowed" ).empty();
 var my_outs='';
 var list_est='';
-var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
-$( "#borrowed" ).empty();
-
+	var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 $.each(response.PatronItemsOutGetRows, function(key, value) {
-
+	//alert(i);
+	//i++;
 var hold_ind=false;
+
 
 media=value.FormatID;
 ISBN=value.ISBN;
-
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
@@ -1402,13 +1397,32 @@ bib_bc=value.Barcode;
 //alert(RENLEFT);
 if(RENLEFT<=0){
 hold_ind=true;
-}else{
-hold_ind=hold_all_sys(bib_id,bib_bc);		
 }
 
-	//alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
-	//alert('it made it to final query');
+	//var first_call=false;
+	//var second_call=false;
+	
+$.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
+		var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+		var thedate=(new Date()).toUTCString();
+		var code=response;
+	
+		var p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
+		var code2=p_response.code;
+		var reqstring2=p_response.reqstring;
+		var thedate2=p_response.thedate;
+	alert(thedate2);
+	var hold_ind2=filter_holds1 (code2,reqstring2,thedate2);
+
+});
+
+alert('hello'+ hold_ind2);	
+//continuation(value,hold_ind,media,ISBN,RENLEFT);
+
+	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//function continuation(value,hold_ind,media,ISBN,RENLEFT){
+
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
 	case 40: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/blueray_icon.png" /></td ><td class="txtbox">';hold_ind=true; break;
@@ -1435,7 +1449,7 @@ switch(media){
 				break;
 				case "RenewalCount":
 				key2="Renewals Left";
-					if(RENLEFT<=0 || hold_ind==true ){
+					if(RENLEFT<=0 || hold_ind2==true ){
 						value2="not renewable";
 					}else{
 						value2=""+RENLEFT+"";}
@@ -1470,7 +1484,7 @@ switch(media){
 				}
 				
 			});
-	
+
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){
 my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_extend' data-rel='popup' data-position-to='window' data-transition='pop' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-r ui-btn-icon-left ui-btn-b'>Renew Item...</a></p>";
@@ -1481,8 +1495,8 @@ my_outs +="</td></tr></table>";
 });
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
-});//end ajax 
-};//end items_out_all function
+};
+
 
 /*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
