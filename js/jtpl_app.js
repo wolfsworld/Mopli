@@ -1326,10 +1326,10 @@ var settings = {
     "authorization": ""+code2+"" 
   }
 }
-return $.ajax(settings) {
+return $.ajax(settings);
 //return $.ajax(settings).done(function (response) {
 //alert('filter_hold1 after ajax');
-	};//ajax	
+	//};//ajax	
 };//filter_holds1
 
 
