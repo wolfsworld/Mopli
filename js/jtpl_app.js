@@ -1394,14 +1394,8 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var reqstring2=p_response.reqstring;
 		var thedate2=p_response.thedate;
 	//alert('first when: '+ p_response.code);
-	det_hold(code2,reqstring2,thedate2);
-}).fail(function(){
-    //handle errors
-	alert('second ajax failed');
-});
-
-function det_hold(code2,reqstring2,thedate2){
-$.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
+	//det_hold(code2,reqstring2,thedate2);
+}).then (filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 	//alert('second then');
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
@@ -1411,18 +1405,16 @@ $.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 		var cur_hold_req=value.CurrentHoldRequests;
 
 		if(cur_hold_req>sys_items_in){
-		var hold_ind=true;
-		}//else{
-		//hold_ind=false;
-		//}
-		alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+		var hold_ind2=true;
+		}else{
+		hold_ind2=false;
+		}
+		alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
 		//continuation(value, hold_ind)	
 		//alert('going on' + hold_ind);
 		});//each loop
-}).fail(function(){
-	alert('third ajax failed');
 });
-};
+});
 
 ////alert('hello');	
 //continuation(value,hold_ind,media,ISBN,RENLEFT);
