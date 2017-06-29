@@ -1312,14 +1312,13 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			var passer=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
-			
+			var passer=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);	
         },
         error      : function() {
             console.error("error");
             alert('No network connection or server currently not available.');                  
         }
-	return passer;
+	
 });
 	
 
@@ -1360,7 +1359,7 @@ return hold_ind;
 });//each loop
 });//ajax	
 };//filter_holds1
-	
+return passer;	
 };
 
 //case 9 - items out all (list)
