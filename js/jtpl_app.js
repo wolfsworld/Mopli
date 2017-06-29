@@ -1395,7 +1395,9 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var thedate2=p_response.thedate;
 	response=null;
 	//alert('first when: '+ p_response.code);
-	setTimeout($.when(filter_holds1 (code2,reqstring2,thedate2)),1000).done(function(response){
+	
+	setTimeout(function (){
+	$.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 	//alert('second then');
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
@@ -1417,6 +1419,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 }).fail(function(){
 	alert('third ajax failed');
 });
+		}, 1000); 
 		
 }).fail(function(){
     //handle errors
