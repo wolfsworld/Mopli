@@ -4,7 +4,7 @@ var counter=0;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
-
+var hold_ind=false;
 if(page_counter<1){
 var page_counter=1;
 }
@@ -1386,12 +1386,12 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 
-setTimeout(drip_outs(response), 500);
+setTimeout(drip_outs(response), 1000);
 	
 function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 
-var hold_ind=false;
+
 
 media=value.FormatID;
 ISBN=value.ISBN;
