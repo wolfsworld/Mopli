@@ -1326,10 +1326,28 @@ var settings = {
     "authorization": ""+code2+"" 
   }
 }
-return $.ajax(settings);
-//return $.ajax(settings).done(function (response) {
+//return $.ajax(settings);
+$.ajax(settings).done(function (response) {
 //alert('filter_hold1 after ajax');
-	//};//ajax	
+	$.each(response.BibSearchRows, function(key, value) {
+		overdue=false;									 
+		//alert('bibsearchrows:' +value);
+		var title=value.Title;
+		var sys_items_in=value.SystemItemsIn;
+		var cur_hold_req=value.CurrentHoldRequests;
+
+		if(cur_hold_req>sys_items_in){
+		var hold_ind2=true;
+		}else{
+		hold_ind2=false;
+		}
+		
+		//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
+		//continuation(value, hold_ind)	
+		//alert('going on' + hold_ind);
+		});//each loop
+	});//ajax
+	return hold_ind2;
 };//filter_holds1
 
 
@@ -1393,43 +1411,12 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var code2=p_response.code;
 		var reqstring2=p_response.reqstring;
 		var thedate2=p_response.thedate;
-	response=null;
-	//alert('first when: '+ p_response.code);
 	
-	setTimeout(function (){
-	$.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
-	//alert('second then');
-		$.each(response.BibSearchRows, function(key, value) {
-		overdue=false;									 
-		//alert('bibsearchrows:' +value);
-		var title=value.Title;
-		var sys_items_in=value.SystemItemsIn;
-		var cur_hold_req=value.CurrentHoldRequests;
+	var hold_ind2=filter_holds1 (code2,reqstring2,thedate2);
 
-		if(cur_hold_req>sys_items_in){
-		var hold_ind2=true;
-		}else{
-		hold_ind2=false;
-		}
-		alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
-		//continuation(value, hold_ind)	
-		//alert('going on' + hold_ind);
-		});//each loop
-		response=null;
-}).fail(function(){
-	alert('third ajax failed');
-});
-		}, 1000); 
-		
-}).fail(function(){
-    //handle errors
-	alert('second ajax failed');
 });
 
-
-//};
-
-////alert('hello');	
+alert('hello'+ hold_ind2);	
 //continuation(value,hold_ind,media,ISBN,RENLEFT);
 
 	
