@@ -4,7 +4,7 @@ var counter=0;
 var framehistory=[];
 var framehistory2=[];
 var page_counter=1;
-var hold_ind=false;
+
 if(page_counter<1){
 var page_counter=1;
 }
@@ -1312,7 +1312,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			var passer=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);	
+			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);	
         },
         error      : function() {
             console.error("error");
@@ -1350,16 +1350,16 @@ var cur_hold_req=value.CurrentHoldRequests;
 
 	
 if(cur_hold_req>sys_items_in){
-hold_ind=true;
+var hold_ind=true;
 }else{
-hold_ind=false;
+var hold_ind=false;
 }
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
-return hold_ind;	
+	
 });//each loop
 });//ajax	
 };//filter_holds1
-return passer;	
+return hold_ind;
 };
 
 //case 9 - items out all (list)
@@ -1404,9 +1404,9 @@ bib_bc=value.Barcode;
 
 //alert(RENLEFT);
 if(RENLEFT<=0){
-hold_ind=true;
+var hold_ind=true;
 }else{
-hold_ind=hold_all_sys(bib_id,bib_bc);	
+var hold_ind=hold_all_sys(bib_id,bib_bc);	
 }
 
 	
