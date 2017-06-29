@@ -1350,9 +1350,9 @@ var cur_hold_req=value.CurrentHoldRequests;
 
 	
 if(cur_hold_req>sys_items_in){
-hold_ind=true;
+var hold_ind=true;
 }else{
-hold_ind=false;
+var hold_ind=false;
 }
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 	
@@ -1361,7 +1361,7 @@ hold_ind=false;
 	return hold_ind;
 };//filter_holds1
 return hold_ind;
-};
+};//hold_all_sys
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
@@ -1391,7 +1391,7 @@ setTimeout(drip_outs(response), 1000);
 	
 function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
-
+hold_ind=false;
 
 
 media=value.FormatID;
