@@ -1312,7 +1312,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
+			return filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);
 			
         },
         error      : function() {
