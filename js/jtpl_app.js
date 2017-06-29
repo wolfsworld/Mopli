@@ -1386,6 +1386,9 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 
+setTimeout(drip_outs(response), 500);
+	
+function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 
 var hold_ind=false;
@@ -1403,9 +1406,10 @@ bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 }else{
-hold_ind=hold_all_sys(bib_id,bib_bc);		
+hold_ind=hold_all_sys(bib_id,bib_bc);	
 }
 
+	
 	alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1479,6 +1483,7 @@ my_outs +="<br><br>";}
 my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
+};
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
