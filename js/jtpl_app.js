@@ -1350,14 +1350,15 @@ var cur_hold_req=value.CurrentHoldRequests;
 
 	
 if(cur_hold_req>sys_items_in){
-var hold_ind=true;
+hold_ind=true;
 }else{
-var hold_ind=false;
+hold_ind=false;
 }
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 	
 });//each loop
 });//ajax	
+	return hold_ind;
 };//filter_holds1
 return hold_ind;
 };
@@ -1404,9 +1405,9 @@ bib_bc=value.Barcode;
 
 //alert(RENLEFT);
 if(RENLEFT<=0){
-var hold_ind=true;
+hold_ind=true;
 }else{
-var hold_ind=hold_all_sys(bib_id,bib_bc);	
+hold_ind=hold_all_sys(bib_id,bib_bc);	
 }
 
 	
