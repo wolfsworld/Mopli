@@ -1393,6 +1393,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var code2=p_response.code;
 		var reqstring2=p_response.reqstring;
 		var thedate2=p_response.thedate;
+	response=null;
 	//alert('first when: '+ p_response.code);
 	$.when(filter_holds1 (code2,reqstring2,thedate2)).done(function(response){
 	//alert('second then');
@@ -1412,6 +1413,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		//continuation(value, hold_ind)	
 		//alert('going on' + hold_ind);
 		});//each loop
+		response=null;
 }).fail(function(){
 	alert('third ajax failed');
 });
