@@ -1341,8 +1341,8 @@ $.ajax(settings).done(function (response) {
 		}else{
 		hold_ind=false;
 		}
-		return hold_ind2;
-		//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
+		return hold_ind;
+		alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
 		//continuation(value, hold_ind)	
 		//alert('going on' + hold_ind);
 		});//each loop
