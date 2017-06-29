@@ -1337,17 +1337,17 @@ $.ajax(settings).done(function (response) {
 		var cur_hold_req=value.CurrentHoldRequests;
 
 		if(cur_hold_req>sys_items_in){
-		var hold_ind2=true;
+		hold_ind=true;
 		}else{
-		hold_ind2=false;
+		hold_ind=false;
 		}
-		
+		return hold_ind2;
 		//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
 		//continuation(value, hold_ind)	
 		//alert('going on' + hold_ind);
 		});//each loop
 	});//ajax
-	return hold_ind2;
+	
 };//filter_holds1
 
 
@@ -1411,7 +1411,7 @@ $.when(hold_all_sys(bib_id, bib_bc)).done(function(response){
 		var code2=p_response.code;
 		var reqstring2=p_response.reqstring;
 		var thedate2=p_response.thedate;
-	
+	alert(thedate2);
 	var hold_ind2=filter_holds1 (code2,reqstring2,thedate2);
 
 });
