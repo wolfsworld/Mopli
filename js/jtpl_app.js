@@ -1392,7 +1392,7 @@ var hold_ind=false;
 
 media=value.FormatID;
 ISBN=value.ISBN;
-
+title=value.Title;
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
@@ -1406,7 +1406,7 @@ hold_ind=true;
 hold_ind=hold_all_sys(bib_id,bib_bc);		
 }
 
-	//alert('RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
+	alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
