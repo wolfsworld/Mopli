@@ -1414,7 +1414,7 @@ hold_ind=true;
 }
 
 	
-	alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind 'tester: ' +tester);
+	alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind + 'tester: ' +tester);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
