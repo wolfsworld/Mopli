@@ -1350,9 +1350,9 @@ var cur_hold_req=value.CurrentHoldRequests;
 
 	
 if(cur_hold_req>sys_items_in){
-var hold_ind=true;
+hold_ind=true;
 }else{
-var hold_ind=false;
+hold_ind=false;
 }
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 	
@@ -1360,7 +1360,6 @@ var hold_ind=false;
 });//ajax	
 return hold_ind;	
 };//filter_holds1
-	//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 return holder;
 };//hold_all_sys
 
