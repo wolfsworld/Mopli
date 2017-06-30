@@ -1323,7 +1323,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds1 (code,reqstring,thedate){
-	var hold_ind2;
+	//var hold_ind2;
 //alert('filter_hold1 before ajax');
 var settings = {
 	"async":"false",
@@ -1352,14 +1352,19 @@ hold_ind2=true;
 }else{
 hold_ind2=false;
 }
+	handover(hold_ind2);
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind)2;
 	
 });//each loop
 });//ajax	
-return hold_ind2;	
+//return hold_ind2;
 };//filter_holds1
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
-return hold_ind2;
+//return hold_ind2;
+	var the_return= function handover(status){
+	return status;
+	}	
+	return the_return;
 };//hold_all_sys
 
 //case 9 - items out all (list)
