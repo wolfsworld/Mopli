@@ -1358,12 +1358,14 @@ hold_ind2=false;
 });//each loop
 });//ajax	
 //return hold_ind2;
+	function handover(status){
+			the_return=status;
+	};	
 };//filter_holds1
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 //return hold_ind2;
-	var the_return= function handover(status){
-	return status;
-	}	
+	var the_return; 
+
 	return the_return;
 };//hold_all_sys
 
