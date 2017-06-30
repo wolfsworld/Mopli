@@ -1323,6 +1323,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds1 (code,reqstring,thedate){
+	var hold_ind2;
 //alert('filter_hold1 before ajax');
 var settings = {
 	"async":"false",
@@ -1337,6 +1338,7 @@ var settings = {
 }
 $.ajax(settings).done(function (response) {
 //alert('filter_hold1 after ajax');
+	
 $.each(response.BibSearchRows, function(key, value) {
 overdue=false;									 
 //alert('bibsearchrows:' +value);
