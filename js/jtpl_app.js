@@ -1360,7 +1360,7 @@ hold_ind=false;
 });//ajax	
 return hold_ind;	
 };//filter_holds1
-	alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind);
+	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind);
 return hold_ind;
 };//hold_all_sys
 
