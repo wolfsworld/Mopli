@@ -1317,12 +1317,8 @@ $.ajax({
         error      : function() {
             console.error("error");
             alert('No network connection or server currently not available.');                  
-        }
-	
+        }	
 });
-	
-
-
 	
 //see if #holds>#items in
 //case 9c
@@ -1350,18 +1346,18 @@ var cur_hold_req=value.CurrentHoldRequests;
 
 	
 if(cur_hold_req>sys_items_in){
-hold_ind=true;
+hold_ind2=true;
 }else{
-hold_ind=false;
+hold_ind2=false;
 }
-//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind)2;
 	
 });//each loop
 });//ajax	
-return hold_ind;	
+return hold_ind2;	
 };//filter_holds1
-	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind);
-return hold_ind;
+	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
+return hold_ind2;
 };//hold_all_sys
 
 //case 9 - items out all (list)
