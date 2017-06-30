@@ -1360,6 +1360,7 @@ hold_ind2=false;
 //return hold_ind2;
 	function handover(status){
 			the_return=status;
+		alert(the_return);
 	};	
 };//filter_holds1
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
