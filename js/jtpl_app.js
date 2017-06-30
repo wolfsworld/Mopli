@@ -1358,14 +1358,15 @@ hold_ind2=false;
 });//each loop
 });//ajax	
 //return hold_ind2;
-	function handover(status){
-			the_return=status;
-		alert(the_return);
-	};	
+		
+	//alert(the_return);
 };//filter_holds1
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 //return hold_ind2;
 	var the_return; 
+	function handover(status){
+			the_return=status;
+	};
 
 	return the_return;
 };//hold_all_sys
@@ -1394,7 +1395,7 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 
-setTimeout(drip_outs(response), 1000);
+setTimeout(drip_outs(response), 400);
 	
 function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
