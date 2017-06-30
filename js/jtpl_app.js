@@ -1408,11 +1408,13 @@ bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 }else{
-hold_ind=hold_all_sys(bib_id,bib_bc);	
+//hold_ind=hold_all_sys(bib_id,bib_bc);	
+	var tester=hold_all_sys(bib_id,bib_bc);	
+	alert('tester is: ' + tester);
 }
 
 	
-	alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
+	alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind 'tester: ' +tester);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
