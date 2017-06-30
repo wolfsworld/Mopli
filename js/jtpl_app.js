@@ -1357,9 +1357,8 @@ hold_ind=false;
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
 	
 });//each loop
-	return hold_ind;
 });//ajax	
-	
+return hold_ind;	
 };//filter_holds1
 	alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind);
 return hold_ind;
