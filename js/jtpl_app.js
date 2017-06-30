@@ -1312,7 +1312,7 @@ $.ajax({
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);	
+			var holder=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);	
         },
         error      : function() {
             console.error("error");
@@ -1360,8 +1360,8 @@ var hold_ind=false;
 });//ajax	
 return hold_ind;	
 };//filter_holds1
-	alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
-return hold_ind;
+	//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind);
+return holder;
 };//hold_all_sys
 
 //case 9 - items out all (list)
@@ -1412,7 +1412,7 @@ hold_ind=hold_all_sys(bib_id,bib_bc);
 }
 
 	
-	//alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
+	alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
