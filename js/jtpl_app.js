@@ -1352,27 +1352,27 @@ hold_ind2=true;
 }else{
 hold_ind2=false;
 }
-	handover(hold_ind2);
-//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind)2;
+	//handover(hold_ind2);
+alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
 	
 });//each loop
 });//ajax	
 //return hold_ind2;
 	//var the_return; 
-	function handover(status){
-			handover2(status);
-	};	
+	//function handover(status){
+			//handover2(status);
+	//};	
 	
 };//filter_holds1
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 //return hold_ind2;
-	var the_return; 
-	function handover2(status){
-			the_return=status;
-	};	
-	alert(the_return);
+	//var the_return; 
+	//function handover2(status){
+			//the_return=status;
+	//};	
+	//alert(the_return);
 
-	return the_return;
+	//return the_return;
 };//hold_all_sys
 
 //case 9 - items out all (list)
@@ -1421,11 +1421,11 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc);	
-	alert('tester is: ' + tester);
+	//alert('tester is: ' + tester);
 }
 
 	
-	alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind + 'tester: ' +tester);
+	//alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind + 'tester: ' +tester);
 	//alert('it made it to final query');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
