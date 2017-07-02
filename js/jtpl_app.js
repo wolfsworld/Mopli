@@ -1358,8 +1358,9 @@ hold_ind2=false;
 });//each loop
 });//ajax	
 //return hold_ind2;
-	//var the_return; 
+	
 	function handover(status){
+		var status; 
 			handover2(status);
 	};	
 	
@@ -1367,8 +1368,9 @@ hold_ind2=false;
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 //return hold_ind2;
 	//var the_return; 
-	function handover2(status){
-			the_return=status;
+	function handover2(status2){
+		var status2;
+			var the_return=status2;
 	};	
 	alert(the_return);
 
