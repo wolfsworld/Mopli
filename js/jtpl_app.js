@@ -1352,16 +1352,16 @@ hold_ind2=true;
 }else{
 hold_ind2=false;
 }
-	handover(hold_ind2);
+	handover(hold_ind2, title);
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
 	
 });//each loop
 });//ajax	
 //return hold_ind2;
 	
-	function handover(status){
-		var status; 
-		alert(status);
+	function handover(status2, title2){
+		//var status2; 
+		alert('title2: ' + title2 + 'status2: ' + status2);
 			//handover2(status);
 	};	
 	
