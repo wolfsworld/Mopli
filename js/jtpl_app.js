@@ -1361,18 +1361,19 @@ hold_ind2=false;
 	
 	function handover(status){
 		var status; 
-			handover2(status);
+		alert(status);
+			//handover2(status);
 	};	
 	
 };//filter_holds1
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 //return hold_ind2;
 	//var the_return; 
-	function handover2(status2){
-		var status2;
-			var the_return=status2;
-	};	
-	alert(the_return);
+	//function handover2(status2){
+		//var status2;
+			//var the_return=status2;
+	//};	
+	//alert(the_return);
 
 	//return the_return;
 };//hold_all_sys
