@@ -1371,7 +1371,10 @@ hold_ind2=false;
 //return hold_ind2;
 	//var the_return; 
 	function handover2(status3, title3){
-		alert('title3: ' + title3 + 'status3: ' + status3);
+		var status3; 
+		var title3;
+		return status3;
+		//alert('title3: ' + title3 + 'status3: ' + status3);
 		//var status2;
 			//var the_return=status2;
 	};	
@@ -1426,7 +1429,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc);	
-	//alert('tester is: ' + tester);
+	alert('tester is: ' + tester);
 }
 
 	
