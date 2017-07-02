@@ -1371,8 +1371,8 @@ hold_ind2=false;
 //return hold_ind2;
 	//var the_return; 
 	function handover2(status3, title3){
-		var status3; 
-		var title3;
+		var status3=status3; 
+		//var title3;
 		return status3;
 		//alert('title3: ' + title3 + 'status3: ' + status3);
 		//var status2;
