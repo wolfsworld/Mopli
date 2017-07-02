@@ -1363,14 +1363,14 @@ hold_ind2=false;
 		var status2; 
 		var title2; 
 		//alert('title2: ' + title2 + 'status2: ' + status2);
-			handover2(status2, title2);
+			handover2(status2);
 	};	
 	
 };//filter_holds1
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 //return hold_ind2;
 	//var the_return; 
-	function handover2(status3, title3){
+	function handover2(status3){
 		var status3=status3; 
 		//var title3;
 		return status3;
@@ -1379,7 +1379,7 @@ hold_ind2=false;
 			//var the_return=status2;
 	};	
 	//alert(the_return);
-
+return handover2;
 	//return the_return;
 };//hold_all_sys
 
