@@ -1371,13 +1371,11 @@ hold_ind2=false;
 	///var status4='';
 	function handover2(status3, title3){
 		window.status4=status3; 
-		//var title3;
-		//return status3;
+		window.title3=title3; 
 		//alert('title3: ' + title3 + 'status4: ' + status4);
-		//var status2;
-			//var the_return=status2;
 	};	
 	//alert(the_return);
+	alert('title3: ' + title3 + 'status4: ' + status4);
 return status4;
 	//return the_return;
 };//hold_all_sys
@@ -1406,7 +1404,7 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 
-setTimeout(drip_outs(response), 400);
+setTimeout(drip_outs(response),50);
 	
 function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
