@@ -1323,7 +1323,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds1 (code,reqstring,thedate){
-	var response;
+	var output;
 //alert('filter_hold1 before ajax');
 var settings = {
 	"async":"false",
@@ -1337,12 +1337,12 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-return response;	
+output=response;	
 	//alert(JSON.stringify(response));
 });//ajax	
 	
 	//return getback2;
-	alert(JSON.stringify(response));
+	alert(JSON.stringify(output));
 };//filter_holds1
 	
 	return getback1;
