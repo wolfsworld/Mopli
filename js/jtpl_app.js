@@ -1376,7 +1376,7 @@ hold_ind2=false;
 		//alert('title3: ' + title3 + 'status4: ' + status4);
 	};	
 	//alert(the_return);
-	/alert('title3: ' + title3 + 'status4: ' + status4);
+	//alert('title3: ' + title3 + 'status4: ' + status4);
 return status4;
 	//return the_return;
 };//hold_all_sys
@@ -1405,7 +1405,7 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 
-setTimeout(drip_outs(response),50);
+setTimeout(drip_outs(response),100);
 	
 function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
