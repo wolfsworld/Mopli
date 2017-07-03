@@ -1336,12 +1336,12 @@ var settings = {
     "authorization": ""+code+"" 
   }
 }
-var getback2=$.ajax(settings).done(function (response2) {
-return response2;	
+var getback2=$.ajax(settings).done(function (response) {
+return response;	
 });//ajax	
 	
 	//return getback2;
-	alert(JSON.stringify(response2));
+	alert(JSON.stringify(response));
 };//filter_holds1
 	
 	return getback1;
