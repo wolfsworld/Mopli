@@ -1337,11 +1337,11 @@ var settings = {
   }
 }
 var getback2=$.ajax(settings).done(function (response) {
-return response;	
+//return response;	
 });//ajax	
 	
 	//return getback2;
-	alert(JSON.stringify(response));
+	alert(JSON.stringify(getback2));
 };//filter_holds1
 	
 	return getback1;
