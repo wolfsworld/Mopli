@@ -1370,16 +1370,17 @@ hold_ind2=false;
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 //return hold_ind2;
 	//var the_return; 
+	status4='';
 	function handover2(status3){
-		var status3=status3; 
+		status4=status3; 
 		//var title3;
-		return status3;
+		//return status3;
 		//alert('title3: ' + title3 + 'status3: ' + status3);
 		//var status2;
 			//var the_return=status2;
 	};	
 	//alert(the_return);
-return handover2;
+return status4;
 	//return the_return;
 };//hold_all_sys
 
