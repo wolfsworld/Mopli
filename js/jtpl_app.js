@@ -1370,7 +1370,7 @@ hold_ind2=false;
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 //return hold_ind2;
 	//var the_return; 
-	status4='';
+	//status4='';
 	function handover2(status3){
 		status4=status3; 
 		//var title3;
@@ -1430,7 +1430,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc);	
-	alert('tester is: ' + tester);
+	alert('title is: ' + title + 'status is: ' + tester);
 }
 
 	
