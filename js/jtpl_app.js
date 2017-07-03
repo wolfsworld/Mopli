@@ -1323,7 +1323,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds1 (code,reqstring,thedate){
-	//var hold_ind2;
+	var response;
 //alert('filter_hold1 before ajax');
 var settings = {
 	"async":"false",
@@ -1336,13 +1336,13 @@ var settings = {
     "authorization": ""+code+"" 
   }
 }
-var getback2=$.ajax(settings).done(function (response) {
-//return response;	
-	alert(JSON.stringify(response));
+$.ajax(settings).done(function (response) {
+return response;	
+	//alert(JSON.stringify(response));
 });//ajax	
 	
 	//return getback2;
-	//alert(JSON.stringify(getback2));
+	alert(JSON.stringify(response));
 };//filter_holds1
 	
 	return getback1;
