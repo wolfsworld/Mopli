@@ -1380,7 +1380,7 @@ hold_ind2=false;
 			//var the_return=status2;
 	};	
 	//alert(the_return);
-return status4;
+//return status4;
 	//return the_return;
 };//hold_all_sys
 
@@ -1430,7 +1430,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc);	
-	alert('title is: ' + title + 'status is: ' + tester);
+	//alert('title is: ' + title + 'status is: ' + tester);
 }
 
 	
