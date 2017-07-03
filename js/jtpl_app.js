@@ -1376,7 +1376,7 @@ hold_ind2=false;
 	};	
 	//alert(the_return);
 	alert('title3: ' + title3 + 'status4: ' + status4);
-return status4;
+//return status4;
 	//return the_return;
 };//hold_all_sys
 
@@ -1426,7 +1426,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc);	
-	alert('title is: ' + title + 'tester is: ' + tester);
+	//alert('title is: ' + title + 'tester is: ' + tester);
 }
 
 	
