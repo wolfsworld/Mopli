@@ -1378,7 +1378,7 @@ hold_ind2=false;
 			//var the_return=status2;
 	};	
 	//alert(the_return);
-//return status4;
+return status4;
 	//return the_return;
 };//hold_all_sys
 
