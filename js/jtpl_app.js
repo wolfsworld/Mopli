@@ -1368,12 +1368,12 @@ hold_ind2=false;
 	
 };//filter_holds1
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
-	var status4='';
+	///var status4='';
 	function handover2(status3, title3){
-		status4=status3; 
+		window.status4=status3; 
 		//var title3;
 		//return status3;
-		alert('title3: ' + title3 + 'status4: ' + status4);
+		//alert('title3: ' + title3 + 'status4: ' + status4);
 		//var status2;
 			//var the_return=status2;
 	};	
@@ -1428,7 +1428,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc);	
-	//alert('tester is: ' + tester);
+	alert('title is: ' + title + 'tester is: ' + tester);
 }
 
 	
