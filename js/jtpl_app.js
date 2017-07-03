@@ -1337,54 +1337,13 @@ var settings = {
   }
 }
 var getback2=$.ajax(settings).done(function (response) {
-//alert('filter_hold1 after ajax');
-
 return response;	
-	
-	
-/*$.each(response.BibSearchRows, function(key, value) {
-overdue=false;									 
-//alert('bibsearchrows:' +value);
-var title=value.Title;
-var sys_items_in=value.SystemItemsIn;
-var cur_hold_req=value.CurrentHoldRequests;
-
-	
-if(cur_hold_req>sys_items_in){
-hold_ind2=true;
-}else{
-hold_ind2=false;
-}
-
-//creaet an array of 
-	
-	handover(hold_ind2, title);
-//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
-	
-});//each loop*/
-//return response;
 });//ajax	
-//return hold_ind2;
 	
-	//function handover(status2, title2){
-		//var status2; 
-		//var title2; 
-		//alert('title2: ' + title2 + 'status2: ' + status2);
-			//handover2(status2, title2);
-	//};	
-	return getback2;
+	//return getback2;
+	alert(JSON.stringify(getback2));
 };//filter_holds1
-	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
-	///var status4='';
-	//function handover2(status3, title3){
-		//window.status4=status3; 
-		//window.title3=title3; 
-		//return status4;
-		//alert('title3: ' + title3 + 'status4: ' + status4);
-	//};	
-	//alert(the_return);
-	//alert('title3: ' + title3 + 'status4: ' + status4);
-//return handover2;
+	
 	return getback1;
 };//hold_all_sys
 
