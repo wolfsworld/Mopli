@@ -1375,7 +1375,7 @@ hold_ind2=false;
 		status4=status3; 
 		//var title3;
 		//return status3;
-		//alert('title3: ' + title3 + 'status3: ' + status3);
+		alert('title3: ' + title3 + 'status4: ' + status4);
 		//var status2;
 			//var the_return=status2;
 	};	
