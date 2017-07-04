@@ -1297,12 +1297,12 @@ function hold_all_sys(bib_id, bib_bc){
 		var thedate=(new Date()).toUTCString();
 		p_method="GET";
 		p_pwd ='';
-		return $.ajax({
+		return $.ajax(
 				type: "POST",
 				url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
 				//async: false,
 				crossDomain: true,
-				data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}.then (function (result){
+				data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}).then (function (result){
 					if (result){
 						var code=result;
 						var settings = {
@@ -1326,7 +1326,7 @@ function hold_all_sys(bib_id, bib_bc){
 						alert('outer ajax failed')
 					};//if result 1
 				});
-		});
+		//});
 };
 	
 //see if #holds>#items in
