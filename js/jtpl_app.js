@@ -1319,7 +1319,7 @@ function hold_all_sys(bib_id, bib_bc){
 							"authorization": ""+code+"" 
 						}
 						}
-							return $.ajax(settings).then(function(result2){
+							return $.ajax(settings).done(function(result2){
 								if(result2){
 									return result2;
 									alert(JSON.stringify(result2));
@@ -1328,7 +1328,7 @@ function hold_all_sys(bib_id, bib_bc){
 								}
 							});
 					}else{
-						alert('outer ajax failed')
+						alert('outer ajax failed');
 					};//if result 1
 				});
 		//});
