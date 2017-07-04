@@ -1297,12 +1297,15 @@ function hold_all_sys(bib_id, bib_bc){
 		var thedate=(new Date()).toUTCString();
 		p_method="GET";
 		p_pwd ='';
-		return $.ajax(
-				type: "POST",
-				url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-				//async: false,
-				crossDomain: true,
-				data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}).then (function (result){
+		var settings0={
+						"content-type": "application/json",
+						"dataType": "json",
+						"crossDomain": "true",
+						"url": "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+						"type": "POST",
+						"data": {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
+						}
+		return $.ajax(settings0).then (function (result){
 					if (result){
 						var code=result;
 						var settings = {
