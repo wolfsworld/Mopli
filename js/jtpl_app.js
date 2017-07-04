@@ -1305,7 +1305,7 @@ function hold_all_sys(bib_id, bib_bc){
 						"type": "POST",
 						"data": {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
 						}
-		return $.ajax(settings0).then (function (result){
+		return $.ajax(settings0).done (function (result){
 					if (result){
 						var code=result;
 						alert('code:' + code);
