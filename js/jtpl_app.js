@@ -1288,65 +1288,66 @@ $( "#loginresponse" ).append(my_holds);
 });//end ajax 
 };//end getholds function
 
-//CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE (to be added)/////////////
-//////////////////////////////////////////////////////////////////////////
+//CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE (to be added)///////////////////////////////////////////////////////////////////////////////////////
+
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc){
-//alert('hold_all_sys1');
-var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
-var thedate=(new Date()).toUTCString();
-
-p_method="GET";
-p_pwd ='';
-
-$.ajax({
-        type: "POST",
-		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        async: false,
-		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
-		error: function(jqXHR,text_status,strError){
-			alert("no connection");},
-        success : function(response) {
-			var code=response;
-			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			var getback1=filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);	
-        },
-        error      : function() {
-            console.error("error");
-            alert('No network connection or server currently not available.');                  
-        }	
-});
+		var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+		var thedate=(new Date()).toUTCString();
+		p_method="GET";
+		p_pwd ='';
+		return $.ajax({
+				type: "POST",
+				url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+				//async: false,
+				crossDomain: true,
+				data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}.then (function (result){
+					if (result){
+						var code=result;
+						var settings = {
+						"content-type": "application/json",
+						"dataType": "json",
+						"url": ""+reqstring+"",
+						"type": "GET",
+						"headers": {
+							"polarisdate": ""+thedate+"",
+							"authorization": ""+code+"" 
+						}
+						}
+							return $.ajax(settings).then(function(result2){
+								if(result2){
+									return result2;	
+								}else{
+									alert('inner ajax failed');
+								}
+							});
+					}else{
+						alert('outer ajax failed')
+					};//if result 1
+				});
+		});
+};
 	
 //see if #holds>#items in
 //case 9c
-function filter_holds1 (code,reqstring,thedate){
-	var output;
-//alert('filter_hold1 before ajax');
+/*function filter_holds1 (code,reqstring,thedate){
 var settings = {
-	"async":"false",
-"content-type": "application/json",
-	"dataType": "json",
-  "url": ""+reqstring+"",
-  "type": "GET",
-  "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
-  }
+		"content-type": "application/json",
+			"dataType": "json",
+		  "url": ""+reqstring+"",
+		  "type": "GET",
+		  "headers": {
+			"polarisdate": ""+thedate+"",
+			"authorization": ""+code+"" 
+		  }
+		}
+return $.ajax(settings);
 }
-$.ajax(settings).done(function (response) {
-output=response;	
-	//alert(JSON.stringify(response));
-});//ajax	
-	
-	//return getback2;
-	alert(JSON.stringify(output));
-};//filter_holds1
-	
-	return getback1;
-};//hold_all_sys
+	*/
+
+
+
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
