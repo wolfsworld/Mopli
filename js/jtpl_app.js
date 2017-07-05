@@ -1307,7 +1307,7 @@ function hold_all_sys(bib_id, bib_bc){
 						"type": "POST",
 						"data": {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
 						}
-		$.ajax(settings0).done (function (result){
+		$.ajax(settings0).then (function (result){
 					if (result){
 						var code=result;
 						//alert('code:' + code);
@@ -1321,7 +1321,7 @@ function hold_all_sys(bib_id, bib_bc){
 							"authorization": ""+code+"" 
 						}
 						}
-							$.ajax(settings).done(function(result2){
+							$.ajax(settings).then (function(result2){
 								if(result2){
 									the_return.resolve();
 									//alert(JSON.stringify(result2));
