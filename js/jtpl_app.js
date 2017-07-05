@@ -1293,7 +1293,6 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc){
-	var the_return=$.Deferred();
 		
 	var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 		var thedate=(new Date()).toUTCString();
@@ -1307,7 +1306,7 @@ function hold_all_sys(bib_id, bib_bc){
 						"type": "POST",
 						"data": {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
 						}
-		$.ajax(settings0).then (function (result){
+		var a1= $.ajax(settings0).done (function (result){
 					if (result){
 						var code=result;
 						//alert('code:' + code);
@@ -1321,9 +1320,9 @@ function hold_all_sys(bib_id, bib_bc){
 							"authorization": ""+code+"" 
 						}
 						}
-							$.ajax(settings).then (function(result2){
+							var a2= a1 .then $.ajax(settings).done (function(result2){
 								if(result2){
-									the_return.resolve();
+									var result2=result2;//the_return.resolve();
 									//alert(JSON.stringify(result2));
 								}else{
 									alert('inner ajax failed');
@@ -1334,7 +1333,9 @@ function hold_all_sys(bib_id, bib_bc){
 					};//if result 1
 				});
 		//});
-return the_return.promise();
+$.when a1 .then a2 . done (function (result2){
+	alert(JSON.stringify(result2))
+});
 };
 	
 //see if #holds>#items in
@@ -1403,7 +1404,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc);	
-	alert(JSON.stringify(tester));
+	//alert(JSON.stringify(tester));
 	//alert('title is: ' + title + 'tester is: ' + tester);
 }
 
