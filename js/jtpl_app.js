@@ -1293,7 +1293,9 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc){
-		var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+	var the_return=$.Deferred();
+		
+	var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 		var thedate=(new Date()).toUTCString();
 		p_method="GET";
 		p_pwd ='';
@@ -1305,7 +1307,7 @@ function hold_all_sys(bib_id, bib_bc){
 						"type": "POST",
 						"data": {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
 						}
-		return $.ajax(settings0).done (function (result){
+		$.ajax(settings0).done (function (result){
 					if (result){
 						var code=result;
 						alert('code:' + code);
@@ -1319,10 +1321,10 @@ function hold_all_sys(bib_id, bib_bc){
 							"authorization": ""+code+"" 
 						}
 						}
-							return $.ajax(settings).done(function(result2){
+							$.ajax(settings).done(function(result2){
 								if(result2){
-									return result2;
-									alert(JSON.stringify(result2));
+									return the_return.promise();
+									//alert(JSON.stringify(result2));
 								}else{
 									alert('inner ajax failed');
 								}
@@ -1332,6 +1334,7 @@ function hold_all_sys(bib_id, bib_bc){
 					};//if result 1
 				});
 		//});
+return the_return.promise();
 };
 	
 //see if #holds>#items in
