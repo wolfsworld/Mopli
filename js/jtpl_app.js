@@ -1333,8 +1333,8 @@ function hold_all_sys(bib_id, bib_bc){
 					};//if result 1
 				});
 		//});
-$.when a1 .then a2 . done (function (result2){
-	alert(JSON.stringify(result2))
+$.when a1 .then a2 .done (function (result2){
+	alert(JSON.stringify(result2));
 });
 };
 	
