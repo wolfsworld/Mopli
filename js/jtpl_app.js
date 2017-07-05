@@ -1323,6 +1323,7 @@ function hold_all_sys(bib_id, bib_bc){
 							var a2= a1 .then $.ajax(settings).done (function(result2){
 								if(result2){
 									var result2=result2;//the_return.resolve();
+									return result2;
 									//alert(JSON.stringify(result2));
 								}else{
 									alert('inner ajax failed');
