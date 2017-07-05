@@ -1310,7 +1310,7 @@ function hold_all_sys(bib_id, bib_bc){
 		$.ajax(settings0).done (function (result){
 					if (result){
 						var code=result;
-						alert('code:' + code);
+						//alert('code:' + code);
 						var settings = {
 						"content-type": "application/json",
 						"dataType": "json",
@@ -1323,7 +1323,7 @@ function hold_all_sys(bib_id, bib_bc){
 						}
 							$.ajax(settings).done(function(result2){
 								if(result2){
-									return the_return.promise();
+									the_return.resolve();
 									//alert(JSON.stringify(result2));
 								}else{
 									alert('inner ajax failed');
