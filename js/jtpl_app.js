@@ -1306,7 +1306,7 @@ function hold_all_sys(bib_id, bib_bc){
 						"type": "POST",
 						"data": {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
 						}
-		var a1= $.ajax(settings0).done (function (result){
+		$.ajax(settings0).done (function (result){
 					if (result){
 						var code=result;
 						//alert('code:' + code);
@@ -1319,23 +1319,13 @@ function hold_all_sys(bib_id, bib_bc){
 							"polarisdate": ""+thedate+"",
 							"authorization": ""+code+"" 
 						}
-						}
-							var a2= a1 .then $.ajax(settings).done (function(result2){
-								if(result2){
-									var result2=result2;//the_return.resolve();
-									return result2;
+						}	 
+								 $.ajax(settings).done(function(result2){
 									//alert(JSON.stringify(result2));
-								}else{
-									alert('inner ajax failed');
-								}
-							});
-					}else{
-						alert('outer ajax failed');
-					};//if result 1
+								callback(result2);
+									
 				});
-		//});
-$.when a1 .then a2 .done (function (result2){
-	alert(JSON.stringify(result2));
+};
 });
 };
 	
@@ -1404,9 +1394,9 @@ if(RENLEFT<=0){
 hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
-	var tester=hold_all_sys(bib_id,bib_bc);	
+	var tester=hold_all_sys(bib_id,bib_bc, callback(stat));	
 	//alert(JSON.stringify(tester));
-	//alert('title is: ' + title + 'tester is: ' + tester);
+	alert('title is: ' + title + 'tester is: ' + tester);
 }
 
 	
