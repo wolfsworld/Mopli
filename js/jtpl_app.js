@@ -1394,9 +1394,9 @@ if(RENLEFT<=0){
 hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
-	var tester=hold_all_sys(bib_id,bib_bc, callback(stat));	
+	var tester=hold_all_sys(bib_id,bib_bc);	
 	//alert(JSON.stringify(tester));
-	alert('title is: ' + title + 'tester is: ' + tester);
+	//alert('title is: ' + title + 'tester is: ' + tester);
 }
 
 	
