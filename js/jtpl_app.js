@@ -1321,8 +1321,8 @@ function hold_all_sys(bib_id, bib_bc){
 						}
 						}	 
 								 $.ajax(settings).done(function(result2){
-									//alert(JSON.stringify(result2));
-								callback(result2);
+									alert(JSON.stringify(result2));
+								//callback(result2);
 									
 				});
 };
