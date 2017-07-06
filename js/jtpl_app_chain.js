@@ -1288,97 +1288,66 @@ $( "#loginresponse" ).append(my_holds);
 });//end ajax 
 };//end getholds function
 
-//CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE (to be added)/////////////
-//////////////////////////////////////////////////////////////////////////
+//CHECK IF INDIVIDUAL COPY IS ON HOLD SOMEWHERE (to be added)///////////////////////////////////////////////////////////////////////////////////////
+
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc){
-//alert('hold_all_sys1');
-var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
-var thedate=(new Date()).toUTCString();
-
-p_method="GET";
-p_pwd ='';
-
-$.ajax({
-        type: "POST",
-		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        async: false,
-		crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
-		error: function(jqXHR,text_status,strError){
-			alert("no connection");},
-        success : function(response) {
-			var code=response;
-			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate);	
-        },
-        error      : function() {
-            console.error("error");
-            alert('No network connection or server currently not available.');                  
-        }	
+		
+	var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+		var thedate=(new Date()).toUTCString();
+		p_method="GET";
+		p_pwd ='';
+		var settings0={
+						"content-type": "application/json",
+						"dataType": "json",
+						"crossDomain": "true",
+						"url": "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+						"type": "POST",
+						"data": {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
+						}
+		$.ajax(settings0).done (function (result){
+					if (result){
+						var code=result;
+						//alert('code:' + code);
+						var settings = {
+						"content-type": "application/json",
+						"dataType": "json",
+						"url": ""+reqstring+"",
+						"type": "GET",
+						"headers": {
+							"polarisdate": ""+thedate+"",
+							"authorization": ""+code+"" 
+						}
+						}	 
+								 $.ajax(settings).done(function(result2){
+									alert(JSON.stringify(result2));
+								//callback(result2);
+									
+				});
+};
 });
+};
 	
 //see if #holds>#items in
 //case 9c
-function filter_holds1 (code,reqstring,thedate){
-	//var hold_ind2;
-//alert('filter_hold1 before ajax');
+/*function filter_holds1 (code,reqstring,thedate){
 var settings = {
-	"async":"false",
-"content-type": "application/json",
-	"dataType": "json",
-  "url": ""+reqstring+"",
-  "type": "GET",
-  "headers": {
-    "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
-  }
+		"content-type": "application/json",
+			"dataType": "json",
+		  "url": ""+reqstring+"",
+		  "type": "GET",
+		  "headers": {
+			"polarisdate": ""+thedate+"",
+			"authorization": ""+code+"" 
+		  }
+		}
+return $.ajax(settings);
 }
-$.ajax(settings).done(function (response) {
-//alert('filter_hold1 after ajax');
-	
-$.each(response.BibSearchRows, function(key, value) {
-overdue=false;									 
-//alert('bibsearchrows:' +value);
-var title=value.Title;
-var sys_items_in=value.SystemItemsIn;
-var cur_hold_req=value.CurrentHoldRequests;
+	*/
 
-	
-if(cur_hold_req>sys_items_in){
-hold_ind2=true;
-}else{
-hold_ind2=false;
-}
-	handover(hold_ind2, title);
-//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
-	
-});//each loop
-});//ajax	
-//return hold_ind2;
-	
-	function handover(status2, title2){
-		var status2; 
-		var title2; 
-		//alert('title2: ' + title2 + 'status2: ' + status2);
-			handover2(status2, title2);
-	};	
-	
-};//filter_holds1
-	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
-	///var status4='';
-	function handover2(status3, title3){
-		window.status4=status3; 
-		window.title3=title3; 
-		alert('title3: ' + title3 + 'status4: ' + status4);
-	};	
-	//alert(the_return);
-	//alert('title3: ' + title3 + 'status4: ' + status4);
-//return status4;
-	//return the_return;
-};//hold_all_sys
+
+
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
@@ -1404,7 +1373,7 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 
-setTimeout(drip_outs(response),50);
+setTimeout(drip_outs(response),100);
 	
 function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
@@ -1426,6 +1395,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc);	
+	//alert(JSON.stringify(tester));
 	//alert('title is: ' + title + 'tester is: ' + tester);
 }
 
