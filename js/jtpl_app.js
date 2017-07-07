@@ -1353,7 +1353,7 @@ hold_ind2=true;
 hold_ind2=false;
 }
 	handover(hold_ind2, title);
-//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
+alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
 	
 });//each loop
 });//ajax	
@@ -1362,7 +1362,7 @@ hold_ind2=false;
 	function handover(status2, title2){
 		var status2; 
 		var title2; 
-		//alert('title2: ' + title2 + 'status2: ' + status2);
+		alert('title2: ' + title2 + 'status2: ' + status2);
 			handover2(status2, title2);
 	};	
 	
@@ -1370,8 +1370,8 @@ hold_ind2=false;
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 	///var status4='';
 	function handover2(status3, title3){
-		window.status4=status3; 
-		window.title3=title3; 
+		status4=status3; 
+		title3=title3; 
 		alert('title3: ' + title3 + 'status4: ' + status4);
 
 	};	
