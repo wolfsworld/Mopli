@@ -1372,12 +1372,8 @@ hold_ind2=false;
 	function handover2(status3, title3){
 		window.status4=status3; 
 		window.title3=title3; 
-		//alert('title3: ' + title3 + 'status4: ' + status4);
-		if(status4==false){
-			callback(false);
-		}else{
-			callback(true);
-		}
+		alert('title3: ' + title3 + 'status4: ' + status4);
+
 	};	
 	//alert(the_return);
 	//alert('title3: ' + title3 + 'status4: ' + status4);
@@ -1431,7 +1427,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	var tester=hold_all_sys(bib_id,bib_bc,callback);	
-	alert('title is: ' + title + 'tester is: ' + tester);
+	//alert('title is: ' + title + 'tester is: ' + tester);
 }
 
 	
