@@ -1305,8 +1305,8 @@ function a(bib_id, bib_bc){
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
         success : function(response) {
 			alert('response a :'+response);
-		//return {val1: reqstring, val2: thedate, val3: code};
-		return ""+reqstring+","+thedate+","+response+"";
+		return {val1: reqstring, val2: thedate, val3: code};
+		//return ""+reqstring+","+thedate+","+response+"";
 		},
         error: function() {
             alert('not working ajax a');                  
@@ -1317,7 +1317,9 @@ function a(bib_id, bib_bc){
 
 };//end function a
 	
-	function b(reqstring,thedate,code){
+	function b(data){
+		var doit=JSON.stringify(data);
+		alert('in b :'+doit);
 	var reqstring2=reqstring;
 	var thedate2=thedate;
 	var code2=code;
