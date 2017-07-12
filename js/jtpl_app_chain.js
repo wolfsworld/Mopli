@@ -1298,7 +1298,7 @@ function a(bib_id, bib_bc){
 		p_method="GET";
 		p_pwd ='';	
 /////////////////////////////////
-	return $.when($.ajax({
+	return $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: "true",
@@ -1312,7 +1312,6 @@ function a(bib_id, bib_bc){
             alert('not working ajax a');                  
         }
 });	
-				  );
 		
 
 
@@ -1325,7 +1324,7 @@ function a(bib_id, bib_bc){
 	var thedate2=thedate;
 	var code2=code;
 		
-		return $.when($.ajax({
+		return $.ajax({
         type: "GET",
 		dataType: "json",
 		contentType:"application/json",
@@ -1343,8 +1342,7 @@ function a(bib_id, bib_bc){
         error: function() {
             alert('not working ajax b');                  
         }
-});
-					  );
+});	
 };
 
 function c(thedata){
@@ -1400,8 +1398,8 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	//var tester=//chain of ajax
-var tester= a(bib_id,bib_bc).then (b).then (c);	
-	alert('tester: '+tester);
+var tester= a(bib_id,bib_bc);
+	alert('tester: '+JSON.stringify(tester));
 	//hold_all_sys(bib_id,bib_bc);	
 	//alert(JSON.stringify(tester));
 	//alert('title is: ' + title + 'tester is: ' + tester);
