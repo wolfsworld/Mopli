@@ -1396,7 +1396,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	//var tester=//chain of ajax
-var tester= $.when A(bib_id,bib_bc).then(B).then(C);	
+var tester= A(bib_id,bib_bc).then(B).then(C);	
 	alert('tester: '+tester);
 	//hold_all_sys(bib_id,bib_bc);	
 	//alert(JSON.stringify(tester));
