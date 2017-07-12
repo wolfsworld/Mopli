@@ -1292,63 +1292,60 @@ $( "#loginresponse" ).append(my_holds);
 
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
-function hold_all_sys(bib_id, bib_bc){
-		
-	var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+function a(bib_id, bib_bc){		
+		var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 		var thedate=(new Date()).toUTCString();
 		p_method="GET";
-		p_pwd ='';
-		var settings0={
-						"content-type": "application/json",
-						"dataType": "json",
-						"crossDomain": "true",
-						"url": "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-						"type": "POST",
-						"data": {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""}
-						}
-		$.ajax(settings0).done (function (result){
-					if (result){
-						var code=result;
-						//alert('code:' + code);
-						var settings = {
-						"content-type": "application/json",
-						"dataType": "json",
-						"url": ""+reqstring+"",
-						"type": "GET",
-						"headers": {
-							"polarisdate": ""+thedate+"",
-							"authorization": ""+code+"" 
-						}
-						}	 
-								 $.ajax(settings).done(function(result2){
-									alert(JSON.stringify(result2));
-								//callback(result2);
-									
-				});
-};
-});
-};
+		p_pwd ='';	
+/////////////////////////////////
+	return $.ajax({
+        type: "POST",
+		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+        crossDomain: "true",
+        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
+        success : function(response) {
+		//return {val1: reqstring, val2: thedate, val3: code};
+		return ""+reqstring+","+thedate+","+response+"";
+		},
+        error: function() {
+            alert('not working ajax a');                  
+        }
+});	
+		
+
+
+};//end function a
 	
-//see if #holds>#items in
-//case 9c
-/*function filter_holds1 (code,reqstring,thedate){
-var settings = {
-		"content-type": "application/json",
-			"dataType": "json",
-		  "url": ""+reqstring+"",
-		  "type": "GET",
-		  "headers": {
-			"polarisdate": ""+thedate+"",
-			"authorization": ""+code+"" 
-		  }
-		}
-return $.ajax(settings);
+	function b(reqstring,thedate,code){
+	var reqstring2=reqstring;
+	var thedate2=thedate;
+	var code2=code;
+		
+		return $.ajax({
+        type: "GET",
+		dataType: "json",
+		contentType:"application/json",
+		url: ""+reqstring2+"",
+        crossDomain: "true",
+        headers: {
+			"polarisdate": ""+thedate2+"",
+			"authorization": ""+code2+"" 
+		},
+        success : function(response) {
+		//return {val1: reqstring, val2: thedate, val3: code};
+		return response;
+		},
+        error: function() {
+            alert('not working ajax b');                  
+        }
+});	
+};
+
+function c(thedata){
+	var thereturn=JSON.stringify(thedata);
+	return thereturn;
 }
-	*/
-
-
-
-
+	
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
@@ -1394,7 +1391,10 @@ if(RENLEFT<=0){
 hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
-	var tester=hold_all_sys(bib_id,bib_bc);	
+	//var tester=//chain of ajax
+var tester= A(bib_id,bib_bc).then(B).then(C);	
+	alert('tester: '+tester);
+	//hold_all_sys(bib_id,bib_bc);	
 	//alert(JSON.stringify(tester));
 	//alert('title is: ' + title + 'tester is: ' + tester);
 }

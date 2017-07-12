@@ -1373,8 +1373,10 @@ hold_ind2=false;
 		status4=status3; 
 		title3=title3; 
 		//alert('title3: ' + title3 + 'status4: ' + status4);
-		callback (status4);
+		//callback (status4);
+		return status4;
 	};	
+	
 	//alert(the_return);
 	//alert('title3: ' + title3 + 'status4: ' + status4);
 //return status4;
@@ -1426,10 +1428,10 @@ if(RENLEFT<=0){
 hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
-	var callback=$.callback();
+	//var callback=$.callback();
 	var tester=hold_all_sys(bib_id,bib_bc);	
 	//alert('title is: ' + title + 'tester is: ' + tester);
-	alert('callback is: ' + callback);
+	//alert('callback is: ' + callback);
 }
 
 	
