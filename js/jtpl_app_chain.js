@@ -1304,6 +1304,7 @@ function a(bib_id, bib_bc){
         crossDomain: "true",
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
         success : function(response) {
+			alert('response a :'+response);
 		//return {val1: reqstring, val2: thedate, val3: code};
 		return ""+reqstring+","+thedate+","+response+"";
 		},
@@ -1332,6 +1333,7 @@ function a(bib_id, bib_bc){
 			"authorization": ""+code2+"" 
 		},
         success : function(response) {
+			alert('response b :'+response);
 		//return {val1: reqstring, val2: thedate, val3: code};
 		return response;
 		},
@@ -1342,7 +1344,9 @@ function a(bib_id, bib_bc){
 };
 
 function c(thedata){
+	
 	var thereturn=JSON.stringify(thedata);
+	alert('response c :'+thereturn);
 	return thereturn;
 }
 	
@@ -1392,7 +1396,7 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	//var tester=//chain of ajax
-var tester= A(bib_id,bib_bc).then(B).then(C);	
+var tester= $.when A(bib_id,bib_bc).then(B).then(C);	
 	alert('tester: '+tester);
 	//hold_all_sys(bib_id,bib_bc);	
 	//alert(JSON.stringify(tester));
