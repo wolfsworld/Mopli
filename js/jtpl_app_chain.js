@@ -1399,8 +1399,12 @@ hold_ind=true;
 }else{
 //hold_ind=hold_all_sys(bib_id,bib_bc);	
 	//var tester=//chain of ajax
-var tester= a(bib_id,bib_bc).then(b);
-	alert('tester: '+JSON.stringify(tester));
+var tester= a(bib_id,bib_bc);
+		var reqstring2=tester.val1;
+	var thedate2=tester.val2;
+	var code2=tester.val3;
+		alert('in main :'+code2);
+	//alert('tester: '+JSON.stringify(tester));
 	//hold_all_sys(bib_id,bib_bc);	
 	//alert(JSON.stringify(tester));
 	//alert('title is: ' + title + 'tester is: ' + tester);
