@@ -1304,8 +1304,9 @@ function a(bib_id, bib_bc){
         crossDomain: "true",
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
         success : function(response) {
-			alert(""+reqstring+","+thedate+","+response+"");
-		//return {val1: reqstring, val2: thedate, val3: code};
+			//alert(""+reqstring+","+thedate+","+response+"");
+		var thefirst= {val1: ""+reqstring+"", val2: ""+thedate+"", val3: ""+code+""};
+			return thefirst;
 		//return ""+reqstring+","+thedate+","+response+"";
 		},
         error: function() {
@@ -1317,13 +1318,13 @@ function a(bib_id, bib_bc){
 
 };//end function a
 	
-	function b(reqstring, thedate, code){
+	function b(thefirst){
 		//var doit=JSON.stringify(datafroma);
-		alert('in b :'+code);
-	var reqstring2=reqstring;
-	var thedate2=thedate;
-	var code2=code;
 		
+	var reqstring2=thefirst.val1;
+	var thedate2=thefirst.val2;
+	var code2=thefirst.val3;
+		alert('in b :'+code2);
 		return $.ajax({
         type: "GET",
 		dataType: "json",
