@@ -1306,7 +1306,7 @@ function a(bib_id, bib_bc){
         success : function(response) {
 			alert(""+reqstring+","+thedate+","+response+"");
 		//return {val1: reqstring, val2: thedate, val3: code};
-		return ""+reqstring+","+thedate+","+response+"";
+		//return ""+reqstring+","+thedate+","+response+"";
 		},
         error: function() {
             alert('not working ajax a');                  
