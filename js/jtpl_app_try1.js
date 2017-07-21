@@ -1351,14 +1351,14 @@ $.ajax(settings).done(function (response) {
 		}else{
 		var hold_ind2=false;
 		}
-	
-});//each loop	
-});//ajax	
-	//push into global array with bib_id and hold inidcator	
+		//push into global array with bib_id and hold inidcator	
 	alert('this is bid_id :'+bib_id+' and '+ hold_ind2);
 	if(hold_ind2==true){
 	thetally.push(bib_id);
 	}
+});//each loop	
+});//ajax	
+
 };//filter_holds1
 
 	
