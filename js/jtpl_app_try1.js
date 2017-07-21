@@ -1328,7 +1328,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds (code,reqstring,thedate,bib_id){
-//alert('filter_hold1 before ajax');
+alert('filter_hold1 before ajax');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -1366,7 +1366,7 @@ $.ajax(settings).done(function (response) {
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
-//alert('items out all started 1357');
+alert('items out all started 1357');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -1395,6 +1395,7 @@ var list_est='';
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 	bib_id=value.BibID;
 	hold_all_sys(bib_id);
+	alert(bib_id);
 });
 setTimeout(listresponse,1000,response.PatronItemsOutGetRows);
 }
