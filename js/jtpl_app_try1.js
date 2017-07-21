@@ -1293,7 +1293,7 @@ $( "#loginresponse" ).append(my_holds);
 //////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
-function hold_all_sys(bib_id, bib_bc){
+function hold_all_sys(bib_id){
 //alert('hold_all_sys1');
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
@@ -1312,7 +1312,7 @@ $.ajax({
         success : function(response) {
 			//var code=response;
 			//p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			filter_holds(p_response.code,p_response.reqstring,p_response.thedate);
+			filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_id);
 			//return (p_response.code,p_response.reqstring,p_response.thedate);
 			//first_call=true;
         },
@@ -1327,7 +1327,7 @@ $.ajax({
 	
 //see if #holds>#items in
 //case 9c
-function filter_holds1 (code,reqstring,thedate,bib_id){
+function filter_holds (code,reqstring,thedate,bib_id){
 //alert('filter_hold1 before ajax');
 var settings = {
 "content-type": "application/json",
@@ -1391,7 +1391,7 @@ $( "#borrowed" ).empty();
 var my_outs='';
 var list_est='';
 
-	var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
+	//var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 	bib_id=value.BibID;
 	hold_all_sys(bib_id);
