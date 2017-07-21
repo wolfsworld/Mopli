@@ -1366,7 +1366,7 @@ $.ajax(settings).done(function (response) {
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
-alert('items out all started 1357');
+//alert('items out all started 1357');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -1390,23 +1390,24 @@ function go_through_list(response){
 $( "#borrowed" ).empty();
 var my_outs='';
 var list_est='';
-
+var listofbooks=response.PatronItemsOutGetRows;
 	//var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 	bib_id=value.BibID;
 	hold_all_sys(bib_id);
-	alert(bib_id);
+	//alert(bib_id);
 });
-setTimeout(listresponse,1000,response.PatronItemsOutGetRows);
+setTimeout(listresponse,1000,listofbooks);
 }
 
 function listresponse(){
+	alert(listofbooks);
 $( "#borrowed" ).empty();
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
-	$.each(response.PatronItemsOutGetRows, function(key, value) {
+	$.each(listofbooks, function(key, value) {
 
 var hold_ind=false;
 media=value.FormatID;
