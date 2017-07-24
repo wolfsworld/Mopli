@@ -1362,8 +1362,9 @@ function check_on_holds(response){
 	//if(hold_ind2==true){
 	//thetally.push(cont_no);
 	//}
+			alert('cont_no :'+cont_no+ ' hold: '+hold_ind2);
 });//each loop	
-	alert('cont_no :'+cont_no+ ' hold: '+hold_ind2);
+	
 	
 };
 
