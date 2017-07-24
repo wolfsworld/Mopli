@@ -1352,7 +1352,7 @@ $.ajax(settings).done(function (response) {
 		hold_ind2=true;
 		}
 		//push into global array with bib_id and hold inidcator	
-	alert('this is bid_id :'+bib_id+' and '+ hold_ind2);
+	alert('this is bid_id :');
 	if(hold_ind2==true){
 	thetally.push(bib_id);
 	}
@@ -1393,6 +1393,8 @@ var list_est='';
 var listofbooks=response.PatronItemsOutGetRows;
 	//var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 $.each(response.PatronItemsOutGetRows, function(key, value) {
+	bib_bc=value.Barcode;
+	alert(bib_bc);
 	bib_id=value.BibID;
 	hold_all_sys(bib_id);
 	//alert(bib_id);
