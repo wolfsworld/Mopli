@@ -1347,9 +1347,10 @@ $.ajax(settings).done(function (response2) {
 	
 function check_on_holds(response2){	
 	var hold_ind2=false;
+	alert('gupppy');
 		$.each(response2.BibSearchRows, function(key, value) {
 		overdue=false;									 
-alert('gupppy');
+
 			var sys_items_in=value.SystemItemsIn;
 			var cur_hold_req=value.CurrentHoldRequests;
 			var cont_no=value.ControlNumber;
