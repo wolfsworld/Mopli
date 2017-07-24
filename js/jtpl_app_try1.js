@@ -1328,7 +1328,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds (code,reqstring,thedate,bib_id){
-alert('filter_hold1 before ajax');
+//alert('filter_hold1 before ajax');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -1340,6 +1340,7 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
+	alert('ajax done');
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
 
