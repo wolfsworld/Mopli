@@ -1337,11 +1337,11 @@ var settings = {
   "headers": {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"",
-	  "content-type": "application/json",
+	  "content-type": "application/json"
   }
 }
 $.ajax(settings).done(function (response2) {
-	//alert(JSON.stringify(response));
+	alert(JSON.stringify(response2));
 	check_on_holds (response2);
 	});//ajax
 };//filter_holds1
