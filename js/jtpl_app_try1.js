@@ -1328,7 +1328,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds (code,reqstring,thedate,bib_id){
-//alert('filter_hold1 before ajax');
+alert(bib_id);
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -1347,14 +1347,15 @@ $.ajax(settings).done(function (response) {
 
 			var sys_items_in=value.SystemItemsIn;
 			var cur_hold_req=value.CurrentHoldRequests;
+			var cont_no=value.ControlNumber;
 
 		if(cur_hold_req>=sys_items_in){
 		hold_ind2=true;
 		}
 		//push into global array with bib_id and hold inidcator	
-	alert('this is bid_id :');
+	alert('this is cont_no :'+cont_no);
 	if(hold_ind2==true){
-	thetally.push(bib_id);
+	thetally.push(cont_no);
 	}
 });//each loop	
 });//ajax	
@@ -1394,7 +1395,7 @@ var listofbooks=response.PatronItemsOutGetRows;
 	//var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 	bib_bc=value.Barcode;
-	alert(bib_bc);
+	//alert(bib_bc);
 	bib_id=value.BibID;
 	hold_all_sys(bib_id);
 	//alert(bib_id);
