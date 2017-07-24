@@ -1343,6 +1343,7 @@ $.ajax(settings).done(function (response) {
 	//alert(JSON.stringify(response));
 	check_on_holds (response);
 	});//ajax
+};//filter_holds1
 	
 function check_on_holds(response){	
 	var hold_ind2=false;
@@ -1364,8 +1365,8 @@ function check_on_holds(response){
 });//each loop	
 	alert('cont_no :'+cont_no+ ' hold: '+hold_ind2);
 	
+};
 
-};//filter_holds1
 
 	
 
