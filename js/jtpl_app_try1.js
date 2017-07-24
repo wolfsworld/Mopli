@@ -1330,13 +1330,14 @@ $.ajax({
 function filter_holds (code,reqstring,thedate){
 //alert(bib_id);
 var settings = {
-"content-type": "application/json",
-	"dataType": "json",
+	  "async": false,
+  "crossDomain": true,
   "url": ""+reqstring+"",
   "type": "GET",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
+    "authorization": ""+code+"",
+	  "content-type": "application/json",
   }
 }
 $.ajax(settings).done(function (response2) {
@@ -1347,10 +1348,10 @@ $.ajax(settings).done(function (response2) {
 	
 function check_on_holds(response2){	
 	var hold_ind2=false;
-	alert('gupppy');
+	
 		$.each(response2.BibSearchRows, function(key, value) {
 		overdue=false;									 
-
+alert('gupppy');
 			var sys_items_in=value.SystemItemsIn;
 			var cur_hold_req=value.CurrentHoldRequests;
 			var cont_no=value.ControlNumber;
@@ -1365,7 +1366,7 @@ function check_on_holds(response2){
 	//}
 			//alert('cont_no :'+cont_no+ ' hold: '+hold_ind2);
 });//each loop	
-	
+alert('cont_no :'+cont_no+ ' hold: '+hold_ind2);	
 	
 };
 
