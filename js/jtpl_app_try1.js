@@ -1340,7 +1340,7 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-	//alert('ajax done');
+	alert(JSON.stringify(response));
 	var hold_ind2=false;
 		$.each(response.BibSearchRows, function(key, value) {
 		overdue=false;									 
@@ -1349,14 +1349,14 @@ $.ajax(settings).done(function (response) {
 			var cur_hold_req=value.CurrentHoldRequests;
 			var cont_no=value.ControlNumber;
 
-		if(cur_hold_req>=sys_items_in){
-		hold_ind2=true;
-		}
+		//if(cur_hold_req>=sys_items_in){
+		//hold_ind2=true;
+		//}
 		//push into global array with bib_id and hold inidcator	
 	alert('this is cont_no :'+cont_no);
-	if(hold_ind2==true){
-	thetally.push(cont_no);
-	}
+	//if(hold_ind2==true){
+	//thetally.push(cont_no);
+	//}
 });//each loop	
 });//ajax	
 
