@@ -1312,7 +1312,7 @@ $.ajax({
         success : function(response) {
 			//var code=response;
 			//p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_id);
+			filter_holds(p_response.code,p_response.reqstring,p_response.thedate);
 			//return (p_response.code,p_response.reqstring,p_response.thedate);
 			//first_call=true;
         },
@@ -1327,7 +1327,7 @@ $.ajax({
 	
 //see if #holds>#items in
 //case 9c
-function filter_holds (code,reqstring,thedate,bib_id){
+function filter_holds (code,reqstring,thedate){
 //alert(bib_id);
 var settings = {
 "content-type": "application/json",
@@ -1339,17 +1339,17 @@ var settings = {
     "authorization": ""+code+"" 
   }
 }
-$.ajax(settings).done(function (response) {
+$.ajax(settings).done(function (response2) {
 	//alert(JSON.stringify(response));
-	check_on_holds (response);
+	check_on_holds (response2);
 	});//ajax
 };//filter_holds1
 	
-function check_on_holds(response){	
+function check_on_holds(response2){	
 	var hold_ind2=false;
-		$.each(response.BibSearchRows, function(key, value) {
+		$.each(response2.BibSearchRows, function(key, value) {
 		overdue=false;									 
-
+alert('gupppy');
 			var sys_items_in=value.SystemItemsIn;
 			var cur_hold_req=value.CurrentHoldRequests;
 			var cont_no=value.ControlNumber;
@@ -1362,7 +1362,7 @@ function check_on_holds(response){
 	//if(hold_ind2==true){
 	//thetally.push(cont_no);
 	//}
-			alert('cont_no :'+cont_no+ ' hold: '+hold_ind2);
+			//alert('cont_no :'+cont_no+ ' hold: '+hold_ind2);
 });//each loop	
 	
 	
