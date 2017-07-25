@@ -1371,8 +1371,9 @@ hold_ind2=true;
 	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
 	///var status4='';
 	function handover2(status3, title3,bib_id3){
-		window.status4=status3; 
-		window.title3=title3; 
+		
+		var status4=status3; 
+		var title3=title3; 
 		alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
 	
 	if(status4==true){
