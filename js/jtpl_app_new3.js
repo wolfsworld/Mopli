@@ -1411,12 +1411,15 @@ setTimeout(drip_outs(response),50);
 	
 function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
-bib_id=value.BibID;
-bib_bc=value.Barcode;
-var tester=hold_all_sys(bib_id,bib_bc);		
+var bib_id=value.BibID;
+var bib_bc=value.Barcode;
+var tester=hold_all_sys(bib_id,bib_bc);
 });
+setTimeout(runit(response),1500);
+};
 	
-$.each(response.PatronItemsOutGetRows, function(key, value) {
+function runit(package){
+$.each(package.PatronItemsOutGetRows, function(key, value) {
 hold_ind=false;
 media=value.FormatID;
 ISBN=value.ISBN;
@@ -1424,7 +1427,8 @@ title=value.Title;
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
-
+bib_id=value.BibID;
+bib_bc=value.Barcode;
 
 //alert(RENLEFT);
 if(RENLEFT<=0){
