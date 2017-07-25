@@ -1340,7 +1340,8 @@ $.ajax(settings).done(function (response) {
 //alert('filter_hold1 after ajax');
 	
 $.each(response.BibSearchRows, function(key, value) {
-overdue=false;									 
+overdue=false;	
+	var hold_ind2=false;
 //alert('bibsearchrows:' +value);
 var title=value.Title;
 var sys_items_in=value.SystemItemsIn;
@@ -1371,7 +1372,7 @@ hold_ind2=true;
 	function handover2(status3, title3,bib_id3){
 		window.status4=status3; 
 		window.title3=title3; 
-		alert('title3: ' + title3 + 'status4: ' + status4 +' :' + bib_id3);
+		alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
 			//if(hold_ind2==true){
 	//thetally.push(cont_no);
 	//}
