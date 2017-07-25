@@ -1330,8 +1330,8 @@ $.ajax({
 function filter_holds (code,reqstring,thedate){
 //alert(bib_id);
 var settings = {
-	  "async": false,
-  "crossDomain": true,
+	  //"async": false,
+  //"crossDomain": true,
   "url": ""+reqstring+"",
   "type": "GET",
   "headers": {
@@ -1348,7 +1348,7 @@ $.ajax(settings).done(function (response2) {
 	
 function check_on_holds(response2){	
 	var hold_ind2=false;
-	alert(JSON.stringify(response2.BibSearchRows));
+	//alert(JSON.stringify(response2.BibSearchRows));
 		
 	$.each(response2.BibSearchRows, function(key, value) {
 		overdue=false;									 
