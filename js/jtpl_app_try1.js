@@ -1329,26 +1329,28 @@ $.ajax({
 //case 9c
 function filter_holds (code,reqstring,thedate){
 //alert(bib_id);
-var settings = {
-	  //"async": false,
-  //"crossDomain": true,
-  "url": ""+reqstring+"",
-  "type": "GET",
-  "headers": {
+$.ajax({
+  url: ""+reqstring+"",
+  type: "GET",
+  headers: {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"",
 	  "content-type": "application/json"
-  }
-}
-$.ajax(settings).done(function (response2) {
-	alert(JSON.stringify(response2.BibSearchRows));
+},
+	success:function(response2) {
 	check_on_holds (response2);
-	});//ajax
+	},
+	error      : function() {
+    console.error("error");
+    alert('No network connection or server currently not available.');                  
+    }
+});//ajax
 };//filter_holds1
+	
 	
 function check_on_holds(response2){	
 	var hold_ind2=false;
-	//alert(JSON.stringify(response2.BibSearchRows));
+	alert(JSON.stringify(response2.BibSearchRows));
 		
 	$.each(response2.BibSearchRows, function(key, value) {
 		overdue=false;									 
