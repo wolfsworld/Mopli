@@ -1341,7 +1341,7 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response2) {
-	alert(JSON.stringify(response2));
+	alert(JSON.stringify(response2.BibSearchRows));
 	check_on_holds (response2);
 	});//ajax
 };//filter_holds1
