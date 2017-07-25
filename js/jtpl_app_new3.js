@@ -1443,7 +1443,10 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	
+	if($.inArray(thetally,bib_id)){
+	//alert('in array is' +bib_id);
+	hold_ind=true;   
+	};
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
@@ -1460,7 +1463,7 @@ switch(media){
 				break;
 				case "RenewalCount":
 				key2="Renewals Left";
-					if(RENLEFT<=0 || hold_ind==true ){
+					if(hold_ind==true ){
 						value2="not renewable";
 					}else{
 						value2=""+RENLEFT+"";}
