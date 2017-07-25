@@ -1445,7 +1445,7 @@ switch(media){
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
 	if($.inArray(thetally,bib_id)){
-	//alert('in array is' +bib_id);
+	alert('in array'+bib_id+' is' + JSON.stringify(thetally));
 	hold_ind=true;   
 	};
 			$.each(value, function(key2, value2) {
@@ -1512,6 +1512,7 @@ my_outs +="</td></tr></table>";
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
+	thetally.length=0;
 };//end items_out_all function
 
 /*function est_fees(media_cat, det_days_overdue){
