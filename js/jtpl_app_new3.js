@@ -1415,10 +1415,12 @@ var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc);
 });
-setTimeout(runit(response),4000);
+setTimeout(runit(response),8000);
 //};
 	
 function runit(package){
+										var mam=JSON.stringify(thetally);
+	alert('array :'+mam);
 $.each(package.PatronItemsOutGetRows, function(key, value) {
 hold_ind=false;
 media=value.FormatID;
@@ -1468,8 +1470,7 @@ switch(media){
 				break;
 				case "RenewalCount":
 				key2="Renewals Left";
-									var mam=JSON.stringify(thetally);
-	alert('array :'+mam);
+
 					if(hold_ind==true ){
 						value2="not renewable";
 					}else{
