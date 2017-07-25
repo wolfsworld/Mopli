@@ -1415,7 +1415,7 @@ var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 var tester=hold_all_sys(bib_id,bib_bc);
 });
-setTimeout(runit(response),3000);
+setTimeout(runit(response),6000);
 };
 	
 function runit(package){
