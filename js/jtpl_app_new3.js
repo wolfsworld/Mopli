@@ -1468,6 +1468,8 @@ switch(media){
 				break;
 				case "RenewalCount":
 				key2="Renewals Left";
+									var mam=JSON.stringify(thetally);
+	alert('array :'+mam);
 					if(hold_ind==true ){
 						value2="not renewable";
 					}else{
@@ -1516,8 +1518,7 @@ my_outs +="</td></tr></table>";
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
-			var mam=JSON.stringify(thetally);
-	alert('array :'+mam);
+
 	thetally.length=0;
 };//end items_out_all function
 
