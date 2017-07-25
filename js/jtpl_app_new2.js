@@ -1411,11 +1411,14 @@ bib_id=value.BibID;
 bib_bc=value.Barcode;
 	var tester=hold_all_sys(bib_id,bib_bc);	
 )};
-	   
-setTimeout(listresponse,1000,listofbooks);
+
+setTimeout(function() {
+    listresponse(listofbooks);
+}, 1000);	   
+
 }
 
-function listresponse(){
+function listresponse(listofbooks){
 	alert(listofbooks);
 $( "#borrowed" ).empty();
 var my_outs='';
@@ -1430,18 +1433,18 @@ ISBN=value.ISBN;
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
-	bib_id=value.BibID;
-	hold_all_sys(bib_id);
+bib_id=value.BibID;
 bib_bc=value.Barcode;
 
 //alert(RENLEFT);
 if(RENLEFT<=0){
 hold_ind=true;
 }
+	
 if($.inArray(thetally,bib_id)){
 	alert('in array is' +bib_id);
 hold_ind=true;   
-}
+};
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
