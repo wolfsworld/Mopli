@@ -1357,19 +1357,18 @@ hold_ind2=true;
 	
 });//each loop
 });//ajax	
-//return hold_ind2;
+
 	
 	function handover(status2, title2,bib_id2){
 		var status2; 
 		var title2; 
-		var bib_id2; 
+		var bib_id2=bib_id2; 
 		//alert('title2: ' + title2 + 'status2: ' + status2);
 			handover2(status2, title2, bib_id2);
 	};	
 	
 };//filter_holds1
-	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
-	///var status4='';
+
 	function handover2(status3, title3,bib_id3){
 		window.status4=status3; 
 		window.title3=title3; 
@@ -1399,9 +1398,9 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-setTimeout(drip_outs(response),50);
+setTimeout(drip_outs(response),150);
 });
-};
+//};
 	
 function drip_outs(response){
 var listofbooks=response.PatronItemsOutGetRows;
@@ -1412,11 +1411,9 @@ bib_bc=value.Barcode;
 	var tester=hold_all_sys(bib_id,bib_bc);	
 )};
 
-setTimeout(function() {
-    listresponse(listofbooks);
-}, 1000);	   
+setTimeout(listresponse(listofbooks),1000);	   
 
-}
+};
 
 function listresponse(listofbooks){
 	alert(listofbooks);
@@ -1522,7 +1519,7 @@ my_outs +="</td></tr></table>";
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 //});//end ajax 
-};//end items_out_all function
+};//end listofbooks function
 
 /*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
