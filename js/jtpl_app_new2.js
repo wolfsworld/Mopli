@@ -1399,14 +1399,9 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-	//alert(JSON.stringify(response));
-var my_outs='';
-var list_est='';
-var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
-
-$( "#borrowed" ).empty();
-
 setTimeout(drip_outs(response),50);
+});
+};
 	
 function drip_outs(response){
 var listofbooks=response.PatronItemsOutGetRows;
@@ -1416,6 +1411,7 @@ bib_id=value.BibID;
 bib_bc=value.Barcode;
 	var tester=hold_all_sys(bib_id,bib_bc);	
 )};
+	   
 setTimeout(listresponse,1000,listofbooks);
 }
 
