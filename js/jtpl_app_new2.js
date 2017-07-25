@@ -1411,7 +1411,7 @@ bib_bc=value.Barcode;
 	var tester=hold_all_sys(bib_id,bib_bc);	
 )};
 
-setTimeout(listresponse(listofbooks),1000);	   
+//setTimeout(listresponse(listofbooks),1000);	   
 
 };
 
@@ -1438,10 +1438,10 @@ if(RENLEFT<=0){
 hold_ind=true;
 }
 	
-if($.inArray(thetally,bib_id)){
-	alert('in array is' +bib_id);
-hold_ind=true;   
-};
+//if($.inArray(thetally,bib_id)){
+	//alert('in array is' +bib_id);
+//hold_ind=true;   
+//};
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
