@@ -1374,7 +1374,7 @@ hold_ind2=true;
 		
 		var status4=status3; 
 		var title3=title3; 
-		alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
+		//alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
 	
 	if(status4==true){
 	thetally.push(bib_id3);
@@ -1415,7 +1415,7 @@ var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 var tester=hold_all_sys(bib_id,bib_bc);
 });
-setTimeout(runit(response),1500);
+setTimeout(runit(response),3000);
 };
 	
 function runit(package){
@@ -1448,10 +1448,11 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	if($.inArray(thetally,bib_id)){
-	alert('in array'+bib_id+' is' + JSON.stringify(thetally));
-	hold_ind=true;   
-	};
+	//if($.inArray(thetally,bib_id)){
+		var mam=JSON.stringify(thetally);
+	alert('array :'+mam);
+	//hold_ind=true;   
+	//};
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
