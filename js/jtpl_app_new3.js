@@ -418,6 +418,7 @@ case 13: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/I
 case 14: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/account/outstanding"; break;
 case 15: var reqstring=""+dest+"/REST/public/v1/1033/100/1/organizations/branch"; break;
 case 16: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/basicdata"; break;
+case 17: var reqstring=""+dest+"/REST/public/v1/1033/100/1/patron/"+p_bc+"/itemsout/all"; break;
 }
 
 var thedate=(new Date()).toUTCString();
@@ -465,6 +466,7 @@ $.ajax({
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			case 15: lib_branches(reqstring,thedate,code); break;
 			case 16: pat_basics(reqstring,thedate,code); break;
+			case 17: items_out_all2(reqstring,thedate,code); break;
 			}
 }},
         error: function() {
@@ -1384,11 +1386,11 @@ hold_ind2=true;
 	};	
 };//hold_all_sys
 
-//var thetally=new Array;
+var thetally=new Array;
 
 	//case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-	thetally=new Array;
+	
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
@@ -1407,8 +1409,7 @@ $.ajax(settings).done(function (response) {
 	
 lets_start(response);
 });//end ajax
-	//alert(JSON.stringify(response));
-
+	
 function lets_start(response){	
 //thetally.length=0;
 	var my_outs='';
@@ -1417,30 +1418,42 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 
-//setTimeout(drip_outs(response),0);
-	
-//function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc);
 });//end each
-//setTimeout(showtally(),500);
-	showtally();
+p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 };//end lets_start
 
 	
-function showtally(){
-	alert(thetally.length);
-var mam=JSON.stringify(thetally);	
-alert('array :'+mam);
-};	
+//function showtally(){
+	//alert(thetally.length);
+//var mam=JSON.stringify(thetally);	
+//alert('array :'+mam);
+//};	
 
 };
-/*function runit(package){
+
+function items_out_all2(reqstring,thedate,code){
+		
+//window.plugins.spinnerDialog.show(null,"...processing");
+//alert('items out all started 1357');
+var settings = {
+	//"async":"false",
+"content-type": "application/json",
+	"dataType": "json",
+  "url": ""+reqstring+"",
+  "type": "GET",
+  "headers": {
+    "polarisdate": ""+thedate+"",
+    "authorization": ""+code+"" 
+  }
+}
+
+$.ajax(settings).done(function (response) {
 										
-	
-$.each(package.PatronItemsOutGetRows, function(key, value) {
+$.each(response.PatronItemsOutGetRows, function(key, value) {
 hold_ind=false;
 media=value.FormatID;
 ISBN=value.ISBN;
@@ -1455,7 +1468,8 @@ bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 }
-
+var mam=JSON.stringify(thetally);	
+alert('array :'+mam);
 
 	
 
@@ -1505,7 +1519,7 @@ switch(media){
 				if(media!==''){var media_cat=media;}else{var media_cat="n/a";}
 				var amount_due=est_fees(media_cat, det_days_overdue);
 				list_est +="<hr><p>Title: "+late_title+" ("+late_author+")<br>Days overdue: "+det_days_overdue+"<br>Estimated late fee as per today: $"+amount_due+"</p>";*/
-				/*
+				
 }
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
@@ -1535,13 +1549,13 @@ my_outs +="<br><br>";}
 my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
-};*/////////////
-//////////////$( "#borrowed" ).append(my_outs);
+
+$( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
-/////////});//end ajax 
+});//end ajax 
 
 	///////////thetally.length=0;
-////////};//end items_out_all function
+};//end items_out_all2 function
 
 /*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
