@@ -1426,20 +1426,13 @@ hold_all_sys(bib_id,bib_bc);
 });//end each
 p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 };//end lets_start
+};//end items out all
 
-	
-//function showtally(){
-	//alert(thetally.length);
-//var mam=JSON.stringify(thetally);	
-//alert('array :'+mam);
-//};	
-
-};
-
+//case17
 function items_out_all2(reqstring,thedate,code){
-		alert('out all2 has started');
+
 //window.plugins.spinnerDialog.show(null,"...processing");
-//alert('items out all started 1357');
+
 var settings = {
 	"async":"false",
 "content-type": "application/json",
@@ -1469,11 +1462,6 @@ bib_bc=value.Barcode;
 if(RENLEFT<=0){
 hold_ind=true;
 }
-var mam=JSON.stringify(thetally);	
-alert('array :'+mam);
-
-	
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
@@ -1484,10 +1472,9 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	//if($.inArray(thetally,bib_id)){
-
-	//hold_ind=true;   
-	//};
+	if($.inArray(thetally,bib_id)){
+	hold_ind=true;   
+	};
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
@@ -1512,7 +1499,7 @@ switch(media){
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
-				if(cod_epoch<today_epoch){overdue=true;
+				if(cod_epoch<today_epoch){overdue=true;}
 				/*var differ=today_epoch-cod_epoch;
 				var det_days_overdue=Math.floor(differ/(86400*1000));
 				if(value.Title!==''){var late_title=value.Title;}else{var late_title="n/a";}
@@ -1520,8 +1507,7 @@ switch(media){
 				if(media!==''){var media_cat=media;}else{var media_cat="n/a";}
 				var amount_due=est_fees(media_cat, det_days_overdue);
 				list_est +="<hr><p>Title: "+late_title+" ("+late_author+")<br>Days overdue: "+det_days_overdue+"<br>Estimated late fee as per today: $"+amount_due+"</p>";*/
-				
-}
+				}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
 				key2="Due Date";
@@ -1531,16 +1517,14 @@ switch(media){
 				value2=CODate.toDateString();
 				key2="Check Out Date";
 				break;
-				}	
+				}//end inarray
 					
 				if(key2=="Title"){
 				my_outs += "<strong>" + key2 + ": " + value2 + "</strong><br>";
 				}else{
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
-				}
-				
-			});
+			});//end each loop
 	
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
 if(hold_ind==false){
@@ -1548,8 +1532,8 @@ my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_ext
 }else{
 my_outs +="<br><br>";}			
 my_outs +="</td></tr></table>";
-//}//end screen out cancelled
-});
+
+});//end outer each
 
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
