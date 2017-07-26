@@ -1408,7 +1408,7 @@ lets_start(response);
 	//alert(JSON.stringify(response));
 
 function lets_start(response){	
-thetally.length=0;
+//thetally.length=0;
 	var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
@@ -1423,7 +1423,7 @@ var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc);
 });//end each
-setTimeout(showtally(),5000);
+setTimeout(showtally(),500);
 };//end lets_start
 
 	
