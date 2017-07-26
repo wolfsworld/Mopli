@@ -3,7 +3,7 @@ var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
 var framehistory=[];
 var framehistory2=[];
-
+var thetally=[];
 var page_counter=1;
 
 if(page_counter<1){
@@ -1352,43 +1352,21 @@ var cur_hold_req=value.CurrentHoldRequests;
 if(cur_hold_req>sys_items_in){
 hold_ind2=true;
 }
-	handover(hold_ind2, title,bib_id);
+thetally.push(bib_id);	
+	//handover(hold_ind2, title,bib_id);
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
 	
 });//each loop
 });//ajax	
-//return hold_ind2;
-	
-	function handover(status2, title2,bib_id2){
-		var status2; 
-		var title2; 
-		var bib_id2; 
-		//alert('title2: ' + title2 + 'status2: ' + status2);
-			handover2(status2, title2, bib_id2);
-	};	
-	
-};//filter_holds1
-	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
-	///var status4='';
-	function handover2(status3, title3,bib_id3){
-		
-		var status4=status3; 
-		var title3=title3; 
-		//alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
-	
-	//if(status4==true){
-	thetally.push(bib_id3);
-		//showtally();
-	//}
-		
-	};	
-};//hold_all_sys
-	
 
 	
+};//filter_holds1
+
+};//hold_all_sys
+
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-thetally=[];	
+	
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
@@ -1430,8 +1408,8 @@ setTimeout(showtally(),1000);
 
 	
 function showtally(){
-	
-var mam=JSON.stringify(thetally);	
+var the_tally1=thetally;	
+var mam=JSON.stringify(thetally1);	
 alert('array :'+mam);
 };	
 
