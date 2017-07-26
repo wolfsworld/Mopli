@@ -1374,7 +1374,7 @@ hold_ind2=true;
 		
 		var status4=status3; 
 		var title3=title3; 
-		//alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
+		alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
 	
 	//if(status4==true){
 	thetally.push(bib_id3);
@@ -1386,6 +1386,7 @@ hold_ind2=true;
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
+	
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
@@ -1407,7 +1408,8 @@ lets_start(response);
 	//alert(JSON.stringify(response));
 
 function lets_start(response){	
-var my_outs='';
+thetally.length=0;
+	var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
