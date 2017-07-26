@@ -1376,10 +1376,10 @@ hold_ind2=true;
 		var title3=title3; 
 		//alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
 	
-	if(status4==true){
+	//if(status4==true){
 	thetally.push(bib_id3);
 		//showtally();
-	}
+	//}
 		
 	};	
 };//hold_all_sys
