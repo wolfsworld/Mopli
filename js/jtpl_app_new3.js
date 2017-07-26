@@ -1376,15 +1376,17 @@ hold_ind2=true;
 		var title3=title3; 
 		//alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
 	
-	//if(status4==true){
+	if(status4==true){
 	thetally.push(bib_id3);
 		//showtally();
-	//}
+	}
 		
 	};	
 };//hold_all_sys
-//var thetally=new Array;
-//case 9 - items out all (list)
+
+var thetally=new Array;
+
+	//case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 	
 //window.plugins.spinnerDialog.show(null,"...processing");
@@ -1408,7 +1410,6 @@ lets_start(response);
 	//alert(JSON.stringify(response));
 
 function lets_start(response){	
-	thetally=[];
 //thetally.length=0;
 	var my_outs='';
 var list_est='';
@@ -1430,7 +1431,7 @@ hold_all_sys(bib_id,bib_bc);
 
 	
 function showtally(){
-	
+	alert(thetally.length);
 var mam=JSON.stringify(thetally);	
 alert('array :'+mam);
 };	
