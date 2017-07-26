@@ -1472,7 +1472,7 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	if($.inArray(thetally,bib_id)){
+	if(jQuery.inArray(thetally,bib_id)){
 	hold_ind=true;   
 	};
 			$.each(value, function(key2, value2) {
@@ -1481,7 +1481,6 @@ switch(media){
 				out_req_id=value2;
 				}
 				if(jQuery.inArray( key2, out_selection )!== -1){
-				
 				switch(key2){
 				case "AssignedBranchName":
 				key2="Assigned Library";
@@ -1495,7 +1494,8 @@ switch(media){
 					if(hold_ind==true ){
 						value2="not renewable";
 					}else{
-						value2=""+RENLEFT+"";}
+						value2=""+RENLEFT+"";
+					}
 				break;
 				case "DueDate":
 				var cod_epoch= parseFloat(value2.substr(6 ));
@@ -1507,7 +1507,7 @@ switch(media){
 				if(media!==''){var media_cat=media;}else{var media_cat="n/a";}
 				var amount_due=est_fees(media_cat, det_days_overdue);
 				list_est +="<hr><p>Title: "+late_title+" ("+late_author+")<br>Days overdue: "+det_days_overdue+"<br>Estimated late fee as per today: $"+amount_due+"</p>";*/
-				}
+				
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
 				key2="Due Date";
@@ -1517,6 +1517,7 @@ switch(media){
 				value2=CODate.toDateString();
 				key2="Check Out Date";
 				break;
+				}
 				}//end inarray
 					
 				if(key2=="Title"){
