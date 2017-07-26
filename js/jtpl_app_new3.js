@@ -1352,7 +1352,6 @@ var cur_hold_req=value.CurrentHoldRequests;
 if(cur_hold_req>sys_items_in){
 hold_ind2=true;
 }
-	thetally.push(bib_id);
 	handover(hold_ind2, title,bib_id);
 //alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
 	
@@ -1378,7 +1377,7 @@ hold_ind2=true;
 		//alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
 	
 	//if(status4==true){
-	//thetally.push(bib_id3);
+	thetally.push(bib_id3);
 		//showtally();
 	//}
 		
@@ -1424,7 +1423,7 @@ var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc);
 });//end each
-setTimeout(showtally(),1000);
+setTimeout(showtally(),5000);
 };//end lets_start
 
 	
