@@ -1415,7 +1415,8 @@ function lets_start(response){
 	var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
-
+var pwd=$('#libpin').val();
+var pat_barcode=$("#patron_bc").val();
 $( "#borrowed" ).empty();
 
 $.each(response.PatronItemsOutGetRows, function(key, value) {
@@ -1436,11 +1437,11 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 };
 
 function items_out_all2(reqstring,thedate,code){
-		
+		alert('out all2 has started');
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
-	//"async":"false",
+	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
