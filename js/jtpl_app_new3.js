@@ -3,7 +3,7 @@ var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
 var framehistory=[];
 var framehistory2=[];
-var thetally=[];
+//var thetally=[];
 var page_counter=1;
 
 if(page_counter<1){
@@ -1383,7 +1383,7 @@ hold_ind2=true;
 		
 	};	
 };//hold_all_sys
-
+var thetally=new Array;
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 	
