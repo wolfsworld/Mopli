@@ -1430,7 +1430,8 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 
 //case17
 function items_out_all2(reqstring,thedate,code){
-
+	alert('out_all2 started);
+		  
 //window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
@@ -1446,7 +1447,13 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-										
+alert('ajax done');	
+var my_outs='';
+var list_est='';
+var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
+
+$( "#borrowed" ).empty();
+
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 hold_ind=false;
 media=value.FormatID;
@@ -1475,6 +1482,7 @@ switch(media){
 	if(jQuery.inArray(thetally,bib_id)){
 	hold_ind=true;   
 	};
+	alert(hold_ind);
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
@@ -1518,13 +1526,14 @@ switch(media){
 				key2="Check Out Date";
 				break;
 				}
-				}//end inarray
+				
 					
 				if(key2=="Title"){
 				my_outs += "<strong>" + key2 + ": " + value2 + "</strong><br>";
 				}else{
 				my_outs += key2 + ": " + value2 + "<br>";
 				}
+				}//end inarray
 			});//end each loop
 	
 if(overdue==true){my_outs +="<div class='p_duealert'>Item Due</div>";}
