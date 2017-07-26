@@ -1383,7 +1383,7 @@ hold_ind2=true;
 		
 	};	
 };//hold_all_sys
-var thetally=new Array;
+//var thetally=new Array;
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 	
@@ -1408,6 +1408,7 @@ lets_start(response);
 	//alert(JSON.stringify(response));
 
 function lets_start(response){	
+	thetally=[];
 //thetally.length=0;
 	var my_outs='';
 var list_est='';
