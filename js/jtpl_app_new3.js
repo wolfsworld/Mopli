@@ -1423,7 +1423,8 @@ var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc);
 });//end each
-setTimeout(showtally(),500);
+//setTimeout(showtally(),500);
+	showtally();
 };//end lets_start
 
 	
