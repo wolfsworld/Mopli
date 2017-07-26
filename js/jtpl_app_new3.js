@@ -1378,6 +1378,7 @@ hold_ind2=true;
 	
 	if(status4==true){
 	thetally.push(bib_id3);
+		//showtally();
 	}
 		
 	};	
@@ -1400,7 +1401,12 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
+	
+lets_start(response);
+});//end ajax
 	//alert(JSON.stringify(response));
+
+function lets_start(response){	
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
@@ -1414,13 +1420,20 @@ $.each(response.PatronItemsOutGetRows, function(key, value) {
 var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc);
-});
-setTimeout(runit(response),8000);
-//};
+});//end each
+setTimeout(showtally(),1000);
+};//end lets_start
+
 	
-function runit(package){
-										var mam=JSON.stringify(thetally);
-	alert('array :'+mam);
+function showtally(){
+var mam=JSON.stringify(thetally);	
+alert('array :'+mam);
+};	
+
+};
+/*function runit(package){
+										
+	
 $.each(package.PatronItemsOutGetRows, function(key, value) {
 hold_ind=false;
 media=value.FormatID;
@@ -1486,7 +1499,8 @@ switch(media){
 				if(media!==''){var media_cat=media;}else{var media_cat="n/a";}
 				var amount_due=est_fees(media_cat, det_days_overdue);
 				list_est +="<hr><p>Title: "+late_title+" ("+late_author+")<br>Days overdue: "+det_days_overdue+"<br>Estimated late fee as per today: $"+amount_due+"</p>";*/
-				}
+				/*
+}
 				var DDate= new Date( parseFloat(value2.substr(6 )));
 				value2=DDate.toDateString();
 				key2="Due Date";
@@ -1515,13 +1529,13 @@ my_outs +="<br><br>";}
 my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
-};
-$( "#borrowed" ).append(my_outs);
+};*/////////////
+//////////////$( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
-});//end ajax 
+/////////});//end ajax 
 
-	thetally.length=0;
-};//end items_out_all function
+	///////////thetally.length=0;
+////////};//end items_out_all function
 
 /*function est_fees(media_cat, det_days_overdue){
 var per_item_value=0;
