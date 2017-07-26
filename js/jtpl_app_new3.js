@@ -1430,7 +1430,7 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 
 //case17
 function items_out_all2(reqstring,thedate,code){
-	alert('out_all2 started);
+	alert('out_all2 started');
 		  
 //window.plugins.spinnerDialog.show(null,"...processing");
 
