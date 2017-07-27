@@ -1455,7 +1455,7 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 $( "#borrowed" ).empty();
 
 $.each(response.PatronItemsOutGetRows, function(key, value) {
-hold_ind=false;
+var hold_ind=false;
 media=value.FormatID;
 ISBN=value.ISBN;
 title=value.Title;
@@ -1479,12 +1479,12 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	//if(jQuery.inArray(thetally,bib_id)){
-	//hold_ind=true;   
-	//};
-	var mamc=thetally.length;
-	var mam=JSON.stringify(thetally);
-	alert('id : '+bib_id+ 'leng: '+mamc+' , ' +mam);
+	if(jQuery.inArray( bib_id, thetally )!== -1){
+	hold_ind=true;   
+	};
+	//var mamc=thetally.length;
+	//var mam=JSON.stringify(thetally);
+	//alert('id : '+bib_id+ 'leng: '+mamc+' , ' +mam);
 	
 			$.each(value, function(key2, value2) {
 	
