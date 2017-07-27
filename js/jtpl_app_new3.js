@@ -1430,7 +1430,7 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 
 //case17
 function items_out_all2(reqstring,thedate,code){
-	alert('out_all2 started');
+	//alert('out_all2 started');
 		  
 //window.plugins.spinnerDialog.show(null,"...processing");
 
@@ -1447,7 +1447,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-alert('ajax done');	
+//alert('ajax done');	
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
@@ -1479,10 +1479,13 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	if(jQuery.inArray(thetally,bib_id)){
-	hold_ind=true;   
-	};
-	alert(hold_ind);
+	//if(jQuery.inArray(thetally,bib_id)){
+	//hold_ind=true;   
+	//};
+	var mamc=thetally.length;
+	var mam=JSON.stringify(thetally);
+	alert('id :'bib_id+ 'leng: '+mamc+' , ' +mam);
+	
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
