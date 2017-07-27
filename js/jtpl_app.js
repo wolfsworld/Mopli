@@ -1296,7 +1296,6 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc){
-//alert('hold_all_sys1');
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
@@ -1325,8 +1324,7 @@ $.ajax({
 //see if #holds>#items in
 //case 9c
 function filter_holds1 (code,reqstring,thedate,bib_id){
-	//var hold_ind2;
-//alert('filter_hold1 before ajax');
+
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
@@ -1339,7 +1337,6 @@ var settings = {
   }
 }
 $.ajax(settings).done(function (response) {
-//alert('filter_hold1 after ajax');
 	
 $.each(response.BibSearchRows, function(key, value) {	
 var hold_ind2=false;
@@ -1350,9 +1347,7 @@ var cur_hold_req=value.CurrentHoldRequests;
 if(cur_hold_req>sys_items_in){
 hold_ind2=true;
 }
-	handover(hold_ind2, title,bib_id);
-//alert('tit:'+ title + 'in:' + sys_items_in + 'hold:' + cur_hold_req + 'ind:'+hold_ind2);
-	
+handover(hold_ind2, title,bib_id);
 });//each loop
 });//ajax	
 	
@@ -1363,14 +1358,11 @@ hold_ind2=true;
 		//alert('title2: ' + title2 + 'status2: ' + status2);
 			handover2(status2, title2, bib_id2);
 	};	
-	
 };//filter_holds1
 
-	function handover2(status3, title3,bib_id3){
-		
+	function handover2(status3, title3,bib_id3){	
 		var status4=status3; 
-		var title3=title3; 
-	
+		var title3=title3; 	
 	if(status4==true){
 	thetally.push(bib_id3);
 	}	
@@ -1435,7 +1427,6 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-//alert('ajax done');	
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
@@ -1514,8 +1505,7 @@ switch(media){
 				key2="Check Out Date";
 				break;
 				}
-				
-					
+								
 				if(key2=="Title"){
 				my_outs += "<strong>" + key2 + ": " + value2 + "</strong><br>";
 				}else{
@@ -1530,14 +1520,12 @@ my_outs +="<p class='out_extend'><a id=" + out_req_id + " href='#popupDialog_ext
 }else{
 my_outs +="<br><br>";}			
 my_outs +="</td></tr></table>";
-
 });//end outer each
-
 $( "#borrowed" ).append(my_outs);
 window.plugins.spinnerDialog.hide();
 });//end ajax 
 
-	///////////thetally.length=0;
+thetally.length=0;
 };//end items_out_all2 function
 
 /*function est_fees(media_cat, det_days_overdue){
