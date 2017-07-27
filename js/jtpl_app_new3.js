@@ -1484,7 +1484,7 @@ switch(media){
 	//};
 	var mamc=thetally.length;
 	var mam=JSON.stringify(thetally);
-	alert('id :'bib_id+ 'leng: '+mamc+' , ' +mam);
+	alert('id : '+bib_id+ 'leng: '+mamc+' , ' +mam);
 	
 			$.each(value, function(key2, value2) {
 	
