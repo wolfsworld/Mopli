@@ -1306,7 +1306,7 @@ p_pwd ='';
 $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        async: false,
+        //async: false,
 		crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
@@ -1314,7 +1314,6 @@ $.ajax({
         success : function(response) {
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			//filter_holds(p_response.code,p_response.reqstring,p_response.thedate,bib_bc,init_key,init_value,media,ISBN);
 			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_id);	
         },
         error      : function() {
@@ -1329,7 +1328,7 @@ function filter_holds1 (code,reqstring,thedate,bib_id){
 	//var hold_ind2;
 //alert('filter_hold1 before ajax');
 var settings = {
-	"async":"false",
+	//"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1342,15 +1341,12 @@ var settings = {
 $.ajax(settings).done(function (response) {
 //alert('filter_hold1 after ajax');
 	
-$.each(response.BibSearchRows, function(key, value) {
-	
-	var hold_ind2=false;
-//alert('bibsearchrows:' +value);
+$.each(response.BibSearchRows, function(key, value) {	
+var hold_ind2=false;
 var title=value.Title;
 var sys_items_in=value.SystemItemsIn;
 var cur_hold_req=value.CurrentHoldRequests;
 
-	
 if(cur_hold_req>sys_items_in){
 hold_ind2=true;
 }
@@ -1359,7 +1355,6 @@ hold_ind2=true;
 	
 });//each loop
 });//ajax	
-//return hold_ind2;
 	
 	function handover(status2, title2,bib_id2){
 		var status2; 
@@ -1370,31 +1365,26 @@ hold_ind2=true;
 	};	
 	
 };//filter_holds1
-	//alert('tit: '+ title + ' in:' + sys_items_in + ' hold:' + cur_hold_req + ' ind:'+hold_ind2);
-	///var status4='';
+
 	function handover2(status3, title3,bib_id3){
 		
 		var status4=status3; 
 		var title3=title3; 
-		//alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
 	
 	if(status4==true){
 	thetally.push(bib_id3);
-		//showtally();
-	}
-		
+	}	
 	};	
 };//hold_all_sys
 
 
-
-	//case 9 - items out all (list)
+//case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 	
-//window.plugins.spinnerDialog.show(null,"...processing");
+window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
-	"async":"false",
+	//"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1431,11 +1421,9 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 //case17
 function items_out_all2(reqstring,thedate,code){
 	//alert('out_all2 started');
-		  
-window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
-	"async":"false",
+	//"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1466,7 +1454,6 @@ var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
 
-//alert(RENLEFT);
 if(RENLEFT<=0){
 hold_ind=true;
 }
@@ -1483,9 +1470,6 @@ switch(media){
 	if(jQuery.inArray( bib_id, thetally )!== -1){
 	hold_ind=true;   
 	};
-	//var mamc=thetally.length;
-	//var mam=JSON.stringify(thetally);
-	//alert('id : '+bib_id+ 'leng: '+mamc+' , ' +mam);
 	
 			$.each(value, function(key2, value2) {
 	
