@@ -1305,7 +1305,7 @@ p_pwd ='';
 $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        //async: false,
+        async: false,
 		crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
@@ -1327,7 +1327,7 @@ function filter_holds1 (code,reqstring,thedate,bib_id){
 	//var hold_ind2;
 //alert('filter_hold1 before ajax');
 var settings = {
-	//"async":"false",
+	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1381,7 +1381,7 @@ handover(hold_ind2, title,bib_id);
 
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){	
-window.plugins.spinnerDialog.show(null,"...processing");
+//window.plugins.spinnerDialog.show(null,"...processing");
 
 var settings = {
 	"async":"false",
@@ -1417,7 +1417,7 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 function items_out_all2(reqstring,thedate,code){
 
 var settings = {
-	//"async":"false",
+	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1525,7 +1525,7 @@ my_outs +="</td></tr></table>";
 });//end outer each
 
 $( "#borrowed" ).append(my_outs);
-window.plugins.spinnerDialog.hide();
+//window.plugins.spinnerDialog.hide();
 });//end ajax 
 
 thetally.length=0;
