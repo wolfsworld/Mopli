@@ -1476,10 +1476,11 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	var tester=JSON.stringify(thetally);
-	alert(tester);
-	if(jQuery.inArray( bib_id, thetally )!== -1){
-	hold_ind=true;   
+	//var tester=JSON.stringify(thetally);
+	//alert(tester);
+	if($.inArray(''+bib_id+'',thetally)!== -1){
+	alert('hit at '+bid_id);
+		hold_ind=true;   
 	};
 	
 	
