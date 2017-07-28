@@ -1414,13 +1414,13 @@ var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc,cnt,pwd,pat_barcode);
 });//end each
 
-function letgo(pwd,pat_barcode){
-p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
-}
 
 };//end lets_start
 };//end items out all
 
+				  function letgo(pwd,pat_barcode){
+p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
+				  }
 //case17
 function items_out_all2(reqstring,thedate,code){
 	//alert('out_all2 started');
