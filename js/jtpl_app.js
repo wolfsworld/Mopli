@@ -1293,7 +1293,7 @@ $( "#loginresponse" ).append(my_holds);
 //////////////////////////////////////////////////////////////////////////
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
-function hold_all_sys(bib_id, bib_bc,cnt){
+function hold_all_sys(bib_id, bib_bc,cnt,pwd,pat_barcode){
 var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
@@ -1311,7 +1311,7 @@ $.ajax({
         success : function(response) {
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_id,cnt);	
+			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_id,cnt,pwd,pat_barcode);	
         },
         error      : function() {
             console.error("error");
@@ -1321,7 +1321,7 @@ $.ajax({
 	
 //see if #holds>#items in
 //case 9c
-function filter_holds1 (code,reqstring,thedate,bib_id,cnt){
+function filter_holds1 (code,reqstring,thedate,bib_id,cnt,pwd,pat_barcode){
 
 var settings = {
 	//"async":"false",
@@ -1345,20 +1345,20 @@ var cur_hold_req=value.CurrentHoldRequests;
 if(cur_hold_req>sys_items_in){
 hold_ind2=true;
 }
-handover(hold_ind2, title,bib_id,cnt);
+handover(hold_ind2, title,bib_id,cnt,pwd,pat_barcode);
 });//each loop
 });//ajax	
 	
-	function handover(status2, title2,bib_id2,cnt){
+	function handover(status2, title2,bib_id2,cnt,pwd,pat_barcode){
 		var status2; 
 		var title2; 
 		var bib_id2; 
 		//alert('title2: ' + title2 + 'status2: ' + status2);
-			handover2(status2, title2, bib_id2,cnt);
+			handover2(status2, title2, bib_id2,cnt,pwd,pat_barcode);
 	};	
 };//filter_holds1
 
-	function handover2(status3, title3,bib_id3,cnt){	
+	function handover2(status3, title3,bib_id3,cnt,pwd,pat_barcode){	
 		//create counter
 		iter++;
 		//alert(iter);
@@ -1369,7 +1369,7 @@ handover(hold_ind2, title,bib_id,cnt);
 	//alert(cnt);	
 	};
 		if (iter==cnt){
-			letgo();
+			letgo(pwd,pat_barcode);
 			//alert(iter);
 		}
 	};	
@@ -1411,7 +1411,7 @@ var cnt=response.PatronItemsOutGetRows.length;
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 var bib_id=value.BibID;
 var bib_bc=value.Barcode;
-hold_all_sys(bib_id,bib_bc,cnt);
+hold_all_sys(bib_id,bib_bc,cnt,pwd,pat_barcode);
 });//end each
 
 function letgo(pwd,pat_barcode){
