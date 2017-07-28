@@ -3,7 +3,7 @@ var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
 var framehistory=[];
 var framehistory2=[];
-var thetally=[];
+//var thetally=[];
 var page_counter=1;
 
 if(page_counter<1){
@@ -466,7 +466,7 @@ $.ajax({
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			case 15: lib_branches(reqstring,thedate,code); break;
 			case 16: pat_basics(reqstring,thedate,code); break;
-			case 17: items_out_all2(reqstring,thedate,code); break;
+			case 17: items_out_all2(reqstring,thedate,code,p_holdID); break;
 			}
 }},
         error: function() {
@@ -1361,17 +1361,16 @@ handover(hold_ind2, title,bib_id,cnt,pwd,pat_barcode);
 	function handover2(status3, title3,bib_id3,cnt,pwd,pat_barcode){	
 		//create counter
 		iter++;
-		//alert(iter);
+		var thetally=[];
 		var status4=status3; 
 		var title3=title3; 	
-	if(status4==true){
-	thetally.push(bib_id3);
-	//alert(cnt);	
+	if(status4==true){	
+	thetally.push(bib_id3);	
 	};
 		if (iter==cnt){
-			var testit=JSON.stringify(thetally);
-	alert(testit);
-			letgo(pwd,pat_barcode);
+			//var testit=JSON.stringify(thetally);
+	//alert(testit);
+			letgo(pwd,pat_barcode,thetally);
 			//alert(iter);
 		}
 	};	
@@ -1421,13 +1420,13 @@ hold_all_sys(bib_id,bib_bc,cnt,pwd,pat_barcode);
 };//end lets_start
 };//end items out all
 
-function letgo(pwd,pat_barcode){
+function letgo(pwd,pat_barcode,thetally){
 	iter=0;
 	cnt=0;
-p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
+p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+','');
 }
 //case17
-function items_out_all2(reqstring,thedate,code){
+function items_out_all2(reqstring,thedate,code,thetally){
 	//alert('out_all2 started');
 
 var settings = {
@@ -1474,8 +1473,8 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	//var tester=JSON.stringify(thetally);
-	//alert(tester);
+	var tester=JSON.stringify(thetally);
+	alert(tester);
 	if(jQuery.inArray( bib_id, thetally )!== -1){
 	hold_ind=true;   
 	};
