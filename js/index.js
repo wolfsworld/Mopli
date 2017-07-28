@@ -53,17 +53,18 @@ var app = {
     },
 
     scan: function() {
-		alert('scan started');
+		//alert('scan started');
         console.log('scanning');
         
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
+        //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+		var scanner = cordova.plugins.barcodeScanner;
+		
         scanner.scan( function (result) { 
 
-            ////alert("The Barcode is\n" + 
-            //"Result: " + result.text + "\n" + 
-            //"Format: " + result.format + "\n" + 
-           //"Cancelled: " + result.cancelled);  
+            alert("The Barcode is\n" + 
+            "Result: " + result.text + "\n" + 
+            "Format: " + result.format + "\n" + 
+           "Cancelled: " + result.cancelled);  
 
            //console.log("Scanner result: \n" +
            //     "text: " + result.text + "\n" +
