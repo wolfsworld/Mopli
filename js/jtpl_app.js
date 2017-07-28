@@ -466,10 +466,7 @@ $.ajax({
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			case 15: lib_branches(reqstring,thedate,code); break;
 			case 16: pat_basics(reqstring,thedate,code); break;
-			case 17:setTimeout(function() {
-items_out_all2(reqstring,thedate,code); break;
-}, 2000); 
-					
+			case 17: items_out_all2(reqstring,thedate,code); break;
 			}
 }},
         error: function() {
@@ -1461,9 +1458,12 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
+	var tester=JSON.stringify(thetally);
+	alert(tester);
 	if(jQuery.inArray( bib_id, thetally )!== -1){
 	hold_ind=true;   
 	};
+	
 	
 			$.each(value, function(key2, value2) {
 	
