@@ -466,7 +466,10 @@ $.ajax({
 			case 14: fees_outstanding(reqstring,thedate,code); break;
 			case 15: lib_branches(reqstring,thedate,code); break;
 			case 16: pat_basics(reqstring,thedate,code); break;
-			case 17: items_out_all2(reqstring,thedate,code); break;
+			case 17:setTimeout(function() {
+items_out_all2(reqstring,thedate,code); break;
+}, 2000); 
+					
 			}
 }},
         error: function() {
@@ -1404,10 +1407,8 @@ var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc);
 });//end each
-setTimeout(function() {
-p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
-}, 2000);
 
+p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
 	
 };//end lets_start
 };//end items out all
