@@ -1368,8 +1368,8 @@ handover(hold_ind2, title,bib_id,cnt,pwd,pat_barcode);
 	thetally.push(bib_id3);	
 	};
 		if (iter==cnt){
-			//var testit=JSON.stringify(thetally);
-	//alert(testit);
+			var testit=JSON.stringify(thetally);
+	alert(testit);
 			letgo(pwd,pat_barcode,thetally);
 			//alert(iter);
 		}
@@ -1423,7 +1423,8 @@ hold_all_sys(bib_id,bib_bc,cnt,pwd,pat_barcode);
 function letgo(pwd,pat_barcode,thetally){
 	iter=0;
 	cnt=0;
-				var testit=JSON.stringify(thetally);
+	var thetally=thetally;
+	var testit=JSON.stringify(thetally);
 	alert(testit);
 //p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 }
