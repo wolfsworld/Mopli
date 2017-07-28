@@ -1370,7 +1370,7 @@ handover(hold_ind2, title,bib_id,cnt,pwd,pat_barcode);
 		if (iter==cnt){
 			var testit=JSON.stringify(thetally);
 	alert(testit);
-			letgo(pwd,pat_barcode,thetally);
+			//letgo(pwd,pat_barcode,thetally);
 			//alert(iter);
 		}
 	};	
