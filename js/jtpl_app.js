@@ -844,8 +844,6 @@ if(UPC!=''){
 selection= ['Title', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial'];
 }
 
-
-
 if(cover_no==''){
 switch(media){
 	case 35: np_list_html +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
