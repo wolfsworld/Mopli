@@ -1359,16 +1359,23 @@ handover(hold_ind2, title,bib_id,cnt);
 };//filter_holds1
 
 	function handover2(status3, title3,bib_id3,cnt){	
+		//create counter
+		iter++;
+		
 		var status4=status3; 
 		var title3=title3; 	
 	if(status4==true){
 	thetally.push(bib_id3);
-	alert(cnt);	
-	}	
+	//alert(cnt);	
+	};
+		if (iter==cnt){
+			letgo;
+			alert(iter);
+		}
 	};	
 };//hold_all_sys
 
-
+var iter=0;
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 	
@@ -1400,16 +1407,16 @@ var pwd=$('#libpin').val();
 var pat_barcode=$("#patron_bc").val();
 $( "#borrowed" ).empty();
 var cnt=response.PatronItemsOutGetRows.length;
-alert(cnt);	
+//alert(cnt);	
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc,cnt);
 });//end each
 
-//function letgo(pwd,pat_barcode){
+function letgo(pwd,pat_barcode){
 p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
-//}
+}
 
 };//end lets_start
 };//end items out all
