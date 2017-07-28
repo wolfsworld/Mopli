@@ -1311,7 +1311,7 @@ $.ajax({
         success : function(response) {
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
-			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_id);	
+			filter_holds1(p_response.code,p_response.reqstring,p_response.thedate,bib_id,cnt);	
         },
         error      : function() {
             console.error("error");
@@ -1400,7 +1400,7 @@ var pwd=$('#libpin').val();
 var pat_barcode=$("#patron_bc").val();
 $( "#borrowed" ).empty();
 var cnt=response.PatronItemsOutGetRows.length;
-	
+alert(cnt);	
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 var bib_id=value.BibID;
 var bib_bc=value.Barcode;
