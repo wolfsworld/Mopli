@@ -1424,9 +1424,9 @@ function letgo(pwd,pat_barcode,thetally){
 	iter=0;
 	cnt=0;
 	var thetally=thetally;
-	var testit=JSON.stringify(thetally);
-	alert(testit);
-//p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
+	//var testit=JSON.stringify(thetally);
+	//alert(testit);
+p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 }
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
