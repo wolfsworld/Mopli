@@ -1404,7 +1404,11 @@ var bib_id=value.BibID;
 var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc);
 });//end each
+setTimeout(function() {
 p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
+}, 2000);
+
+	
 };//end lets_start
 };//end items out all
 
