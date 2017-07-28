@@ -1361,17 +1361,17 @@ handover(hold_ind2, title,bib_id,cnt);
 	function handover2(status3, title3,bib_id3,cnt){	
 		//create counter
 		iter++;
-		alert(iter);
+		//alert(iter);
 		var status4=status3; 
 		var title3=title3; 	
 	if(status4==true){
 	thetally.push(bib_id3);
 	//alert(cnt);	
 	};
-		//if (iter==cnt){
-			//letgo;
+		if (iter==cnt){
+			letgo();
 			//alert(iter);
-		//}
+		}
 	};	
 };//hold_all_sys
 
@@ -1414,9 +1414,9 @@ var bib_bc=value.Barcode;
 hold_all_sys(bib_id,bib_bc,cnt);
 });//end each
 
-//function letgo(pwd,pat_barcode){
+function letgo(pwd,pat_barcode){
 p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','','','');
-//}
+}
 
 };//end lets_start
 };//end items out all
