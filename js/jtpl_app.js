@@ -1368,8 +1368,8 @@ handover(hold_ind2, title,bib_id,cnt,pwd,pat_barcode);
 	thetally.push(bib_id3);	
 	};
 		if (iter==cnt){
-			var testit=JSON.stringify(thetally);
-	alert(testit);
+			//var testit=JSON.stringify(thetally);
+	//alert(testit);
 			letgo(pwd,pat_barcode,thetally);
 			//alert(iter);
 		}
@@ -1462,7 +1462,7 @@ RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
-
+alert(bib_id);
 if(RENLEFT<=0){
 hold_ind=true;
 }
@@ -1478,7 +1478,7 @@ switch(media){
 }
 	//var tester=JSON.stringify(thetally);
 	//alert(tester);
-	if($.inArray(''+bib_id+'',thetally)!== -1){
+	if($.inArray(bib_id, thetally)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
 	};
