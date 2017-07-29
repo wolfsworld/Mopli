@@ -1428,7 +1428,7 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
 	//alert('out_all2 started');
-
+var thetally=thetally.split(',');
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
