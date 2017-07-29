@@ -1430,7 +1430,9 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 function items_out_all2(reqstring,thedate,code,thetally){
 
 	alert(JSON.stringify(thetally));
-
+		if(thetally.constructor === Array){
+		alert('tally is array');
+		}
 	//var thetally1=[1064934,1061702,1072559];
 	//var theall=[1064934,1061702,1072559,111111,222222,333333,444444];
 	//$.each(thetally, function(key, value) {	
@@ -1495,9 +1497,7 @@ switch(media){
 	//alert('bibid: '+bib_id1+' is not in<br>'+thetally1);
 	 //}
 	
-		//if(thetally.constructor === Array){
-		//alert('tally is array');
-		//}
+
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
