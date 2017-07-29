@@ -1429,7 +1429,7 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
 	//alert('out_all2 started');
-var thetally=thetally.split(',');
+//var thetally=thetally.split(',');
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
@@ -1481,12 +1481,12 @@ switch(media){
 	//}
 	//var bib_id=number(bib_id);
 	//if($.inArray(bib_id, thetally)!== -1){
-	if(thetally.indexOf(bib_id)!== -1){
+	if(thetally.indexOf(''+bib_id+'')!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
 	}
 	else{
-	alert('bibid: '+bib_id+' is not <br>'+thetally);
+	//alert('bibid: '+bib_id+' is not <br>'+thetally);
 	 }
 	
 		//if(thetally.constructor === Array){
