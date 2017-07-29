@@ -1457,7 +1457,7 @@ $.ajax(settings).done(function (response) {
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
-var thetally2=thetally;
+var thetally2=thetally.split(',');
 alert(thetally2);
 $( "#borrowed" ).empty();
 
