@@ -1475,7 +1475,10 @@ switch(media){
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
 	//var tester=JSON.stringify(thetally);
-	alert(thetally);
+	//alert(thetally);
+	if($.isNumeric(bib_id)){
+		alert ('numeric');
+	}
 	//var bib_id=number(bib_id);
 	if($.inArray(bib_id, thetally)!== -1){
 	alert('hit at '+bid_id);
@@ -1483,7 +1486,7 @@ switch(media){
 	};
 	
 		if(thetally.constructor === Array){
-		alert('tally is array');
+		//alert('tally is array');
 	}
 			$.each(value, function(key2, value2) {
 	
