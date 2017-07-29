@@ -1431,7 +1431,12 @@ function items_out_all2(reqstring,thedate,code,thetally){
 
 //var thetally1=[1064934,1061702,1072559];
 	//var theall=[1064934,1061702,1072559,111111,222222,333333,444444];
-	
+	$.each(thetally, function(key, value) {	
+	//if($.inArray(value, thetally1)!== -1){
+	alert('key: '+key+ ', value: '+value);
+		//hold_ind=true;   
+	//};	
+	});	
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
@@ -1451,12 +1456,7 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 	
-	$.each(thetally, function(key, value) {	
-	//if($.inArray(value, thetally1)!== -1){
-	alert('key: '+key+ ', value: '+value);
-		//hold_ind=true;   
-	//};	
-	});
+
 	
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 var hold_ind=false;
