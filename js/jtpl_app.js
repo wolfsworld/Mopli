@@ -1303,7 +1303,7 @@ p_pwd ='';
 $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        //async: false,
+        async: false,
 		crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
@@ -1324,7 +1324,7 @@ $.ajax({
 function filter_holds1 (code,reqstring,thedate,bib_id,cnt,pwd,pat_barcode){
 
 var settings = {
-	//"async":"false",
+	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1361,6 +1361,7 @@ handover(hold_ind2, title,bib_id,cnt,pwd,pat_barcode);
 	function handover2(status3, title3,bib_id3,cnt,pwd,pat_barcode){	
 		//create counter
 		iter++;
+		//var thetally=[];
 		var status4=status3; 
 		var title3=title3; 	
 	if(status4==true){	
@@ -1376,11 +1377,10 @@ var iter=0;
 var cnt=0;
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-	//empty the tally array
 	thetally.length=0;
 	thetally=[];	
 window.plugins.spinnerDialog.show(null,"...processing");
-
+//alert('items out all started 1357');
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
@@ -1398,8 +1398,9 @@ $.ajax(settings).done(function (response) {
 lets_start(response);
 });//end ajax
 	
-function lets_start(response){
-var my_outs='';
+function lets_start(response){	
+//thetally.length=0;
+	var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 var pwd=$('#libpin').val();
@@ -1424,7 +1425,7 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 }
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
-	
+
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
@@ -1442,7 +1443,7 @@ var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 var thetally2=thetally.split(',');
-//alert(tally3);
+
 $( "#borrowed" ).empty();
 
 $.each(response.PatronItemsOutGetRows, function(key, value) {
@@ -1456,7 +1457,7 @@ RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
 var bib_id1=value.BibID;
 bib_bc=value.Barcode;
-//alert(bib_id);
+
 if(RENLEFT<=0){
 hold_ind=true;
 }
@@ -1469,11 +1470,31 @@ switch(media){
 		my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/Jacket.jpg" /></td ><td class="txtbox">';
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
-}	
+}
+	
+	
 	$.each(thetally2, function(key, value) {
 		if(value==bib_id1){
-		hold_ind=true; 
+			hold_ind=true; 
 		}
+	//if($.inArray(value, thetally1)!== -1){
+	//alert('key: '+key+ ', value: '+value);
+		//hold_ind=true;   
+	//};	
+	});	
+	
+	//var tester=JSON.stringify(thetally);
+	//alert(thetally1);
+
+	//if($.inArray(bib_id1, thetally2)!== -1){
+	//if(thetally1.indexOf(bib_id1)!== -1){
+	//alert('hit at '+bid_id1);
+		//hold_ind=true;   
+	//}
+	//else{
+	//alert('bibid: '+bib_id1+' is not in<br>'+thetally1);
+	 //}
+	
 
 			$.each(value, function(key2, value2) {
 	
