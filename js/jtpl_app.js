@@ -1459,7 +1459,7 @@ RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
-alert(bib_id);
+//alert(bib_id);
 if(RENLEFT<=0){
 hold_ind=true;
 }
@@ -1474,7 +1474,7 @@ switch(media){
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
 	//var tester=JSON.stringify(thetally);
-	//alert(tester);
+	alert(thetally);
 	if($.inArray(bib_id, thetally)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
