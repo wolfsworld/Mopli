@@ -1428,12 +1428,9 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 }
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
-	//alert('out_all2 started');
-var thetally1=[1064934,1061702,1072559];
-	var theall=[1064934,1061702,1072559,111111,222222,333333,444444];
 
-	
-	
+//var thetally1=[1064934,1061702,1072559];
+	//var theall=[1064934,1061702,1072559,111111,222222,333333,444444];
 	
 var settings = {
 	//"async":"false",
@@ -1453,14 +1450,13 @@ var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
 $( "#borrowed" ).empty();
-
-		
-	$.each(theall, function(key, value) {	
+	
+	/*$.each(theall, function(key, value) {	
 	if($.inArray(value, thetally1)!== -1){
 	alert('hit at '+value);
 		hold_ind=true;   
 	};	
-	});
+	});*/
 	
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 var hold_ind=false;
@@ -1487,21 +1483,21 @@ switch(media){
 	} else{
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
-	//var tester=JSON.stringify(thetally);
+	var tester=JSON.stringify(thetally);
 	//alert(thetally1);
 
-	//if($.inArray(bib_id1, thetally)!== -1){
+	if($.inArray(bib_id1, tester)!== -1){
 	//if(thetally1.indexOf(bib_id1)!== -1){
-	//alert('hit at '+bid_id1);
+	alert('hit at '+bid_id1);
 		//hold_ind=true;   
-	//}
+	}
 	//else{
 	//alert('bibid: '+bib_id1+' is not in<br>'+thetally1);
 	 //}
 	
-		//if(thetally1.constructor === Array){
-		//alert('tally1 is array');
-		//}
+		if(tester.constructor === Array){
+		alert('tally1 is array');
+		}
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
