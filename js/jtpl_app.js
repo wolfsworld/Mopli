@@ -1476,7 +1476,7 @@ switch(media){
 }
 	//var tester=JSON.stringify(thetally);
 	alert(thetally);
-	var bib_id=number(bib_id);
+	//var bib_id=number(bib_id);
 	if($.inArray(bib_id, thetally)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
