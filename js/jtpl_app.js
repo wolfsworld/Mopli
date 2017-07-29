@@ -1483,7 +1483,7 @@ switch(media){
 	if($.inArray(bib_id, thetally)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
-	}else{alert('no hit');
+	}else{alert('bibid: '+bib_id' is not <br>'+thetally);
 		 }
 	
 		//if(thetally.constructor === Array){
