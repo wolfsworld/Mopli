@@ -1428,19 +1428,19 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 }
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
-var thetally1 = thetally.split(',');
-	alert(JSON.stringify(thetally1));
-		if(thetally1.constructor === Array){
+//var thetally1 = thetally.split(',');
+	//alert(JSON.stringify(thetally1));
+		//if(thetally1.constructor === Array){
 		//alert('tally is array');
-		}
+		//}
 	//var thetally1=[1064934,1061702,1072559];
 	//var theall=[1064934,1061702,1072559,111111,222222,333333,444444];
-	$.each(thetally1, function(key, value) {	
+	//$.each(thetally1, function(key, value) {	
 	//if($.inArray(value, thetally1)!== -1){
-	alert('key: '+key+ ', value: '+value);
+	//alert('key: '+key+ ', value: '+value);
 		//hold_ind=true;   
 	//};	
-	});	
+	//});	
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
@@ -1457,7 +1457,8 @@ $.ajax(settings).done(function (response) {
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
-
+var thetally2=thetally;
+alert(thetally2);
 $( "#borrowed" ).empty();
 
 $.each(response.PatronItemsOutGetRows, function(key, value) {
@@ -1488,7 +1489,7 @@ switch(media){
 	//var tester=JSON.stringify(thetally);
 	//alert(thetally1);
 
-	if($.inArray(bib_id1, thetally1)!== -1){
+	if($.inArray(bib_id1, thetally2)!== -1){
 	//if(thetally1.indexOf(bib_id1)!== -1){
 	alert('hit at '+bid_id1);
 		//hold_ind=true;   
