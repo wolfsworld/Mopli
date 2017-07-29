@@ -1303,7 +1303,7 @@ p_pwd ='';
 $.ajax({
         type: "POST",
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
-        async: false,
+        //async: false,
 		crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
 		error: function(jqXHR,text_status,strError){
@@ -1324,7 +1324,7 @@ $.ajax({
 function filter_holds1 (code,reqstring,thedate,bib_id,cnt,pwd,pat_barcode){
 
 var settings = {
-	"async":"false",
+	//"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
