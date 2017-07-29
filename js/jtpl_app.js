@@ -1491,7 +1491,7 @@ switch(media){
 	
 	$.each(thetally2, function(key, value) {
 		if(value==bib_id1){
-			alert('hit at'+bib_id1);
+			hold_ind=true; 
 		}
 	//if($.inArray(value, thetally1)!== -1){
 	//alert('key: '+key+ ', value: '+value);
