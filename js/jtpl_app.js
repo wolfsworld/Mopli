@@ -1428,9 +1428,9 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 }
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
-
-	alert(JSON.stringify(thetally));
-		if(thetally.constructor === Array){
+var thetally1 = thetally.split(',');
+	alert(JSON.stringify(thetally1));
+		if(thetally1.constructor === Array){
 		alert('tally is array');
 		}
 	//var thetally1=[1064934,1061702,1072559];
@@ -1488,7 +1488,7 @@ switch(media){
 	//var tester=JSON.stringify(thetally);
 	//alert(thetally1);
 
-	if($.inArray(bib_id1, thetally)!== -1){
+	if($.inArray(bib_id1, thetally1)!== -1){
 	//if(thetally1.indexOf(bib_id1)!== -1){
 	alert('hit at '+bid_id1);
 		//hold_ind=true;   
