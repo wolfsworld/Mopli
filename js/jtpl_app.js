@@ -1431,16 +1431,16 @@ function items_out_all2(reqstring,thedate,code,thetally){
 var thetally1 = thetally.split(',');
 	alert(JSON.stringify(thetally1));
 		if(thetally1.constructor === Array){
-		alert('tally is array');
+		//alert('tally is array');
 		}
 	//var thetally1=[1064934,1061702,1072559];
 	//var theall=[1064934,1061702,1072559,111111,222222,333333,444444];
-	//$.each(thetally, function(key, value) {	
+	$.each(thetally1, function(key, value) {	
 	//if($.inArray(value, thetally1)!== -1){
-	//alert('key: '+key+ ', value: '+value);
+	alert('key: '+key+ ', value: '+value);
 		//hold_ind=true;   
 	//};	
-	//});	
+	});	
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
