@@ -1475,7 +1475,7 @@ switch(media){
 }
 	//var tester=JSON.stringify(thetally);
 	alert(thetally);
-	if($.inArray(bib_id, thetally)!== -1){
+	if($.inArray(''+bib_id+'', thetally)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
 	};
@@ -1541,10 +1541,11 @@ my_outs +="<br><br>";}
 my_outs +="</td></tr></table>";
 });//end outer each
 $( "#borrowed" ).append(my_outs);
+	thetally.length=0;
 window.plugins.spinnerDialog.hide();
 });//end ajax 
 
-thetally.length=0;
+
 };//end items_out_all2 function
 
 /*function est_fees(media_cat, det_days_overdue){
