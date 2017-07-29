@@ -1428,7 +1428,8 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 }
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
-//var thetally1 = thetally.split(',');
+var tally3=thetally;
+	//var thetally1 = thetally.split(',');
 	//alert(JSON.stringify(thetally1));
 		//if(thetally1.constructor === Array){
 		//alert('tally is array');
@@ -1457,8 +1458,8 @@ $.ajax(settings).done(function (response) {
 var my_outs='';
 var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
-var thetally2=thetally.split(',');
-alert(thetally2);
+//var thetally2=thetally.split(',');
+alert(tally3);
 $( "#borrowed" ).empty();
 
 $.each(response.PatronItemsOutGetRows, function(key, value) {
