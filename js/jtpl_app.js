@@ -1368,10 +1368,7 @@ handover(hold_ind2, title,bib_id,cnt,pwd,pat_barcode);
 	thetally.push(bib_id3);	
 	};
 		if (iter==cnt){
-			//var testit=JSON.stringify(thetally);
-	//alert(testit);
 			letgo(pwd,pat_barcode,thetally);
-			//alert(iter);
 		}
 	};	
 };//hold_all_sys
@@ -1423,7 +1420,7 @@ hold_all_sys(bib_id,bib_bc,cnt,pwd,pat_barcode);
 function letgo(pwd,pat_barcode,thetally){
 	iter=0;
 	cnt=0;
-	var thetally=thetally;
+	//var thetally=thetally;
 	//var testit=JSON.stringify(thetally);
 	//alert(testit);
 p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
@@ -1489,7 +1486,7 @@ switch(media){
 				if(key2=="ItemID"){
 				out_req_id=value2;
 				}
-				if(jQuery.inArray( key2, out_selection )!== -1){
+				if($.inArray( key2, out_selection )!== -1){
 				switch(key2){
 				case "AssignedBranchName":
 				key2="Assigned Library";
