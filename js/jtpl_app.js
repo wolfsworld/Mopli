@@ -1477,8 +1477,8 @@ switch(media){
 	//var tester=JSON.stringify(thetally);
 	alert(thetally1);
 
-	//if($.inArray(bib_id, thetally)!== -1){
-	if(thetally1.indexOf(bib_id1)!== -1){
+	if($.inArray(bib_id1, thetally)!== -1){
+	//if(thetally1.indexOf(bib_id1)!== -1){
 	alert('hit at '+bid_id1);
 		hold_ind=true;   
 	}
