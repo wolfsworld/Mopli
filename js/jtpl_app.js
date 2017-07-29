@@ -1475,12 +1475,14 @@ switch(media){
 }
 	//var tester=JSON.stringify(thetally);
 	alert(thetally);
-	if($.inArray(''+bib_id+'', thetally)!== -1){
+	if($.inArray(''+bib_id+'', ''+thetally+'')!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
 	};
 	
-	
+		if(thetally.constructor === Array){
+		alert('tally is array');
+	}
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
@@ -1542,6 +1544,7 @@ my_outs +="</td></tr></table>";
 });//end outer each
 $( "#borrowed" ).append(my_outs);
 	thetally.length=0;
+	thetally=[];
 window.plugins.spinnerDialog.hide();
 });//end ajax 
 
