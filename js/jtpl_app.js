@@ -1476,18 +1476,19 @@ switch(media){
 }
 	//var tester=JSON.stringify(thetally);
 	//alert(thetally);
-	if($.isNumeric(bib_id)){
-		alert ('numeric');
-	}
+	//if($.isNumeric(bib_id)){
+		//alert ('numeric');
+	//}
 	//var bib_id=number(bib_id);
 	if($.inArray(bib_id, thetally)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
-	};
+	}else{alert('no hit');
+		 }
 	
-		if(thetally.constructor === Array){
+		//if(thetally.constructor === Array){
 		//alert('tally is array');
-	}
+	//}
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
