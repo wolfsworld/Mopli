@@ -1377,7 +1377,8 @@ var iter=0;
 var cnt=0;
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
-	
+	thetally.length=0;
+	thetally=[];	
 window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
@@ -1475,7 +1476,8 @@ switch(media){
 }
 	//var tester=JSON.stringify(thetally);
 	alert(thetally);
-	if($.inArray(''+bib_id+'', ''+thetally+'')!== -1){
+	var bib_id=number(bib_id);
+	if($.inArray(bib_id, thetally)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
 	};
@@ -1543,8 +1545,7 @@ my_outs +="<br><br>";}
 my_outs +="</td></tr></table>";
 });//end outer each
 $( "#borrowed" ).append(my_outs);
-	thetally.length=0;
-	thetally=[];
+
 window.plugins.spinnerDialog.hide();
 });//end ajax 
 
