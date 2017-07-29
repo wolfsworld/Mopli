@@ -1429,14 +1429,16 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
 
-//var thetally1=[1064934,1061702,1072559];
+	alert(JSON.stringify(thetally));
+
+	//var thetally1=[1064934,1061702,1072559];
 	//var theall=[1064934,1061702,1072559,111111,222222,333333,444444];
-	$.each(thetally, function(key, value) {	
+	//$.each(thetally, function(key, value) {	
 	//if($.inArray(value, thetally1)!== -1){
-	alert('key: '+key+ ', value: '+value);
+	//alert('key: '+key+ ', value: '+value);
 		//hold_ind=true;   
 	//};	
-	});	
+	//});	
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
@@ -1455,9 +1457,7 @@ var list_est='';
 var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author', 'CheckOutDate', 'DueDate', 'RenewalCount'];
 
 $( "#borrowed" ).empty();
-	
 
-	
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 var hold_ind=false;
 overdue=false;
@@ -1495,9 +1495,9 @@ switch(media){
 	//alert('bibid: '+bib_id1+' is not in<br>'+thetally1);
 	 //}
 	
-		if(thetally.constructor === Array){
-		alert('tally is array');
-		}
+		//if(thetally.constructor === Array){
+		//alert('tally is array');
+		//}
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
