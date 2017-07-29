@@ -1458,7 +1458,7 @@ title=value.Title;
 RENCT=value.RenewalCount;
 RENLIM=value.RenewalLimit;
 var RENLEFT=RENLIM-RENCT;
-var bib_id=value.BibID;
+var bib_id1=value.BibID;
 bib_bc=value.Barcode;
 //alert(bib_id);
 if(RENLEFT<=0){
@@ -1481,17 +1481,17 @@ switch(media){
 	//}
 	//var bib_id=number(bib_id);
 	//if($.inArray(bib_id, thetally)!== -1){
-	if(thetally.indexOf(bib_id)!== -1){
+	if(thetally.indexOf(bib_id1)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
 	}
 	else{
-	alert('bibid: '+bib_id+' is not <br>'+thetally);
+	alert('bibid: '+bib_id+' is not in<br>'+thetally);
 	 }
 	
 		if(thetally.constructor === Array){
 		alert('tally is array');
-	//}
+	}
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
