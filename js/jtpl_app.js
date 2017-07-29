@@ -1429,7 +1429,7 @@ p_validate(17,'',''+pwd+'','',''+pat_barcode+'','GET','',''+thetally+'','');
 //case17
 function items_out_all2(reqstring,thedate,code,thetally){
 	//alert('out_all2 started');
-//var thetally=thetally.split(',');
+var thetally1=thetally;
 var settings = {
 	//"async":"false",
 "content-type": "application/json",
@@ -1481,16 +1481,16 @@ switch(media){
 	//}
 	//var bib_id=number(bib_id);
 	//if($.inArray(bib_id, thetally)!== -1){
-	if(thetally.indexOf(bib_id1)!== -1){
-	alert('hit at '+bid_id);
+	if(thetally1.indexOf(bib_id1)!== -1){
+	alert('hit at '+bid_id1);
 		hold_ind=true;   
 	}
 	else{
-	alert('bibid: '+bib_id+' is not in<br>'+thetally);
+	alert('bibid: '+bib_id1+' is not in<br>'+thetally1);
 	 }
 	
-		if(thetally.constructor === Array){
-		alert('tally is array');
+		if(thetally1.constructor === Array){
+		alert('tally1 is array');
 	}
 			$.each(value, function(key2, value2) {
 	
