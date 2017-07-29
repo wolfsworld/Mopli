@@ -1480,7 +1480,8 @@ switch(media){
 		//alert ('numeric');
 	//}
 	//var bib_id=number(bib_id);
-	if($.inArray(bib_id, thetally)!== -1){
+	//if($.inArray(bib_id, thetally)!== -1){
+	if(thetally.indexOf(bib_id)!== -1){
 	alert('hit at '+bid_id);
 		hold_ind=true;   
 	}
