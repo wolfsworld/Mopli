@@ -32,7 +32,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.2.5';
+var this_app_version='1.2.6';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -1472,30 +1472,12 @@ switch(media){
 	my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';};
 }
 	
-	
 	$.each(thetally2, function(key, value) {
 		if(value==bib_id1){
 			hold_ind=true; 
-		}
-	//if($.inArray(value, thetally1)!== -1){
-	//alert('key: '+key+ ', value: '+value);
-		//hold_ind=true;   
-	//};	
+		}	
 	});	
 	
-	//var tester=JSON.stringify(thetally);
-	//alert(thetally1);
-
-	//if($.inArray(bib_id1, thetally2)!== -1){
-	//if(thetally1.indexOf(bib_id1)!== -1){
-	//alert('hit at '+bid_id1);
-		//hold_ind=true;   
-	//}
-	//else{
-	//alert('bibid: '+bib_id1+' is not in<br>'+thetally1);
-	 //}
-	
-
 			$.each(value, function(key2, value2) {
 	
 				if(key2=="ItemID"){
@@ -1559,8 +1541,6 @@ $( "#borrowed" ).append(my_outs);
 
 window.plugins.spinnerDialog.hide();
 });//end ajax 
-
-
 };//end items_out_all2 function
 
 /*function est_fees(media_cat, det_days_overdue){
