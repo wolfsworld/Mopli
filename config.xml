@@ -13,10 +13,8 @@
         PhoneGap Team
     </author>
     <access origin="http://jeffersonlibrary.net/INTERMED.php" />
-    
-     <allow-navigation href="*" />
+    <access origin="*" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
 	<plugin name="phonegap-plugin-barcodescanner"/>
 	<preference name="android-build-tool" value="gradle" />
 	<gap:config-file platform="ios" parent="NSCameraUsageDescription" overwrite="true">
