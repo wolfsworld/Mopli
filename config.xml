@@ -12,9 +12,11 @@
     <author email="info@mopli.net" href="http://mopli.net">
         PhoneGap Team
     </author>
-    <access origin="http://jeffersonlibrary.net/INTERMED.php" />
-    <access origin="*" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
+    <access origin="http://jeffersonlibrary.net/INTERMED.php" />
+    <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
+     <allow-navigation href="*" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
 	<plugin name="phonegap-plugin-barcodescanner"/>
 	<preference name="android-build-tool" value="gradle" />
 	<gap:config-file platform="ios" parent="NSCameraUsageDescription" overwrite="true">
