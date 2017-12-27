@@ -12,10 +12,10 @@
     <author email="info@mopli.net" href="http://mopli.net">
         PhoneGap Team
     </author>
-    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <access origin="http://jeffersonlibrary.net/INTERMED.php" />
     
      <allow-navigation href="*" />
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
 	<plugin name="phonegap-plugin-barcodescanner"/>
 	<preference name="android-build-tool" value="gradle" />
