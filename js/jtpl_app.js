@@ -1668,7 +1668,7 @@ p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 });
 //case 11 - extend (ajax & go to prep_getholds)
 function item_renew(reqstring,thedate,code,pat_barcode){
-//alert('item renew function started, no ajax call yet');
+alert('item renew function started, no ajax call yet');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -1683,7 +1683,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-alert('ajax success');
+
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
@@ -1698,7 +1698,7 @@ block=true;}else{block=false;}
 
 var pbc=pat_barcode;
 var pwd=$('#libpin').val();
-alert('still going');
+
 if(block==true){
 	$.jAlert({
     'title': 'Please note',
