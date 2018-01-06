@@ -1668,21 +1668,22 @@ p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 });
 //case 11 - extend (ajax & go to prep_getholds)
 function item_renew(reqstring,thedate,code,pat_barcode){
-alert('item renew function started, no ajax call yet');
+alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
   "type": "PUT",
-  "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": "true" }}',
-	"headers": {
+  "headers": {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"" 
-  }  
+  },
+  "processData": false,
+  "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": "true" }}'
 }
 
 $.ajax(settings).done(function (response) {
-alert('ajax call done');
+alert('ajax call done')
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
