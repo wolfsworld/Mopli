@@ -1674,12 +1674,11 @@ var settings = {
 	"dataType": "json",
   "url": ""+reqstring+"",
   "type": "PUT",
-  "headers": {
+  "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": "true" }}',
+	"headers": {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"" 
-  },
-  "processData": false,
-  "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": "true" }}'
+  }  
 }
 
 $.ajax(settings).done(function (response) {
