@@ -1683,7 +1683,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-
+alert('ajax call done');
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
