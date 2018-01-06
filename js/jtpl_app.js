@@ -1670,17 +1670,19 @@ p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 function item_renew(reqstring,thedate,code,pat_barcode){
 alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
 var settings = {
-"content-type": "application/json",
-	"dataType": "json",
+
+	  "dataType": "XML",
   "url": ""+reqstring+"",
-  "type": "PUT",
+  "method": "POST",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
+    "authorization": ""+code+"",
+    "content-type": "application/xml"
   },
   "processData": false,
-  "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": "true" }}'
-}
+"data": '<ItemsOutActionData><Action>renew</Action><LogonBranchID>13</LogonBranchID><LogonUserID>1</LogonUserID><LogonWorkstationID>1</LogonWorkstationID><RenewData><IgnoreOverrideErrors>true</IgnoreOverrideErrors><ItemsOutActionData></RenewData></ItemsOutActionData>'
+	}	
+
 
 $.ajax(settings).done(function (response) {
 alert('ajax call done')
