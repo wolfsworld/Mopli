@@ -1661,14 +1661,14 @@ extend_id=$(this).attr("id");
 $("#extend_out_conf").on('click', function(){
 p_barcode=$("#patron_bc").val();
 p_pin=$("#libpin").val();
-//alert('ready to extend'+extend_id+'');
+alert('ready to extend'+extend_id+'');
 $("#borrowed" ).empty();
-//alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
+alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
 p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 });
 //case 11 - extend (ajax & go to prep_getholds)
 function item_renew(reqstring,thedate,code,pat_barcode){
-
+alert('item renew function started, no ajax call yet');
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
