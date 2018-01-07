@@ -154,6 +154,7 @@ default: var val2="other media format"; break;
 return val2;
 }
 
+
 //case2 - BARCODE SCANNER
 function getData(barcode,referer){  
 p_searchitem=barcode;
@@ -279,7 +280,7 @@ $(window).on("navigate", function (event, data) {
   }
 });
 
-//open in app browser
+// pages to open in app browser
 $('#3m_btn').on('click', function () {
 window.open('http://ebook.3m.com/library/jtpl/Featured', '_blank', 'location=yes');
 });
@@ -1027,7 +1028,7 @@ var pat_barcode=response.PatronBarcode;
 var valid_pat=response.ValidPatron;
 branch_id=response.AssignedBranchID;
 branch_name=response.AssignedBranchName;
-//alert(valid_pat);
+alert(''+pat_barcode+'');
 if(valid_pat==true){
 	if(hold=='true'){
 	putonhold(res_pat_id, pat_barcode,p_cn);
