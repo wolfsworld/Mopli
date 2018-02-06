@@ -1665,35 +1665,33 @@ p_pin=$("#libpin").val();
 //alert('ready to extend'+extend_id+'');
 $("#borrowed" ).empty();
 
-	//alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
+	alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
 
 	p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 });
 //case 11 - extend (ajax & go to prep_getholds)
 function item_renew(reqstring,thedate,code,pat_barcode){
-//alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
+alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
 var settings = {
-"async":true,
-"crossDomain":true,
+"content-type": "application/json",
+	"dataType": "json",
   "url": ""+reqstring+"",
-  "method": "PUT",
+  "type": "PUT",
   "headers": {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"" 
-	  "content-type": "application/json",
   },
   "processData": false,
   "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": true }}'
 }
 
-
-//"data": '<ItemsOutActionData><Action>renew</Action><LogonBranchID>13</LogonBranchID><LogonUserID>1</LogonUserID><LogonWorkstationID>1</LogonWorkstationID><RenewData><IgnoreOverrideErrors>true</IgnoreOverrideErrors></RenewData></ItemsOutActionData>'
-
 //alternative   "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>'+pickup_location+'</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>'+branch_id+'</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
 
 
+
+
 $.ajax(settings).done(function (response) {
-//alert('ajax call done');
+alert('ajax call done');
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
