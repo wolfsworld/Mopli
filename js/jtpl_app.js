@@ -1673,13 +1673,13 @@ $("#borrowed" ).empty();
 function item_renew(reqstring,thedate,code,pat_barcode){
 alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
 var settings = {
-"content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
-  "type": "PUT",
+  "method": "PUT",
   "headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
+    "authorization": ""+code+"",
+	"content-type": "application/json",
   },
   "processData": false,
   "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": true }}'
