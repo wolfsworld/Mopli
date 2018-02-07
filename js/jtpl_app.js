@@ -32,7 +32,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.2.6';
+var this_app_version='1.3.0';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -640,7 +640,6 @@ function next_news_search(next_page){
 searchitem= newtitle_list;
    	p_validate(4,''+searchitem+'','','','','GET','',''+next_page+'','');
 }
-
 
 //case 3 - get book detail (get encryption data)
 $(document).on('click', '.trail a', function () {
@@ -1665,33 +1664,27 @@ p_pin=$("#libpin").val();
 //alert('ready to extend'+extend_id+'');
 $("#borrowed" ).empty();
 
-	alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
+	//alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
 
 	p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 });
 //case 11 - extend (ajax & go to prep_getholds)
 function item_renew(reqstring,thedate,code,pat_barcode){
-alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
+//alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
 var settings = {
-	"dataType": "json",
-  "url": ""+reqstring+"",
-  "method": "PUT",
-  "headers": {
+"dataType": "json",
+"url": ""+reqstring+"",
+"method": "PUT",
+"headers": {
     "polarisdate": ""+thedate+"",
     "authorization": ""+code+"",
 	"content-type": "application/json",
-  },
-  "processData": false,
-  "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": true }}'
+},
+"processData": false,
+"data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": true }}'
 }
 
-//alternative   "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>'+pickup_location+'</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>'+branch_id+'</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
-
-
-
-
 $.ajax(settings).done(function (response) {
-alert('ajax call done');
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
