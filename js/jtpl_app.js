@@ -32,7 +32,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.3.0';
+var this_app_version='1.3.1';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -159,7 +159,7 @@ return val2;
 function getData(barcode,referer){  
 p_searchitem=barcode;
 var thedate=(new Date()).toUTCString();
-var reqstring="https://catalog.mainlib.org/PAPIService/REST/public/v1/1033/100/13/search/bibs/keyword/ISBN?q="+p_searchitem+"";
+var reqstring="https://catalog.mainlib.org/PAPIService/REST/public/v1/1033/100/29/search/bibs/keyword/ISBN?q="+p_searchitem+"";
 var p_method="GET";
 
 $.ajax({
@@ -1294,7 +1294,7 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc,cnt,pwd,pat_barcode){
-var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+var reqstring=""+dest+"/REST/public/v1/1033/100/29/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
 p_method="GET";
@@ -1681,7 +1681,7 @@ var settings = {
 	"content-type": "application/json",
 },
 "processData": false,
-"data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": true }}'
+"data": '{"Action": "renew","LogonBranchID": "29","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": true }}'
 }
 
 $.ajax(settings).done(function (response) {
