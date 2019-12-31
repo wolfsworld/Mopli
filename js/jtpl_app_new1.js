@@ -3,6 +3,7 @@ var dest="https://catalog.mainlib.org/PAPIService";
 var counter=0;
 var framehistory=[];
 var framehistory2=[];
+var thetally=[];
 var page_counter=1;
 
 if(page_counter<1){
@@ -1373,14 +1374,12 @@ hold_ind2=true;
 		window.status4=status3; 
 		window.title3=title3; 
 		alert('title3: ' + title3 + 'status: ' + status4 +' :' + bib_id3);
-			//if(hold_ind2==true){
-	//thetally.push(cont_no);
-	//}
+	
+	if(status4==true){
+	thetally.push(bib_id3);
+	}
+		
 	};	
-	//alert(the_return);
-	//alert('title3: ' + title3 + 'status4: ' + status4);
-//return status4;
-	//return the_return;
 };//hold_all_sys
 
 //case 9 - items out all (list)

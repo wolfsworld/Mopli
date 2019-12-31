@@ -1297,35 +1297,25 @@ function a(bib_id, bib_bc){
 		var thedate=(new Date()).toUTCString();
 		p_method="GET";
 		p_pwd ='';	
-/////////////////////////////////
+	
 	return $.ajax({
         type: "POST",
-		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
+		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short_test.php",
         crossDomain: "true",
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
-        success : function(response) {
-			//alert(""+reqstring+","+thedate+","+response+"");
-		var thefirst= {val1: ""+reqstring+"", val2: ""+thedate+"", val3: ""+code+""};
-			return thefirst;
-		//return ""+reqstring+","+thedate+","+response+"";
-		},
-        error: function() {
-            alert('not working ajax a');                  
-        }
+
 });	
-		
-
-
 };//end function a
 	
-	function b(thefirst){
+function b(data_from_a){
 		//var doit=JSON.stringify(datafroma);
 		
-	var reqstring2=thefirst.val1;
-	var thedate2=thefirst.val2;
-	var code2=thefirst.val3;
-		alert('in b :'+code2);
-		return $.ajax({
+	var reqstring2=data_from_a.the_uri;
+	var thedate2=data_from_a.the_date;
+	var code2=data_from_a.the_code;
+		//alert('in b :'+code2);
+		
+	return $.ajax({
         type: "GET",
 		dataType: "json",
 		contentType:"application/json",
@@ -1334,31 +1324,40 @@ function a(bib_id, bib_bc){
         headers: {
 			"polarisdate": ""+thedate2+"",
 			"authorization": ""+code2+"" 
-		},
-        success : function(response) {
-			alert('response b :'+response);
-		//return {val1: reqstring, val2: thedate, val3: code};
-		return response;
-		},
-        error: function() {
-            alert('not working ajax b');                  
-        }
-});	
+		}
+		});	
 };
 
-function c(thedata){
-	
-	var thereturn=JSON.stringify(thedata);
-	alert('response c :'+thereturn);
-	return thereturn;
+function c(data_from_b){	
+//see if renewable of not
+$.each(data_from_b.BibSearchRows, function(key, value) {
+overdue=false;									 
+
+var sys_items_in=value.SystemItemsIn;
+var cur_hold_req=value.CurrentHoldRequests;
+
+if(cur_hold_req>=sys_items_in){
+hold_ind=true;
+}else{
+hold_ind=false;
+}	
+});//each loop
+return hold_ind;
 }
+
+
+function check_out(value){
+			a(bib_id,bib_bc).then(b).then c (function(data){
+			//alert("the end :"+data);
+			return data;
+			});
+			}	
 	
 //case 9 - items out all (list)
 function items_out_all(reqstring,thedate,code){
 //window.plugins.spinnerDialog.show(null,"...processing");
 //alert('items out all started 1357');
 var settings = {
-	"async":"false",
 "content-type": "application/json",
 	"dataType": "json",
   "url": ""+reqstring+"",
@@ -1377,9 +1376,9 @@ var out_selection= ['FormatDescription', 'AssignedBranchName', 'Title', 'Author'
 
 $( "#borrowed" ).empty();
 
-setTimeout(drip_outs(response),100);
+//setTimeout(drip_outs(response),100);
 	
-function drip_outs(response){
+//function drip_outs(response){
 $.each(response.PatronItemsOutGetRows, function(key, value) {
 hold_ind=false;
 
@@ -1393,26 +1392,18 @@ var RENLEFT=RENLIM-RENCT;
 bib_id=value.BibID;
 bib_bc=value.Barcode;
 
+//run the 9.. ajax checks on other extension blockers
+
+var tuy=setTimeout(check_out(bib_id,bib_bc),1000);
+
+
 //alert(RENLEFT);
-if(RENLEFT<=0){
+if(RENLEFT<=0 || tuy==true){
 hold_ind=true;
-}else{
-//hold_ind=hold_all_sys(bib_id,bib_bc);	
-	//var tester=//chain of ajax
-var tester= a(bib_id,bib_bc);
-		var reqstring2=tester.val1;
-	var thedate2=tester.val2;
-	var code2=tester.val3;
-		alert('in main :'+code2);
-	//alert('tester: '+JSON.stringify(tester));
-	//hold_all_sys(bib_id,bib_bc);	
-	//alert(JSON.stringify(tester));
-	//alert('title is: ' + title + 'tester is: ' + tester);
 }
 
-	
-	//alert('Title:'+ title +'RENLEFT:' + RENLEFT + 'hold_ind:' + hold_ind + 'tester: ' +tester);
-	//alert('it made it to final query');
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 switch(media){
 	case 35: my_outs +='<table class="bibtbl"><tr><td class="picbox"><img src="img/cd_icon.png" /></td ><td class="txtbox">'; break;
@@ -1440,7 +1431,7 @@ switch(media){
 				break;
 				case "RenewalCount":
 				key2="Renewals Left";
-					if(RENLEFT<=0 || hold_ind==true ){
+					if(hold_ind==true ){
 						value2="not renewable";
 					}else{
 						value2=""+RENLEFT+"";}
@@ -1484,7 +1475,7 @@ my_outs +="<br><br>";}
 my_outs +="</td></tr></table>";
 //}//end screen out cancelled
 });
-};
+//};dripout
 $( "#borrowed" ).append(my_outs);
 //window.plugins.spinnerDialog.hide();
 });//end ajax 
