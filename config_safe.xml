@@ -2,8 +2,8 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.mopli"
-        versionCode = "30" 
-        version     = "1.2.6" >
+        versionCode = "33" 
+        version     = "1.3.1" >
 
     <name>MOPLI JTPL</name>
     <description>
@@ -14,6 +14,12 @@
     </author>
     <access origin="http://jeffersonlibrary.net/INTERMED.php" />
     <access origin="*" />
+    <allow-navigation href="*" />
+    <platform name="android">
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-targetSdkVersion" value="23" />
+	</platform>
+
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	<plugin name="phonegap-plugin-barcodescanner"/>
 	<preference name="android-build-tool" value="gradle" />
@@ -39,7 +45,7 @@
 	<gap:plugin name="cordova-plugin-spinnerdialog" source="npm"/>
 	<gap:plugin name="cordova-plugin-flashlight" source="npm"/>
 	<gap:plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" version="3.2.1" source="npm"/>
-   	<preference name="phonegap-version" value="cli-6.3.0" />
+   	<preference name="phonegap-version" value="cli-6.5.0" />
 	<preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
@@ -48,7 +54,9 @@
 	<preference name="SplashScreenDelay" value="5000" />
 	<preference name="EnableViewportScale" value="true"/>
 	
-    <icon src="icon.png" />
+    <platform name="ios"><icon src="icon/ios/icon1024.png" width="1024" height="1024" /></platform>
+    <platform name="android"><icon src="icon.png" /></platform>
+    
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
     <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
