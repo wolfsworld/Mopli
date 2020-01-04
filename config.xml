@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.neptune.MyApp" versionCode="100" version="1.0.0">
-<author>Wolf von Bistram</author>
-<name>MOPLI</name>
-<description>Library </description>
+<author>Me</author>
+<name>MyApp</name>
+<description>My App</description>
 <platform name="ios">
     <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
         <string>to take pictures/scan barcodes</string>
