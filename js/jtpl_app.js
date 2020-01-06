@@ -1959,7 +1959,7 @@ $.ajax({
 		url: ""+the_url+"",
         crossDomain: true,
         success : function(response) {
-		alert(response);
+		//alert(response);
 		NYT_HC_FIC(response);
 		},
         error      : function() {
