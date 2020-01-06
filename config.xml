@@ -31,11 +31,10 @@
 	</gap:config-file>
    <preference name="permissions" value="none"/>
    	<gap:plugin name="cordova-plugin-camera" source="npm"  />
+
 	
 	<gap:plugin name="cordova-plugin-device"  source="npm" />
 	<gap:plugin name="cordova-plugin-network-information" source="npm" />
-
-	
 	<gap:plugin name="cordova-plugin-statusbar" source="npm"/>
 		<feature name="StatusBar">
 	 		<param name="ios-package" value="CDVStatusBar" onload="true" />
