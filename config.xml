@@ -30,6 +30,12 @@
    	<string>For uploading receipt images</string>
 	</gap:config-file>
    <preference name="permissions" value="none"/>
+   
+	<gap:plugin name="cordova-plugin-device"  source="npm" />
+	<gap:plugin name="cordova-plugin-network-information" source="npm" />
+	<gap:plugin name="cordova-plugin-camera" source="npm"  />
+	<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
+	<gap:plugin name="cordova-plugin-splashscreen" source="npm" />
 
 	
    	<preference name="phonegap-version" value="cli-6.5.0" />
