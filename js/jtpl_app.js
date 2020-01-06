@@ -1971,8 +1971,8 @@ $.ajax({
 //populate Bestseller Field
 function NYT_HC_FIC (response){
 	//alert(response);
-		var response=JSON.stringify(response);
-		var response= jQuery.parseJSON(response);
+		//var response=JSON.stringify(response);
+		//var response= jQuery.parseJSON(response);
 //alert(response);
 var selection= ['title', 'author', 'publisher', 'description', 'primary_isbn13'];
 
@@ -1984,18 +1984,18 @@ $( "#nyt" ).empty();
 
 var nyt_link='';
 
-$.each(response.results, function(key, value) {
+$.each(response.results.books, function(key, value) {
 var nyt1_html='';
 var rank=key+1;
 
-the_isbn=value.books[0].primary_isbn13;
-the_cover=value.books[0].book_image;
+the_isbn=value.primary_isbn13;
+the_cover=value.book_image;
 
 //nyt1_html +='<table class="bibtbl"><tr><td class="picbox">'+the_cover+'<img src="'+the_cover+'" width="90px" /></td ><td class="txtbox">';
 nyt1_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+the_isbn+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 nyt1_html += "<strong>Rank: " + rank + "</strong><br>";
 
-$.each(value.books[0], function(key2, value2) {
+$.each(value, function(key2, value2) {
 //alert('this is rank: '+key+' key2: '+ key2 +' and value2: '+ value2 +'');
 
 	if(jQuery.inArray( key2, selection )!== -1){
