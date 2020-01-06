@@ -828,14 +828,14 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-alert(response);
+
 var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial'];
 $( "#news" ).empty();
 var np_list_html='';
 var next_batch_news='';
   
 $.each(response.BibSearchRows, function(key, value) {
-
+alert(response.BibSearchRows);
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
 ISBN=value.ISBN;
