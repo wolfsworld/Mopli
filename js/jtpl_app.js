@@ -810,6 +810,7 @@ $.ajax({
         }
 });
 });
+
 //case 4 - get news list - book and dvd
 function get_news(code,reqstring,thedate){
 var np_list_html='';
@@ -931,7 +932,7 @@ $.each(response.OrganizationsGetRows, function(key, value) {
 if(value.OrganizationCodeID==3 && value.OrganizationID != 42 ){
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
-pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
+pu_loc_list +='<option value='+org_id+'>'+org_id+' - '+org_name+'</option>';
 }
 });//end each
 pu_loc_list +='</select></label>'; 
@@ -1751,7 +1752,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-alert('line 1754');
+//alert('line 1754');
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial', 'LocalItemsTotal','LocalItemsIn', 'SystemItemsTotal', 'SystemItemsIn'];
 $( "#most_popular" ).empty();
 var mplist_html='';
