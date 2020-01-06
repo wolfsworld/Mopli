@@ -1751,7 +1751,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-
+alert('line 1754');
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial', 'LocalItemsTotal','LocalItemsIn', 'SystemItemsTotal', 'SystemItemsIn'];
 $( "#most_popular" ).empty();
 var mplist_html='';
