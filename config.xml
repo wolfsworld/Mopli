@@ -41,8 +41,8 @@
 		<preference name="StatusBarBackgroundColor" value="#f6a90d" />
 	<gap:plugin name="cordova-plugin-spinnerdialog" source="npm"/>
 	<gap:plugin name="cordova-plugin-flashlight" source="npm"/>
-		<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
 
+	<gap:plugin name="cordova-plugin-splashscreen" source="npm" />
 	
    	<preference name="phonegap-version" value="cli-6.5.0" />
 	<preference name="orientation" value="default" />
