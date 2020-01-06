@@ -21,12 +21,12 @@
 </platform>
 <platform name="windows">
 <preference name="windows-appx-target" value="uap" />
+<preference name="phonegap-version" value="cli-9.0.0" />
 <preference name="windows-target-version" value="10.0" />
 <preference name="windows-arch" value="anycpu" />
 <preference name="WindowsDefaultUriPrefix" value="ms-appx-web://" />
 <preference name="WindowsToastCapable" value="true" />
 </platform>
-<preference name="phonegap-version" value="cli-9.0.0" />
 <preference name="StatusBarOverlaysWebView" value="false" />
 <preference name="fullscreen" value="false" />
 <preference name="LoadUrlTimeoutValue" value="70000" />
@@ -54,12 +54,6 @@
 <plugin name="cordova-plugin-splashscreen" source="npm"/>
 <plugin name="cordova-plugin-statusbar" source="npm"/>
 <plugin name="cordova-plugin-whitelist" source="npm"/>
-<allow-intent target="_blank" target="_blank" target="_blank" href="http://*/*"/>
-<allow-intent target="_blank" target="_blank" target="_blank" href="https://*/*"/>
-<allow-intent href="tel:*"/>
-<allow-intent href="sms:*"/>
-<allow-intent href="mailto:*"/>
-<allow-intent href="geo:*"/>
-<allow-navigation href="*" />
+
 <access origin="*" subdomains="true" />
 </widget>
