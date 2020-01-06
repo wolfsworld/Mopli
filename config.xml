@@ -12,7 +12,7 @@
     <author email="info@mopli.net" href="http://mopli.net">
         PhoneGap Team
     </author>
-    <access origin="http://jeffersonlibrary.net/INTERMED.php" />
+    
     <access origin="*" />
     <allow-navigation href="*" />
     <platform name="android">
