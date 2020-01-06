@@ -835,6 +835,7 @@ var np_list_html='';
 var next_batch_news='';
   
 $.each(response.BibSearchRows, function(key, value) {
+alert(value);
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
 ISBN=value.ISBN;
@@ -932,7 +933,7 @@ $.each(response.OrganizationsGetRows, function(key, value) {
 if(value.OrganizationCodeID==3 && value.OrganizationID != 42 ){
 var org_id=value.OrganizationID;
 var org_name=value.DisplayName;
-pu_loc_list +='<option value='+org_id+'>'+org_id+' - '+org_name+'</option>';
+pu_loc_list +='<option value='+org_id+'>'+org_name+'</option>';
 }
 });//end each
 pu_loc_list +='</select></label>'; 
