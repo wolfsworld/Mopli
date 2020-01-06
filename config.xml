@@ -34,6 +34,8 @@
 	<gap:plugin name="cordova-plugin-device"  source="npm" />
 	<gap:plugin name="cordova-plugin-network-information" source="npm" />
 
+	<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
+	<gap:plugin name="cordova-plugin-splashscreen" source="npm" />
 	
 	<gap:plugin name="cordova-plugin-statusbar" source="npm"/>
 		<feature name="StatusBar">
