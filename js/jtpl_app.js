@@ -828,7 +828,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-
+alert('line 831 executed');
 var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial'];
 $( "#news" ).empty();
 var np_list_html='';
