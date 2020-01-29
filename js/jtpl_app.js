@@ -835,14 +835,16 @@ var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTyp
 $( "#news" ).empty();
 var np_list_html='';
 var next_batch_news='';
-  
+
+alert(response);
+
 $.each(response.BibSearchRows, function(key, value) {
 
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
 ISBN=value.ISBN;
 UPC=value.UPC;
-alert(cont_no);
+//alert(cont_no);
 
 if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}
 
