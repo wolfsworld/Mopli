@@ -53,7 +53,7 @@
 	<preference name="EnableViewportScale" value="true"/>
 	
 	
-	
+	<splash src="splash.png" />
 	
     <platform name="ios">
 	
@@ -73,7 +73,7 @@
 	</platform>
 	
 	<platform name="ios">
-	<splash src="splash.png" />
+	
 	<splash src="res/screen/ios/screen-iphone-portrait.png" height="480"  width="320" />
     <splash src="res/screen/ios/screen-iphone-portrait-2x.png" height="960"  width="640" />
 	<splash src="res/screen/ios/screen-iphone-portrait-568h-2x.png" height="1136"  width="640" />
