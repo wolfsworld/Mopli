@@ -52,9 +52,14 @@
 	<preference name="SplashScreenDelay" value="5000" />
 	<preference name="EnableViewportScale" value="true"/>
 	
+	
+	<splash src="splash.png" />
+	
     <platform name="ios"><icon src="icon/ios/icon1024.png" width="1024" height="1024" /></platform>
     <platform name="android"><icon src="icon.png" /></platform>
     
+	
+	
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
     <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
