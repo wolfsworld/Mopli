@@ -79,13 +79,15 @@
     <icon src="res/icon/windows-phone/icon-48.png" qualifier="winphone" />
     <icon src="res/icon/windows-phone/icon-173.png" qualifier="winphone" gap:role="background" />
     
-	<splash src="res/screen/android/screen-ldpi-portrait.png" platform="android" qualifier="ldpi"  />
-	<splash src="res/screen/android/screen-mdpi-portrait.png" platform="android" qualifier="mdpi" />
-    <splash src="res/screen/android/screen-hdpi-portrait.png" platform="android" qualifier="hdpi" />
-    <splash src="res/screen/android/screen-xhdpi-portrait.png" platform="android" qualifier="xhdpi" />
-    
-	<splash src="res/screen/blackberry/screen-225.png" platform="blackberry"  />
+	<platform name="android">
+
+	<splash src="res/screen/android/screen-ldpi-portrait.png" platform="android" qualifier="port-ldpi"  />
+	<splash src="res/screen/android/screen-mdpi-portrait.png" platform="android" qualifier="port-mdpi" />
+    <splash src="res/screen/android/screen-hdpi-portrait.png" platform="android" qualifier="port-hdpi" />
+    <splash src="res/screen/android/screen-xhdpi-portrait.png" platform="android" qualifier="port-xhdpi" />
+    </platform>
 	
+	<platform name="ios">
     <splash src="res/screen/ios/screen-iphone-portrait.png" platform="ios" height="480"  width="320" />
     <splash src="res/screen/ios/screen-iphone-portrait-2x.png" platform="ios" height="960"  width="640" />
 	<splash src="res/screen/ios/screen-iphone-portrait-568h-2x.png" platform="ios" height="1136"  width="640" />
@@ -97,7 +99,8 @@
 	<splash src="res/screen/ios/Splash-750x1334.png" platform="ios" height="1334"  width="750" />
     <splash src="res/screen/ios/Splash-2208x1242.png" platform="ios" height="2208"  width="1242" />
     <splash src="res/screen/ios/Splash-1242x2208.png" platform="ios" height="1242"  width="2208" />
-
+	<platform>
+	
 	<gap:splash platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 	<engine name="android" spec="^4.0.2" />
     <engine name="ios" spec="^3.8.0" />
