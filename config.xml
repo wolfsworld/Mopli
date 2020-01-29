@@ -96,7 +96,7 @@
     <icon src="res/icon/android/icon-96-xhdpi.png" density="xhdpi"  />
 
 	<splash src="res/screen/android/screen-ldpi-portrait.png" platform="android" density="port-ldpi"  />
-	<splash src="res/screen/android/screen-mdpi-portrait1.png" platform="android" density="port-mdpi" />
+	<splash src="res/screen/android/screen-mdpi-portrait.png" platform="android" density="port-mdpi" />
     <splash src="res/screen/android/screen-hdpi-portrait.png" platform="android" density="port-hdpi" />
     <splash src="res/screen/android/screen-xhdpi-portrait.png" platform="android" density="port-xhdpi" />
 	
