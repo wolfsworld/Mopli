@@ -816,6 +816,8 @@ function get_news(code,reqstring,thedate){
 var np_list_html='';
 var next_batch_news='';
 
+alert('line 819 executed');
+
 var settings = {
 "content-type": "application/json",
 	"dataType": "json",
@@ -828,7 +830,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-alert('line 831 executed');
+
 var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial'];
 $( "#news" ).empty();
 var np_list_html='';
