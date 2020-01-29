@@ -53,10 +53,10 @@
 	<preference name="EnableViewportScale" value="true"/>
 	
 	
-	<splash src="splash.png" />
+	
 	
     <platform name="ios">
-	
+	<splash src="splash.png" />
 	<icon src="res/icon/ios/icon1024.png" width="1024" height="1024" />
 	
 	<icon src="res/icon/ios/icon-57.png" width="57" height="57" />
