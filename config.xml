@@ -70,9 +70,9 @@
 	<icon src="res/icon/ios/icon-76-2x.png" width="152" height="152" />
     <icon src="res/icon/ios/icon-80-2x.png" width="160" height="144" />
     <icon src="res/icon/ios/icon-152.png" width="152" height="152" />
-	</platform>
+
 	
-	<platform name="ios">
+	
 	
 	<splash src="res/screen/ios/screen-iphone-portrait.png" height="480"  width="320" />
     <splash src="res/screen/ios/screen-iphone-portrait-2x.png" height="960"  width="640" />
