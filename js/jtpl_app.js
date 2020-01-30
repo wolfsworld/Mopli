@@ -32,7 +32,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.3.1';
+var this_app_version='1.4.0';
 var dev_platform;
 
 //device ready event and subsequent routines
