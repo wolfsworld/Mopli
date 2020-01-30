@@ -2,8 +2,8 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.mopli"
-        versionCode = "40" 
-        version     = "1.4.0" >
+        versionCode = "33" 
+        version     = "1.4.1" >
 
     <name>MOPLI JTPL</name>
     <description>
@@ -25,6 +25,9 @@
 	<preference name="android-build-tool" value="gradle" />
     <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
         <string>The app needs access to the camera, to be able to read barcodes.</string>
+    </edit-config>
+	    <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+        <string>App needs for using scan results.</string>
     </edit-config>
    <preference name="permissions" value="none"/>
    	<gap:plugin name="cordova-plugin-camera" source="npm"  />
