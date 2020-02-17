@@ -21,6 +21,10 @@ var net_status=true;
 
 var storage = window.localStorage;
 
+
+var rem_pu_loc_id1
+var rem_pu_loc_name1
+
 var rem_libcard;
 var rem_libpin;
 var rem_count;
@@ -44,8 +48,8 @@ navigator.splashscreen.hide();
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
 
-var rem_pu_loc_id = window.localStorage.getItem("rem_pu_loc_id");
-var rem_pu_loc_name = window.localStorage.getItem("rem_pu_loc_name");
+rem_pu_loc_id1 = window.localStorage.getItem("rem_pu_loc_id1");
+rem_pu_loc_name1 = window.localStorage.getItem("rem_pu_loc_name1");
 
 if (rem_libcard){
 		$("#remember").prop('checked', true);
@@ -61,8 +65,8 @@ if (rem_libpin){
 rem_libpin='';
 }
 
-if (rem_pu_loc_id){pu_loc_id=rem_pu_loc_id;}else{pu_loc_id='';}
-if (rem_pu_loc_name){pu_loc_name=rem_pu_loc_name;}else{pu_loc_name='';}
+if (rem_pu_loc_id1){pu_loc_id=rem_pu_loc_id1;}else{pu_loc_id='';}
+if (rem_pu_loc_name1){pu_loc_name=rem_pu_loc_name1;}else{pu_loc_name='';}
 
 //check network connection	
 function checkConnection() {
@@ -956,7 +960,7 @@ rem_count=$("#rem_pu_loc").length;
 	//alert("rem_count is" +rem_count);
 if (rem_count==0) {
 ///////////////////////
-if (rem_pu_loc_id){
+if (rem_pu_loc_id1){
 rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
 }else{
 rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" />Remember pickup location</label>';
@@ -998,12 +1002,12 @@ if( $('#pu_loc').length ){
 		//if it should be stored
 		var rem_pu_loc=$('#rem_pu_loc').is(':checked'); 
   		if(rem_pu_loc==true){
-		window.localStorage.setItem("rem_pu_loc_id",""+pu_loc_id+"");  
-		window.localStorage.setItem("rem_pu_loc_name",""+pu_loc_name+"");  
+		window.localStorage.setItem("rem_pu_loc_id1",""+pu_loc_id+"");  
+		window.localStorage.setItem("rem_pu_loc_name1",""+pu_loc_name+"");  
 		}
 		else{
-		window.localStorage.removeItem("rem_pu_loc_id",""+pu_loc_id+"");  
-		window.localStorage.removeItem("rem_pu_loc_name",""+pu_loc_name+"");
+		window.localStorage.removeItem("rem_pu_loc_id1",""+pu_loc_id+"");  
+		window.localStorage.removeItem("rem_pu_loc_name1",""+pu_loc_name+"");
 		}
 	}
 	else{
