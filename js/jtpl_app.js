@@ -7,7 +7,7 @@ var thetally=[];
 var page_counter=1;
 
 if(page_counter<1){
-var page_counter=1;
+page_counter=1;
 }
 
 var newtitle_list=0;
@@ -32,7 +32,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.4.1';
+var this_app_version='1.4.2';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -44,8 +44,8 @@ navigator.splashscreen.hide();
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
 
-rem_pu_loc_id = window.localStorage.getItem("rem_pu_loc_id");
-rem_pu_loc_name = window.localStorage.getItem("rem_pu_loc_name");
+var rem_pu_loc_id = window.localStorage.getItem("rem_pu_loc_id");
+var rem_pu_loc_name = window.localStorage.getItem("rem_pu_loc_name");
 
 if (rem_libcard){
 		$("#remember").prop('checked', true);
@@ -115,41 +115,41 @@ if(device.platform == "WinCE" || device.platform === "Win32NT"){dev_platform='W'
 //function media material conversion
 function matconv(val2){
 switch(val2){
-case 1:	var val2="Book"; break;
-case 2: var val2="Printed or Manuscript Music"; break;
-case 3: var val2="Cartographic Material"; break; 
-case 4:	var val2="Visual Materials"; break; 
-case 5: var val2="Sound Recording"; break; 
-case 6:	var val2="Electronic Resources"; break; 
-case 7:	var val2="Archival Mixed Materials"; break; 
-case 8:	var val2="Serial"; break; 
-case 9:	var val2="Printed Music"; break; 
-case 10: var val2="Manuscript Music"; break; 
-case 11: var val2="Printed Cartographic Material"; break; 
-case 12: var val2="Manuscript Cartographic Material"; break; 
-case 13: var val2="Map"; break; 
-case 14: var val2="Globe"; break; 
-case 15: var val2="Manuscript Material"; break; 
-case 16: var val2="Projected Medium"; break; 
-case 17: var val2="Motion Picture"; break; 
-case 18: var val2="Video Recording"; break; 
-case 19: var val2="Two Dimensional Non-projected Graphic"; break; 
-case 20: var val2="Three Dimensional Object"; break; 
-case 21: var val2="Musical Sound Recording"; break; 
-case 22: var val2="Nonmusical Sound Recording"; break; 
-case 23: var val2="Kit"; break; 
-case 24: var val2="Periodical"; break; 
-case 25: var val2="Newspaper"; break; 
-case 26: var val2="Microform"; break; 
-case 27: var val2="Large Print"; break; 
-case 28: var val2="Braille"; break; 
-case 33: var val2="DVD"; break; 
-case 34: var val2="Videotape"; break; 
-case 35: var val2="Music CD"; break; 
-case 36: var val2="eBook"; break; 
-case 37: var val2="Audio Book"; break;
-case 40: var val2="Blue-Ray DVD"; break;
-default: var val2="other media format"; break;
+case 1:	val2="Book"; break;
+case 2: val2="Printed or Manuscript Music"; break;
+case 3: val2="Cartographic Material"; break; 
+case 4:	val2="Visual Materials"; break; 
+case 5: val2="Sound Recording"; break; 
+case 6:	val2="Electronic Resources"; break; 
+case 7:	val2="Archival Mixed Materials"; break; 
+case 8:	val2="Serial"; break; 
+case 9:	val2="Printed Music"; break; 
+case 10: val2="Manuscript Music"; break; 
+case 11: val2="Printed Cartographic Material"; break; 
+case 12: val2="Manuscript Cartographic Material"; break; 
+case 13: val2="Map"; break; 
+case 14: val2="Globe"; break; 
+case 15: val2="Manuscript Material"; break; 
+case 16: val2="Projected Medium"; break; 
+case 17: val2="Motion Picture"; break; 
+case 18: val2="Video Recording"; break; 
+case 19: val2="Two Dimensional Non-projected Graphic"; break; 
+case 20: val2="Three Dimensional Object"; break; 
+case 21: val2="Musical Sound Recording"; break; 
+case 22: val2="Nonmusical Sound Recording"; break; 
+case 23: val2="Kit"; break; 
+case 24: val2="Periodical"; break; 
+case 25: val2="Newspaper"; break; 
+case 26: val2="Microform"; break; 
+case 27: val2="Large Print"; break; 
+case 28: val2="Braille"; break; 
+case 33: val2="DVD"; break; 
+case 34: val2="Videotape"; break; 
+case 35: val2="Music CD"; break; 
+case 36: val2="eBook"; break; 
+case 37: val2="Audio Book"; break;
+case 40: val2="Blue-Ray DVD"; break;
+default: val2="other media format"; break;
 }
 return val2;
 }
@@ -2102,16 +2102,17 @@ if(the_alert){
 //version check
 function get_version(response, status){
 $.each(response, function(key, value) {	
-var app_version=response.version;
-if(this_app_version<app_version){
+latest_app_version=response.version;
+if(this_app_version<latest_app_version){
 setTimeout(function(){
-new_vers_alert();
+new_vers_alert(this_app_version, latest_app_version);
 },4000);
 }
 });
 }
 //new version available alert
-function new_vers_alert(){
+function new_vers_alert(this_app_version, latest_app_version){
+alert('Please upgrade this app to the latest version '+latest_app_version+'')
 $('#v_update').empty();
 		switch(dev_platform){
 		case 'A': var btn_group='A'; break;
@@ -2119,7 +2120,7 @@ $('#v_update').empty();
 		case 'W': var btn_group='W'; break;
 		default: var btn_group='N'; break;
 		}
-$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='action' data-theme='a'>New Version Available</a></p>");
+$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='action' data-theme='a'>New Version " + latest_app_version + " Available</a></p>");
 $('.new_version a').button();
 
 }
