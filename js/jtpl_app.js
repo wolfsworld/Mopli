@@ -2112,7 +2112,11 @@ new_vers_alert(this_app_version, latest_app_version);
 }
 //new version available alert
 function new_vers_alert(this_app_version, latest_app_version){
-alert('Please upgrade this app to the latest version '+latest_app_version+'')
+	$.jAlert({
+    'title': 'Important Message',
+    'content': 'Please upgrade this app to the latest version '+latest_app_version+'',
+    'theme': 'red'
+  	});
 $('#v_update').empty();
 		switch(dev_platform){
 		case 'A': var btn_group='A'; break;
