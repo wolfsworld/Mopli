@@ -7,7 +7,7 @@ var thetally=[];
 var page_counter=1;
 
 if(page_counter<1){
-var page_counter=1;
+page_counter=1;
 }
 
 var newtitle_list=0;
@@ -21,6 +21,10 @@ var net_status=true;
 
 var storage = window.localStorage;
 
+
+var rem_pu_loc_id1
+var rem_pu_loc_name1
+
 var rem_libcard;
 var rem_libpin;
 var rem_count;
@@ -32,7 +36,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.2.6';
+var this_app_version='1.4.3';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -44,8 +48,8 @@ navigator.splashscreen.hide();
 rem_libcard = window.localStorage.getItem("rem_libcard");
 rem_libpin = window.localStorage.getItem("rem_libpin");
 
-rem_pu_loc_id = window.localStorage.getItem("rem_pu_loc_id");
-rem_pu_loc_name = window.localStorage.getItem("rem_pu_loc_name");
+rem_pu_loc_id1 = window.localStorage.getItem("rem_pu_loc_id1");
+rem_pu_loc_name1 = window.localStorage.getItem("rem_pu_loc_name1");
 
 if (rem_libcard){
 		$("#remember").prop('checked', true);
@@ -61,13 +65,14 @@ if (rem_libpin){
 rem_libpin='';
 }
 
-if (rem_pu_loc_id){pu_loc_id=rem_pu_loc_id;}else{pu_loc_id='';}
-if (rem_pu_loc_name){pu_loc_name=rem_pu_loc_name;}else{pu_loc_name='';}
+if (rem_pu_loc_id1){pu_loc_id=rem_pu_loc_id1;}else{pu_loc_id='';}
+if (rem_pu_loc_name1){pu_loc_name=rem_pu_loc_name1;}else{pu_loc_name='';}
 
 //check network connection	
 function checkConnection() {
     var networkState = navigator.connection.type;
     var states = {};
+	var Connection;
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
     states[Connection.WIFI]     = 'WiFi connection';
@@ -89,6 +94,7 @@ if(net_status==false){
 	});
 }
 
+var device;
 //enable back button in ios9	
 if(device.platform === "iOS" && parseInt(device.version) === 9){
        //$.mobile.hashListeningEnabled = false;
@@ -115,51 +121,52 @@ if(device.platform == "WinCE" || device.platform === "Win32NT"){dev_platform='W'
 //function media material conversion
 function matconv(val2){
 switch(val2){
-case 1:	var val2="Book"; break;
-case 2: var val2="Printed or Manuscript Music"; break;
-case 3: var val2="Cartographic Material"; break; 
-case 4:	var val2="Visual Materials"; break; 
-case 5: var val2="Sound Recording"; break; 
-case 6:	var val2="Electronic Resources"; break; 
-case 7:	var val2="Archival Mixed Materials"; break; 
-case 8:	var val2="Serial"; break; 
-case 9:	var val2="Printed Music"; break; 
-case 10: var val2="Manuscript Music"; break; 
-case 11: var val2="Printed Cartographic Material"; break; 
-case 12: var val2="Manuscript Cartographic Material"; break; 
-case 13: var val2="Map"; break; 
-case 14: var val2="Globe"; break; 
-case 15: var val2="Manuscript Material"; break; 
-case 16: var val2="Projected Medium"; break; 
-case 17: var val2="Motion Picture"; break; 
-case 18: var val2="Video Recording"; break; 
-case 19: var val2="Two Dimensional Non-projected Graphic"; break; 
-case 20: var val2="Three Dimensional Object"; break; 
-case 21: var val2="Musical Sound Recording"; break; 
-case 22: var val2="Nonmusical Sound Recording"; break; 
-case 23: var val2="Kit"; break; 
-case 24: var val2="Periodical"; break; 
-case 25: var val2="Newspaper"; break; 
-case 26: var val2="Microform"; break; 
-case 27: var val2="Large Print"; break; 
-case 28: var val2="Braille"; break; 
-case 33: var val2="DVD"; break; 
-case 34: var val2="Videotape"; break; 
-case 35: var val2="Music CD"; break; 
-case 36: var val2="eBook"; break; 
-case 37: var val2="Audio Book"; break;
-case 40: var val2="Blue-Ray DVD"; break;
-default: var val2="other media format"; break;
+case 1:	val2="Book"; break;
+case 2: val2="Printed or Manuscript Music"; break;
+case 3: val2="Cartographic Material"; break; 
+case 4:	val2="Visual Materials"; break; 
+case 5: val2="Sound Recording"; break; 
+case 6:	val2="Electronic Resources"; break; 
+case 7:	val2="Archival Mixed Materials"; break; 
+case 8:	val2="Serial"; break; 
+case 9:	val2="Printed Music"; break; 
+case 10: val2="Manuscript Music"; break; 
+case 11: val2="Printed Cartographic Material"; break; 
+case 12: val2="Manuscript Cartographic Material"; break; 
+case 13: val2="Map"; break; 
+case 14: val2="Globe"; break; 
+case 15: val2="Manuscript Material"; break; 
+case 16: val2="Projected Medium"; break; 
+case 17: val2="Motion Picture"; break; 
+case 18: val2="Video Recording"; break; 
+case 19: val2="Two Dimensional Non-projected Graphic"; break; 
+case 20: val2="Three Dimensional Object"; break; 
+case 21: val2="Musical Sound Recording"; break; 
+case 22: val2="Nonmusical Sound Recording"; break; 
+case 23: val2="Kit"; break; 
+case 24: val2="Periodical"; break; 
+case 25: val2="Newspaper"; break; 
+case 26: val2="Microform"; break; 
+case 27: val2="Large Print"; break; 
+case 28: val2="Braille"; break; 
+case 33: val2="DVD"; break; 
+case 34: val2="Videotape"; break; 
+case 35: val2="Music CD"; break; 
+case 36: val2="eBook"; break; 
+case 37: val2="Audio Book"; break;
+case 40: val2="Blue-Ray DVD"; break;
+default: val2="other media format"; break;
 }
 return val2;
 }
 
 
 //case2 - BARCODE SCANNER
-function getData(barcode,referer){  
+function getData(barcode,referer){ 
+var p_searchitem;
 p_searchitem=barcode;
 var thedate=(new Date()).toUTCString();
-var reqstring="https://catalog.mainlib.org/PAPIService/REST/public/v1/1033/100/13/search/bibs/keyword/ISBN?q="+p_searchitem+"";
+var reqstring="https://catalog.mainlib.org/PAPIService/REST/public/v1/1033/100/29/search/bibs/keyword/ISBN?q="+p_searchitem+"";
 var p_method="GET";
 
 $.ajax({
@@ -172,12 +179,13 @@ $.ajax({
 		timeout:60000,
 		cache: false,
         success : function(response) {
+		var p_response;
 			//stop_spin();
 			var code=response;
 			p_response={"code": ""+code+"", "reqstring": ""+reqstring+"", "thedate": ""+thedate+""};
 			getit_bc(p_response.code,p_response.reqstring,p_response.thedate,referer);
         },
-        error      : function() {
+        error: function() {
             console.error("error");
             alert('No network connection or server currently not available.');                  
         }
@@ -402,6 +410,7 @@ if(p_type ==='undefined') p_type ='';
 if(p_holdID ==='undefined') p_holdID ='';
 if(p_searchitem ==='undefined') p_searchitem ='';
 if(p_i ==='undefined') p_i ='';
+
 switch(p_query){
 case 1:	var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/KW?q="+p_searchitem+"&bibsperpage=20&page="+p_holdID+""; break;
 case 2: var reqstring=""+dest+"/REST/public/v1/1033/100/1/search/bibs/keyword/ISBN?q="+p_searchitem+""; break;
@@ -431,7 +440,7 @@ $.ajax({
 		async: true,
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: true,
-        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+""},
+        data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+"", "patron_pin":""+p_pwd+"", "version":""+this_app_version+""},
 		error: function(jqXHR,text_status,strError){
 			alert("no connection");},
 		timeout:60000,
@@ -641,7 +650,6 @@ searchitem= newtitle_list;
    	p_validate(4,''+searchitem+'','','','','GET','',''+next_page+'','');
 }
 
-
 //case 3 - get book detail (get encryption data)
 $(document).on('click', '.trail a', function () {
 p_searchitem=$(this).attr("id");
@@ -811,10 +819,13 @@ $.ajax({
         }
 });
 });
+
 //case 4 - get news list - book and dvd
 function get_news(code,reqstring,thedate){
 var np_list_html='';
 var next_batch_news='';
+
+
 
 var settings = {
 "content-type": "application/json",
@@ -828,17 +839,22 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-
+//alert('line 833 executed');
 var selection= ['Title', 'Author', 'PublicationDate', 'Description', 'PrimaryTypeOfMaterial'];
 $( "#news" ).empty();
 var np_list_html='';
 var next_batch_news='';
-  
+
+//alert(response);
+
 $.each(response.BibSearchRows, function(key, value) {
+
 cont_no=value.ControlNumber;
 media=value.PrimaryTypeOfMaterial;
 ISBN=value.ISBN;
 UPC=value.UPC;
+//alert(cont_no);
+
 if(ISBN){cover_no=ISBN;}else{cover_no=UPC;}
 
 if(UPC!=''){
@@ -949,7 +965,7 @@ rem_count=$("#rem_pu_loc").length;
 	//alert("rem_count is" +rem_count);
 if (rem_count==0) {
 ///////////////////////
-if (rem_pu_loc_id){
+if (rem_pu_loc_id1){
 rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" checked />Remember pickup location</label>';
 }else{
 rem_loc_box +='<label for="rem_pu_loc"><input type="checkbox" name="rem_pu_loc" id="rem_pu_loc" value="yes" />Remember pickup location</label>';
@@ -991,12 +1007,12 @@ if( $('#pu_loc').length ){
 		//if it should be stored
 		var rem_pu_loc=$('#rem_pu_loc').is(':checked'); 
   		if(rem_pu_loc==true){
-		window.localStorage.setItem("rem_pu_loc_id",""+pu_loc_id+"");  
-		window.localStorage.setItem("rem_pu_loc_name",""+pu_loc_name+"");  
+		window.localStorage.setItem("rem_pu_loc_id1",""+pu_loc_id+"");  
+		window.localStorage.setItem("rem_pu_loc_name1",""+pu_loc_name+"");  
 		}
 		else{
-		window.localStorage.removeItem("rem_pu_loc_id",""+pu_loc_id+"");  
-		window.localStorage.removeItem("rem_pu_loc_name",""+pu_loc_name+"");
+		window.localStorage.removeItem("rem_pu_loc_id1",""+pu_loc_id+"");  
+		window.localStorage.removeItem("rem_pu_loc_name1",""+pu_loc_name+"");
 		}
 	}
 	else{
@@ -1295,7 +1311,7 @@ $( "#loginresponse" ).append(my_holds);
 //CHECK if total of holds exceeds total of currenlty available copies
 //case 9b hold_all_sys
 function hold_all_sys(bib_id, bib_bc,cnt,pwd,pat_barcode){
-var reqstring=""+dest+"/REST/public/v1/1033/100/13/search/bibs/keyword/cn?q="+bib_id+"";
+var reqstring=""+dest+"/REST/public/v1/1033/100/29/search/bibs/keyword/cn?q="+bib_id+"";
 var thedate=(new Date()).toUTCString();
 
 p_method="GET";
@@ -1665,33 +1681,27 @@ p_pin=$("#libpin").val();
 //alert('ready to extend'+extend_id+'');
 $("#borrowed" ).empty();
 
-	alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
+	//alert('this is ppin:'+p_pin+' - pbarcode:'+p_barcode+' - extendid:'+extend_id+'');
 
 	p_validate(11,'',''+p_pin+'','',''+p_barcode+'','PUT','',''+extend_id+'','');
 });
 //case 11 - extend (ajax & go to prep_getholds)
 function item_renew(reqstring,thedate,code,pat_barcode){
-alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
+//alert('here:'+reqstring+','+thedate+','+code+','+pat_barcode+'');
 var settings = {
-"content-type": "application/json",
-	"dataType": "json",
-  "url": ""+reqstring+"",
-  "type": "PUT",
-  "headers": {
+"dataType": "json",
+"url": ""+reqstring+"",
+"method": "PUT",
+"headers": {
     "polarisdate": ""+thedate+"",
-    "authorization": ""+code+"" 
-  },
-  "processData": false,
-  "data": '{"Action": "renew","LogonBranchID": "13","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": true }}'
+    "authorization": ""+code+"",
+	"content-type": "application/json",
+},
+"processData": false,
+"data": '{"Action": "renew","LogonBranchID": "29","LogonUserID": "1","LogonWorkstationID": "1","RenewData": { "IgnoreOverrideErrors": true }}'
 }
 
-//alternative   "data": '<HoldRequestCreateData><PatronID>'+res_pat_id+'</PatronID><BibID>'+cont_num+'</BibID><ItemBarcode/><VolumeNumber/><Designation/><PickupOrgID>'+pickup_location+'</PickupOrgID><PatronNotes/><ActivationDate>'+str_time+'</ActivationDate><WorkstationID>1</WorkstationID><UserID>1</UserID><RequestingOrgID>'+branch_id+'</RequestingOrgID><TargetGUID></TargetGUID></HoldRequestCreateData>'
-
-
-
-
 $.ajax(settings).done(function (response) {
-alert('ajax call done');
 var response=JSON.stringify(response);
 var response= jQuery.parseJSON(response);
 
@@ -1758,7 +1768,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-
+//alert('line 1754');
 var selection= ['Title', 'Author', 'PublicationDate', 'PrimaryTypeOfMaterial', 'LocalItemsTotal','LocalItemsIn', 'SystemItemsTotal', 'SystemItemsIn'];
 $( "#most_popular" ).empty();
 var mplist_html='';
@@ -1966,7 +1976,7 @@ $.ajax({
 		url: ""+the_url+"",
         crossDomain: true,
         success : function(response) {
-		//alert('success');
+		//alert(response);
 		NYT_HC_FIC(response);
 		},
         error      : function() {
@@ -1978,8 +1988,8 @@ $.ajax({
 //populate Bestseller Field
 function NYT_HC_FIC (response){
 	//alert(response);
-		var response=JSON.stringify(response);
-		var response= jQuery.parseJSON(response);
+		//var response=JSON.stringify(response);
+		//var response= jQuery.parseJSON(response);
 //alert(response);
 var selection= ['title', 'author', 'publisher', 'description', 'primary_isbn13'];
 
@@ -1991,18 +2001,18 @@ $( "#nyt" ).empty();
 
 var nyt_link='';
 
-$.each(response.results, function(key, value) {
+$.each(response.results.books, function(key, value) {
 var nyt1_html='';
 var rank=key+1;
 
-the_isbn=value.book_details[0].primary_isbn13;
-the_cover=value.book_details[0].book_image;
+the_isbn=value.primary_isbn13;
+the_cover=value.book_image;
 
 //nyt1_html +='<table class="bibtbl"><tr><td class="picbox">'+the_cover+'<img src="'+the_cover+'" width="90px" /></td ><td class="txtbox">';
 nyt1_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+the_isbn+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 nyt1_html += "<strong>Rank: " + rank + "</strong><br>";
 
-$.each(value.book_details[0], function(key2, value2) {
+$.each(value, function(key2, value2) {
 //alert('this is rank: '+key+' key2: '+ key2 +' and value2: '+ value2 +'');
 
 	if(jQuery.inArray( key2, selection )!== -1){
@@ -2101,16 +2111,21 @@ if(the_alert){
 //version check
 function get_version(response, status){
 $.each(response, function(key, value) {	
-var app_version=response.version;
-if(this_app_version<app_version){
+latest_app_version=response.version;
+if(this_app_version<latest_app_version){
 setTimeout(function(){
-new_vers_alert();
+new_vers_alert(this_app_version, latest_app_version);
 },4000);
 }
 });
 }
 //new version available alert
-function new_vers_alert(){
+function new_vers_alert(this_app_version, latest_app_version){
+	$.jAlert({
+    'title': 'Important Message',
+    'content': 'Please upgrade this app to the latest version '+latest_app_version+'',
+    'theme': 'red'
+  	});
 $('#v_update').empty();
 		switch(dev_platform){
 		case 'A': var btn_group='A'; break;
@@ -2118,7 +2133,7 @@ $('#v_update').empty();
 		case 'W': var btn_group='W'; break;
 		default: var btn_group='N'; break;
 		}
-$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='action' data-theme='a'>New Version Available</a></p>");
+$('#v_update').append("<p class='new_version'><a id=" + btn_group + " href='#' data-role='button' data-inline='true' data-mini='true' data-icon='action' data-theme='a'>New Version " + latest_app_version + " Available</a></p>");
 $('.new_version a').button();
 
 }
