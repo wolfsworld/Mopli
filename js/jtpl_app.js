@@ -290,24 +290,12 @@ $(window).on("navigate", function (event, data) {
 });
 
 // pages to open in app browser
-$('#3m_btn').on('click', function () {
-window.open('http://ebook.3m.com/library/jtpl/Featured', '_blank', 'location=yes');
-});
-$('#zinio_btn').on('click', function () {
-window.open('https://www.rbdigital.com/mainincnj/service/zinio/landing?', '_blank', 'location=yes');
-});
-$('#oneclick_btn').on('click', function () {
-window.open('http://jeffersontwpnj.oneclickdigital.com/', '_blank', 'location=yes');
-});
-$('#freegal_btn').on('click', function () {
-window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'location=yes');
-});
 $('#calendar').on('click', function () {
 window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=no,EnableViewPortScale=yes');
 });
-$('#list').on('click', function () {
-window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no,EnableViewPortScale=yes');
-});
+//$('#list').on('click', function () {
+//window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no,EnableViewPortScale=yes');
+//});
 
 //google map
 var map;
@@ -318,7 +306,7 @@ var map;
         lat: 41.0205399,
         lng: -74.5490396,
 		width: '100%',
-        height: '250px',
+        height: '450px',
 		zoom: 15,
         zoomControl: true,
         zoomControlOpt: {
