@@ -289,6 +289,11 @@ $(window).on("navigate", function (event, data) {
   }
 });
 
+$('#the_latest_frame a[target="_blank"]').each(function () {
+    $(this).attr('target', '_self');
+});
+
+
 // pages to open in app browser
 $('#calendar').on('click', function () {
 window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=no,EnableViewPortScale=yes');
