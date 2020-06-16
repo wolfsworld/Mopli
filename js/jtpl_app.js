@@ -291,9 +291,9 @@ $(window).on("navigate", function (event, data) {
 
 
 // pages to open in app browser
-$('#calendar').on('click', function () {
-window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=no,EnableViewPortScale=yes');
-});
+//$('#calendar').on('click', function () {
+//window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=no,EnableViewPortScale=yes');
+//});
 //$('#list').on('click', function () {
 //window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no,EnableViewPortScale=yes');
 //});
