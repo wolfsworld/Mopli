@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!doctype html>
 <html><head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +35,7 @@ $.mobile.allowCrossDomainPages = true;
 
 <div data-role="page" data-theme="a" id="pageone">
 <div data-role="header" data-theme="a" data-position="fixed">
-<img src="img/headerbar_app1000.jpg" width="100%"></div>
+<img src="img/headerbar_app1000.jpg" width="100%" alt="JTPL"></div>
 
 	<div data-role="ui-content" data-theme="a">
 	
@@ -43,7 +43,7 @@ $.mobile.allowCrossDomainPages = true;
     <a href="#login" id="main_login" data-transition="turn" class="ui-btn ui-icon-user ui-btn-icon-left">My MAIN Account</a>
     <a href="#scanner" data-transition="turn" class="ui-btn ui-icon-scan ui-btn-icon-left">ISBN Barcode Scanner</a>
     <a href="#contact" data-transition="turn" class="ui-btn ui-icon-info ui-btn-icon-left">Contact</a>
-    <a href="#direction" data-transition="turn" id="direction" class="ui-btn ui-icon-location ui-btn-icon-left">Directions</a>
+    <a href="#direction" data-transition="turn" id="direction_btn" class="ui-btn ui-icon-location ui-btn-icon-left">Directions</a>
     <a href="#hours" data-transition="turn" id="hours_btn" class="ui-btn ui-icon-clock ui-btn-icon-left">Hours & Closing Days</a>
     <a href="#events_main" data-transition="turn" id="events_btn" class="ui-btn ui-icon-calendar ui-btn-icon-left">Events</a>
     <a href="#the_latest" data-transition="turn" class="ui-btn ui-icon-home ui-btn-icon-left">The Latest...</a>
@@ -94,7 +94,7 @@ $.mobile.allowCrossDomainPages = true;
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>Detail</h3></div>
-<div data-role="ui-content" id="bib_detail">	
+<div data-role="ui-content" id="bib_detail_content">	
 <div id="bdetail"></div>
 <div class="pic_large"></div>
 
@@ -203,7 +203,7 @@ Fax: 973-697-7051<br />
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>Online Media</h3></div>
-<div data-role="ui-content" id="contact_content">
+<div data-role="ui-content" id="online_content">
 <iframe id="the_latest_frame" frameborder="0" src="http://jeffersonlibrary.net/extres/online-media_ap.php"></iframe>
 </div>
 </div>
@@ -227,7 +227,7 @@ Fax: 973-697-7051<br />
 <div data-role="page" id="direction">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <h3>Directions</h3></div>
-<div data-role="ui-content" id="contact_direction">
+<div data-role="ui-content" id="direction_content">
 
 <h4>Directions</h4>
 <div id="map_canvas"></div>	
@@ -240,7 +240,7 @@ Fax: 973-697-7051<br />
 <div data-role="page" id="events_main">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <h3>Events</h3></div>
-<div data-role="ui-content" id="contact_content">
+<div data-role="ui-content" id="events_content">
 <a href="#" data-transition="turn" id="calendar" class="ui-btn ui-icon-calendar ui-btn-icon-left">Calendar</a>
 </div>
 </div>
@@ -251,7 +251,7 @@ Fax: 973-697-7051<br />
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>News & Highlights</h3></div>
 <div data-role="ui-content" id="the_latest_content">
-<iframe id="the_latest_frame" frameborder="0" src="http://jeffersonlibrary.net/modules/blog_frontpage_ap.php"></iframe>
+<iframe id="the_latest_frame2" frameborder="0" src="http://jeffersonlibrary.net/modules/blog_frontpage_ap.php"></iframe>
 <!--<div id="theframes"></div>-->
 </div>
 </div>
@@ -261,7 +261,7 @@ Fax: 973-697-7051<br />
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>ISBN Scanner</h3></div>
-<div data-role="ui-content" id="scanner">
+<div data-role="ui-content" id="scanner_content">
 
         <div class="app">
             <h3 align="center">ISBN Barcode Scanner</h3>
