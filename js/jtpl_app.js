@@ -291,7 +291,7 @@ $(window).on("navigate", function (event, data) {
 
 
 // pages to open in app browser
-$('#events_btn').on('click', setTimeout(function () {
+$('#events_main').on('pageshow', function () {
 var event_inject;
 $('#events_content').empty();
 event_inject +='<iframe id="the_latest_frame3" frameborder="0" src="http://jeffersonlibrary.net/Events"></iframe>';
@@ -301,8 +301,7 @@ $('#events_content').append(event_inject);
 //});
 //$('#list').on('click', function () {
 //window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no,EnableViewPortScale=yes');
-})
-,3000);
+});
 
 //google map
 var map;
