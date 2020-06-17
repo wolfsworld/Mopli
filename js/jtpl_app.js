@@ -294,7 +294,8 @@ $(window).on("navigate", function (event, data) {
 $('#events_main').on('pageshow', function () {
 var event_inject;
 $('#events_content').empty();
-event_inject +='<iframe id="the_latest_frame3" frameborder="0" src="http://jeffersonlibrary.net/Events"></iframe>';
+//event_inject="hello world";
+event_inject ='<iframe id="the_latest_frame3" frameborder="0" src="http://jeffersonlibrary.net/Events"></iframe>';
 $('#events_content').append(event_inject);
 
 //window.open('http://jeffersonlibrary.net/Events', '_blank', 'location=no,EnableViewPortScale=yes');
