@@ -289,20 +289,24 @@ $(window).on("navigate", function (event, data) {
   }
 });
 
-
+var theheight;
 // pages to open in app browser
 $('#events_main').on('pageshow', function () {
-var event_inject;
-$('#events_content').empty();
+//var event_inject;
+//$('#events_content').empty();
 //event_inject="hello world";
-event_inject ='<iframe id="the_latest_frame3" frameborder="0" src="http://jeffersonlibrary.net/Events"></iframe>';
-$('#events_content').append(event_inject);
 
-//window.open('http://jeffersonlibrary.net/Events', '_blank', 'location=no,EnableViewPortScale=yes');
-//});
-//$('#list').on('click', function () {
-//window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no,EnableViewPortScale=yes');
+$("#the_latest_frame3").attr("src", "http://jeffersonlibrary.net/Events");
+//event_inject ='<iframe id="the_latest_frame3" frameborder="0" src="http://jeffersonlibrary.net/Events"></iframe>';
+
+//$('#events_content').append(event_inject);
 });
+
+/*$("#the_latest_frame3").on('load', function() {
+var iframe=$("#the_latest_frame3");
+	alert('its loaded');
+});*/
+
 
 //google map
 var map;
