@@ -297,7 +297,7 @@ $("#the_latest_frame3").attr("src", "http://jeffersonlibrary.net/Events");
 
 
 //
-$(document).on("pageshow", "#direction", function () {
+/*$(document).on("pageshow", "#direction", function () {
 $("#map_canvas").googleMap({
       zoom: 15, // Initial zoom level (optional)
       coords: [41.0205399, -74.5490396], // Map center (optional)
@@ -309,11 +309,11 @@ $("#map_canvas").googleMap({
       title: 'JTPL', // Title
       text:  '<p>Jefferson Township Public Library, 1031 Weldon Road, Oak Ridge, NJ 07438</p>' // HTML content
     });
-});
+});*/
 
 
 //google map
-/*var map;
+var map;
     $(document).on("pageshow", "#direction", function () {
 var GMaps;
       map = new GMaps({
@@ -339,7 +339,7 @@ map.addMarker({
           content: '<p>Jefferson Township Public Library, 1031 Weldon Road, Oak Ridge, NJ 07438</p>'
         }
       });
-});*/
+});
 
 //navigator
 $('#dir_start').on ("tap", function () {
