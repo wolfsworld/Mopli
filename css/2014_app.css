@@ -132,13 +132,12 @@ width: 100%;
 	margin-left: 10px;
 	margin-right: 10px
 }
-#events_container, #events_frame_cal, #events_frame_list, #the_latest_frame, #the_latest_frame2, #the_latest_frame3{
-	width: 100%;
-	margin-left:10px;
-	margin-right:10px;
-	height: 120%;
-	-webkit-overflow-scrolling: touch;
-  	overflow-y: scroll;
+#events_frame_cal, #events_frame_list, #the_latest_frame, #the_latest_frame2, #the_latest_frame3{
+width: 100%;
+margin-left: 10px;
+margin-right: 10px;
+-webkit-overflow-scrolling: touch;
+overflow-y: scroll;
 }
 
 

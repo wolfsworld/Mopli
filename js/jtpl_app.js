@@ -289,23 +289,12 @@ $(window).on("navigate", function (event, data) {
   }
 });
 
-var theheight;
+
 // pages to open in app browser
 $('#events_main').on('pageshow', function () {
-//var event_inject;
-//$('#events_content').empty();
-//event_inject="hello world";
-
 $("#the_latest_frame3").attr("src", "http://jeffersonlibrary.net/Events");
-//event_inject ='<iframe id="the_latest_frame3" frameborder="0" src="http://jeffersonlibrary.net/Events"></iframe>';
-
-//$('#events_content').append(event_inject);
 });
 
-/*$("#the_latest_frame3").on('load', function() {
-var iframe=$("#the_latest_frame3");
-	alert('its loaded');
-});*/
 
 
 //google map
