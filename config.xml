@@ -36,7 +36,7 @@
 		<feature name="StatusBar">
 	 		<param name="ios-package" value="CDVStatusBar" onload="true" />
 	 	</feature>
-		<preference name="StatusBarOverlaysWebView" value="false" />
+		<preference name="StatusBarOverlaysWebView" value="true" />
 		<preference name="StatusBarBackgroundColor" value="#f6a90d" />
 	<gap:plugin name="cordova-plugin-spinnerdialog" source="npm"/>
 	<gap:plugin name="cordova-plugin-flashlight" source="npm"/>
