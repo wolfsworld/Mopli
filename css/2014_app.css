@@ -126,6 +126,7 @@ width: 100%;
 }
 #events_frame_cal, #events_frame_list, #the_latest_frame, #the_latest_frame2, #the_latest_frame3, #direction_content{
 width: 90%;
+height:90%
 margin-left: auto;
 margin-right: auto;
 -webkit-overflow-scrolling: touch;
