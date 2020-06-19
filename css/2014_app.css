@@ -1,3 +1,9 @@
+body {
+padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
+padding-top: env(safe-area-inset-top); /* iOS 11.2 */
+}
+
+
 #login_field, #catalog_search_content, #scanner, #scan, dir_start{
 margin-left: 10px;
 margin-right: 10px;
@@ -127,7 +133,7 @@ width: 100%;
 #the_latest_frame, #the_latest_frame1, #the_latest_frame2, #the_latest_frame3, #direction_content{
 text-align: center;
 width: 90%;
-height: 900px;
+height: 800px;
 margin-left: auto;
 margin-right: auto;
 -webkit-overflow-scrolling: touch;
