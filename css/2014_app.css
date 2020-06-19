@@ -124,7 +124,7 @@ width: 100%;
 	margin-left: 10px;
 	margin-right: 10px
 }
-#events_frame_cal, #events_frame_list, #the_latest_frame, #the_latest_frame2, #the_latest_frame3, #direction_content{
+#the_latest_frame, #the_latest_frame1, #the_latest_frame2, #the_latest_frame3, #direction_content{
 text-align: center;
 width: 90%;
 height: 900px;
