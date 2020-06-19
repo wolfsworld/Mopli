@@ -296,7 +296,7 @@ $("#the_latest_frame3").attr("src", "https://www.google.com/maps/embed?pb=!1m18!
 });
 
 //google map
-var map;
+/*var map;
     $(document).on("pageshow", "#direction", function () {
 
     map = new GMaps({
