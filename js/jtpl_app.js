@@ -282,7 +282,9 @@ $(window).on("navigate", function (event, data) {
 });
 
 // pages to open in app browser
-
+$('#events_main').on('pageshow', function () {
+$("#the_latest_frame3").attr("src", "http://jeffersonlibrary.net/Events");
+});
 
 //google map
 var map;
