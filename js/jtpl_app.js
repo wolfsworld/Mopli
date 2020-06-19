@@ -36,7 +36,7 @@ var branch_id;
 var branch_name;
 
 var latest_app_version;
-var this_app_version='1.4.2';
+var this_app_version='1.4.3';
 var dev_platform;
 
 //device ready event and subsequent routines
@@ -171,8 +171,6 @@ $.ajax({
 		url: "http://www.jeffersonlibrary.net/MOPLI/INTERMED_short.php",
         crossDomain: true,
         data: {"uri": ""+reqstring+"", "rdate": ""+thedate+"", "method":""+p_method+""},
-		error: function(jqXHR,text_status,strError){
-			alert("no connection");},
 		timeout:60000,
 		cache: false,
         success : function(response) {
@@ -182,7 +180,6 @@ $.ajax({
 			getit_bc(p_response.code,p_response.reqstring,p_response.thedate,referer);
         },
         error      : function() {
-            console.error("error");
             alert('No network connection or server currently not available.');                  
         }
 });
@@ -227,7 +224,7 @@ switch(media){
 detlist_html +='<table class="bibtbl"><tr><td class="picbox"><img src="http://contentcafe2.btol.com/ContentCafe/Jacket.aspx?Return=T&Type=S&Value='+ISBN+'&userID=MAIN37789&password=CC10073" /></td ><td class="txtbox">';
 }
 }
-								  
+
 $.each(value, function(key2, value2) {
 	
 	if(jQuery.inArray( key2, selection )!== -1){
@@ -268,7 +265,7 @@ $( "#bcode" ).append(detlist_html);
 
 $('.hold_req a').button();
 });
-};
+}
 
 $(document).ready(function(){
 
@@ -285,52 +282,35 @@ $(window).on("navigate", function (event, data) {
 });
 
 // pages to open in app browser
-$('#3m_btn').on('click', function () {
-window.open('http://ebook.3m.com/library/jtpl/Featured', '_blank', 'location=yes');
-});
-$('#zinio_btn').on('click', function () {
-window.open('https://www.rbdigital.com/mainincnj/service/zinio/landing?', '_blank', 'location=yes');
-});
-$('#oneclick_btn').on('click', function () {
-window.open('http://jeffersontwpnj.oneclickdigital.com/', '_blank', 'location=yes');
-});
-$('#freegal_btn').on('click', function () {
-window.open('http://jeffersonlibrary.freegalmusic.com/homes/index', '_blank', 'location=yes');
-});
-$('#calendar').on('click', function () {
-window.open('http://jeffersonlibrary.net/WebCalendar/month_ap.php', '_blank', 'location=no,EnableViewPortScale=yes');
-});
-$('#list').on('click', function () {
-window.open('http://jeffersonlibrary.net/forms/eventsprobe_all_app.php', '_blank', 'location=no,EnableViewPortScale=yes');
-});
+
 
 //google map
 var map;
     $(document).on("pageshow", "#direction", function () {
 
-      map = new GMaps({
-        div: '#map_canvas',
-        lat: 41.0205399,
-        lng: -74.5490396,
-		width: '100%',
-        height: '250px',
-		zoom: 15,
-        zoomControl: true,
-        zoomControlOpt: {
-            style: 'SMALL',
-            position: 'TOP_LEFT'
-        },
-        panControl: false
-      });
-	  
-	    map.addMarker({
-        lat: 41.0205399,
-        lng: -74.5490396,
-        title: 'JTPL',
-        infoWindow: {
-          content: '<p>Jefferson Township Public Library, 1031 Weldon Road, Oak Ridge, NJ 07438</p>'
-        }
-      });
+    map = new GMaps({
+    div: '#map_canvas',
+    lat: 41.0205399,
+    lng: -74.5490396,
+    width: '100%',
+    height: '250px',
+    zoom: 15,
+    zoomControl: true,
+    zoomControlOpt: {
+      style: 'SMALL',
+      position: 'TOP_LEFT'
+    },
+    panControl: false
+    });
+
+    map.addMarker({
+    lat: 41.0205399,
+    lng: -74.5490396,
+    title: 'JTPL',
+    infoWindow: {
+    content: '<p>Jefferson Township Public Library, 1031 Weldon Road, Oak Ridge, NJ 07438</p>'
+    }
+    });
 });
 
 //navigator

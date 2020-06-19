@@ -21,7 +21,7 @@ $.mobile.allowCrossDomainPages = true;
 
 </script>
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?&sensor=true"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCCQfhwvbq1h47rQz06EsEobEA4LCOm6BY&sensor=true"></script>
 <script type="text/javascript" src="js/gmaps.min.js"></script>
 <script type="application/javascript" src="js/fastclick.js"></script>
 <script type="text/javascript" src="js/jtpl_app.js"></script>
@@ -35,7 +35,7 @@ $.mobile.allowCrossDomainPages = true;
 
 <div data-role="page" data-theme="a" id="pageone">
 <div data-role="header" data-theme="a" data-position="fixed">
-<img src="img/headerbar_app1000.jpg" width="100%"></div>
+<img src="img/headerbar_app1000.jpg" alt="JTPL" width="100%"></div>
 
 	<div data-role="ui-content" data-theme="a">
 	
@@ -43,7 +43,7 @@ $.mobile.allowCrossDomainPages = true;
     <a href="#login" id="main_login" data-transition="turn" class="ui-btn ui-icon-user ui-btn-icon-left">My MAIN Account</a>
     <a href="#scanner" data-transition="turn" class="ui-btn ui-icon-scan ui-btn-icon-left">ISBN Barcode Scanner</a>
     <a href="#contact" data-transition="turn" class="ui-btn ui-icon-info ui-btn-icon-left">Contact</a>
-    <a href="#direction" data-transition="turn" id="direction" class="ui-btn ui-icon-location ui-btn-icon-left">Directions</a>
+    <a href="#direction" data-transition="turn" id="direction_btn" class="ui-btn ui-icon-location ui-btn-icon-left">Directions</a>
     <a href="#hours" data-transition="turn" id="hours_btn" class="ui-btn ui-icon-clock ui-btn-icon-left">Hours & Closing Days</a>
     <a href="#events_main" data-transition="turn" id="events_btn" class="ui-btn ui-icon-calendar ui-btn-icon-left">Events</a>
     <a href="#the_latest" data-transition="turn" class="ui-btn ui-icon-home ui-btn-icon-left">The Latest...</a>
@@ -54,7 +54,7 @@ $.mobile.allowCrossDomainPages = true;
 
 	</div>
 
-<div data-role="footer" data-theme="a">&copy; Jefferson Township Public Library.<br /><br />Driven by <img src="img/mopli_10.png" width="44" height="10" alt="MOPLI"> (Version 1.4.2)<div id="v_update"></div></div><!-- /footer -->
+<div data-role="footer" data-theme="a">&copy; Jefferson Township Public Library.<br /><br />Driven by <img src="img/mopli_10.png" width="44" height="10" alt="MOPLI"> (Version 1.4.3)<div id="v_update"></div></div><!-- /footer -->
 </div>
 
 
@@ -87,14 +87,14 @@ $.mobile.allowCrossDomainPages = true;
 <div id="nyt"></div>
 </div>
 </div>
-</div>
+
 
 
 <div data-role="page" id="bib_detail">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>Detail</h3></div>
-<div data-role="ui-content" id="bib_detail">	
+<div data-role="ui-content" id="bib_detail_content">	
 <div id="bdetail"></div>
 <div class="pic_large"></div>
 
@@ -130,7 +130,7 @@ $.mobile.allowCrossDomainPages = true;
 
 </div>
 </div>
-</div>
+
 
 
 <div data-role="page" id="inside">
@@ -201,14 +201,10 @@ Fax: 973-697-7051<br />
 
 <div data-role="page" id="online">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
+<span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>Online Media</h3></div>
-<div data-role="ui-content" id="contact_content">
-
-<a href="#" data-transition="turn" id="3m_btn" class="ui-btn ui-icon-eye ui-btn-icon-left ui-btn-icon-right ui-icon-carat-r">3M Cloud Library</a>
-<a href="#" data-transition="turn" id="zinio_btn" class="ui-btn ui-icon-user ui-btn-icon-left">ZINIO</a>
-<a href="#" data-transition="turn" id="oneclick_btn" class="ui-btn ui-icon-heart ui-btn-icon-left">One-Click Digital</a>
-<a href="#" data-transition="turn" id="freegal_btn" class="ui-btn ui-icon-heart ui-btn-icon-left">Freegal</a>
-
+<div data-role="ui-content" id="online_content">
+<iframe id="the_latest_frame" frameborder="0" src="http://jeffersonlibrary.net/extres/online-media_ap.php"></iframe>
 </div>
 </div>
 
@@ -231,7 +227,7 @@ Fax: 973-697-7051<br />
 <div data-role="page" id="direction">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <h3>Directions</h3></div>
-<div data-role="ui-content" id="contact_direction">
+<div data-role="ui-content" id="direction_content">
 
 
 <h4>Directions</h4>
@@ -244,10 +240,10 @@ Fax: 973-697-7051<br />
 
 <div data-role="page" id="events_main">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
+<span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>Events</h3></div>
-<div data-role="ui-content" id="contact_content">
-<a href="#" data-transition="turn" id="calendar" class="ui-btn ui-icon-calendar ui-btn-icon-left">Calendar</a>
-<a href="#" data-transition="turn" id="list" class="ui-btn ui-icon-bullets ui-btn-icon-left">List</a>
+<div data-role="ui-content" id="events_content">
+<iframe id="the_latest_frame3" frameborder="0" src="http://jeffersonlibrary.net/Events"></iframe>
 </div>
 </div>
 
@@ -255,9 +251,9 @@ Fax: 973-697-7051<br />
 <div data-role="page" id="the_latest">
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
-<h3>Library Events</h3></div>
+<h3>JTPL News & Highlights</h3></div>
 <div data-role="ui-content" id="the_latest_content">
-<iframe id="the_latest_frame" frameborder="0" src="http://jeffersonlibrary.net/incl_m/blog_ap.php"></iframe>
+<iframe id="the_latest_frame2" frameborder="0" src="http://jeffersonlibrary.net/modules/blog_frontpage_ap.php"></iframe>
 <!--<div id="theframes"></div>-->
 </div>
 </div>
@@ -267,7 +263,7 @@ Fax: 973-697-7051<br />
 <div data-role="header" data-theme="a" data-position="fixed" data-add-back-btn="true">
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>ISBN Scanner</h3></div>
-<div data-role="ui-content" id="scanner">
+<div data-role="ui-content" id="scanner_content">
 
         <div class="app">
             <h3 align="center">ISBN Barcode Scanner</h3>
