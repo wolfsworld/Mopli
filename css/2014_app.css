@@ -40,7 +40,6 @@ margin-right: 10px;
 }
 
 #pageone{
-	>background-color: #d8d6b4;
 	background-color: #d8d6b4;
 }
 .flash .ui-btn{
@@ -50,19 +49,13 @@ margin-right: 10px;
 }
 .ui-grid-solo .flash .ui-btn{
 background-color: #FC3;
-  >background: -webkit-radial-gradient(white 15%, yellow 85%); /* Safari 5.1-6.0 */
-  >background: -o-radial-gradient(white 15%, yellow 85%); /* For Opera 11.6-12.0 */
-  >background: -moz-radial-gradient(white 15%, yellow 85%); /* For Firefox 3.6-15 */
-  >background: radial-gradient(white 15%, yellow 85%); /* Standard syntax */
 }
 
 .home, .home_ev {
 	float: right;
 }
 .picbox, .picbox_dtl{
-	<background-color: #d8d6b4;
 	font-family: Arial, Helvetica, sans-serif;
-	<color: #FFF;
 	width: 80px;
 	-webkit-border-radius: 10px 10px 10px 10px;
 	-moz-border-radius:    10px 10px 10px 10px;
@@ -75,7 +68,6 @@ background-color: #FC3;
 	text-align: center;
 }
 .txtbox{
-	<background-color: #ECECFF;
 	font-family: Arial, Helvetica, sans-serif;
 	color: #003;
 	font-size: 80%;
@@ -133,9 +125,9 @@ width: 100%;
 	margin-right: 10px
 }
 #events_frame_cal, #events_frame_list, #the_latest_frame, #the_latest_frame2, #the_latest_frame3, #direction_content{
-width: 100%;
-margin-left: 10px;
-margin-right: 10px;
+width: 90%;
+margin-left: auto;
+margin-right: auto;
 -webkit-overflow-scrolling: touch;
 overflow-y: scroll;
 }
@@ -143,14 +135,11 @@ overflow-y: scroll;
 
 .ui-header{
 	text-align: center;
-	>border:none;
-	>background-image: url(../img/app_header_bg.jpg);
-	>background-repeat: repeat-x;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
 .ui-footer{
-	margin-top: 5x;
+	margin-top: 5px;
 	margin-bottom: 3px;
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -171,8 +160,6 @@ overflow-y: scroll;
 	font-family: "Droid Sans", Arial, Helvetica, sans-serif;
 	text-align: left;
 	background-color: #9F0;
-	>margin-top: 1px;
-	>margin-bottom: 1px;
 }
 
 
