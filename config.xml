@@ -21,9 +21,6 @@
 	</platform>
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	<plugin name="phonegap-plugin-barcodescanner"/>
-	<plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" >
-    <variable name="GOOGLE_API_KEY_FOR_ANDROID" value="" />
-</plugin>
 	<preference name="android-build-tool" value="gradle" />
     <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
         <string>The app needs access to the camera, to be able to read barcodes.</string>

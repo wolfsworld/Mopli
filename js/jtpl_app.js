@@ -282,7 +282,7 @@ $(window).on("navigate", function (event, data) {
 });
 
 // pages to open in app browser
-$('#events_main').on('pageshow', function () {
+/*$('#events_main').on('pageshow', function () {
 $("#the_latest_frame3").attr("src", "http://jeffersonlibrary.net/Events");
 });
 
@@ -332,7 +332,7 @@ launchnavigator.navigate(
     enableDebug: true,
     disableAutoGeolocation: true
 });
-});
+});*/
 
 //busy spinner
 function start_spin(){
