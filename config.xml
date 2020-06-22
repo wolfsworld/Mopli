@@ -33,11 +33,9 @@
 	<gap:plugin name="cordova-plugin-device"  source="npm" />
 	<gap:plugin name="cordova-plugin-network-information" source="npm" />
 	<gap:plugin name="cordova-plugin-statusbar" source="npm"/>
-		<feature name="StatusBar">
-	 		<param name="ios-package" value="CDVStatusBar" onload="true" />
-	 	</feature>
-		<preference name="StatusBarOverlaysWebView" value="true" />
-		<preference name="StatusBarBackgroundColor" value="#f6a90d" />
+		<feature name="StatusBar"><param name="ios-package" value="CDVStatusBar" onload="true" /></feature>
+		<preference name="StatusBarOverlaysWebView" value="false" />
+		<preference name="StatusBarBackgroundColor" value="#123456" />
 	<gap:plugin name="cordova-plugin-spinnerdialog" source="npm"/>
 	<gap:plugin name="cordova-plugin-flashlight" source="npm"/>
 	<gap:plugin name="cordova-plugin-splashscreen" source="npm" />
