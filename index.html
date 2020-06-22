@@ -3,8 +3,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>MOPLI JTPL</title>
-<meta name=”viewport” content=”initial-scale=1, width=device-width, user-scalable=true>
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=true">-->
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=true">
 <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css" />
 <link rel="stylesheet" href="css/2014_app.css" />
 <link rel="stylesheet" href="css/JTPL_icons.min.css" />
@@ -47,8 +46,8 @@ $.mobile.allowCrossDomainPages = true;
     <a href="#direction" data-transition="turn" id="direction_btn" class="ui-btn ui-icon-location ui-btn-icon-left">Directions</a>
     <a href="#hours" data-transition="turn" id="hours_btn" class="ui-btn ui-icon-clock ui-btn-icon-left">Hours & Closing Days</a>
     <a href="#events_main" data-transition="turn" id="events_btn" class="ui-btn ui-icon-calendar ui-btn-icon-left">Events</a>
-    <a href="#the_latest" data-transition="turn" class="ui-btn ui-icon-home ui-btn-icon-left">The Latest...</a>
-    <a href="#online" data-transition="turn" class="ui-btn ui-icon-cloud ui-btn-icon-left">Online Media</a>
+    <a href="#the_latest" data-transition="turn" id="the_latest_btn" class="ui-btn ui-icon-home ui-btn-icon-left">The Latest...</a>
+    <a href="#online" data-transition="turn" id="online_btn" class="ui-btn ui-icon-cloud ui-btn-icon-left">Online Media</a>
     <div class="ui-grid-solo center">
     <div class="flash"><input type="button" id="flashlight" value="Need a reading light? Touch here."></div>
     </div>
@@ -205,7 +204,7 @@ Fax: 973-697-7051<br />
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>Online Media</h3></div>
 <div data-role="ui-content" id="online_content">
-<iframe id="the_latest_frame" frameborder="0"></iframe>
+<!--<iframe id="the_latest_frame" frameborder="0"></iframe>-->
 </div>
 </div>
 
@@ -242,7 +241,7 @@ Fax: 973-697-7051<br />
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>Events</h3></div>
 <div data-role="ui-content" id="events_content">
-<iframe id="the_latest_frame2" frameborder="0"></iframe>
+<!--<iframe id="the_latest_frame2" frameborder="0"></iframe>-->
 </div>
 </div>
 
@@ -252,8 +251,7 @@ Fax: 973-697-7051<br />
 <span class="home"><a href="#l" class="ui-btn ui-shadow ui-corner-all ui-mini ui-icon-home ui-btn-icon-right">&nbsp;</a></span>
 <h3>JTPL News & Highlights</h3></div>
 <div data-role="ui-content" id="the_latest_content">
-<iframe id="the_latest_frame1" frameborder="0"></iframe>
-<!--<div id="theframes"></div>-->
+<!--<iframe id="the_latest_frame1" frameborder="0"></iframe>-->
 </div>
 </div>
 
