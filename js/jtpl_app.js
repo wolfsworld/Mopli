@@ -44,6 +44,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 navigator.splashscreen.hide();
 
+window.open = cordova.InAppBrowser.open;
 
 StatusBar.hide();
 //StatusBar.styleBlackTranslucent();
@@ -285,7 +286,7 @@ $(window).on("navigate", function (event, data) {
   }
 });
 
-window.open = cordova.InAppBrowser.open;
+
 
 // pages to open in app browser
 /*$('#online').on('pageshow', function () {
