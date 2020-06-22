@@ -130,10 +130,8 @@ width: 100%;
 	margin-left: 10px;
 	margin-right: 10px
 }
-#the_latest_frame, #the_latest_frame1, #the_latest_frame2, #the_latest_frame3, #direction_content{
-text-align: center;
+#the_latest_frame3{
 width: 90%;
-height: 800px;
 margin-left: auto;
 margin-right: auto;
 -webkit-overflow-scrolling: touch;
