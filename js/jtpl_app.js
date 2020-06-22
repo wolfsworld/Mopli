@@ -285,8 +285,10 @@ $(window).on("navigate", function (event, data) {
   }
 });
 
+window.open = cordova.InAppBrowser.open;
+
 // pages to open in app browser
-$('#online').on('pageshow', function () {
+/*$('#online').on('pageshow', function () {
 $("#the_latest_frame").attr("src", "http://jeffersonlibrary.net/extres/online-media_ap.php");
 });
 $('#the_latest').on('pageshow', function () {
@@ -297,7 +299,12 @@ $("#the_latest_frame2").attr("src", "http://jeffersonlibrary.net/Events");
 });
 $('#direction').on('pageshow', function () {
 $("#the_latest_frame3").attr("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.2188018820607!2d-74.55138268458558!3d41.02046877929945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c30d7783b6ea4f%3A0x1570b8cf464608ea!2sJefferson%20Township%20Library!5e0!3m2!1sen!2sus!4v1592588832469!5m2!1sen!2sus");
+});*/
+
+$('#online').on('pageshow', function () {
+window.open("http://jeffersonlibrary.net/extres/online-media_ap.php","_blank");
 });
+
 
 //google map
 /*var map;
