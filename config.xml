@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.mopli.android"
+        id          = "com.phonegap.mopli"
         versionCode = "4" 
         version     = "1.4.4" >
 
-    <name>MOPLI JTPL Android</name>
+    <name>MOPLI JTPL</name>
     <description>
         Mobile Public Library Information App for Jefferson Township Public Library
     </description>
