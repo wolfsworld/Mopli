@@ -18,6 +18,7 @@
     <platform name="android">
     <preference name="android-minSdkVersion" value="15" />
     <preference name="android-targetSdkVersion" value="28" />
+	<preference name="phonegap-version" value="cli-8.0.0" />
 	</platform>
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	<plugin name="phonegap-plugin-barcodescanner"/>
