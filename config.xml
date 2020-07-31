@@ -108,5 +108,5 @@
 	
 	<gap:splash platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 	<engine name="android" spec="^4.0.2" />
-    <engine name="ios" spec="^4.0.0" />
+    
 </widget>
