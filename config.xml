@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.phonegap.mopli"
+        id          = "com.mopli.android"
         versionCode = "4" 
         version     = "1.4.4" >
 
-    <name>MOPLI JTPL</name>
+    <name>MOPLI JTPL Android</name>
     <description>
         Mobile Public Library Information App for Jefferson Township Public Library
     </description>
     <author email="info@mopli.net" href="http://mopli.net">
-        Mopli Dev Team
+        Mopli Team
     </author>
     
     <access origin="*" />
     <allow-navigation href="*" />
     <platform name="android">
     <preference name="android-minSdkVersion" value="15" />
-    <preference name="android-targetSdkVersion" value="28" />
-	<preference name="phonegap-version" value="cli-9.0.0" />
+    <preference name="android-targetSdkVersion" value="30" />
 	</platform>
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	<plugin name="phonegap-plugin-barcodescanner"/>
@@ -108,5 +107,5 @@
 	
 	<gap:splash platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 	<engine name="android" spec="^4.0.2" />
-    
+    <engine name="ios" spec="^3.8.0" />
 </widget>
